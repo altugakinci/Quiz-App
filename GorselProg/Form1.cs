@@ -23,6 +23,7 @@ namespace GorselProg
         {
             ph.showPanel(pnlLogin);
             ph.hidePanel(pnlRegister);
+            this.MaximizeBox = false;
         }
 
         private void lblNoAcc_click(object sender, EventArgs e)
