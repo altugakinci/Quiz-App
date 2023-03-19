@@ -39,8 +39,13 @@ namespace GorselProg
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
-        { 
+        {
 
+            Game game = new Game();
+            this.Hide();
+            game.Show();
+
+            /*
             if (txtLoginUsername.Text == "")
             {
                 lblLoginWarning.Text = "Kullanıcı adı boş bırakılamaz!";
@@ -51,6 +56,7 @@ namespace GorselProg
                 lblLoginWarning.Text = "Şifre alanı boş bırakılamaz!";
                 return;
             }
+            */
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
