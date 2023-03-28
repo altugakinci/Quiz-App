@@ -30,42 +30,42 @@ namespace GorselProg
         private void InitializeComponent()
         {
             this.pnlMainMenu = new System.Windows.Forms.Panel();
-            this.btnPlay = new System.Windows.Forms.Button();
-            this.btnHowToPlay = new System.Windows.Forms.Button();
-            this.btnPreferences = new System.Windows.Forms.Button();
             this.btnSignOut = new System.Windows.Forms.Button();
+            this.btnPreferences = new System.Windows.Forms.Button();
+            this.btnHowToPlay = new System.Windows.Forms.Button();
+            this.btnPlay = new System.Windows.Forms.Button();
             this.pnlPreferences = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnDarkMode = new System.Windows.Forms.Button();
+            this.btnLightMode = new System.Windows.Forms.Button();
             this.pnlBuildAGame = new System.Windows.Forms.Panel();
+            this.btnJoinAGame = new System.Windows.Forms.Button();
             this.btnCreateAGame = new System.Windows.Forms.Button();
             this.pnlHowToPlay = new System.Windows.Forms.Panel();
-            this.btnJoinAGame = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pnlJoinAGame = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.txtJoinCode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtJoinCode = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnlCreateAGame = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnLightMode = new System.Windows.Forms.Button();
-            this.btnDarkMode = new System.Windows.Forms.Button();
             this.pnlMainMenu.SuspendLayout();
             this.pnlPreferences.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.pnlBuildAGame.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlJoinAGame.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.pnlCreateAGame.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMainMenu
@@ -80,54 +80,6 @@ namespace GorselProg
             this.pnlMainMenu.Name = "pnlMainMenu";
             this.pnlMainMenu.Size = new System.Drawing.Size(360, 617);
             this.pnlMainMenu.TabIndex = 1;
-            // 
-            // btnPlay
-            // 
-            this.btnPlay.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnPlay.FlatAppearance.BorderSize = 0;
-            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlay.Font = new System.Drawing.Font("Century Gothic", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnPlay.Location = new System.Drawing.Point(3, 128);
-            this.btnPlay.Name = "btnPlay";
-            this.btnPlay.Size = new System.Drawing.Size(309, 113);
-            this.btnPlay.TabIndex = 0;
-            this.btnPlay.Text = "OYNA";
-            this.btnPlay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPlay.UseVisualStyleBackColor = true;
-            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
-            // 
-            // btnHowToPlay
-            // 
-            this.btnHowToPlay.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnHowToPlay.FlatAppearance.BorderSize = 0;
-            this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHowToPlay.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnHowToPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnHowToPlay.Location = new System.Drawing.Point(15, 247);
-            this.btnHowToPlay.Name = "btnHowToPlay";
-            this.btnHowToPlay.Size = new System.Drawing.Size(312, 58);
-            this.btnHowToPlay.TabIndex = 3;
-            this.btnHowToPlay.Text = "Nasıl Oynanır?";
-            this.btnHowToPlay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHowToPlay.UseVisualStyleBackColor = true;
-            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
-            // 
-            // btnPreferences
-            // 
-            this.btnPreferences.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnPreferences.FlatAppearance.BorderSize = 0;
-            this.btnPreferences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPreferences.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPreferences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnPreferences.Location = new System.Drawing.Point(15, 311);
-            this.btnPreferences.Name = "btnPreferences";
-            this.btnPreferences.Size = new System.Drawing.Size(312, 58);
-            this.btnPreferences.TabIndex = 4;
-            this.btnPreferences.Text = "Seçenekler";
-            this.btnPreferences.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPreferences.UseVisualStyleBackColor = true;
-            this.btnPreferences.Click += new System.EventHandler(this.btnPreferences_Click);
             // 
             // btnSignOut
             // 
@@ -145,6 +97,54 @@ namespace GorselProg
             this.btnSignOut.UseVisualStyleBackColor = true;
             this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
             // 
+            // btnPreferences
+            // 
+            this.btnPreferences.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnPreferences.FlatAppearance.BorderSize = 0;
+            this.btnPreferences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreferences.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnPreferences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnPreferences.Location = new System.Drawing.Point(15, 311);
+            this.btnPreferences.Name = "btnPreferences";
+            this.btnPreferences.Size = new System.Drawing.Size(312, 58);
+            this.btnPreferences.TabIndex = 4;
+            this.btnPreferences.Text = "Seçenekler";
+            this.btnPreferences.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreferences.UseVisualStyleBackColor = true;
+            this.btnPreferences.Click += new System.EventHandler(this.btnPreferences_Click);
+            // 
+            // btnHowToPlay
+            // 
+            this.btnHowToPlay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnHowToPlay.FlatAppearance.BorderSize = 0;
+            this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHowToPlay.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHowToPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnHowToPlay.Location = new System.Drawing.Point(15, 247);
+            this.btnHowToPlay.Name = "btnHowToPlay";
+            this.btnHowToPlay.Size = new System.Drawing.Size(312, 58);
+            this.btnHowToPlay.TabIndex = 3;
+            this.btnHowToPlay.Text = "Nasıl Oynanır?";
+            this.btnHowToPlay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHowToPlay.UseVisualStyleBackColor = true;
+            this.btnHowToPlay.Click += new System.EventHandler(this.btnHowToPlay_Click);
+            // 
+            // btnPlay
+            // 
+            this.btnPlay.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnPlay.FlatAppearance.BorderSize = 0;
+            this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlay.Font = new System.Drawing.Font("Century Gothic", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnPlay.Location = new System.Drawing.Point(3, 128);
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.Size = new System.Drawing.Size(309, 113);
+            this.btnPlay.TabIndex = 0;
+            this.btnPlay.Text = "OYNA";
+            this.btnPlay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPlay.UseVisualStyleBackColor = true;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
+            // 
             // pnlPreferences
             // 
             this.pnlPreferences.Controls.Add(this.groupBox4);
@@ -153,6 +153,47 @@ namespace GorselProg
             this.pnlPreferences.Size = new System.Drawing.Size(383, 44);
             this.pnlPreferences.TabIndex = 8;
             this.pnlPreferences.Visible = false;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.groupBox4.Controls.Add(this.btnDarkMode);
+            this.groupBox4.Controls.Add(this.btnLightMode);
+            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.groupBox4.Location = new System.Drawing.Point(17, -118);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(348, 281);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Seçenekler";
+            // 
+            // btnDarkMode
+            // 
+            this.btnDarkMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(180)))), ((int)(((byte)(163)))));
+            this.btnDarkMode.FlatAppearance.BorderSize = 0;
+            this.btnDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDarkMode.Location = new System.Drawing.Point(132, 34);
+            this.btnDarkMode.Name = "btnDarkMode";
+            this.btnDarkMode.Size = new System.Drawing.Size(110, 46);
+            this.btnDarkMode.TabIndex = 1;
+            this.btnDarkMode.Text = "Koyu Mod";
+            this.btnDarkMode.UseVisualStyleBackColor = false;
+            this.btnDarkMode.Click += new System.EventHandler(this.btnDarkMode_Click);
+            // 
+            // btnLightMode
+            // 
+            this.btnLightMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(93)))), ((int)(((byte)(82)))));
+            this.btnLightMode.Enabled = false;
+            this.btnLightMode.FlatAppearance.BorderSize = 0;
+            this.btnLightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLightMode.Location = new System.Drawing.Point(16, 34);
+            this.btnLightMode.Name = "btnLightMode";
+            this.btnLightMode.Size = new System.Drawing.Size(110, 46);
+            this.btnLightMode.TabIndex = 0;
+            this.btnLightMode.Text = "Açık Mod";
+            this.btnLightMode.UseVisualStyleBackColor = false;
+            this.btnLightMode.Click += new System.EventHandler(this.btnLightMode_Click);
             // 
             // pnlBuildAGame
             // 
@@ -163,6 +204,22 @@ namespace GorselProg
             this.pnlBuildAGame.Size = new System.Drawing.Size(383, 45);
             this.pnlBuildAGame.TabIndex = 6;
             this.pnlBuildAGame.Visible = false;
+            // 
+            // btnJoinAGame
+            // 
+            this.btnJoinAGame.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnJoinAGame.FlatAppearance.BorderSize = 0;
+            this.btnJoinAGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJoinAGame.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnJoinAGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnJoinAGame.Location = new System.Drawing.Point(15, -75);
+            this.btnJoinAGame.Name = "btnJoinAGame";
+            this.btnJoinAGame.Size = new System.Drawing.Size(261, 65);
+            this.btnJoinAGame.TabIndex = 1;
+            this.btnJoinAGame.Text = "Odaya Katıl";
+            this.btnJoinAGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnJoinAGame.UseVisualStyleBackColor = true;
+            this.btnJoinAGame.Click += new System.EventHandler(this.btnJoinAGame_Click);
             // 
             // btnCreateAGame
             // 
@@ -189,21 +246,29 @@ namespace GorselProg
             this.pnlHowToPlay.TabIndex = 7;
             this.pnlHowToPlay.Visible = false;
             // 
-            // btnJoinAGame
+            // groupBox3
             // 
-            this.btnJoinAGame.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnJoinAGame.FlatAppearance.BorderSize = 0;
-            this.btnJoinAGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJoinAGame.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnJoinAGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnJoinAGame.Location = new System.Drawing.Point(15, -75);
-            this.btnJoinAGame.Name = "btnJoinAGame";
-            this.btnJoinAGame.Size = new System.Drawing.Size(261, 65);
-            this.btnJoinAGame.TabIndex = 1;
-            this.btnJoinAGame.Text = "Odaya Katıl";
-            this.btnJoinAGame.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnJoinAGame.UseVisualStyleBackColor = true;
-            this.btnJoinAGame.Click += new System.EventHandler(this.btnJoinAGame_Click);
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.groupBox3.Location = new System.Drawing.Point(16, -136);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(348, 281);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Nasıl Oynanır?";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(17, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(321, 119);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Oda kurun, kodunuzu arkadaşlarınızla paylaşın.\r\n\r\nArkadaşlarınız da odaya bu kod " +
+    "ile veya oda\r\nismi ve parola ile katılsınlar.\r\n\r\nİyi eğlenceler\r\n\r\n";
             // 
             // groupBox1
             // 
@@ -221,6 +286,46 @@ namespace GorselProg
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Oda Oluştur";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(20, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Parola:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox2.Location = new System.Drawing.Point(23, 121);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(198, 25);
+            this.textBox2.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(20, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Odanın İsmi:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.Location = new System.Drawing.Point(23, 67);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(198, 25);
+            this.textBox1.TabIndex = 2;
             // 
             // button1
             // 
@@ -258,6 +363,26 @@ namespace GorselProg
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Odaya Katıl";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(12, 70);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Oda Kodunu Giriniz:";
+            // 
+            // txtJoinCode
+            // 
+            this.txtJoinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
+            this.txtJoinCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtJoinCode.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtJoinCode.Location = new System.Drawing.Point(15, 90);
+            this.txtJoinCode.Name = "txtJoinCode";
+            this.txtJoinCode.Size = new System.Drawing.Size(198, 25);
+            this.txtJoinCode.TabIndex = 1;
+            // 
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -270,66 +395,6 @@ namespace GorselProg
             this.button2.Text = "Odaya Katıl";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // txtJoinCode
-            // 
-            this.txtJoinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
-            this.txtJoinCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtJoinCode.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtJoinCode.Location = new System.Drawing.Point(15, 90);
-            this.txtJoinCode.Name = "txtJoinCode";
-            this.txtJoinCode.Size = new System.Drawing.Size(198, 25);
-            this.txtJoinCode.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(12, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Oda Kodunu Giriniz:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(23, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(198, 25);
-            this.textBox1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(20, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Odanın İsmi:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(20, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Parola:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(23, 121);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(198, 25);
-            this.textBox2.TabIndex = 4;
-            // 
             // pnlCreateAGame
             // 
             this.pnlCreateAGame.Controls.Add(this.groupBox1);
@@ -338,71 +403,6 @@ namespace GorselProg
             this.pnlCreateAGame.Size = new System.Drawing.Size(280, 37);
             this.pnlCreateAGame.TabIndex = 2;
             this.pnlCreateAGame.Visible = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.groupBox3.Location = new System.Drawing.Point(16, -136);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(348, 281);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Nasıl Oynanır?";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(17, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(321, 119);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Oda kurun, kodunuzu arkadaşlarınızla paylaşın.\r\n\r\nArkadaşlarınız da odaya bu kod " +
-    "ile veya oda\r\nismi ve parola ile katılsınlar.\r\n\r\nİyi eğlenceler\r\n\r\n";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.groupBox4.Controls.Add(this.btnDarkMode);
-            this.groupBox4.Controls.Add(this.btnLightMode);
-            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.groupBox4.Location = new System.Drawing.Point(17, -118);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(348, 281);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Seçenekler";
-            // 
-            // btnLightMode
-            // 
-            this.btnLightMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(93)))), ((int)(((byte)(82)))));
-            this.btnLightMode.Enabled = false;
-            this.btnLightMode.FlatAppearance.BorderSize = 0;
-            this.btnLightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLightMode.Location = new System.Drawing.Point(16, 34);
-            this.btnLightMode.Name = "btnLightMode";
-            this.btnLightMode.Size = new System.Drawing.Size(110, 46);
-            this.btnLightMode.TabIndex = 0;
-            this.btnLightMode.Text = "Açık Mod";
-            this.btnLightMode.UseVisualStyleBackColor = false;
-            this.btnLightMode.Click += new System.EventHandler(this.btnLightMode_Click);
-            // 
-            // btnDarkMode
-            // 
-            this.btnDarkMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(180)))), ((int)(((byte)(163)))));
-            this.btnDarkMode.FlatAppearance.BorderSize = 0;
-            this.btnDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDarkMode.Location = new System.Drawing.Point(132, 34);
-            this.btnDarkMode.Name = "btnDarkMode";
-            this.btnDarkMode.Size = new System.Drawing.Size(110, 46);
-            this.btnDarkMode.TabIndex = 1;
-            this.btnDarkMode.Text = "Koyu Mod";
-            this.btnDarkMode.UseVisualStyleBackColor = false;
-            this.btnDarkMode.Click += new System.EventHandler(this.btnDarkMode_Click);
             // 
             // Game
             // 
@@ -421,17 +421,17 @@ namespace GorselProg
             this.Load += new System.EventHandler(this.Game_Load);
             this.pnlMainMenu.ResumeLayout(false);
             this.pnlPreferences.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.pnlBuildAGame.ResumeLayout(false);
             this.pnlHowToPlay.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pnlJoinAGame.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.pnlCreateAGame.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

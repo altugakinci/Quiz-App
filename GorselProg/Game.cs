@@ -75,6 +75,7 @@ namespace GorselProg
 
         private void btnHowToPlay_Click(object sender, EventArgs e)
         {
+
             //DESIGN
             panelHandler.hidePanels(panels);
             pnlHowToPlay.Visible = true;
