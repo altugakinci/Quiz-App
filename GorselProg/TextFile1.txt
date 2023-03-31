@@ -1,0 +1,5 @@
+﻿##README
+
+Herhangi bir panelde düzenleme yapılacağı zaman,
+Dock: Left yapıp açılan panelde yapılmalıdır.
+Width değiştirilmemelidir. Height değeri sabittir.
