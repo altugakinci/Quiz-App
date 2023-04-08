@@ -17,13 +17,8 @@ namespace GorselProg
             InitializeComponent();
         }
 
-        ThemeHandler themeHandler = new ThemeHandler();
         PanelHandler panelHandler = new PanelHandler();
         Panel[] panels;
-        TextBox[] textboxes;
-        Label[] labels;
-        Button[] buttons;
-        GroupBox[] groupBoxes;
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
@@ -35,8 +30,9 @@ namespace GorselProg
         private void btnPlay_Click(object sender, EventArgs e)
         {
             //DESIGN
-
-            setPanel(pnlBuildAGame);
+            panelHandler.hidePanels(panels);
+            pnlBuildAGame.Dock = DockStyle.Left;
+            pnlBuildAGame.Visible = true;
             
             //CODE
         }
@@ -44,20 +40,9 @@ namespace GorselProg
         private void Game_Load(object sender, EventArgs e)
         {
             //DESIGN
-
-            /*
             panels = new Panel[] { pnlBuildAGame, pnlCreateAGame, pnlHowToPlay, pnlJoinAGame, pnlPreferences };
             this.WindowState = FormWindowState.Maximized;
             this.MaximizeBox = false;
-            */
-            panels = new Panel[] { pnlMainMenu, pnlBuildAGame, pnlCreateAGame, pnlJoinAGame, pnlPreferences, pnlHowToPlay };
-            textboxes = new TextBox[] { txtCAGRoomName, txtCAGRoomPassword, txtJoinCode};
-            labels = new Label[] { lblHowToPlay, label1,label2,label3};
-            buttons = new Button[] {btnBAGBack,btnCAGCreateRoom,btnCAGGeri,btnCreateAGame,btnDarkMode,btnHowToPlay,btnJAGGeri,btnJoinAGame,btnLightMode,btnPlay,btnPreferences,btnSignOut,button2 };
-            groupBoxes = new GroupBox[] {grpHowToPlay,grpCreateAGame,grpJoinAGame};
-            themeHandler.applyTheme(this, buttons, labels, textboxes,groupBoxes);
-
-            setPanel(pnlMainMenu);
 
             //CODE
         }
@@ -65,8 +50,11 @@ namespace GorselProg
         private void btnCreateAGame_Click(object sender, EventArgs e)
         {
             //DESIGN
+            pnlCreateAGame.Dock = DockStyle.Left;
+            pnlCreateAGame.BringToFront();
+            pnlCreateAGame.Visible = true;
 
-            setPanel(pnlCreateAGame);
+            pnlJoinAGame.Visible = false;
 
             //CODE
 
@@ -75,8 +63,11 @@ namespace GorselProg
         private void btnJoinAGame_Click(object sender, EventArgs e)
         {
             //DESIGN
+            pnlJoinAGame.Dock = DockStyle.Left;
+            pnlJoinAGame.BringToFront();
+            pnlJoinAGame.Visible = true;
 
-            setPanel(pnlJoinAGame);
+            pnlCreateAGame.Visible = false;
 
             //CODE
 
@@ -86,8 +77,9 @@ namespace GorselProg
         {
 
             //DESIGN
-
-            setPanel(pnlHowToPlay);
+            panelHandler.hidePanels(panels);
+            pnlHowToPlay.Visible = true;
+            pnlHowToPlay.Dock = DockStyle.Left;
 
             //CODE
         }
@@ -95,8 +87,9 @@ namespace GorselProg
         private void btnPreferences_Click(object sender, EventArgs e)
         {
             //DESIGN
-
-            setPanel(pnlPreferences);
+            panelHandler.hidePanels(panels);
+            pnlPreferences.Visible = true;
+            pnlPreferences.Dock = DockStyle.Left;
 
             //CODE
         }
@@ -115,46 +108,6 @@ namespace GorselProg
             btnDarkMode.BackColor = Color.FromArgb(104, 93, 82);
             btnDarkMode.Enabled = false;
             btnLightMode.BackColor = Color.FromArgb(195, 180, 163);
-        }
-
-        private void setPanel(Panel panel)
-        {
-            panelHandler.hidePanels(panels);
-            panel.Visible = true;
-            panel.Size = new Size(450,350);
-            panel.Left = (this.Width - panel.Width) / 2;
-            panel.Top = (this.Height - panel.Height) / 2;
-        }
-
-        private void btnBAGBack_Click(object sender, EventArgs e)
-        {
-            setPanel(pnlMainMenu);
-        }
-
-        private void btnJAGGeri_Click(object sender, EventArgs e)
-        {
-            //DESIGN
-            setPanel(pnlBuildAGame);
-
-            //CODE
-        }
-
-        private void btnCAGGeri_Click(object sender, EventArgs e)
-        {
-            //DESIGN
-            setPanel(pnlBuildAGame);
-
-            //CODE
-        }
-
-        private void btnHTPGeri_Click(object sender, EventArgs e)
-        {
-            setPanel(pnlMainMenu);
-        }
-
-        private void btnPreferencesGeri_Click(object sender, EventArgs e)
-        {
-            setPanel(pnlMainMenu);
         }
     }
 }

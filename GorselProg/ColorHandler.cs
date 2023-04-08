@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace GorselProg
 {
-    class ThemeHandler
+    class ColorHandler
     {
 
-        public Color color_texts = Color.FromArgb(51, 50, 55);
-        public Color color_background = Color.FromArgb(202, 194, 178);
-        public Color color_textboxes = Color.FromArgb(135, 118, 109);
+        public Color color_texts;
+        public Color color_background;
+        public Color color_textboxes;
         public Color color_buttons;
 
         public void default_theme()
@@ -23,9 +23,9 @@ namespace GorselProg
         // Light theme alternatifleri
         public void lightTheme() //Default light theme
         {
-            color_texts = Color.FromArgb(51, 50, 55);
-            color_background = Color.FromArgb(202, 194, 178);
-            color_textboxes = Color.FromArgb(135, 118, 109);
+            color_texts = Color.FromArgb(61, 56, 50);
+            color_background = Color.FromArgb(217, 200, 181);
+            color_textboxes = Color.FromArgb(164, 144, 124);
             //color_buttons = Color.White;
         }
 
@@ -139,7 +139,7 @@ namespace GorselProg
 
 
 
-        public void applyTheme(Form form, Button[] buttons, Label[] labels, TextBox[] textBoxes, GroupBox[] groupboxes)
+        public void applyTheme(Form form, Button[] buttons, Label[] labels, TextBox[] textBoxes)
         {
             form.BackColor = color_background;
 
@@ -154,9 +154,6 @@ namespace GorselProg
                 t.BackColor = color_textboxes;
                 t.ForeColor = color_texts;
             }
-
-            foreach (GroupBox g in groupboxes)
-                g.ForeColor = color_texts;
         }
 
         /*
