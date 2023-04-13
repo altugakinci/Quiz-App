@@ -1,9 +1,11 @@
-﻿using System;
+﻿using GorselProg.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -76,10 +78,27 @@ namespace GorselProg
                 lblRegWarning.Text = "Şifreyi tekrar girmelisiniz!";
                 return;
             }
-            if (!txtRegPassword.Equals(txtRegPassword2))
+            if (!txtRegPassword.Text.Equals(txtRegPassword2.Text))
             {
                 lblRegWarning.Text = "Şifreler Uyuşmuyor!";
                 return;
+            }
+
+            // Hash the password using SHA256 algorithm
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(txtRegPassword.Text);
+            byte[] hashBytes = new SHA256Managed().ComputeHash(passwordBytes);
+            string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+
+            // Save the user to the database
+            using (var db = new qAppDBContext()) // Replace with your DbContext class
+            {
+                var user = new User
+                {
+                    email = txtRegUsername.Text,
+                    password = hashedPassword
+                };
+                db.Users.Add(user);
+                db.SaveChanges();
             }
         }
     }
