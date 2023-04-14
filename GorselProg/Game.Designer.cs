@@ -34,6 +34,7 @@ namespace GorselProg
             this.btnHowToPlay = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.pnlPreferences = new System.Windows.Forms.Panel();
+            this.btnPreferencesGeri = new System.Windows.Forms.Button();
             this.grpPreferences = new System.Windows.Forms.GroupBox();
             this.btnDarkMode = new System.Windows.Forms.Button();
             this.btnLightMode = new System.Windows.Forms.Button();
@@ -42,6 +43,7 @@ namespace GorselProg
             this.btnJoinAGame = new System.Windows.Forms.Button();
             this.btnCreateAGame = new System.Windows.Forms.Button();
             this.pnlHowToPlay = new System.Windows.Forms.Panel();
+            this.btnHTPGeri = new System.Windows.Forms.Button();
             this.grpHowToPlay = new System.Windows.Forms.GroupBox();
             this.lblHowToPlay = new System.Windows.Forms.Label();
             this.grpCreateAGame = new System.Windows.Forms.GroupBox();
@@ -59,8 +61,6 @@ namespace GorselProg
             this.button2 = new System.Windows.Forms.Button();
             this.pnlCreateAGame = new System.Windows.Forms.Panel();
             this.pnlMainMenu = new System.Windows.Forms.Panel();
-            this.btnHTPGeri = new System.Windows.Forms.Button();
-            this.btnPreferencesGeri = new System.Windows.Forms.Button();
             this.pnlPreferences.SuspendLayout();
             this.grpPreferences.SuspendLayout();
             this.pnlBuildAGame.SuspendLayout();
@@ -81,7 +81,7 @@ namespace GorselProg
             this.btnSignOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignOut.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSignOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnSignOut.Location = new System.Drawing.Point(-134, 117);
+            this.btnSignOut.Location = new System.Drawing.Point(91, 229);
             this.btnSignOut.Name = "btnSignOut";
             this.btnSignOut.Size = new System.Drawing.Size(335, 58);
             this.btnSignOut.TabIndex = 5;
@@ -98,7 +98,7 @@ namespace GorselProg
             this.btnPreferences.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPreferences.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPreferences.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnPreferences.Location = new System.Drawing.Point(-89, 59);
+            this.btnPreferences.Location = new System.Drawing.Point(136, 171);
             this.btnPreferences.Name = "btnPreferences";
             this.btnPreferences.Size = new System.Drawing.Size(245, 58);
             this.btnPreferences.TabIndex = 4;
@@ -115,7 +115,7 @@ namespace GorselProg
             this.btnHowToPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHowToPlay.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnHowToPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnHowToPlay.Location = new System.Drawing.Point(-121, -6);
+            this.btnHowToPlay.Location = new System.Drawing.Point(104, 106);
             this.btnHowToPlay.Name = "btnHowToPlay";
             this.btnHowToPlay.Size = new System.Drawing.Size(309, 58);
             this.btnHowToPlay.TabIndex = 3;
@@ -132,7 +132,7 @@ namespace GorselProg
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlay.Font = new System.Drawing.Font("Century Gothic", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnPlay.Location = new System.Drawing.Point(-121, -115);
+            this.btnPlay.Location = new System.Drawing.Point(104, -3);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(309, 113);
             this.btnPlay.TabIndex = 0;
@@ -146,11 +146,27 @@ namespace GorselProg
             this.pnlPreferences.BackColor = System.Drawing.Color.Transparent;
             this.pnlPreferences.Controls.Add(this.btnPreferencesGeri);
             this.pnlPreferences.Controls.Add(this.grpPreferences);
-            this.pnlPreferences.Location = new System.Drawing.Point(21, 138);
+            this.pnlPreferences.Location = new System.Drawing.Point(24, 135);
             this.pnlPreferences.Name = "pnlPreferences";
-            this.pnlPreferences.Size = new System.Drawing.Size(61, 46);
+            this.pnlPreferences.Size = new System.Drawing.Size(56, 47);
             this.pnlPreferences.TabIndex = 8;
             this.pnlPreferences.Visible = false;
+            // 
+            // btnPreferencesGeri
+            // 
+            this.btnPreferencesGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPreferencesGeri.FlatAppearance.BorderSize = 0;
+            this.btnPreferencesGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreferencesGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnPreferencesGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnPreferencesGeri.Location = new System.Drawing.Point(3, 13);
+            this.btnPreferencesGeri.Name = "btnPreferencesGeri";
+            this.btnPreferencesGeri.Size = new System.Drawing.Size(59, 31);
+            this.btnPreferencesGeri.TabIndex = 3;
+            this.btnPreferencesGeri.Text = "Geri";
+            this.btnPreferencesGeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPreferencesGeri.UseVisualStyleBackColor = true;
+            this.btnPreferencesGeri.Click += new System.EventHandler(this.btnPreferencesGeri_Click);
             // 
             // grpPreferences
             // 
@@ -260,19 +276,34 @@ namespace GorselProg
             this.pnlHowToPlay.BackColor = System.Drawing.Color.Transparent;
             this.pnlHowToPlay.Controls.Add(this.btnHTPGeri);
             this.pnlHowToPlay.Controls.Add(this.grpHowToPlay);
-            this.pnlHowToPlay.Location = new System.Drawing.Point(21, 77);
+            this.pnlHowToPlay.Location = new System.Drawing.Point(23, 69);
             this.pnlHowToPlay.Name = "pnlHowToPlay";
-            this.pnlHowToPlay.Size = new System.Drawing.Size(55, 53);
+            this.pnlHowToPlay.Size = new System.Drawing.Size(57, 47);
             this.pnlHowToPlay.TabIndex = 7;
             this.pnlHowToPlay.Visible = false;
             // 
+            // btnHTPGeri
+            // 
+            this.btnHTPGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnHTPGeri.FlatAppearance.BorderSize = 0;
+            this.btnHTPGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHTPGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHTPGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnHTPGeri.Location = new System.Drawing.Point(3, 13);
+            this.btnHTPGeri.Name = "btnHTPGeri";
+            this.btnHTPGeri.Size = new System.Drawing.Size(59, 31);
+            this.btnHTPGeri.TabIndex = 3;
+            this.btnHTPGeri.Text = "Geri";
+            this.btnHTPGeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHTPGeri.UseVisualStyleBackColor = true;
+            this.btnHTPGeri.Click += new System.EventHandler(this.btnHTPGeri_Click);
+            // 
             // grpHowToPlay
             // 
-            this.grpHowToPlay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.grpHowToPlay.Controls.Add(this.lblHowToPlay);
             this.grpHowToPlay.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.grpHowToPlay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.grpHowToPlay.Location = new System.Drawing.Point(16, -130);
+            this.grpHowToPlay.Location = new System.Drawing.Point(16, 29);
             this.grpHowToPlay.Name = "grpHowToPlay";
             this.grpHowToPlay.Size = new System.Drawing.Size(348, 281);
             this.grpHowToPlay.TabIndex = 1;
@@ -303,7 +334,7 @@ namespace GorselProg
             this.grpCreateAGame.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
             this.grpCreateAGame.Location = new System.Drawing.Point(0, 0);
             this.grpCreateAGame.Name = "grpCreateAGame";
-            this.grpCreateAGame.Size = new System.Drawing.Size(46, 49);
+            this.grpCreateAGame.Size = new System.Drawing.Size(53, 49);
             this.grpCreateAGame.TabIndex = 0;
             this.grpCreateAGame.TabStop = false;
             this.grpCreateAGame.Text = "Oda Oluştur";
@@ -329,7 +360,7 @@ namespace GorselProg
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(-5, 8);
+            this.label3.Location = new System.Drawing.Point(-2, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 17);
             this.label3.TabIndex = 5;
@@ -341,7 +372,7 @@ namespace GorselProg
             this.txtCAGRoomPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtCAGRoomPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCAGRoomPassword.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCAGRoomPassword.Location = new System.Drawing.Point(-77, 28);
+            this.txtCAGRoomPassword.Location = new System.Drawing.Point(-74, 28);
             this.txtCAGRoomPassword.Name = "txtCAGRoomPassword";
             this.txtCAGRoomPassword.Size = new System.Drawing.Size(198, 25);
             this.txtCAGRoomPassword.TabIndex = 4;
@@ -351,7 +382,7 @@ namespace GorselProg
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(-24, -46);
+            this.label2.Location = new System.Drawing.Point(-21, -46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 17);
             this.label2.TabIndex = 3;
@@ -363,7 +394,7 @@ namespace GorselProg
             this.txtCAGRoomName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtCAGRoomName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCAGRoomName.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCAGRoomName.Location = new System.Drawing.Point(-77, -26);
+            this.txtCAGRoomName.Location = new System.Drawing.Point(-74, -26);
             this.txtCAGRoomName.Name = "txtCAGRoomName";
             this.txtCAGRoomName.Size = new System.Drawing.Size(198, 25);
             this.txtCAGRoomName.TabIndex = 2;
@@ -373,7 +404,7 @@ namespace GorselProg
             this.btnCAGCreateRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCAGCreateRoom.FlatAppearance.BorderSize = 0;
             this.btnCAGCreateRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCAGCreateRoom.Location = new System.Drawing.Point(-77, 59);
+            this.btnCAGCreateRoom.Location = new System.Drawing.Point(-74, 59);
             this.btnCAGCreateRoom.Name = "btnCAGCreateRoom";
             this.btnCAGCreateRoom.Size = new System.Drawing.Size(198, 34);
             this.btnCAGCreateRoom.TabIndex = 0;
@@ -463,9 +494,9 @@ namespace GorselProg
             this.pnlCreateAGame.BackColor = System.Drawing.Color.Transparent;
             this.pnlCreateAGame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlCreateAGame.Controls.Add(this.grpCreateAGame);
-            this.pnlCreateAGame.Location = new System.Drawing.Point(21, 188);
+            this.pnlCreateAGame.Location = new System.Drawing.Point(21, 200);
             this.pnlCreateAGame.Name = "pnlCreateAGame";
-            this.pnlCreateAGame.Size = new System.Drawing.Size(50, 53);
+            this.pnlCreateAGame.Size = new System.Drawing.Size(57, 53);
             this.pnlCreateAGame.TabIndex = 2;
             this.pnlCreateAGame.Visible = false;
             // 
@@ -480,40 +511,8 @@ namespace GorselProg
             this.pnlMainMenu.Font = new System.Drawing.Font("Century Gothic", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.pnlMainMenu.Location = new System.Drawing.Point(17, 327);
             this.pnlMainMenu.Name = "pnlMainMenu";
-            this.pnlMainMenu.Size = new System.Drawing.Size(62, 68);
+            this.pnlMainMenu.Size = new System.Drawing.Size(513, 293);
             this.pnlMainMenu.TabIndex = 1;
-            // 
-            // btnHTPGeri
-            // 
-            this.btnHTPGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnHTPGeri.FlatAppearance.BorderSize = 0;
-            this.btnHTPGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHTPGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnHTPGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnHTPGeri.Location = new System.Drawing.Point(3, 19);
-            this.btnHTPGeri.Name = "btnHTPGeri";
-            this.btnHTPGeri.Size = new System.Drawing.Size(59, 31);
-            this.btnHTPGeri.TabIndex = 3;
-            this.btnHTPGeri.Text = "Geri";
-            this.btnHTPGeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHTPGeri.UseVisualStyleBackColor = true;
-            this.btnHTPGeri.Click += new System.EventHandler(this.btnHTPGeri_Click);
-            // 
-            // btnPreferencesGeri
-            // 
-            this.btnPreferencesGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPreferencesGeri.FlatAppearance.BorderSize = 0;
-            this.btnPreferencesGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPreferencesGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPreferencesGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnPreferencesGeri.Location = new System.Drawing.Point(3, 12);
-            this.btnPreferencesGeri.Name = "btnPreferencesGeri";
-            this.btnPreferencesGeri.Size = new System.Drawing.Size(59, 31);
-            this.btnPreferencesGeri.TabIndex = 3;
-            this.btnPreferencesGeri.Text = "Geri";
-            this.btnPreferencesGeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPreferencesGeri.UseVisualStyleBackColor = true;
-            this.btnPreferencesGeri.Click += new System.EventHandler(this.btnPreferencesGeri_Click);
             // 
             // Game
             // 
@@ -528,7 +527,7 @@ namespace GorselProg
             this.Controls.Add(this.pnlCreateAGame);
             this.Controls.Add(this.pnlMainMenu);
             this.Name = "Game";
-            this.Text = "Main Menu";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.Game_Load);
             this.pnlPreferences.ResumeLayout(false);
             this.grpPreferences.ResumeLayout(false);

@@ -21,6 +21,7 @@ namespace GorselProg
         PanelHandler panelHandler = new PanelHandler();
         Panel[] panels;
         TextBox[] textboxes;
+        MaskedTextBox[] maskedtextboxes;
         Label[] labels;
         Button[] buttons;
         GroupBox[] groupBoxes;
@@ -29,7 +30,9 @@ namespace GorselProg
         {
             formLoginRegister form = new formLoginRegister();
             form.Show();
+            form.updateTheme();
             this.Hide();
+            
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -53,9 +56,11 @@ namespace GorselProg
             panels = new Panel[] { pnlMainMenu, pnlBuildAGame, pnlCreateAGame, pnlJoinAGame, pnlPreferences, pnlHowToPlay };
             textboxes = new TextBox[] { txtCAGRoomName, txtCAGRoomPassword, txtJoinCode};
             labels = new Label[] { lblHowToPlay, label1,label2,label3};
-            buttons = new Button[] {btnBAGBack,btnCAGCreateRoom,btnCAGGeri,btnCreateAGame,btnDarkMode,btnHowToPlay,btnJAGGeri,btnJoinAGame,btnLightMode,btnPlay,btnPreferences,btnSignOut,button2 };
-            groupBoxes = new GroupBox[] {grpHowToPlay,grpCreateAGame,grpJoinAGame};
-            themeHandler.applyTheme(this, buttons, labels, textboxes,groupBoxes);
+            buttons = new Button[] {btnBAGBack,btnCAGCreateRoom,btnCAGGeri,btnCreateAGame,btnDarkMode,btnHowToPlay,btnJAGGeri,btnJoinAGame,btnLightMode,btnPlay,btnPreferences,btnSignOut,button2,btnPreferencesGeri,btnHTPGeri };
+            groupBoxes = new GroupBox[] {grpHowToPlay,grpCreateAGame,grpJoinAGame,grpPreferences};
+            maskedtextboxes = new MaskedTextBox[] { };
+            
+            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
 
             setPanel(pnlMainMenu);
 
@@ -104,17 +109,24 @@ namespace GorselProg
         private void btnLightMode_Click(object sender, EventArgs e)
         {
             btnLightMode.Enabled = false;
-            btnLightMode.BackColor = Color.FromArgb(104, 93, 82);
+            btnLightMode.BackColor = Color.Transparent;
             btnDarkMode.Enabled = true;
-            btnDarkMode.BackColor = Color.FromArgb(195, 180, 163);
+            btnDarkMode.BackColor = Color.Transparent;
+
+            ThemeHandler.lightTheme();
+            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
         }
 
         private void btnDarkMode_Click(object sender, EventArgs e)
         {
+            //Buton özelliklerinin değişmesi
             btnLightMode.Enabled = true;
-            btnDarkMode.BackColor = Color.FromArgb(104, 93, 82);
+            btnDarkMode.BackColor = Color.Transparent;
             btnDarkMode.Enabled = false;
-            btnLightMode.BackColor = Color.FromArgb(195, 180, 163);
+            btnLightMode.BackColor = Color.Transparent;
+
+            themeHandler.darkTheme();
+            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
         }
 
         private void setPanel(Panel panel)

@@ -11,17 +11,22 @@ namespace GorselProg
     class ThemeHandler
     {
 
-        public Color color_texts = Color.FromArgb(51, 50, 55);
-        public Color color_background = Color.FromArgb(202, 194, 178);
-        public Color color_textboxes = Color.FromArgb(135, 118, 109);
+        static public Color color_texts = Color.FromArgb(51, 50, 55);
+        static public Color color_background = Color.FromArgb(202, 194, 178);
+        static public Color color_textboxes = Color.FromArgb(135, 118, 109);
         public Color color_buttons;
 
-        public void default_theme()
+        public ThemeHandler()
+        {
+            lightTheme();
+        }
+
+        public void current_theme()
         {
             lightTheme();
         }
         // Light theme alternatifleri
-        public void lightTheme() //Default light theme
+        public static void lightTheme() //Default light theme
         {
             color_texts = Color.FromArgb(51, 50, 55);
             color_background = Color.FromArgb(202, 194, 178);
@@ -103,9 +108,9 @@ namespace GorselProg
 
         public void darkTheme() //Default dark theme
         {
-            color_texts = Color.Black;
-            color_background = Color.Black;
-            color_textboxes = Color.Black;
+            color_texts = Color.White;
+            color_background = Color.FromArgb(37,37,37);
+            color_textboxes = Color.FromArgb(62, 62, 66);
             //color_buttons = Color.Black;
         }
 
@@ -139,7 +144,7 @@ namespace GorselProg
 
 
 
-        public void applyTheme(Form form, Button[] buttons, Label[] labels, TextBox[] textBoxes, GroupBox[] groupboxes)
+        public void applyTheme(Form form, Button[] buttons, Label[] labels, TextBox[] textBoxes,MaskedTextBox[] maskedtextboxes, GroupBox[] groupboxes)
         {
             form.BackColor = color_background;
 
@@ -155,8 +160,16 @@ namespace GorselProg
                 t.ForeColor = color_texts;
             }
 
+            foreach (MaskedTextBox m in maskedtextboxes)
+            {
+                m.BackColor = color_textboxes;
+                m.ForeColor = color_texts;
+            }
+
             foreach (GroupBox g in groupboxes)
                 g.ForeColor = color_texts;
+
+
         }
 
         /*

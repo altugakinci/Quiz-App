@@ -18,12 +18,28 @@ namespace GorselProg
         }
 
         PanelHandler ph = new PanelHandler();
+        ThemeHandler themeHandler = new ThemeHandler();
+        Panel[] panels;
+        TextBox[] textboxes;
+        MaskedTextBox[] maskedtextboxes;
+        Label[] labels;
+        Button[] buttons;
+        GroupBox[] groupBoxes;
 
         private void Form1_Load(object sender, EventArgs e)
         {
             ph.showPanel(pnlLogin);
             ph.hidePanel(pnlRegister);
             this.MaximizeBox = false;
+
+            panels = new Panel[] { pnlLogin,pnlRegister };
+            textboxes = new TextBox[] { txtRegUsername };
+            maskedtextboxes = new MaskedTextBox[] { txtLoginPassword, txtRegPassword, txtRegPassword2, txtLoginEmail };
+            labels = new Label[] { lblLoginWarning,lblRegWarning,lblRetLogin,label1,label2,label3,label4,label6,label7,label8,label9 };
+            buttons = new Button[] { btnLogin,btnRegister };
+            groupBoxes = new GroupBox[] {};
+
+            themeHandler.applyTheme(this, buttons, labels, textboxes,maskedtextboxes, groupBoxes);
         }
 
         private void lblNoAcc_click(object sender, EventArgs e)
@@ -81,6 +97,17 @@ namespace GorselProg
                 lblRegWarning.Text = "Şifreler Uyuşmuyor!";
                 return;
             }
+        }
+
+        public void updateTheme()
+        {
+            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
+        }
+
+        private void formLoginRegister_Shown(object sender, EventArgs e)
+        {
+            themeHandler.darkTheme();
+            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
         }
     }
 }

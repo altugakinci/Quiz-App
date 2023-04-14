@@ -29,7 +29,6 @@ namespace GorselProg
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtLoginUsername = new System.Windows.Forms.TextBox();
             this.txtLoginPassword = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -49,21 +48,10 @@ namespace GorselProg
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtLoginEmail = new System.Windows.Forms.MaskedTextBox();
             this.pnlLogin.SuspendLayout();
             this.pnlRegister.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txtLoginUsername
-            // 
-            this.txtLoginUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtLoginUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
-            this.txtLoginUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLoginUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtLoginUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
-            this.txtLoginUsername.Location = new System.Drawing.Point(88, 155);
-            this.txtLoginUsername.Name = "txtLoginUsername";
-            this.txtLoginUsername.Size = new System.Drawing.Size(272, 38);
-            this.txtLoginUsername.TabIndex = 0;
             // 
             // txtLoginPassword
             // 
@@ -86,9 +74,9 @@ namespace GorselProg
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
             this.label1.Location = new System.Drawing.Point(88, 135);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 17);
+            this.label1.Size = new System.Drawing.Size(33, 17);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Kullanıcı Adı";
+            this.label1.Text = "Mail";
             // 
             // label2
             // 
@@ -117,9 +105,9 @@ namespace GorselProg
             // btnLogin
             // 
             this.btnLogin.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(123)))), ((int)(((byte)(104)))));
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.FlatAppearance.BorderSize = 0;
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
             this.btnLogin.Location = new System.Drawing.Point(88, 299);
             this.btnLogin.Name = "btnLogin";
@@ -144,8 +132,8 @@ namespace GorselProg
             // 
             // pnlLogin
             // 
+            this.pnlLogin.Controls.Add(this.txtLoginEmail);
             this.pnlLogin.Controls.Add(this.lblLoginWarning);
-            this.pnlLogin.Controls.Add(this.txtLoginUsername);
             this.pnlLogin.Controls.Add(this.label4);
             this.pnlLogin.Controls.Add(this.txtLoginPassword);
             this.pnlLogin.Controls.Add(this.btnLogin);
@@ -251,8 +239,7 @@ namespace GorselProg
             // btnRegister
             // 
             this.btnRegister.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(123)))), ((int)(((byte)(104)))));
-            this.btnRegister.FlatAppearance.BorderSize = 0;
+            this.btnRegister.BackColor = System.Drawing.Color.Transparent;
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
             this.btnRegister.Location = new System.Drawing.Point(-93, 133);
@@ -311,6 +298,16 @@ namespace GorselProg
             this.label8.TabIndex = 3;
             this.label8.Text = "Şifre";
             // 
+            // txtLoginEmail
+            // 
+            this.txtLoginEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
+            this.txtLoginEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLoginEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtLoginEmail.Location = new System.Drawing.Point(88, 155);
+            this.txtLoginEmail.Name = "txtLoginEmail";
+            this.txtLoginEmail.Size = new System.Drawing.Size(272, 38);
+            this.txtLoginEmail.TabIndex = 8;
+            // 
             // formLoginRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -322,6 +319,7 @@ namespace GorselProg
             this.Name = "formLoginRegister";
             this.Text = "Bilgi Yarışması";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.formLoginRegister_Shown);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
             this.pnlRegister.ResumeLayout(false);
@@ -331,8 +329,6 @@ namespace GorselProg
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtLoginUsername;
         private System.Windows.Forms.MaskedTextBox txtLoginPassword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -352,6 +348,7 @@ namespace GorselProg
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblRetLogin;
         private System.Windows.Forms.Label lblLoginWarning;
+        private System.Windows.Forms.MaskedTextBox txtLoginEmail;
     }
 }
 
