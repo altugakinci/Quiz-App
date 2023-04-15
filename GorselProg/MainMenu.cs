@@ -156,5 +156,19 @@ namespace GorselProg
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
             active_panel = pnlMainMenu;
         }
+
+        private void btnCAGCreateRoom_Click(object sender, EventArgs e)
+        {
+            LobbyGame game = new LobbyGame("Leader");
+            game.Show();
+            this.Hide();
+        }
+
+        private void btnJAGJoinRoom_Click(object sender, EventArgs e)
+        {
+            LobbyGame game = new LobbyGame("Player");
+            game.Show();
+            this.Hide();
+        }
     }
 }
