@@ -35,9 +35,9 @@ namespace GorselProg
             this.MaximizeBox = false;
 
             panels = new Panel[] { pnlLogin,pnlRegister };
-            textboxes = new TextBox[] { txtRegUsername };
+            textboxes = new TextBox[] { txtRegUsername, txtRegMail };
             maskedtextboxes = new MaskedTextBox[] { txtLoginPassword, txtRegPassword, txtRegPassword2, txtLoginEmail };
-            labels = new Label[] { lblLoginWarning,lblRegWarning,lblRetLogin,label1,label2,label3,label4,label6,label7,label8,label9 };
+            labels = new Label[] { lblLoginWarning,lblRegWarning,lblRetLogin,label1,label2,label3,label4,label5,label6,label7,label8,label9 };
             buttons = new Button[] { btnLogin,btnRegister };
             groupBoxes = new GroupBox[] {};
 
