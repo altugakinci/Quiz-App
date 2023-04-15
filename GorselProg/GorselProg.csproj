@@ -57,17 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ThemeHandler.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game.cs">
+    <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Game.Designer.cs">
-      <DependentUpon>Game.cs</DependentUpon>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202304131930455_initUser.cs" />
     <Compile Include="Migrations\202304131930455_initUser.designer.cs">
@@ -83,11 +83,11 @@
     <Compile Include="PanelHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Game.resx">
-      <DependentUpon>Game.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304131930455_initUser.resx">
       <DependentUpon>202304131930455_initUser.cs</DependentUpon>

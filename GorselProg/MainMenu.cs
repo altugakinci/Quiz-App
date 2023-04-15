@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GorselProg
 {
-    public partial class Game : Form
+    public partial class formMainMenu : Form
     {
-        public Game()
+        public formMainMenu()
         {
             InitializeComponent();
         }

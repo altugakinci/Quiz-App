@@ -1,7 +1,7 @@
 ﻿
 namespace GorselProg
 {
-    partial class Game
+    partial class formMainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -43,8 +43,14 @@ namespace GorselProg
             this.btnJoinAGame = new System.Windows.Forms.Button();
             this.btnCreateAGame = new System.Windows.Forms.Button();
             this.pnlHowToPlay = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnHTPGeri = new System.Windows.Forms.Button();
             this.pnlJoinAGame = new System.Windows.Forms.Panel();
+            this.btnJAGGeri = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtJoinCode = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.pnlCreateAGame = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCAGGeri = new System.Windows.Forms.Button();
@@ -54,12 +60,6 @@ namespace GorselProg
             this.txtCAGRoomName = new System.Windows.Forms.TextBox();
             this.btnCAGCreateRoom = new System.Windows.Forms.Button();
             this.pnlMainMenu = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnJAGGeri = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtJoinCode = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.pnlPreferences.SuspendLayout();
             this.pnlBuildAGame.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
@@ -269,6 +269,34 @@ namespace GorselProg
             this.pnlHowToPlay.TabIndex = 7;
             this.pnlHowToPlay.Visible = false;
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(-83, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(200, 33);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Nasıl Oynanır?";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(194)))), ((int)(((byte)(178)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.Location = new System.Drawing.Point(-161, 70);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(361, 199);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.Text = "Oda kurun, kodunuzu arkadaşlarınızla paylaşın.\r\n\r\nArkadaşlarınız da odaya bu kod " +
+    "ile veya oda\r\nismi ve parola ile katılsınlar.\r\n\r\nİyi eğlenceler";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // btnHTPGeri
             // 
             this.btnHTPGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -298,6 +326,54 @@ namespace GorselProg
             this.pnlJoinAGame.Size = new System.Drawing.Size(54, 53);
             this.pnlJoinAGame.TabIndex = 3;
             this.pnlJoinAGame.Visible = false;
+            // 
+            // btnJAGGeri
+            // 
+            this.btnJAGGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnJAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnJAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnJAGGeri.Location = new System.Drawing.Point(3, 15);
+            this.btnJAGGeri.Name = "btnJAGGeri";
+            this.btnJAGGeri.Size = new System.Drawing.Size(63, 31);
+            this.btnJAGGeri.TabIndex = 7;
+            this.btnJAGGeri.Text = "Geri";
+            this.btnJAGGeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnJAGGeri.UseVisualStyleBackColor = true;
+            this.btnJAGGeri.Click += new System.EventHandler(this.btnJAGGeri_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(-37, -27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 17);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Oda Kodunu Giriniz:";
+            // 
+            // txtJoinCode
+            // 
+            this.txtJoinCode.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtJoinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
+            this.txtJoinCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtJoinCode.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtJoinCode.Location = new System.Drawing.Point(-65, -7);
+            this.txtJoinCode.Name = "txtJoinCode";
+            this.txtJoinCode.Size = new System.Drawing.Size(198, 25);
+            this.txtJoinCode.TabIndex = 5;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(-68, 24);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 42);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Odaya Katıl";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // pnlCreateAGame
             // 
@@ -412,83 +488,7 @@ namespace GorselProg
             this.pnlMainMenu.Size = new System.Drawing.Size(49, 51);
             this.pnlMainMenu.TabIndex = 1;
             // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(194)))), ((int)(((byte)(178)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(-161, 70);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(361, 199);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.Text = "Oda kurun, kodunuzu arkadaşlarınızla paylaşın.\r\n\r\nArkadaşlarınız da odaya bu kod " +
-    "ile veya oda\r\nismi ve parola ile katılsınlar.\r\n\r\nİyi eğlenceler";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(-83, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(200, 33);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Nasıl Oynanır?";
-            // 
-            // btnJAGGeri
-            // 
-            this.btnJAGGeri.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnJAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnJAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnJAGGeri.Location = new System.Drawing.Point(3, 15);
-            this.btnJAGGeri.Name = "btnJAGGeri";
-            this.btnJAGGeri.Size = new System.Drawing.Size(63, 31);
-            this.btnJAGGeri.TabIndex = 7;
-            this.btnJAGGeri.Text = "Geri";
-            this.btnJAGGeri.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnJAGGeri.UseVisualStyleBackColor = true;
-            this.btnJAGGeri.Click += new System.EventHandler(this.btnJAGGeri_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(-37, -27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 17);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Oda Kodunu Giriniz:";
-            // 
-            // txtJoinCode
-            // 
-            this.txtJoinCode.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtJoinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
-            this.txtJoinCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtJoinCode.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtJoinCode.Location = new System.Drawing.Point(-65, -7);
-            this.txtJoinCode.Name = "txtJoinCode";
-            this.txtJoinCode.Size = new System.Drawing.Size(198, 25);
-            this.txtJoinCode.TabIndex = 5;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(-68, 24);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 42);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Odaya Katıl";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // Game
+            // formMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -500,7 +500,7 @@ namespace GorselProg
             this.Controls.Add(this.pnlPreferences);
             this.Controls.Add(this.pnlCreateAGame);
             this.Controls.Add(this.pnlMainMenu);
-            this.Name = "Game";
+            this.Name = "formMainMenu";
             this.Text = "s";
             this.Load += new System.EventHandler(this.Game_Load);
             this.pnlPreferences.ResumeLayout(false);
