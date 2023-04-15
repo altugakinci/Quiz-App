@@ -11,14 +11,54 @@ namespace GorselProg
     class ThemeHandler
     {
 
-        static public Color color_texts = Color.FromArgb(51, 50, 55);
-        static public Color color_background = Color.FromArgb(202, 194, 178);
-        static public Color color_textboxes = Color.FromArgb(135, 118, 109);
+        static public Color color_texts = Color.White;
+        static public Color color_background = Color.FromArgb(37, 37, 37);
+        static public Color color_textboxes = Color.FromArgb(62, 62, 66);
+        //static public Color color_textboxes = Color.FromArgb(51, 50, 55);
         public Color color_buttons;
 
         public ThemeHandler()
         {
             lightTheme();
+        }
+
+        public static void changeFormsColor(Form form)
+        {
+            form.BackColor = color_background;
+        }
+
+        public static void changeAllControlsColor(Control c)
+        {
+            foreach(Control ctrl in c.Controls)
+            {
+                if (ctrl.HasChildren)
+                    changeAllControlsColor(ctrl);
+                else
+                {
+                    if(ctrl is TextBox)
+                    {
+                        ctrl.BackColor = color_textboxes;
+                        ctrl.ForeColor = color_texts;
+                    }else if(ctrl is Label)
+                    {
+                        ctrl.ForeColor = color_texts;
+                    }else if(ctrl is MaskedTextBox)
+                    {
+                        ctrl.BackColor = color_textboxes;
+                        ctrl.ForeColor = color_texts;
+                    }else if(ctrl is Button)
+                    {
+                        ctrl.ForeColor = color_texts;
+                        ctrl.BackColor = Color.Transparent;
+                        Button b = (Button)ctrl;
+                        b.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        b.FlatAppearance.MouseDownBackColor = Color.Transparent;
+                    }else if(ctrl is GroupBox)
+                    {
+                        ctrl.ForeColor = color_texts;
+                    }
+                }
+            }
         }
 
         public void current_theme()
