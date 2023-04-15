@@ -50,7 +50,7 @@ namespace GorselProg
             this.btnJAGGeri = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtJoinCode = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnJAGJoinRoom = new System.Windows.Forms.Button();
             this.pnlCreateAGame = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCAGGeri = new System.Windows.Forms.Button();
@@ -320,10 +320,10 @@ namespace GorselProg
             this.pnlJoinAGame.Controls.Add(this.btnJAGGeri);
             this.pnlJoinAGame.Controls.Add(this.label1);
             this.pnlJoinAGame.Controls.Add(this.txtJoinCode);
-            this.pnlJoinAGame.Controls.Add(this.button2);
-            this.pnlJoinAGame.Location = new System.Drawing.Point(30, 254);
+            this.pnlJoinAGame.Controls.Add(this.btnJAGJoinRoom);
+            this.pnlJoinAGame.Location = new System.Drawing.Point(407, 23);
             this.pnlJoinAGame.Name = "pnlJoinAGame";
-            this.pnlJoinAGame.Size = new System.Drawing.Size(54, 53);
+            this.pnlJoinAGame.Size = new System.Drawing.Size(233, 153);
             this.pnlJoinAGame.TabIndex = 3;
             this.pnlJoinAGame.Visible = false;
             // 
@@ -333,7 +333,7 @@ namespace GorselProg
             this.btnJAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnJAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnJAGGeri.Location = new System.Drawing.Point(3, 15);
+            this.btnJAGGeri.Location = new System.Drawing.Point(3, 115);
             this.btnJAGGeri.Name = "btnJAGGeri";
             this.btnJAGGeri.Size = new System.Drawing.Size(63, 31);
             this.btnJAGGeri.TabIndex = 7;
@@ -347,7 +347,7 @@ namespace GorselProg
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(-37, -27);
+            this.label1.Location = new System.Drawing.Point(52, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 17);
             this.label1.TabIndex = 6;
@@ -359,21 +359,22 @@ namespace GorselProg
             this.txtJoinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtJoinCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtJoinCode.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtJoinCode.Location = new System.Drawing.Point(-65, -7);
+            this.txtJoinCode.Location = new System.Drawing.Point(24, 43);
             this.txtJoinCode.Name = "txtJoinCode";
             this.txtJoinCode.Size = new System.Drawing.Size(198, 25);
             this.txtJoinCode.TabIndex = 5;
             // 
-            // button2
+            // btnJAGJoinRoom
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(-68, 24);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(201, 42);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Odaya Katıl";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnJAGJoinRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnJAGJoinRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJAGJoinRoom.Location = new System.Drawing.Point(21, 74);
+            this.btnJAGJoinRoom.Name = "btnJAGJoinRoom";
+            this.btnJAGJoinRoom.Size = new System.Drawing.Size(201, 42);
+            this.btnJAGJoinRoom.TabIndex = 4;
+            this.btnJAGJoinRoom.Text = "Odaya Katıl";
+            this.btnJAGJoinRoom.UseVisualStyleBackColor = true;
+            this.btnJAGJoinRoom.Click += new System.EventHandler(this.btnJAGJoinRoom_Click);
             // 
             // pnlCreateAGame
             // 
@@ -387,9 +388,9 @@ namespace GorselProg
             this.pnlCreateAGame.Controls.Add(this.label2);
             this.pnlCreateAGame.Controls.Add(this.txtCAGRoomName);
             this.pnlCreateAGame.Controls.Add(this.btnCAGCreateRoom);
-            this.pnlCreateAGame.Location = new System.Drawing.Point(30, 187);
+            this.pnlCreateAGame.Location = new System.Drawing.Point(236, 23);
             this.pnlCreateAGame.Name = "pnlCreateAGame";
-            this.pnlCreateAGame.Size = new System.Drawing.Size(46, 54);
+            this.pnlCreateAGame.Size = new System.Drawing.Size(154, 147);
             this.pnlCreateAGame.TabIndex = 2;
             this.pnlCreateAGame.Visible = false;
             // 
@@ -398,7 +399,7 @@ namespace GorselProg
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(-66, 8);
+            this.label4.Location = new System.Drawing.Point(-12, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(193, 33);
             this.label4.TabIndex = 13;
@@ -410,7 +411,7 @@ namespace GorselProg
             this.btnCAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnCAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnCAGGeri.Location = new System.Drawing.Point(1, 20);
+            this.btnCAGGeri.Location = new System.Drawing.Point(1, 113);
             this.btnCAGGeri.Name = "btnCAGGeri";
             this.btnCAGGeri.Size = new System.Drawing.Size(67, 31);
             this.btnCAGGeri.TabIndex = 12;
@@ -424,7 +425,7 @@ namespace GorselProg
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(1, 15);
+            this.label3.Location = new System.Drawing.Point(55, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 17);
             this.label3.TabIndex = 11;
@@ -436,7 +437,7 @@ namespace GorselProg
             this.txtCAGRoomPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtCAGRoomPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCAGRoomPassword.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCAGRoomPassword.Location = new System.Drawing.Point(-71, 35);
+            this.txtCAGRoomPassword.Location = new System.Drawing.Point(-17, 81);
             this.txtCAGRoomPassword.Name = "txtCAGRoomPassword";
             this.txtCAGRoomPassword.Size = new System.Drawing.Size(198, 25);
             this.txtCAGRoomPassword.TabIndex = 10;
@@ -446,7 +447,7 @@ namespace GorselProg
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(-18, -39);
+            this.label2.Location = new System.Drawing.Point(36, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 17);
             this.label2.TabIndex = 9;
@@ -458,7 +459,7 @@ namespace GorselProg
             this.txtCAGRoomName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtCAGRoomName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCAGRoomName.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCAGRoomName.Location = new System.Drawing.Point(-71, -19);
+            this.txtCAGRoomName.Location = new System.Drawing.Point(-17, 27);
             this.txtCAGRoomName.Name = "txtCAGRoomName";
             this.txtCAGRoomName.Size = new System.Drawing.Size(198, 25);
             this.txtCAGRoomName.TabIndex = 8;
@@ -467,12 +468,13 @@ namespace GorselProg
             // 
             this.btnCAGCreateRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnCAGCreateRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCAGCreateRoom.Location = new System.Drawing.Point(-71, 66);
+            this.btnCAGCreateRoom.Location = new System.Drawing.Point(-17, 112);
             this.btnCAGCreateRoom.Name = "btnCAGCreateRoom";
             this.btnCAGCreateRoom.Size = new System.Drawing.Size(198, 34);
             this.btnCAGCreateRoom.TabIndex = 7;
             this.btnCAGCreateRoom.Text = "Odayı Oluştur";
             this.btnCAGCreateRoom.UseVisualStyleBackColor = true;
+            this.btnCAGCreateRoom.Click += new System.EventHandler(this.btnCAGCreateRoom_Click);
             // 
             // pnlMainMenu
             // 
@@ -548,6 +550,6 @@ namespace GorselProg
         private System.Windows.Forms.Button btnJAGGeri;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtJoinCode;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnJAGJoinRoom;
     }
 }

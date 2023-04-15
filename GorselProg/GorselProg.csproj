@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LobbyGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LobbyGame.Designer.cs">
+      <DependentUpon>LobbyGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemeHandler.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -83,6 +89,9 @@
     <Compile Include="PanelHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="LobbyGame.resx">
+      <DependentUpon>LobbyGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
