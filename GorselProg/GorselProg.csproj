@@ -69,6 +69,17 @@
     <Compile Include="Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304131930455_initUser.cs" />
+    <Compile Include="Migrations\202304131930455_initUser.designer.cs">
+      <DependentUpon>202304131930455_initUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304131941570_initUser1.cs" />
+    <Compile Include="Migrations\202304131941570_initUser1.designer.cs">
+      <DependentUpon>202304131941570_initUser1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model\qAppDBContext.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="PanelHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +88,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304131930455_initUser.resx">
+      <DependentUpon>202304131930455_initUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304131941570_initUser1.resx">
+      <DependentUpon>202304131941570_initUser1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,9 +118,7 @@
   <ItemGroup>
     <Content Include="TextFile1.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
