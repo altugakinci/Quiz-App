@@ -61,6 +61,16 @@ namespace GorselProg
             }
         }
 
+        public void setLightTheme()
+        {
+            theme_olaQasem();
+        }
+
+        public void setDarkTheme()
+        {
+            darkTheme();
+        }
+
         public void current_theme()
         {
             lightTheme();
@@ -81,7 +91,7 @@ namespace GorselProg
             color_textboxes = Color.FromArgb(164, 144, 124);
         }
 
-        public void theme_olaQasem()
+        public static void theme_olaQasem()
         {
             color_texts = Color.FromArgb(61, 56, 50);
             color_background = Color.FromArgb(217, 200, 181);
@@ -146,7 +156,7 @@ namespace GorselProg
 
         //Dark theme alternatifleri
 
-        public void darkTheme() //Default dark theme
+        public static void darkTheme() //Default dark theme
         {
             color_texts = Color.White;
             color_background = Color.FromArgb(37,37,37);

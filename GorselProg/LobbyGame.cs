@@ -106,5 +106,11 @@ namespace GorselProg
         {
             toggleButtons(sender, 4);
         }
+
+        private void btnLeaderBaslat_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelFill(active_panel, pnlGame);
+            active_panel = pnlGame;
+        }
     }
 }

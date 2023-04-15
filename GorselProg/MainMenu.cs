@@ -98,25 +98,16 @@ namespace GorselProg
 
         private void btnLightMode_Click(object sender, EventArgs e)
         {
-            btnLightMode.Enabled = false;
-            btnLightMode.BackColor = Color.Transparent;
-            btnDarkMode.Enabled = true;
-            btnDarkMode.BackColor = Color.Transparent;
-
-            //ThemeHandler.lightTheme();
-            //themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
+            ThemeHandler.theme_olaQasem();
+            ThemeHandler.changeAllControlsColor(this);
+            ThemeHandler.changeFormsColor(this);
         }
 
         private void btnDarkMode_Click(object sender, EventArgs e)
         {
-            //Buton özelliklerinin değişmesi
-            btnLightMode.Enabled = true;
-            btnDarkMode.BackColor = Color.Transparent;
-            btnDarkMode.Enabled = false;
-            btnLightMode.BackColor = Color.Transparent;
-
-            //themeHandler.darkTheme();
-            //themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
+            ThemeHandler.darkTheme();
+            ThemeHandler.changeAllControlsColor(this);
+            ThemeHandler.changeFormsColor(this);
         }
 
         private void btnBAGBack_Click(object sender, EventArgs e)
