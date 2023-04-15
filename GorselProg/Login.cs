@@ -82,7 +82,7 @@ namespace GorselProg
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            Game game = new Game();
+            formMainMenu game = new formMainMenu();
             this.Hide();
             game.Show();
             game.WindowState = FormWindowState.Maximized;
