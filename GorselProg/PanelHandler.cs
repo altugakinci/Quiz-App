@@ -4,12 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace GorselProg
 {
     // Panellerin kolayca hareketi ve boyutlandırması için kullanılan bir handler sınıfı.
     class PanelHandler
     {
+
+        public static void setPanelMiddle(Form form, Panel inactive_panel, Panel active_panel)
+        {
+            inactive_panel.Visible = false;
+            active_panel.Visible = true;
+            active_panel.Visible = true;
+            active_panel.Size = new Size(450, 350);
+            active_panel.Left = (form.Width - active_panel.Width) / 2;
+            active_panel.Top = (form.Height - active_panel.Height) / 2;
+        }
+
+        public static void setPanelFill(Panel inactive_panel,Panel active_panel)
+        {
+            inactive_panel.Visible = false;
+            active_panel.Visible = true;
+            active_panel.Dock = DockStyle.Fill;
+        }
 
         // Paneli göstermek için metot
         public void showPanel(Panel panel)

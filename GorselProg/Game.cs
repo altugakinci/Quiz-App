@@ -16,15 +16,9 @@ namespace GorselProg
         {
             InitializeComponent();
         }
-
-        ThemeHandler themeHandler = new ThemeHandler();
+        Panel active_panel;
+        //ThemeHandler themeHandler = new ThemeHandler();
         PanelHandler panelHandler = new PanelHandler();
-        Panel[] panels;
-        TextBox[] textboxes;
-        MaskedTextBox[] maskedtextboxes;
-        Label[] labels;
-        Button[] buttons;
-        GroupBox[] groupBoxes;
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
@@ -39,7 +33,9 @@ namespace GorselProg
         {
             //DESIGN
 
-            setPanel(pnlBuildAGame);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlBuildAGame);
+            active_panel = pnlBuildAGame;
+            //setPanel(pnlBuildAGame);
             
             //CODE
         }
@@ -48,21 +44,11 @@ namespace GorselProg
         {
             //DESIGN
 
-            /*
-            panels = new Panel[] { pnlBuildAGame, pnlCreateAGame, pnlHowToPlay, pnlJoinAGame, pnlPreferences };
+            active_panel = pnlMainMenu;
+            ThemeHandler.changeAllControlsColor(this);
+            ThemeHandler.changeFormsColor(this);
             this.WindowState = FormWindowState.Maximized;
-            this.MaximizeBox = false;
-            */
-            panels = new Panel[] { pnlMainMenu, pnlBuildAGame, pnlCreateAGame, pnlJoinAGame, pnlPreferences, pnlHowToPlay };
-            textboxes = new TextBox[] { txtCAGRoomName, txtCAGRoomPassword, txtJoinCode};
-            labels = new Label[] { lblHowToPlay, label1,label2,label3};
-            buttons = new Button[] {btnBAGBack,btnCAGCreateRoom,btnCAGGeri,btnCreateAGame,btnDarkMode,btnHowToPlay,btnJAGGeri,btnJoinAGame,btnLightMode,btnPlay,btnPreferences,btnSignOut,button2,btnPreferencesGeri,btnHTPGeri };
-            groupBoxes = new GroupBox[] {grpHowToPlay,grpCreateAGame,grpJoinAGame,grpPreferences};
-            maskedtextboxes = new MaskedTextBox[] { };
-            
-            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
-
-            setPanel(pnlMainMenu);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
 
             //CODE
         }
@@ -71,7 +57,8 @@ namespace GorselProg
         {
             //DESIGN
 
-            setPanel(pnlCreateAGame);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlCreateAGame);
+            active_panel = pnlCreateAGame;
 
             //CODE
 
@@ -81,7 +68,8 @@ namespace GorselProg
         {
             //DESIGN
 
-            setPanel(pnlJoinAGame);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlJoinAGame);
+            active_panel = pnlJoinAGame;
 
             //CODE
 
@@ -92,7 +80,8 @@ namespace GorselProg
 
             //DESIGN
 
-            setPanel(pnlHowToPlay);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlHowToPlay);
+            active_panel = pnlHowToPlay;
 
             //CODE
         }
@@ -101,7 +90,8 @@ namespace GorselProg
         {
             //DESIGN
 
-            setPanel(pnlPreferences);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlPreferences);
+            active_panel = pnlPreferences;
 
             //CODE
         }
@@ -113,8 +103,8 @@ namespace GorselProg
             btnDarkMode.Enabled = true;
             btnDarkMode.BackColor = Color.Transparent;
 
-            ThemeHandler.lightTheme();
-            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
+            //ThemeHandler.lightTheme();
+            //themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
         }
 
         private void btnDarkMode_Click(object sender, EventArgs e)
@@ -125,28 +115,22 @@ namespace GorselProg
             btnDarkMode.Enabled = false;
             btnLightMode.BackColor = Color.Transparent;
 
-            themeHandler.darkTheme();
-            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
-        }
-
-        private void setPanel(Panel panel)
-        {
-            panelHandler.hidePanels(panels);
-            panel.Visible = true;
-            panel.Size = new Size(450,350);
-            panel.Left = (this.Width - panel.Width) / 2;
-            panel.Top = (this.Height - panel.Height) / 2;
+            //themeHandler.darkTheme();
+            //themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
         }
 
         private void btnBAGBack_Click(object sender, EventArgs e)
         {
-            setPanel(pnlMainMenu);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
+            active_panel = pnlMainMenu;
         }
 
         private void btnJAGGeri_Click(object sender, EventArgs e)
         {
             //DESIGN
-            setPanel(pnlBuildAGame);
+
+            PanelHandler.setPanelMiddle(this, active_panel, pnlBuildAGame);
+            active_panel = pnlBuildAGame;
 
             //CODE
         }
@@ -154,19 +138,23 @@ namespace GorselProg
         private void btnCAGGeri_Click(object sender, EventArgs e)
         {
             //DESIGN
-            setPanel(pnlBuildAGame);
+
+            PanelHandler.setPanelMiddle(this, active_panel, pnlBuildAGame);
+            active_panel = pnlBuildAGame;
 
             //CODE
         }
 
         private void btnHTPGeri_Click(object sender, EventArgs e)
         {
-            setPanel(pnlMainMenu);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
+            active_panel = pnlMainMenu;
         }
 
         private void btnPreferencesGeri_Click(object sender, EventArgs e)
         {
-            setPanel(pnlMainMenu);
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
+            active_panel = pnlMainMenu;
         }
     }
 }

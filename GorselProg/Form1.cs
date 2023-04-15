@@ -19,8 +19,8 @@ namespace GorselProg
             InitializeComponent();
         }
 
-        PanelHandler ph = new PanelHandler();
-        ThemeHandler themeHandler = new ThemeHandler();
+        //PanelHandler ph = new PanelHandler();
+        //ThemeHandler themeHandler = new ThemeHandler();
         Panel[] panels;
         TextBox[] textboxes;
         MaskedTextBox[] maskedtextboxes;
@@ -28,32 +28,55 @@ namespace GorselProg
         Button[] buttons;
         GroupBox[] groupBoxes;
 
+        Panel active_panel;
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            active_panel = pnlLogin;
+            PanelHandler.setPanelFill(active_panel, pnlLogin);
+
+            ThemeHandler.changeAllControlsColor(this);
+            ThemeHandler.changeFormsColor(this);
+            this.WindowState = FormWindowState.Maximized;
+
+            /*
             ph.showPanel(pnlLogin);
             ph.hidePanel(pnlRegister);
             this.MaximizeBox = false;
+            */
 
+            /*
             panels = new Panel[] { pnlLogin,pnlRegister };
             textboxes = new TextBox[] { txtRegUsername, txtRegMail };
             maskedtextboxes = new MaskedTextBox[] { txtLoginPassword, txtRegPassword, txtRegPassword2, txtLoginEmail };
             labels = new Label[] { lblLoginWarning,lblRegWarning,lblRetLogin,label1,label2,label3,label4,label5,label6,label7,label8,label9 };
             buttons = new Button[] { btnLogin,btnRegister };
             groupBoxes = new GroupBox[] {};
+            */
 
-            themeHandler.applyTheme(this, buttons, labels, textboxes,maskedtextboxes, groupBoxes);
+            //themeHandler.applyTheme(this, buttons, labels, textboxes,maskedtextboxes, groupBoxes);
         }
 
         private void lblNoAcc_click(object sender, EventArgs e)
         {
+            PanelHandler.setPanelFill(active_panel, pnlRegister);
+            active_panel = pnlRegister;
+
+            /*
             ph.hidePanel(pnlLogin);
             ph.showPanel(pnlRegister);
+            */
         }
 
         private void lblRetLogin_MouseClick(object sender, MouseEventArgs e)
         {
+            PanelHandler.setPanelFill(active_panel, pnlLogin);
+            active_panel = pnlLogin;
+
+            /*
             ph.hidePanel(pnlRegister);
             ph.showPanel(pnlLogin);
+            */
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -62,6 +85,7 @@ namespace GorselProg
             Game game = new Game();
             this.Hide();
             game.Show();
+            game.WindowState = FormWindowState.Maximized;
 
             /*
             if (txtLoginUsername.Text == "")
@@ -116,17 +140,20 @@ namespace GorselProg
                 db.Users.Add(user);
                 db.SaveChanges();
             }
+
         }
 
         public void updateTheme()
         {
-            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
+            //themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
         }
 
         private void formLoginRegister_Shown(object sender, EventArgs e)
         {
+            /*
             themeHandler.darkTheme();
             themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
+            */
         }
     }
 }
