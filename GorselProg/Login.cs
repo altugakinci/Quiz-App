@@ -81,16 +81,11 @@ namespace GorselProg
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
-            formMainMenu game = new formMainMenu();
-            this.Hide();
-            game.Show();
-            game.WindowState = FormWindowState.Maximized;
-
-            /*
-            if (txtLoginUsername.Text == "")
+            bool isValid = false;
+            
+            if (txtLoginEmail.Text == "")
             {
-                lblLoginWarning.Text = "Kullanıcı adı boş bırakılamaz!";
+                lblLoginWarning.Text = "Email alanı boş bırakılamaz!";
                 return;
             }
             if(txtLoginPassword.Text == "")
@@ -98,7 +93,45 @@ namespace GorselProg
                 lblLoginWarning.Text = "Şifre alanı boş bırakılamaz!";
                 return;
             }
-            */
+
+            using (var db = new qAppDBContext())
+            {
+                var user = db.Users.FirstOrDefault(u => u.email == txtLoginEmail.Text);
+                if (user == null)
+                {
+                    isValid = false;
+                    //return false; // Kullanıcı adı yanlış
+                }
+                else
+                {
+                    byte[] saltValue = Convert.FromBase64String(user.salt);
+                    var keyGenerator = new Rfc2898DeriveBytes(txtLoginPassword.Text, saltValue, 10000);
+                    byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
+                    string encryptionKeyString = Convert.ToBase64String(encryptionKey);
+
+                    if (encryptionKeyString == user.password)
+                    {
+                        isValid = true;
+                        //return true; // Şifre doğru
+                    }
+                    else
+                    {
+                        isValid = false;
+                        //return false; // Şifre yanlış
+                    }
+                }
+            }
+
+            if (!isValid) {
+                MessageBox.Show("Kullanıcı adı veya şifre yanlıştır.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } else
+            {
+                formMainMenu game = new formMainMenu();
+                this.Hide();
+                game.Show();
+                game.WindowState = FormWindowState.Maximized;
+            }
+
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -106,6 +139,11 @@ namespace GorselProg
             if (txtRegUsername.Text == "")
             {
                 lblRegWarning.Text = "Kullanıcı adı boş bırakılamaz!";
+                return;
+            }
+            if (txtRegMail.Text == "")
+            {
+                lblRegWarning.Text = "Email alanı boş bırakılamaz!";
                 return;
             }
             if (txtRegPassword.Text == "")
@@ -124,22 +162,36 @@ namespace GorselProg
                 return;
             }
 
-            // Hash the password using SHA256 algorithm
-            byte[] passwordBytes = Encoding.UTF8.GetBytes(txtRegPassword.Text);
-            byte[] hashBytes = new SHA256Managed().ComputeHash(passwordBytes);
-            string hashedPassword = BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            byte[] saltValue = new byte[8];
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(saltValue);
+            }
 
+            var keyGenerator = new Rfc2898DeriveBytes(txtRegPassword.Text, saltValue, 10000);
+            byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
+
+            string saltValueString = Convert.ToBase64String(saltValue);
+            string encryptionKeyString = Convert.ToBase64String(encryptionKey);
+
+          
             // Save the user to the database
             using (var db = new qAppDBContext()) // Replace with your DbContext class
             {
                 var user = new User
                 {
-                    email = txtRegUsername.Text,
-                    password = hashedPassword
+                    userName = txtRegUsername.Text,
+                    email = txtRegMail.Text,
+                    password = encryptionKeyString,
+                    salt = saltValueString
                 };
                 db.Users.Add(user);
                 db.SaveChanges();
             }
+
+            // TODO: buraya belki bi loading gibi birşey gelebilir
+            active_panel = pnlLogin;
+            PanelHandler.setPanelFill(active_panel, pnlLogin);
 
         }
 
