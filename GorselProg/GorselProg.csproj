@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LevelHandler.cs" />
     <Compile Include="LobbyGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +129,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\211689_left_arrow_icon.png" />
+    <None Include="Resources\leve-bar-1.png" />
+    <None Include="Resources\level-bar-0.png" />
+    <None Include="Resources\level-bar-2.png" />
+    <None Include="Resources\level-bar-3.png" />
+    <None Include="Resources\level-bar-4.png" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup />

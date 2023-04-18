@@ -161,5 +161,17 @@ namespace GorselProg
             game.Show();
             this.Hide();
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
+            active_panel = pnlProfile;
+        }
+
+        private void btnProfileGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
+            active_panel = pnlMainMenu;
+        }
     }
 }
