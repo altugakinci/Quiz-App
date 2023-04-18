@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202304160835197_initUserHash.designer.cs">
       <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304181632165_userLevelXp.cs" />
+    <Compile Include="Migrations\202304181632165_userLevelXp.designer.cs">
+      <DependentUpon>202304181632165_userLevelXp.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemeHandler.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304160835197_initUserHash.resx">
       <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181632165_userLevelXp.resx">
+      <DependentUpon>202304181632165_userLevelXp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
