@@ -207,5 +207,10 @@ namespace GorselProg
             themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
             */
         }
+
+        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
