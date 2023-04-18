@@ -112,5 +112,11 @@ namespace GorselProg
             PanelHandler.setPanelFill(active_panel, pnlGame);
             active_panel = pnlGame;
         }
+
+        private void btnGameGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
+            active_panel = pnlLobbyLeader;
+        }
     }
 }
