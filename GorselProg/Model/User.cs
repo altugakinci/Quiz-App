@@ -21,5 +21,8 @@ namespace GorselProg.Model
 
         [Required]
         public string password { get; set; }
+
+        [Required]
+        public string salt { get; set; }
     }
 }

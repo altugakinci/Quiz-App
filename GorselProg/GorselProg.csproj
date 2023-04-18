@@ -63,6 +63,10 @@
     <Compile Include="LobbyGame.Designer.cs">
       <DependentUpon>LobbyGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304160835197_initUserHash.cs" />
+    <Compile Include="Migrations\202304160835197_initUserHash.designer.cs">
+      <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
+    </Compile>
     <Compile Include="ThemeHandler.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -104,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304131941570_initUser1.resx">
       <DependentUpon>202304131941570_initUser1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304160835197_initUserHash.resx">
+      <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
