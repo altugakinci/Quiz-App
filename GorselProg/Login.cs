@@ -149,10 +149,24 @@ namespace GorselProg
 
             User user = new User { userName = txtRegUsername.Text, email = txtRegMail.Text,password = txtRegPassword.Text };
             
-            await _userService.AddUser(user);
-            
+            bool isSucces = await _userService.AddUser(user);
+
+            if(isSucces)
+            {
+                MessageBox.Show("Başarılı bir şekilde kayıt oluşturulmuştur.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Böyle bir kullanıcı vardır", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             // TODO: buraya belki bi loading gibi birşey gelebilir
-            
+
+            txtRegUsername.Text = "";
+            txtRegMail.Text = "";
+            txtRegPassword.Text = "";
+            txtRegPassword2.Text = "";
+
             PanelHandler.setPanelFill(active_panel, pnlLogin);
             active_panel = pnlLogin;
         }

@@ -81,7 +81,7 @@ namespace GorselProg.Services
         }
 
         // Kullanıcı ekleme işlemi (Register)
-        public async Task AddUser(User user)
+        public async Task<bool> AddUser(User user)
         {
             try
             {
@@ -95,10 +95,21 @@ namespace GorselProg.Services
                         email = user.email,
                         password = passSalt[1],
                         salt = passSalt[0],
+                        level = 1,
                     };
+                    var isDuplicate = await db.Users.FirstOrDefaultAsync(u => u.email == user.email);
+                    if(isDuplicate != null)
+                    {
+                        return false;
+                    } 
                     db.Users.Add(newUser);
                     await db.SaveChangesAsync();
                 }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
             finally
             {
@@ -151,7 +162,6 @@ namespace GorselProg.Services
             finally
             {
                 HideLoadingIndicator();
-                _context.Dispose();
             }
         }
 
