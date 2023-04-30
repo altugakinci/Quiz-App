@@ -1,4 +1,5 @@
 ﻿using GorselProg.Model;
+using GorselProg.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,11 @@ namespace GorselProg
         public formLoginRegister()
         {
             InitializeComponent();
+
+            // DbContext sınıfının örneğini oluşturun
+            var context = new qAppDBContext();
+            // UserService sınıfının örneğini oluşturun
+            _userService = new UserService(context);
         }
 
         //PanelHandler ph = new PanelHandler();
@@ -29,6 +35,8 @@ namespace GorselProg
         GroupBox[] groupBoxes;
 
         Panel active_panel;
+
+        private  UserService _userService;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -79,7 +87,7 @@ namespace GorselProg
             */
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             bool isValid = false;
             
@@ -94,33 +102,10 @@ namespace GorselProg
                 return;
             }
 
-            using (var db = new qAppDBContext())
-            {
-                var user = db.Users.FirstOrDefault(u => u.email == txtLoginEmail.Text);
-                if (user == null)
-                {
-                    isValid = false;
-                    //return false; // Kullanıcı adı yanlış
-                }
-                else
-                {
-                    byte[] saltValue = Convert.FromBase64String(user.salt);
-                    var keyGenerator = new Rfc2898DeriveBytes(txtLoginPassword.Text, saltValue, 10000);
-                    byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
-                    string encryptionKeyString = Convert.ToBase64String(encryptionKey);
 
-                    if (encryptionKeyString == user.password)
-                    {
-                        isValid = true;
-                        //return true; // Şifre doğru
-                    }
-                    else
-                    {
-                        isValid = false;
-                        //return false; // Şifre yanlış
-                    }
-                }
-            }
+            isValid = await _userService.LoginUser(txtLoginEmail.Text, txtLoginPassword.Text);
+
+            // TODO: Loading işlemleri buraya eklenebilir
 
             if (!isValid) {
                 MessageBox.Show("Kullanıcı adı veya şifre yanlıştır.", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -134,7 +119,7 @@ namespace GorselProg
 
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private async void btnRegister_Click(object sender, EventArgs e)
         {
             if (txtRegUsername.Text == "")
             {
@@ -162,33 +147,10 @@ namespace GorselProg
                 return;
             }
 
-            byte[] saltValue = new byte[8];
-            using (var rng = new RNGCryptoServiceProvider())
-            {
-                rng.GetBytes(saltValue);
-            }
-
-            var keyGenerator = new Rfc2898DeriveBytes(txtRegPassword.Text, saltValue, 10000);
-            byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
-
-            string saltValueString = Convert.ToBase64String(saltValue);
-            string encryptionKeyString = Convert.ToBase64String(encryptionKey);
-
-          
-            // Save the user to the database
-            using (var db = new qAppDBContext()) // Replace with your DbContext class
-            {
-                var user = new User
-                {
-                    userName = txtRegUsername.Text,
-                    email = txtRegMail.Text,
-                    password = encryptionKeyString,
-                    salt = saltValueString
-                };
-                db.Users.Add(user);
-                db.SaveChanges();
-            }
-
+            User user = new User { userName = txtRegUsername.Text, email = txtRegMail.Text,password = txtRegPassword.Text };
+            
+            await _userService.AddUser(user);
+            
             // TODO: buraya belki bi loading gibi birşey gelebilir
             
             PanelHandler.setPanelFill(active_panel, pnlLogin);

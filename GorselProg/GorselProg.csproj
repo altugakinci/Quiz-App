@@ -71,6 +71,7 @@
     <Compile Include="Migrations\202304181632165_userLevelXp.designer.cs">
       <DependentUpon>202304181632165_userLevelXp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="ThemeHandler.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
