@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -24,5 +25,11 @@ namespace GorselProg.Model
 
         [Required]
         public string salt { get; set; }
+        
+        [DefaultValue(1)]
+        public int level { get; set; }
+
+        [DefaultValue(0)]
+        public int xp { get; set; }
     }
 }

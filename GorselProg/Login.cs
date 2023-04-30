@@ -190,9 +190,9 @@ namespace GorselProg
             }
 
             // TODO: buraya belki bi loading gibi birşey gelebilir
-            active_panel = pnlLogin;
+            
             PanelHandler.setPanelFill(active_panel, pnlLogin);
-
+            active_panel = pnlLogin;
         }
 
         public void updateTheme()
