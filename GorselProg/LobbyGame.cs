@@ -28,6 +28,7 @@ namespace GorselProg
 
         private void LobbyGame_Load(object sender, EventArgs e)
         {
+            
 
             //Lobi lideriyse:
             if (  rank.Equals("Leader") )
@@ -117,6 +118,36 @@ namespace GorselProg
         {
             PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
             active_panel = pnlLobbyLeader;
+        }
+
+        private void btnLeaderMsgSend_Click(object sender, EventArgs e)
+        {
+            sendMessage();
+        }
+
+        private void txtLeaderMsg_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                sendMessage();
+            }
+        }
+
+        private void sendMessage()
+        {
+            if (txtLeaderMsg.Text != "")
+            {
+                Label label = new Label();
+                label.Text = txtLeaderMsg.Text;
+                label.ForeColor = ThemeHandler.color_texts;
+                label.AutoSize = true;
+                label.Font = new Font(label.Font.FontFamily, 20, FontStyle.Regular);
+                //label.BackColor = Color.Blue;
+                label.Width = flpLeaderChat.Width - 30;
+                label.Dock = DockStyle.Top;
+                txtLeaderMsg.Clear();
+                flpLeaderChat.Controls.Add(label);
+            }
         }
     }
 }

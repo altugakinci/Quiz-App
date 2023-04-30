@@ -141,6 +141,7 @@
     <None Include="Resources\level-bar-2.png" />
     <None Include="Resources\level-bar-3.png" />
     <None Include="Resources\level-bar-4.png" />
+    <None Include="Resources\1564528_fly_messager_send_communication_email_icon.png" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
   <ItemGroup />

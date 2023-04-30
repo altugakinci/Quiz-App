@@ -30,21 +30,6 @@ namespace GorselProg
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobbyGame));
-            this.pnlLobbyLeader = new System.Windows.Forms.Panel();
-            this.flpLeaderChat = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnLeaderBan = new System.Windows.Forms.Button();
-            this.btnLeaderLeave = new System.Windows.Forms.Button();
-            this.btnLeaderKick = new System.Windows.Forms.Button();
-            this.btnLeaderBaslat = new System.Windows.Forms.Button();
-            this.pnlKategoriler = new System.Windows.Forms.Panel();
-            this.btnLeaderEglence = new System.Windows.Forms.Button();
-            this.btnLeaderSanat = new System.Windows.Forms.Button();
-            this.btnLeaderTarih = new System.Windows.Forms.Button();
-            this.btnLeaderBilim = new System.Windows.Forms.Button();
-            this.btnLeaderSpor = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.flpLeaderPlayers = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlLobbyPlayer = new System.Windows.Forms.Panel();
             this.btnPlayerLink = new System.Windows.Forms.Button();
             this.flpPlayerChat = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,6 +45,7 @@ namespace GorselProg
             this.flpPlayerPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlGame = new System.Windows.Forms.Panel();
+            this.btnGameGeri = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnOption4 = new System.Windows.Forms.Button();
@@ -81,202 +67,32 @@ namespace GorselProg
             this.label6 = new System.Windows.Forms.Label();
             this.flpPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnGameGeri = new System.Windows.Forms.Button();
-            this.pnlLobbyLeader.SuspendLayout();
-            this.pnlKategoriler.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.flpLeaderPlayers = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlKategoriler = new System.Windows.Forms.Panel();
+            this.btnLeaderBilim = new System.Windows.Forms.Button();
+            this.btnLeaderEglence = new System.Windows.Forms.Button();
+            this.btnLeaderSanat = new System.Windows.Forms.Button();
+            this.btnLeaderTarih = new System.Windows.Forms.Button();
+            this.btnLeaderSpor = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnLeaderBaslat = new System.Windows.Forms.Button();
+            this.btnLeaderKick = new System.Windows.Forms.Button();
+            this.btnLeaderLeave = new System.Windows.Forms.Button();
+            this.btnLeaderBan = new System.Windows.Forms.Button();
+            this.flpLeaderChat = new System.Windows.Forms.FlowLayoutPanel();
+            this.txtLeaderMsg = new System.Windows.Forms.TextBox();
+            this.btnLeaderMsgSend = new System.Windows.Forms.Button();
+            this.pnlLobbyLeader = new System.Windows.Forms.Panel();
             this.pnlLobbyPlayer.SuspendLayout();
             this.pnlPlayerCategories.SuspendLayout();
             this.pnlGame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl.SuspendLayout();
             this.pnlCategories.SuspendLayout();
+            this.pnlKategoriler.SuspendLayout();
+            this.pnlLobbyLeader.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlLobbyLeader
-            // 
-            this.pnlLobbyLeader.Controls.Add(this.flpLeaderChat);
-            this.pnlLobbyLeader.Controls.Add(this.btnLeaderBan);
-            this.pnlLobbyLeader.Controls.Add(this.btnLeaderLeave);
-            this.pnlLobbyLeader.Controls.Add(this.btnLeaderKick);
-            this.pnlLobbyLeader.Controls.Add(this.btnLeaderBaslat);
-            this.pnlLobbyLeader.Controls.Add(this.pnlKategoriler);
-            this.pnlLobbyLeader.Controls.Add(this.flpLeaderPlayers);
-            this.pnlLobbyLeader.Controls.Add(this.label1);
-            this.pnlLobbyLeader.Location = new System.Drawing.Point(12, 12);
-            this.pnlLobbyLeader.Name = "pnlLobbyLeader";
-            this.pnlLobbyLeader.Size = new System.Drawing.Size(48, 54);
-            this.pnlLobbyLeader.TabIndex = 9;
-            this.pnlLobbyLeader.Visible = false;
-            // 
-            // flpLeaderChat
-            // 
-            this.flpLeaderChat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flpLeaderChat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpLeaderChat.Location = new System.Drawing.Point(251, 272);
-            this.flpLeaderChat.Name = "flpLeaderChat";
-            this.flpLeaderChat.Size = new System.Drawing.Size(245, 351);
-            this.flpLeaderChat.TabIndex = 11;
-            // 
-            // btnLeaderBan
-            // 
-            this.btnLeaderBan.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLeaderBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderBan.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderBan.Location = new System.Drawing.Point(-455, 577);
-            this.btnLeaderBan.Name = "btnLeaderBan";
-            this.btnLeaderBan.Size = new System.Drawing.Size(351, 46);
-            this.btnLeaderBan.TabIndex = 15;
-            this.btnLeaderBan.Text = "Odadan Yasakla";
-            this.btnLeaderBan.UseVisualStyleBackColor = true;
-            // 
-            // btnLeaderLeave
-            // 
-            this.btnLeaderLeave.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLeaderLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderLeave.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderLeave.Location = new System.Drawing.Point(-98, 329);
-            this.btnLeaderLeave.Name = "btnLeaderLeave";
-            this.btnLeaderLeave.Size = new System.Drawing.Size(343, 51);
-            this.btnLeaderLeave.TabIndex = 14;
-            this.btnLeaderLeave.Text = "Odadan Çık";
-            this.btnLeaderLeave.UseVisualStyleBackColor = true;
-            this.btnLeaderLeave.Click += new System.EventHandler(this.btnLeaderLeave_Click);
-            // 
-            // btnLeaderKick
-            // 
-            this.btnLeaderKick.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLeaderKick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderKick.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderKick.Location = new System.Drawing.Point(-455, 525);
-            this.btnLeaderKick.Name = "btnLeaderKick";
-            this.btnLeaderKick.Size = new System.Drawing.Size(351, 46);
-            this.btnLeaderKick.TabIndex = 13;
-            this.btnLeaderKick.Text = "Odadan At";
-            this.btnLeaderKick.UseVisualStyleBackColor = true;
-            // 
-            // btnLeaderBaslat
-            // 
-            this.btnLeaderBaslat.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnLeaderBaslat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderBaslat.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderBaslat.Location = new System.Drawing.Point(-98, 272);
-            this.btnLeaderBaslat.Name = "btnLeaderBaslat";
-            this.btnLeaderBaslat.Size = new System.Drawing.Size(343, 51);
-            this.btnLeaderBaslat.TabIndex = 12;
-            this.btnLeaderBaslat.Text = "Başlat";
-            this.btnLeaderBaslat.UseVisualStyleBackColor = true;
-            this.btnLeaderBaslat.Click += new System.EventHandler(this.btnLeaderBaslat_Click);
-            // 
-            // pnlKategoriler
-            // 
-            this.pnlKategoriler.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.pnlKategoriler.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlKategoriler.Controls.Add(this.btnLeaderEglence);
-            this.pnlKategoriler.Controls.Add(this.btnLeaderSanat);
-            this.pnlKategoriler.Controls.Add(this.btnLeaderTarih);
-            this.pnlKategoriler.Controls.Add(this.btnLeaderBilim);
-            this.pnlKategoriler.Controls.Add(this.btnLeaderSpor);
-            this.pnlKategoriler.Controls.Add(this.label2);
-            this.pnlKategoriler.Location = new System.Drawing.Point(-98, 70);
-            this.pnlKategoriler.Name = "pnlKategoriler";
-            this.pnlKategoriler.Size = new System.Drawing.Size(594, 196);
-            this.pnlKategoriler.TabIndex = 11;
-            // 
-            // btnLeaderEglence
-            // 
-            this.btnLeaderEglence.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLeaderEglence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderEglence.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderEglence.Location = new System.Drawing.Point(453, 60);
-            this.btnLeaderEglence.Name = "btnLeaderEglence";
-            this.btnLeaderEglence.Size = new System.Drawing.Size(100, 92);
-            this.btnLeaderEglence.TabIndex = 5;
-            this.btnLeaderEglence.Text = "Eğlence";
-            this.btnLeaderEglence.UseVisualStyleBackColor = true;
-            this.btnLeaderEglence.Click += new System.EventHandler(this.btnLeaderEglence_Click);
-            // 
-            // btnLeaderSanat
-            // 
-            this.btnLeaderSanat.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLeaderSanat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderSanat.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderSanat.Location = new System.Drawing.Point(347, 60);
-            this.btnLeaderSanat.Name = "btnLeaderSanat";
-            this.btnLeaderSanat.Size = new System.Drawing.Size(100, 92);
-            this.btnLeaderSanat.TabIndex = 4;
-            this.btnLeaderSanat.Text = "Sanat";
-            this.btnLeaderSanat.UseVisualStyleBackColor = true;
-            this.btnLeaderSanat.Click += new System.EventHandler(this.btnLeaderSanat_Click);
-            // 
-            // btnLeaderTarih
-            // 
-            this.btnLeaderTarih.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLeaderTarih.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderTarih.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderTarih.Location = new System.Drawing.Point(241, 60);
-            this.btnLeaderTarih.Name = "btnLeaderTarih";
-            this.btnLeaderTarih.Size = new System.Drawing.Size(100, 92);
-            this.btnLeaderTarih.TabIndex = 3;
-            this.btnLeaderTarih.Text = "Tarih";
-            this.btnLeaderTarih.UseVisualStyleBackColor = true;
-            this.btnLeaderTarih.Click += new System.EventHandler(this.btnLeaderTarih_Click);
-            // 
-            // btnLeaderBilim
-            // 
-            this.btnLeaderBilim.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLeaderBilim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderBilim.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderBilim.Location = new System.Drawing.Point(135, 60);
-            this.btnLeaderBilim.Name = "btnLeaderBilim";
-            this.btnLeaderBilim.Size = new System.Drawing.Size(100, 92);
-            this.btnLeaderBilim.TabIndex = 2;
-            this.btnLeaderBilim.Text = "Bilim";
-            this.btnLeaderBilim.UseVisualStyleBackColor = true;
-            this.btnLeaderBilim.Click += new System.EventHandler(this.btnLeaderBilim_Click);
-            // 
-            // btnLeaderSpor
-            // 
-            this.btnLeaderSpor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLeaderSpor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeaderSpor.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLeaderSpor.Location = new System.Drawing.Point(29, 60);
-            this.btnLeaderSpor.Name = "btnLeaderSpor";
-            this.btnLeaderSpor.Size = new System.Drawing.Size(100, 92);
-            this.btnLeaderSpor.TabIndex = 1;
-            this.btnLeaderSpor.Text = "Spor";
-            this.btnLeaderSpor.UseVisualStyleBackColor = true;
-            this.btnLeaderSpor.Click += new System.EventHandler(this.btnLeaderSpor_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(27, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 23);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Kategoriler";
-            // 
-            // flpLeaderPlayers
-            // 
-            this.flpLeaderPlayers.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.flpLeaderPlayers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.flpLeaderPlayers.Location = new System.Drawing.Point(-455, 70);
-            this.flpLeaderPlayers.Name = "flpLeaderPlayers";
-            this.flpLeaderPlayers.Size = new System.Drawing.Size(351, 449);
-            this.flpLeaderPlayers.TabIndex = 10;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(-92, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 33);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "ODANIN İSMİ #XXXX";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlLobbyPlayer
             // 
@@ -462,18 +278,32 @@ namespace GorselProg
             this.pnlGame.Controls.Add(this.btnOption2);
             this.pnlGame.Controls.Add(this.btnOption1);
             this.pnlGame.Controls.Add(this.lblCategory);
-            this.pnlGame.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGame.Location = new System.Drawing.Point(0, 0);
+            this.pnlGame.Location = new System.Drawing.Point(251, 12);
             this.pnlGame.Name = "pnlGame";
-            this.pnlGame.Size = new System.Drawing.Size(1018, 639);
+            this.pnlGame.Size = new System.Drawing.Size(80, 75);
             this.pnlGame.TabIndex = 17;
             this.pnlGame.Visible = false;
+            // 
+            // btnGameGeri
+            // 
+            this.btnGameGeri.FlatAppearance.BorderSize = 0;
+            this.btnGameGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGameGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnGameGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnGameGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnGameGeri.Location = new System.Drawing.Point(12, 11);
+            this.btnGameGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGameGeri.Name = "btnGameGeri";
+            this.btnGameGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnGameGeri.TabIndex = 20;
+            this.btnGameGeri.UseVisualStyleBackColor = true;
+            this.btnGameGeri.Click += new System.EventHandler(this.btnGameGeri_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(170, 229);
+            this.pictureBox1.Location = new System.Drawing.Point(-299, -53);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.TabIndex = 19;
@@ -484,7 +314,7 @@ namespace GorselProg
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(202, 229);
+            this.label5.Location = new System.Drawing.Point(-267, -53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 33);
             this.label5.TabIndex = 18;
@@ -495,7 +325,7 @@ namespace GorselProg
             this.btnOption4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption4.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption4.Location = new System.Drawing.Point(253, 439);
+            this.btnOption4.Location = new System.Drawing.Point(-216, 157);
             this.btnOption4.Name = "btnOption4";
             this.btnOption4.Size = new System.Drawing.Size(538, 51);
             this.btnOption4.TabIndex = 17;
@@ -507,7 +337,7 @@ namespace GorselProg
             this.btnOption3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption3.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption3.Location = new System.Drawing.Point(253, 382);
+            this.btnOption3.Location = new System.Drawing.Point(-216, 100);
             this.btnOption3.Name = "btnOption3";
             this.btnOption3.Size = new System.Drawing.Size(538, 51);
             this.btnOption3.TabIndex = 16;
@@ -520,7 +350,7 @@ namespace GorselProg
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(253, 82);
+            this.textBox1.Location = new System.Drawing.Point(-216, -200);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(538, 180);
@@ -534,7 +364,7 @@ namespace GorselProg
             this.btnOption2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption2.Location = new System.Drawing.Point(253, 325);
+            this.btnOption2.Location = new System.Drawing.Point(-216, 43);
             this.btnOption2.Name = "btnOption2";
             this.btnOption2.Size = new System.Drawing.Size(538, 51);
             this.btnOption2.TabIndex = 14;
@@ -546,7 +376,7 @@ namespace GorselProg
             this.btnOption1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption1.Location = new System.Drawing.Point(253, 268);
+            this.btnOption1.Location = new System.Drawing.Point(-216, -14);
             this.btnOption1.Name = "btnOption1";
             this.btnOption1.Size = new System.Drawing.Size(538, 51);
             this.btnOption1.TabIndex = 12;
@@ -558,7 +388,7 @@ namespace GorselProg
             this.lblCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCategory.Location = new System.Drawing.Point(450, 46);
+            this.lblCategory.Location = new System.Drawing.Point(-19, -236);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(144, 33);
             this.lblCategory.TabIndex = 9;
@@ -722,39 +552,233 @@ namespace GorselProg
             this.label7.Text = "ODANIN İSMİ #XXXX";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnGameGeri
+            // label1
             // 
-            this.btnGameGeri.FlatAppearance.BorderSize = 0;
-            this.btnGameGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGameGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGameGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnGameGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnGameGeri.Location = new System.Drawing.Point(12, 11);
-            this.btnGameGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGameGeri.Name = "btnGameGeri";
-            this.btnGameGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnGameGeri.TabIndex = 20;
-            this.btnGameGeri.UseVisualStyleBackColor = true;
-            this.btnGameGeri.Click += new System.EventHandler(this.btnGameGeri_Click);
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(393, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(270, 33);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "ODANIN İSMİ #XXXX";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // flpLeaderPlayers
+            // 
+            this.flpLeaderPlayers.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.flpLeaderPlayers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpLeaderPlayers.Location = new System.Drawing.Point(30, 70);
+            this.flpLeaderPlayers.Name = "flpLeaderPlayers";
+            this.flpLeaderPlayers.Size = new System.Drawing.Size(351, 449);
+            this.flpLeaderPlayers.TabIndex = 10;
+            // 
+            // pnlKategoriler
+            // 
+            this.pnlKategoriler.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.pnlKategoriler.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlKategoriler.Controls.Add(this.btnLeaderBilim);
+            this.pnlKategoriler.Controls.Add(this.btnLeaderEglence);
+            this.pnlKategoriler.Controls.Add(this.btnLeaderSanat);
+            this.pnlKategoriler.Controls.Add(this.btnLeaderTarih);
+            this.pnlKategoriler.Controls.Add(this.btnLeaderSpor);
+            this.pnlKategoriler.Controls.Add(this.label2);
+            this.pnlKategoriler.Location = new System.Drawing.Point(387, 70);
+            this.pnlKategoriler.Name = "pnlKategoriler";
+            this.pnlKategoriler.Size = new System.Drawing.Size(176, 449);
+            this.pnlKategoriler.TabIndex = 11;
+            // 
+            // btnLeaderBilim
+            // 
+            this.btnLeaderBilim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderBilim.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderBilim.Location = new System.Drawing.Point(31, 287);
+            this.btnLeaderBilim.Name = "btnLeaderBilim";
+            this.btnLeaderBilim.Size = new System.Drawing.Size(104, 70);
+            this.btnLeaderBilim.TabIndex = 2;
+            this.btnLeaderBilim.Text = "Bilim";
+            this.btnLeaderBilim.UseVisualStyleBackColor = true;
+            this.btnLeaderBilim.Click += new System.EventHandler(this.btnLeaderBilim_Click);
+            // 
+            // btnLeaderEglence
+            // 
+            this.btnLeaderEglence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderEglence.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderEglence.Location = new System.Drawing.Point(31, 363);
+            this.btnLeaderEglence.Name = "btnLeaderEglence";
+            this.btnLeaderEglence.Size = new System.Drawing.Size(104, 69);
+            this.btnLeaderEglence.TabIndex = 5;
+            this.btnLeaderEglence.Text = "Eğlence";
+            this.btnLeaderEglence.UseVisualStyleBackColor = true;
+            this.btnLeaderEglence.Click += new System.EventHandler(this.btnLeaderEglence_Click);
+            // 
+            // btnLeaderSanat
+            // 
+            this.btnLeaderSanat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderSanat.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderSanat.Location = new System.Drawing.Point(31, 206);
+            this.btnLeaderSanat.Name = "btnLeaderSanat";
+            this.btnLeaderSanat.Size = new System.Drawing.Size(104, 75);
+            this.btnLeaderSanat.TabIndex = 4;
+            this.btnLeaderSanat.Text = "Sanat";
+            this.btnLeaderSanat.UseVisualStyleBackColor = true;
+            this.btnLeaderSanat.Click += new System.EventHandler(this.btnLeaderSanat_Click);
+            // 
+            // btnLeaderTarih
+            // 
+            this.btnLeaderTarih.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderTarih.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderTarih.Location = new System.Drawing.Point(31, 125);
+            this.btnLeaderTarih.Name = "btnLeaderTarih";
+            this.btnLeaderTarih.Size = new System.Drawing.Size(104, 75);
+            this.btnLeaderTarih.TabIndex = 3;
+            this.btnLeaderTarih.Text = "Tarih";
+            this.btnLeaderTarih.UseVisualStyleBackColor = true;
+            this.btnLeaderTarih.Click += new System.EventHandler(this.btnLeaderTarih_Click);
+            // 
+            // btnLeaderSpor
+            // 
+            this.btnLeaderSpor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderSpor.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderSpor.Location = new System.Drawing.Point(31, 44);
+            this.btnLeaderSpor.Name = "btnLeaderSpor";
+            this.btnLeaderSpor.Size = new System.Drawing.Size(104, 75);
+            this.btnLeaderSpor.TabIndex = 1;
+            this.btnLeaderSpor.Text = "Spor";
+            this.btnLeaderSpor.UseVisualStyleBackColor = true;
+            this.btnLeaderSpor.Click += new System.EventHandler(this.btnLeaderSpor_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(27, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 23);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Kategoriler";
+            // 
+            // btnLeaderBaslat
+            // 
+            this.btnLeaderBaslat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLeaderBaslat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderBaslat.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderBaslat.Location = new System.Drawing.Point(387, 525);
+            this.btnLeaderBaslat.Name = "btnLeaderBaslat";
+            this.btnLeaderBaslat.Size = new System.Drawing.Size(176, 46);
+            this.btnLeaderBaslat.TabIndex = 12;
+            this.btnLeaderBaslat.Text = "Başlat";
+            this.btnLeaderBaslat.UseVisualStyleBackColor = true;
+            this.btnLeaderBaslat.Click += new System.EventHandler(this.btnLeaderBaslat_Click);
+            // 
+            // btnLeaderKick
+            // 
+            this.btnLeaderKick.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLeaderKick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderKick.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderKick.Location = new System.Drawing.Point(30, 525);
+            this.btnLeaderKick.Name = "btnLeaderKick";
+            this.btnLeaderKick.Size = new System.Drawing.Size(351, 46);
+            this.btnLeaderKick.TabIndex = 13;
+            this.btnLeaderKick.Text = "Odadan At";
+            this.btnLeaderKick.UseVisualStyleBackColor = true;
+            // 
+            // btnLeaderLeave
+            // 
+            this.btnLeaderLeave.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLeaderLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderLeave.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderLeave.Location = new System.Drawing.Point(387, 577);
+            this.btnLeaderLeave.Name = "btnLeaderLeave";
+            this.btnLeaderLeave.Size = new System.Drawing.Size(176, 46);
+            this.btnLeaderLeave.TabIndex = 14;
+            this.btnLeaderLeave.Text = "Odadan Çık";
+            this.btnLeaderLeave.UseVisualStyleBackColor = true;
+            this.btnLeaderLeave.Click += new System.EventHandler(this.btnLeaderLeave_Click);
+            // 
+            // btnLeaderBan
+            // 
+            this.btnLeaderBan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLeaderBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderBan.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderBan.Location = new System.Drawing.Point(30, 577);
+            this.btnLeaderBan.Name = "btnLeaderBan";
+            this.btnLeaderBan.Size = new System.Drawing.Size(351, 46);
+            this.btnLeaderBan.TabIndex = 15;
+            this.btnLeaderBan.Text = "Odadan Yasakla";
+            this.btnLeaderBan.UseVisualStyleBackColor = true;
+            // 
+            // flpLeaderChat
+            // 
+            this.flpLeaderChat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.flpLeaderChat.AutoScroll = true;
+            this.flpLeaderChat.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flpLeaderChat.Location = new System.Drawing.Point(569, 70);
+            this.flpLeaderChat.Name = "flpLeaderChat";
+            this.flpLeaderChat.Size = new System.Drawing.Size(321, 449);
+            this.flpLeaderChat.TabIndex = 11;
+            this.flpLeaderChat.WrapContents = false;
+            // 
+            // txtLeaderMsg
+            // 
+            this.txtLeaderMsg.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtLeaderMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLeaderMsg.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtLeaderMsg.Location = new System.Drawing.Point(569, 525);
+            this.txtLeaderMsg.Name = "txtLeaderMsg";
+            this.txtLeaderMsg.Size = new System.Drawing.Size(282, 33);
+            this.txtLeaderMsg.TabIndex = 16;
+            this.txtLeaderMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLeaderMsg_KeyDown);
+            // 
+            // btnLeaderMsgSend
+            // 
+            this.btnLeaderMsgSend.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnLeaderMsgSend.FlatAppearance.BorderSize = 0;
+            this.btnLeaderMsgSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeaderMsgSend.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLeaderMsgSend.Image = global::GorselProg.Properties.Resources._1564528_fly_messager_send_communication_email_icon;
+            this.btnLeaderMsgSend.Location = new System.Drawing.Point(857, 525);
+            this.btnLeaderMsgSend.Name = "btnLeaderMsgSend";
+            this.btnLeaderMsgSend.Size = new System.Drawing.Size(33, 32);
+            this.btnLeaderMsgSend.TabIndex = 6;
+            this.btnLeaderMsgSend.UseVisualStyleBackColor = true;
+            this.btnLeaderMsgSend.Click += new System.EventHandler(this.btnLeaderMsgSend_Click);
+            // 
+            // pnlLobbyLeader
+            // 
+            this.pnlLobbyLeader.BackColor = System.Drawing.Color.Transparent;
+            this.pnlLobbyLeader.Controls.Add(this.btnLeaderMsgSend);
+            this.pnlLobbyLeader.Controls.Add(this.txtLeaderMsg);
+            this.pnlLobbyLeader.Controls.Add(this.flpLeaderChat);
+            this.pnlLobbyLeader.Controls.Add(this.btnLeaderBan);
+            this.pnlLobbyLeader.Controls.Add(this.btnLeaderLeave);
+            this.pnlLobbyLeader.Controls.Add(this.btnLeaderKick);
+            this.pnlLobbyLeader.Controls.Add(this.btnLeaderBaslat);
+            this.pnlLobbyLeader.Controls.Add(this.pnlKategoriler);
+            this.pnlLobbyLeader.Controls.Add(this.flpLeaderPlayers);
+            this.pnlLobbyLeader.Controls.Add(this.label1);
+            this.pnlLobbyLeader.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLobbyLeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlLobbyLeader.Name = "pnlLobbyLeader";
+            this.pnlLobbyLeader.Size = new System.Drawing.Size(910, 639);
+            this.pnlLobbyLeader.TabIndex = 9;
+            this.pnlLobbyLeader.Visible = false;
             // 
             // LobbyGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1018, 639);
-            this.Controls.Add(this.pnlGame);
-            this.Controls.Add(this.pnl);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ClientSize = new System.Drawing.Size(910, 639);
             this.Controls.Add(this.pnlLobbyLeader);
             this.Controls.Add(this.pnlLobbyPlayer);
+            this.Controls.Add(this.pnl);
+            this.Controls.Add(this.pnlGame);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "LobbyGame";
             this.Text = "LobbyGame";
             this.Load += new System.EventHandler(this.LobbyGame_Load);
-            this.pnlLobbyLeader.ResumeLayout(false);
-            this.pnlLobbyLeader.PerformLayout();
-            this.pnlKategoriler.ResumeLayout(false);
-            this.pnlKategoriler.PerformLayout();
             this.pnlLobbyPlayer.ResumeLayout(false);
             this.pnlLobbyPlayer.PerformLayout();
             this.pnlPlayerCategories.ResumeLayout(false);
@@ -766,26 +790,15 @@ namespace GorselProg
             this.pnl.PerformLayout();
             this.pnlCategories.ResumeLayout(false);
             this.pnlCategories.PerformLayout();
+            this.pnlKategoriler.ResumeLayout(false);
+            this.pnlKategoriler.PerformLayout();
+            this.pnlLobbyLeader.ResumeLayout(false);
+            this.pnlLobbyLeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel pnlLobbyLeader;
-        private System.Windows.Forms.Button btnLeaderBan;
-        private System.Windows.Forms.Button btnLeaderLeave;
-        private System.Windows.Forms.Button btnLeaderKick;
-        private System.Windows.Forms.Button btnLeaderBaslat;
-        private System.Windows.Forms.Panel pnlKategoriler;
-        private System.Windows.Forms.Button btnLeaderEglence;
-        private System.Windows.Forms.Button btnLeaderSanat;
-        private System.Windows.Forms.Button btnLeaderTarih;
-        private System.Windows.Forms.Button btnLeaderBilim;
-        private System.Windows.Forms.Button btnLeaderSpor;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.FlowLayoutPanel flpLeaderPlayers;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlLobbyPlayer;
         private System.Windows.Forms.Button btnPlayerLeave;
         private System.Windows.Forms.Button btnPlayerReady;
@@ -820,9 +833,25 @@ namespace GorselProg
         private System.Windows.Forms.FlowLayoutPanel flpPlayers;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.FlowLayoutPanel flpChat;
-        private System.Windows.Forms.FlowLayoutPanel flpLeaderChat;
         private System.Windows.Forms.FlowLayoutPanel flpPlayerChat;
         private System.Windows.Forms.Button btnPlayerLink;
         private System.Windows.Forms.Button btnGameGeri;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flpLeaderPlayers;
+        private System.Windows.Forms.Panel pnlKategoriler;
+        private System.Windows.Forms.Button btnLeaderBilim;
+        private System.Windows.Forms.Button btnLeaderEglence;
+        private System.Windows.Forms.Button btnLeaderSanat;
+        private System.Windows.Forms.Button btnLeaderTarih;
+        private System.Windows.Forms.Button btnLeaderSpor;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnLeaderBaslat;
+        private System.Windows.Forms.Button btnLeaderKick;
+        private System.Windows.Forms.Button btnLeaderLeave;
+        private System.Windows.Forms.Button btnLeaderBan;
+        private System.Windows.Forms.FlowLayoutPanel flpLeaderChat;
+        private System.Windows.Forms.TextBox txtLeaderMsg;
+        private System.Windows.Forms.Button btnLeaderMsgSend;
+        private System.Windows.Forms.Panel pnlLobbyLeader;
     }
 }

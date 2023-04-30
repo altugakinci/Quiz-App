@@ -63,6 +63,16 @@ namespace GorselProg.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1564528_fly_messager_send_communication_email_icon {
+            get {
+                object obj = ResourceManager.GetObject("1564528_fly_messager_send_communication_email_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _211689_left_arrow_icon {
             get {
                 object obj = ResourceManager.GetObject("211689_left_arrow_icon", resourceCulture);
