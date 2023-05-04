@@ -1,5 +1,6 @@
 ﻿using GorselProg.Model;
 using GorselProg.Services;
+using GorselProg.Session;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -147,7 +148,7 @@ namespace GorselProg
                 return;
             }
 
-            User user = new User { userName = txtRegUsername.Text, email = txtRegMail.Text,password = txtRegPassword.Text };
+            User user = new User { UserName = txtRegUsername.Text, Email = txtRegMail.Text,Password = txtRegPassword.Text };
             
             bool isSucces = await _userService.AddUser(user);
 

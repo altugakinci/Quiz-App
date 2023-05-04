@@ -1,4 +1,5 @@
 ﻿using GorselProg.Model;
+using GorselProg.Session;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -86,18 +87,18 @@ namespace GorselProg.Services
             try
             {
                 ShowLoadingIndicator();
-                string[] passSalt = PassSaltGenerator(user.password);
+                string[] passSalt = PassSaltGenerator(user.Password);
                 using (var db = _context)
                 {
                     var newUser = new User
                     {
-                        userName = user.userName,
-                        email = user.email,
-                        password = passSalt[1],
-                        salt = passSalt[0],
-                        level = 1,
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        Password = passSalt[1],
+                        Salt = passSalt[0],
+                        Level = 1,
                     };
-                    var isDuplicate = await db.Users.FirstOrDefaultAsync(u => u.email == user.email);
+                    var isDuplicate = await db.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
                     if(isDuplicate != null)
                     {
                         return false;
@@ -127,7 +128,7 @@ namespace GorselProg.Services
                 bool isValid = false;
                 using (var db = _context)
                 {
-                    var user = await db.Users.FirstOrDefaultAsync(u => u.email == email);
+                    var user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);
                     if (user == null)
                     {
                         isValid = false;
@@ -135,15 +136,20 @@ namespace GorselProg.Services
                     }
                     else
                     {
-                        byte[] saltValue = Convert.FromBase64String(user.salt);
+                        byte[] saltValue = Convert.FromBase64String(user.Salt);
                         var keyGenerator = new Rfc2898DeriveBytes(password, saltValue, 10000);
                         byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
                         string encryptionKeyString = Convert.ToBase64String(encryptionKey);
 
-                        if (encryptionKeyString == user.password)
+                        if (encryptionKeyString == user.Password)
                         {
                             isValid = true;
                             //return true; // Şifre doğru
+                            UserSession.Instance.Id = user.Id;
+                            UserSession.Instance.UserName = user.UserName;
+                            UserSession.Instance.Email = user.Email;
+                            UserSession.Instance.Level = user.Level;
+                            UserSession.Instance.Xp = user.Xp;
                         }
                         else
                         {
@@ -173,12 +179,14 @@ namespace GorselProg.Services
             // TODO:Bu kısmı ibrahim arkadaşımız yapacak
         }
 
-        // Kullanıcı silme işlemi
-        public void DeleteUser(int id)
+        // Kullanıcı oturum kapatma işlemi
+        public void LogoutUser()
         {
-            //var user = GetUserById(id);
-            //_context.Users.Remove(user);
-            //_context.SaveChanges();
+            UserSession.Instance.Id = 0;
+            UserSession.Instance.UserName = null;
+            UserSession.Instance.Email = null;
+            UserSession.Instance.Level = 1;
+            UserSession.Instance.Xp = 0;
         }
     }
 }

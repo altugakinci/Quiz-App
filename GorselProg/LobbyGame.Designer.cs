@@ -155,7 +155,7 @@ namespace GorselProg
             this.btnLeaderBaslat.TabIndex = 12;
             this.btnLeaderBaslat.Text = "Başlat";
             this.btnLeaderBaslat.UseVisualStyleBackColor = true;
-            this.btnLeaderBaslat.Click += new System.EventHandler(this.btnLeaderBaslat_Click);
+            this.btnLeaderBaslat.Click += new System.EventHandler(this.btnLeaderBaslat_ClickAsync);
             // 
             // pnlKategoriler
             // 
