@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GorselProg.Model;
+using GorselProg.Services;
+using GorselProg.Session;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -107,8 +110,32 @@ namespace GorselProg
             toggleButtons(sender, 4);
         }
 
-        private void btnLeaderBaslat_Click(object sender, EventArgs e)
+        private async void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
         {
+            /*
+            // Get the selected categories
+            // TODO:Kategoriler
+            List<Category> categories = GetSelectedCategories();
+
+            // Get the currently logged in user
+            int sessionUserId = UserSession.Instance.Id;
+
+            // Create an instance of RoomService
+            var roomService = new RoomService(new qAppDBContext());
+
+            // Call the StartGame method
+            var result = await roomService.StartGame(roomId, categories, sessionUserId,DateTime.Now.AddMinutes(10));
+
+            if (result)
+            {
+                MessageBox.Show("Game started successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Failed to start game.");
+            }
+             */
+
             PanelHandler.setPanelFill(active_panel, pnlGame);
             active_panel = pnlGame;
         }

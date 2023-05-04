@@ -14,22 +14,22 @@ namespace GorselProg.Model
         public int Id { get; set; }
 
         [MaxLength(50)]
-        public string userName { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [MaxLength(100)]
-        public string email { get; set; }
+        public string Email { get; set; }
 
         [Required]
-        public string password { get; set; }
+        public string Password { get; set; }
 
         [Required]
-        public string salt { get; set; }
+        public string Salt { get; set; }
         
         [DefaultValue(1)]
-        public int level { get; set; }
+        public int Level { get; set; }
 
         [DefaultValue(0)]
-        public int xp { get; set; }
+        public int Xp { get; set; }
     }
 }
