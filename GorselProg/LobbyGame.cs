@@ -176,5 +176,12 @@ namespace GorselProg
                 flpLeaderChat.Controls.Add(label);
             }
         }
+
+        private void btnShowSum_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelFill(active_panel, pnlSum);
+            active_panel = pnlSum;
+            prgSumXP.Value = 50;
+        }
     }
 }

@@ -166,12 +166,55 @@ namespace GorselProg
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
             active_panel = pnlProfile;
+            prgProfileXP.Value = 50;
         }
 
         private void btnProfileGeri_Click(object sender, EventArgs e)
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
             active_panel = pnlMainMenu;
+        }
+
+        private void btnSorular_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSorularGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
+            active_panel = pnlMainMenu;
+        }
+
+        private void btnSoruEkleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSorulariGoruntule_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSorularSoruEkle_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+            active_panel = pnlSoruEkle;
+        }
+
+        private void btnSorularGoruntule_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
+            active_panel = pnlSorulariGoruntule;
+        }
+
+        private void btnSorulariGoruntuleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
         }
     }
 }
