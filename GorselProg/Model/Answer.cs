@@ -7,17 +7,19 @@ using System.Threading.Tasks;
 
 namespace GorselProg.Model
 {
-    class Question
+    class Answer
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public string QuestionText { get; set; }
-        [Required]
-        public string OptionsText { get; set; }
-        [Required]
+
         public string AnswerText { get; set; }
-        [Required]
-        public virtual ICollection<Category> Categories { get; set; }
+
+        public virtual User User { get; set; }
+
+        public virtual Question Question { get; set; }
+
+        public virtual Game Game { get; set; }
+
+        public virtual Room Room { get; set; }
     }
 }
