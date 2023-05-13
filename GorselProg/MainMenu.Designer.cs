@@ -89,6 +89,8 @@ namespace GorselProg
             this.lblProfileUsername = new System.Windows.Forms.Label();
             this.btnProfileGeri = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtJoinPassword = new System.Windows.Forms.TextBox();
             this.pnlPreferences.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
             this.pnlJoinAGame.SuspendLayout();
@@ -307,14 +309,16 @@ namespace GorselProg
             this.pnlJoinAGame.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlJoinAGame.BackColor = System.Drawing.Color.Transparent;
             this.pnlJoinAGame.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlJoinAGame.Controls.Add(this.label18);
+            this.pnlJoinAGame.Controls.Add(this.txtJoinPassword);
             this.pnlJoinAGame.Controls.Add(this.btnJAGGeri);
             this.pnlJoinAGame.Controls.Add(this.label1);
             this.pnlJoinAGame.Controls.Add(this.txtJoinCode);
             this.pnlJoinAGame.Controls.Add(this.btnJAGJoinRoom);
-            this.pnlJoinAGame.Location = new System.Drawing.Point(26, 170);
+            this.pnlJoinAGame.Location = new System.Drawing.Point(27, 170);
             this.pnlJoinAGame.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlJoinAGame.Name = "pnlJoinAGame";
-            this.pnlJoinAGame.Size = new System.Drawing.Size(66, 70);
+            this.pnlJoinAGame.Size = new System.Drawing.Size(66, 64);
             this.pnlJoinAGame.TabIndex = 3;
             this.pnlJoinAGame.Visible = false;
             // 
@@ -338,7 +342,7 @@ namespace GorselProg
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(-41, -30);
+            this.label1.Location = new System.Drawing.Point(-36, -47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(143, 17);
             this.label1.TabIndex = 6;
@@ -350,7 +354,7 @@ namespace GorselProg
             this.txtJoinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtJoinCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtJoinCode.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtJoinCode.Location = new System.Drawing.Point(-74, -5);
+            this.txtJoinCode.Location = new System.Drawing.Point(-80, -22);
             this.txtJoinCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtJoinCode.Name = "txtJoinCode";
             this.txtJoinCode.Size = new System.Drawing.Size(231, 25);
@@ -362,10 +366,10 @@ namespace GorselProg
             this.btnJAGJoinRoom.FlatAppearance.BorderSize = 0;
             this.btnJAGJoinRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJAGJoinRoom.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnJAGJoinRoom.Location = new System.Drawing.Point(-77, 33);
+            this.btnJAGJoinRoom.Location = new System.Drawing.Point(-80, 72);
             this.btnJAGJoinRoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnJAGJoinRoom.Name = "btnJAGJoinRoom";
-            this.btnJAGJoinRoom.Size = new System.Drawing.Size(234, 52);
+            this.btnJAGJoinRoom.Size = new System.Drawing.Size(231, 48);
             this.btnJAGJoinRoom.TabIndex = 4;
             this.btnJAGJoinRoom.Text = "Odaya Katıl";
             this.btnJAGJoinRoom.UseVisualStyleBackColor = true;
@@ -904,6 +908,29 @@ namespace GorselProg
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label18.Location = new System.Drawing.Point(8, 11);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(55, 17);
+            this.label18.TabIndex = 18;
+            this.label18.Text = "Parola:";
+            // 
+            // txtJoinPassword
+            // 
+            this.txtJoinPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtJoinPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
+            this.txtJoinPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtJoinPassword.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtJoinPassword.Location = new System.Drawing.Point(-80, 36);
+            this.txtJoinPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtJoinPassword.Name = "txtJoinPassword";
+            this.txtJoinPassword.Size = new System.Drawing.Size(231, 25);
+            this.txtJoinPassword.TabIndex = 17;
+            // 
             // formMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1006,5 +1033,7 @@ namespace GorselProg
         private System.Windows.Forms.Label lblProfileTarih;
         private System.Windows.Forms.Label lblProfileBilim;
         private System.Windows.Forms.Label lblProfileSpor;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtJoinPassword;
     }
 }
