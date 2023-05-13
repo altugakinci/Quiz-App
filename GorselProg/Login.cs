@@ -90,6 +90,7 @@ namespace GorselProg
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
+            /*
             bool isValid = false;
             
             if (txtLoginEmail.Text == "")
@@ -117,11 +118,17 @@ namespace GorselProg
                 game.Show();
                 game.WindowState = FormWindowState.Maximized;
             }
+            */
+            formMainMenu game = new formMainMenu();
+            this.Hide();
+            game.Show();
+            game.WindowState = FormWindowState.Maximized;
 
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
+            Application.UseWaitCursor = true;
             if (txtRegUsername.Text == "")
             {
                 lblRegWarning.Text = "Kullanıcı adı boş bırakılamaz!";

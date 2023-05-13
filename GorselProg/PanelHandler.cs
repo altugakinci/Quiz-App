@@ -16,7 +16,6 @@ namespace GorselProg
         {
             inactive_panel.Visible = false;
             active_panel.Visible = true;
-            active_panel.Visible = true;
             active_panel.Size = new Size(500, 500);
             active_panel.Left = (form.Width - active_panel.Width) / 2;
             active_panel.Top = (form.Height - active_panel.Height) / 2;
