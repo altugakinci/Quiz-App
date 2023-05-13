@@ -514,7 +514,7 @@ namespace GorselProg
             this.btnCAGCreateRoom.TabIndex = 7;
             this.btnCAGCreateRoom.Text = "Odayı Oluştur";
             this.btnCAGCreateRoom.UseVisualStyleBackColor = true;
-            this.btnCAGCreateRoom.Click += new System.EventHandler(this.btnCAGCreateRoom_Click);
+            this.btnCAGCreateRoom.Click += new System.EventHandler(this.btnCAGCreateRoom_ClickAsync);
             // 
             // pnlMainMenu
             // 

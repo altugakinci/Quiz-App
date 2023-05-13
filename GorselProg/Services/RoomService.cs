@@ -24,6 +24,7 @@ namespace GorselProg.Services
 
         public async Task<Room> CreateRoom(string name, string password, User admin)
         {
+
             List<Category> allCategories = await _context.Categories.ToListAsync();
             RoomSession.Instance.SetAllCategories(allCategories);
 
@@ -34,7 +35,8 @@ namespace GorselProg.Services
                 Admin = admin,
                 Users = new List<User>()
             };
-            
+
+            RoomSession.Instance.SetAllCategories(allCategories);
 
             _context.Rooms.Add(room);
             await _context.SaveChangesAsync();
@@ -70,7 +72,6 @@ namespace GorselProg.Services
             return true;
         }
 
-        // TODO:BannedUser ayarlanacak
         public async Task<bool> BanUser(int roomId, int userId, User admin)
         {
             var room = await _context.Rooms.Include(r => r.Admin).Include(r => r.BannedUsers).FirstOrDefaultAsync(r => r.Id == roomId);

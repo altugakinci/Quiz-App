@@ -151,19 +151,18 @@ namespace GorselProg
             active_panel = pnlMainMenu;
         }
 
-        private async void btnCAGCreateRoom_Click(object sender, EventArgs e)
+        private async void btnCAGCreateRoom_ClickAsync(object sender, EventArgs e)
         {
-      
             if (txtCAGRoomName.Text == "" && txtCAGRoomPassword.Text == "")
             {
                 // Hata mesajı dönelim
-                
+
             }
 
             RoomService roomService = new RoomService(new qAppDBContext()); // qAppDBContext sınıfının örneğini burada oluşturmanız gerekiyor
 
             User admin = UserSession.Instance.GetCurrentUser();
-          
+
             Room room = await roomService.CreateRoom(txtCAGRoomName.Text, txtCAGRoomPassword.Text, admin);
 
             if (room != null)
@@ -180,7 +179,7 @@ namespace GorselProg
             }
 
 
-
+    
         }
 
         private void btnJAGJoinRoom_Click(object sender, EventArgs e)
@@ -211,6 +210,7 @@ namespace GorselProg
 
         private void btnSorularGeri_Click(object sender, EventArgs e)
         {
+
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
             active_panel = pnlMainMenu;
         }
@@ -229,6 +229,8 @@ namespace GorselProg
 
         private void btnSorularSoruEkle_Click(object sender, EventArgs e)
         {
+            
+
             PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
             active_panel = pnlSoruEkle;
         }
