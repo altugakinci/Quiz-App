@@ -32,7 +32,7 @@ namespace GorselProg.Session
         {
             _currentUser = user;
         }
-        public Room GetCurrentRoom()
+        public User GetCurrentUser()
         {
             return _currentUser;
         }
