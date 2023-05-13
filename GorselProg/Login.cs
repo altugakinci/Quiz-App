@@ -90,9 +90,6 @@ namespace GorselProg
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            /*
-            bool isValid = false;
-            
             if (txtLoginEmail.Text == "")
             {
                 lblLoginWarning.Text = "Email alanı boş bırakılamaz!";
@@ -105,7 +102,7 @@ namespace GorselProg
             }
 
 
-            isValid = await _userService.LoginUser(txtLoginEmail.Text, txtLoginPassword.Text);
+            bool isValid = await _userService.LoginUser(txtLoginEmail.Text, txtLoginPassword.Text);
 
             // TODO: Loading işlemleri buraya eklenebilir
 
@@ -118,12 +115,7 @@ namespace GorselProg
                 game.Show();
                 game.WindowState = FormWindowState.Maximized;
             }
-            */
-            formMainMenu game = new formMainMenu();
-            this.Hide();
-            game.Show();
-            game.WindowState = FormWindowState.Maximized;
-
+            
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)

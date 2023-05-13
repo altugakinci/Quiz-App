@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GorselProg.Model;
+using GorselProg.Services;
+using GorselProg.Session;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -148,11 +151,36 @@ namespace GorselProg
             active_panel = pnlMainMenu;
         }
 
-        private void btnCAGCreateRoom_Click(object sender, EventArgs e)
+        private async void btnCAGCreateRoom_Click(object sender, EventArgs e)
         {
-            LobbyGame game = new LobbyGame("Leader");
-            game.Show();
-            this.Hide();
+      
+            if (txtCAGRoomName.Text == "" && txtCAGRoomPassword.Text == "")
+            {
+                // Hata mesajı dönelim
+                
+            }
+
+            RoomService roomService = new RoomService(new qAppDBContext()); // qAppDBContext sınıfının örneğini burada oluşturmanız gerekiyor
+
+            User admin = UserSession.Instance.GetCurrentUser();
+          
+            Room room = await roomService.CreateRoom(txtCAGRoomName.Text, txtCAGRoomPassword.Text, admin);
+
+            if (room != null)
+            {
+                // Room oluşturulduğunda yapılacak işlemler
+                LobbyGame game = new LobbyGame("Leader");
+                game.Show();
+                this.Hide();
+            }
+            else
+            {
+                // Room oluşturulamadığında yapılacak işlemler
+                // Hata mesajı döndürebilirsiniz
+            }
+
+
+
         }
 
         private void btnJAGJoinRoom_Click(object sender, EventArgs e)

@@ -77,13 +77,34 @@ namespace GorselProg
         {
 
             Button button = (Button)sender;
-            if (button.ForeColor != Color.Green)
-                button.ForeColor = Color.Green;
-            else
-                button.ForeColor = ThemeHandler.color_texts;
 
-            categoryButtons[buttonIndex] = !categoryButtons[buttonIndex];
-            
+            if (button.ForeColor != Color.Green)
+            {
+                button.ForeColor = Color.Green;
+                AddSelectedCategory(buttonIndex);
+            }
+            else
+            {
+                button.ForeColor = ThemeHandler.color_texts;
+                RemoveSelectedCategory(buttonIndex);
+            }
+
+        }
+
+        private void AddSelectedCategory(int buttonIndex)
+        {
+            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
+            Category selectedCategory = allCategories[buttonIndex];
+
+            RoomSession.Instance.AddSelectedCategory(selectedCategory);
+        }
+
+        private void RemoveSelectedCategory(int buttonIndex)
+        {
+            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
+            Category selectedCategory = allCategories[buttonIndex];
+
+            RoomSession.Instance.RemoveSelectedCategory(selectedCategory);
         }
 
         private void btnLeaderSpor_Click(object sender, EventArgs e)
@@ -113,19 +134,20 @@ namespace GorselProg
 
         private async void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
         {
-            /*
+           
             // Get the selected categories
             // TODO:Kategoriler
-            List<Category> categories = GetSelectedCategories();
+            List<Category> categories = RoomSession.Instance.GetSelectedCategories();
 
             // Get the currently logged in user
-            int sessionUserId = UserSession.Instance.Id;
+            User admin = UserSession.Instance.GetCurrentUser();
 
             // Create an instance of RoomService
             var roomService = new RoomService(new qAppDBContext());
 
+            Room room = RoomSession.Instance.GetCurrentRoom();
             // Call the StartGame method
-            var result = await roomService.StartGame(roomId, categories, sessionUserId,DateTime.Now.AddMinutes(10));
+            var result = await roomService.StartGame(room.Id, categories, admin.Id,DateTime.Now.AddMinutes(10));
 
             if (result)
             {
@@ -135,7 +157,7 @@ namespace GorselProg
             {
                 MessageBox.Show("Failed to start game.");
             }
-             */
+             
 
             PanelHandler.setPanelFill(active_panel, pnlGame);
             active_panel = pnlGame;

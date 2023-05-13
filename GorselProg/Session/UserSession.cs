@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GorselProg.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,24 +7,35 @@ using System.Threading.Tasks;
 
 namespace GorselProg.Session
 {
-    public sealed class UserSession
+    class UserSession
     {
-        private static readonly UserSession instance = new UserSession();
+        private static  UserSession _instance;
+        private User _currentUser;
 
-        private UserSession() { }
+        private UserSession() {
+            _currentUser = new User();
+        }
 
         public static UserSession Instance
         {
             get
             {
-                return instance;
+                if (_instance == null)
+                {
+                    _instance = new UserSession();
+                }
+                return _instance;
             }
         }
 
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public string Email { get; set; }
-        public int Level { get; set; }
-        public int Xp { get; set; }
+        public void SetCurrentUser(User user)
+        {
+            _currentUser = user;
+        }
+        public Room GetCurrentRoom()
+        {
+            return _currentUser;
+        }
+
     }
 }

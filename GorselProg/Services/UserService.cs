@@ -176,7 +176,7 @@ namespace GorselProg.Services
         {
             //_context.Users.Update(user);
             _context.SaveChanges();
-            // TODO:Bu kısmı ibrahim arkadaşımız yapacak
+           
         }
 
         // Kullanıcı oturum kapatma işlemi
