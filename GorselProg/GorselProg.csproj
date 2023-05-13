@@ -67,6 +67,29 @@
     <Compile Include="Migrations\202304160835197_initUserHash.designer.cs">
       <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304181632165_userLevelXp.cs" />
+    <Compile Include="Migrations\202304181632165_userLevelXp.designer.cs">
+      <DependentUpon>202304181632165_userLevelXp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305040834040_game-mech.cs" />
+    <Compile Include="Migrations\202305040834040_game-mech.designer.cs">
+      <DependentUpon>202305040834040_game-mech.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305131040393_addAnswerModel.cs" />
+    <Compile Include="Migrations\202305131040393_addAnswerModel.designer.cs">
+      <DependentUpon>202305131040393_addAnswerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Answer.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Chat.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\Room.cs" />
+    <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\QuestionService.cs" />
+    <Compile Include="Services\RoomService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Session\UserSession.cs" />
     <Compile Include="ThemeHandler.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -111,6 +134,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304160835197_initUserHash.resx">
       <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304181632165_userLevelXp.resx">
+      <DependentUpon>202304181632165_userLevelXp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305040834040_game-mech.resx">
+      <DependentUpon>202305040834040_game-mech.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305131040393_addAnswerModel.resx">
+      <DependentUpon>202305131040393_addAnswerModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
