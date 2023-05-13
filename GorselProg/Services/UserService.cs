@@ -145,11 +145,7 @@ namespace GorselProg.Services
                         {
                             isValid = true;
                             //return true; // Şifre doğru
-                            UserSession.Instance.Id = user.Id;
-                            UserSession.Instance.UserName = user.UserName;
-                            UserSession.Instance.Email = user.Email;
-                            UserSession.Instance.Level = user.Level;
-                            UserSession.Instance.Xp = user.Xp;
+                            UserSession.Instance.SetCurrentUser(user);
                         }
                         else
                         {
@@ -182,11 +178,7 @@ namespace GorselProg.Services
         // Kullanıcı oturum kapatma işlemi
         public void LogoutUser()
         {
-            UserSession.Instance.Id = 0;
-            UserSession.Instance.UserName = null;
-            UserSession.Instance.Email = null;
-            UserSession.Instance.Level = 1;
-            UserSession.Instance.Xp = 0;
+            UserSession.Instance.SetCurrentUser(null);
         }
     }
 }
