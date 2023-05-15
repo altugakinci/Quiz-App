@@ -114,6 +114,14 @@ namespace GorselProg
             this.txtSoruEkleSoru = new System.Windows.Forms.TextBox();
             this.btnSoruEkleGeri = new System.Windows.Forms.Button();
             this.pnlSorulariGoruntule = new System.Windows.Forms.Panel();
+            this.btnSoruGuncelleSG = new System.Windows.Forms.Button();
+            this.btnTumuSG = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnEglenceSG = new System.Windows.Forms.Button();
+            this.btnBilimSG = new System.Windows.Forms.Button();
+            this.btnSanatSG = new System.Windows.Forms.Button();
+            this.btnTarihSG = new System.Windows.Forms.Button();
+            this.btnSporSG = new System.Windows.Forms.Button();
             this.btnSoruSil = new System.Windows.Forms.Button();
             this.btnSorulariGoruntuleGeri = new System.Windows.Forms.Button();
             this.lvSorular = new System.Windows.Forms.ListView();
@@ -124,14 +132,6 @@ namespace GorselProg
             this.Opt3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Opt4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DogruCevap = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.btnSoruGuncelleSG = new System.Windows.Forms.Button();
             this.pnlSoruGuncelle = new System.Windows.Forms.Panel();
             this.btnSoruGuncelle = new System.Windows.Forms.Button();
             this.rbOption4SG = new System.Windows.Forms.RadioButton();
@@ -1276,29 +1276,125 @@ namespace GorselProg
             this.pnlSorulariGoruntule.BackColor = System.Drawing.Color.Transparent;
             this.pnlSorulariGoruntule.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlSorulariGoruntule.Controls.Add(this.btnSoruGuncelleSG);
-            this.pnlSorulariGoruntule.Controls.Add(this.button6);
+            this.pnlSorulariGoruntule.Controls.Add(this.btnTumuSG);
             this.pnlSorulariGoruntule.Controls.Add(this.label24);
-            this.pnlSorulariGoruntule.Controls.Add(this.button5);
-            this.pnlSorulariGoruntule.Controls.Add(this.button4);
-            this.pnlSorulariGoruntule.Controls.Add(this.button3);
-            this.pnlSorulariGoruntule.Controls.Add(this.button2);
-            this.pnlSorulariGoruntule.Controls.Add(this.button1);
+            this.pnlSorulariGoruntule.Controls.Add(this.btnEglenceSG);
+            this.pnlSorulariGoruntule.Controls.Add(this.btnBilimSG);
+            this.pnlSorulariGoruntule.Controls.Add(this.btnSanatSG);
+            this.pnlSorulariGoruntule.Controls.Add(this.btnTarihSG);
+            this.pnlSorulariGoruntule.Controls.Add(this.btnSporSG);
             this.pnlSorulariGoruntule.Controls.Add(this.btnSoruSil);
             this.pnlSorulariGoruntule.Controls.Add(this.btnSorulariGoruntuleGeri);
             this.pnlSorulariGoruntule.Controls.Add(this.lvSorular);
-            this.pnlSorulariGoruntule.Location = new System.Drawing.Point(103, 349);
+            this.pnlSorulariGoruntule.Location = new System.Drawing.Point(97, 348);
             this.pnlSorulariGoruntule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlSorulariGoruntule.Name = "pnlSorulariGoruntule";
-            this.pnlSorulariGoruntule.Size = new System.Drawing.Size(77, 69);
+            this.pnlSorulariGoruntule.Size = new System.Drawing.Size(83, 69);
             this.pnlSorulariGoruntule.TabIndex = 12;
             this.pnlSorulariGoruntule.Visible = false;
+            // 
+            // btnSoruGuncelleSG
+            // 
+            this.btnSoruGuncelleSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSoruGuncelleSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSoruGuncelleSG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSoruGuncelleSG.Location = new System.Drawing.Point(-97, 438);
+            this.btnSoruGuncelleSG.Name = "btnSoruGuncelleSG";
+            this.btnSoruGuncelleSG.Size = new System.Drawing.Size(164, 52);
+            this.btnSoruGuncelleSG.TabIndex = 12;
+            this.btnSoruGuncelleSG.Text = "Güncelle";
+            this.btnSoruGuncelleSG.UseVisualStyleBackColor = true;
+            this.btnSoruGuncelleSG.Click += new System.EventHandler(this.btnSoruGuncelleSG_Click);
+            // 
+            // btnTumuSG
+            // 
+            this.btnTumuSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTumuSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTumuSG.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTumuSG.Location = new System.Drawing.Point(452, -29);
+            this.btnTumuSG.Name = "btnTumuSG";
+            this.btnTumuSG.Size = new System.Drawing.Size(81, 71);
+            this.btnTumuSG.TabIndex = 11;
+            this.btnTumuSG.Text = "Tümü";
+            this.btnTumuSG.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label24.Location = new System.Drawing.Point(13, -53);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(141, 21);
+            this.label24.TabIndex = 10;
+            this.label24.Text = "Kategori Seçin:";
+            // 
+            // btnEglenceSG
+            // 
+            this.btnEglenceSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnEglenceSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEglenceSG.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnEglenceSG.Location = new System.Drawing.Point(365, -29);
+            this.btnEglenceSG.Name = "btnEglenceSG";
+            this.btnEglenceSG.Size = new System.Drawing.Size(81, 71);
+            this.btnEglenceSG.TabIndex = 9;
+            this.btnEglenceSG.Text = "Eğlence";
+            this.btnEglenceSG.UseVisualStyleBackColor = true;
+            // 
+            // btnBilimSG
+            // 
+            this.btnBilimSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnBilimSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBilimSG.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBilimSG.Location = new System.Drawing.Point(278, -29);
+            this.btnBilimSG.Name = "btnBilimSG";
+            this.btnBilimSG.Size = new System.Drawing.Size(81, 71);
+            this.btnBilimSG.TabIndex = 8;
+            this.btnBilimSG.Text = "Bilim";
+            this.btnBilimSG.UseVisualStyleBackColor = true;
+            // 
+            // btnSanatSG
+            // 
+            this.btnSanatSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSanatSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSanatSG.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSanatSG.Location = new System.Drawing.Point(191, -29);
+            this.btnSanatSG.Name = "btnSanatSG";
+            this.btnSanatSG.Size = new System.Drawing.Size(81, 71);
+            this.btnSanatSG.TabIndex = 7;
+            this.btnSanatSG.Text = "Sanat";
+            this.btnSanatSG.UseVisualStyleBackColor = true;
+            // 
+            // btnTarihSG
+            // 
+            this.btnTarihSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTarihSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTarihSG.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTarihSG.Location = new System.Drawing.Point(104, -29);
+            this.btnTarihSG.Name = "btnTarihSG";
+            this.btnTarihSG.Size = new System.Drawing.Size(81, 71);
+            this.btnTarihSG.TabIndex = 6;
+            this.btnTarihSG.Text = "Tarih";
+            this.btnTarihSG.UseVisualStyleBackColor = true;
+            // 
+            // btnSporSG
+            // 
+            this.btnSporSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSporSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSporSG.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSporSG.Location = new System.Drawing.Point(17, -29);
+            this.btnSporSG.Name = "btnSporSG";
+            this.btnSporSG.Size = new System.Drawing.Size(81, 71);
+            this.btnSporSG.TabIndex = 5;
+            this.btnSporSG.Text = "Spor";
+            this.btnSporSG.UseVisualStyleBackColor = true;
             // 
             // btnSoruSil
             // 
             this.btnSoruSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSoruSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoruSil.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruSil.Location = new System.Drawing.Point(-103, 380);
+            this.btnSoruSil.Location = new System.Drawing.Point(-97, 380);
             this.btnSoruSil.Name = "btnSoruSil";
             this.btnSoruSil.Size = new System.Drawing.Size(164, 52);
             this.btnSoruSil.TabIndex = 4;
@@ -1334,7 +1430,7 @@ namespace GorselProg
             this.lvSorular.HideSelection = false;
             this.lvSorular.Location = new System.Drawing.Point(0, 0);
             this.lvSorular.Name = "lvSorular";
-            this.lvSorular.Size = new System.Drawing.Size(73, 373);
+            this.lvSorular.Size = new System.Drawing.Size(79, 373);
             this.lvSorular.TabIndex = 3;
             this.lvSorular.UseCompatibleStateImageBehavior = false;
             this.lvSorular.View = System.Windows.Forms.View.Details;
@@ -1370,102 +1466,6 @@ namespace GorselProg
             // 
             this.DogruCevap.Text = "Doğru Cevap";
             this.DogruCevap.Width = 100;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(17, -29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 71);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Spor";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(104, -29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(81, 71);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Tarih";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(191, -29);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(81, 71);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Sanat";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(278, -29);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(81, 71);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Bilim";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(365, -29);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(81, 71);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "Eğlence";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label24.Location = new System.Drawing.Point(13, -53);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(141, 21);
-            this.label24.TabIndex = 10;
-            this.label24.Text = "Kategori Seçin:";
-            // 
-            // button6
-            // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button6.Location = new System.Drawing.Point(452, -29);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(81, 71);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "Tümü";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // btnSoruGuncelleSG
-            // 
-            this.btnSoruGuncelleSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSoruGuncelleSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSoruGuncelleSG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruGuncelleSG.Location = new System.Drawing.Point(-103, 438);
-            this.btnSoruGuncelleSG.Name = "btnSoruGuncelleSG";
-            this.btnSoruGuncelleSG.Size = new System.Drawing.Size(164, 52);
-            this.btnSoruGuncelleSG.TabIndex = 12;
-            this.btnSoruGuncelleSG.Text = "Güncelle";
-            this.btnSoruGuncelleSG.UseVisualStyleBackColor = true;
-            this.btnSoruGuncelleSG.Click += new System.EventHandler(this.btnSoruGuncelleSG_Click);
             // 
             // pnlSoruGuncelle
             // 
@@ -1818,13 +1818,13 @@ namespace GorselProg
         private System.Windows.Forms.ColumnHeader Opt4;
         private System.Windows.Forms.ColumnHeader DogruCevap;
         private System.Windows.Forms.Button btnSorulariGoruntuleGeri;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnSporSG;
+        private System.Windows.Forms.Button btnTumuSG;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEglenceSG;
+        private System.Windows.Forms.Button btnBilimSG;
+        private System.Windows.Forms.Button btnSanatSG;
+        private System.Windows.Forms.Button btnTarihSG;
         private System.Windows.Forms.Button btnSoruGuncelleSG;
         private System.Windows.Forms.Panel pnlSoruGuncelle;
         private System.Windows.Forms.Button btnSoruGuncelle;
