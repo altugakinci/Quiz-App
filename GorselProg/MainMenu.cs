@@ -346,13 +346,14 @@ namespace GorselProg
             // Soruları ListView'e ekle
             foreach (Question question in questions)
             {
-                ListViewItem item = new ListViewItem(question.QuestionText);
-                item.SubItems.Add(question.Id.ToString());
+                ListViewItem item = new ListViewItem(question.Id.ToString());
+                //item.SubItems.Add(question.Id.ToString());
                 item.SubItems.Add(question.Category.Name);
 
                 item.SubItems.Add(question.QuestionText);
 
                 string[] options = Helper.SplitString(question.OptionsText);
+
                 item.SubItems.Add(options[0]);
                 item.SubItems.Add(options[1]);
                 item.SubItems.Add(options[2]);
