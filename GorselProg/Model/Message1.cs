@@ -18,9 +18,9 @@ namespace GorselProg
         [Key]
         public Guid Id { get; set; }
 
-        public Guid MessageId { get; set; }
+        public Guid? MessageId { get; set; }
 
-        public Guid RoomId { get; set; }
+        public Guid? RoomId { get; set; }
 
         public virtual Message Message { get; set; }
 

@@ -19,7 +19,7 @@ namespace GorselProg
         [Key]
         public Guid Id { get; set; }
 
-        public Guid QuestionsId { get; set; }
+        public Guid? QuestionsId { get; set; }
 
         public DateTime StartTime { get; set; }
 

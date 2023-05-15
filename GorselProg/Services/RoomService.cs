@@ -3,6 +3,7 @@ using GorselProg.Session;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,171 +14,155 @@ namespace GorselProg.Services
 {
 
 
-    class RoomService
+    static class RoomService
     {
-        /*
-         * 
-        
-        private readonly qAppDBContext _context;
+        public static bool loadingIndicator = false;
 
-        public RoomService(qAppDBContext context)
+
+        public static void ShowLoadingIndicator()
         {
-            _context = context;
+            loadingIndicator = true;
+        }
+        public static void HideLoadingIndicator()
+        {
+            loadingIndicator = true;
         }
 
-        public async Task<Room> CreateRoom(string name, string password, User admin)
+        public static async Task<bool> CreateRoom(Room room)
         {
-
-            List<Category> allCategories = await _context.Categories.ToListAsync();
-            RoomSession.Instance.SetAllCategories(allCategories);
-
-            var room = new Room
+            try
             {
-                Name = name,
-                Password = password,
-                Admin = admin,
-                Users = new List<User>()
-            };
+                ShowLoadingIndicator();
+                using (var db = new qAppDBContext())
+                {
+             
 
-            RoomSession.Instance.SetAllCategories(allCategories);
+                
+                    var newRoom = new Room
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = room.Name,
+                        Password = room.Password,
+                        Code = room.Code,
+                        AdminId = room.AdminId,
+                    };
 
-            _context.Rooms.Add(room);
-            await _context.SaveChangesAsync();
-            RoomSession.Instance.SetCurrentRoom(room);
+                    db.Rooms.Add(newRoom);
+                    await db.SaveChangesAsync();
 
-            return room;
+
+                }
+                return true;
+            }
+            //catch
+            //{
+            //    return false;
+            //}
+            finally
+            {
+                HideLoadingIndicator();
+            }
         }
 
-        public async Task<List<Room>> ListRooms()
+        public static async Task<List<Room>> ListRooms()
         {
-            var rooms = await _context.Rooms.ToListAsync();
-            var result = rooms.Where(r => r.Admin != null).ToList();
-            return result;
+            try
+            {
+                ShowLoadingIndicator();
+                using (var context = new qAppDBContext())
+                {
+                    var rooms = await context.Rooms.ToListAsync();
+                    return rooms;
+                }
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
         }
 
-        public async Task<bool> EnterRoom(string name, string password, User user)
+        public static async Task<bool> JoinRoom(Guid userId, Guid roomId)
         {
-            var room = await _context.Rooms.Include(r => r.Users).FirstOrDefaultAsync(r => r.Name == name && r.Password == password);
-
-            if (room == null)
+            try
             {
-                return false;
-            }
+                ShowLoadingIndicator();
+                using (var db = new qAppDBContext())
+                {
+                    var room = await db.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+                    var user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
-            if (room.BannedUsers != null && room.BannedUsers.Contains(user))
+                    if (room != null && user != null)
+                    {
+                        var player = new Player
+                        {
+                            Id = Guid.NewGuid(),
+                            UserId = user.Id,
+                            RoomId = room.Id
+                        };
+                        room.Players.Add(player);
+                        await db.SaveChangesAsync();
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            finally
             {
-                return false;
+                HideLoadingIndicator();
             }
-
-            room.Users.Add(user);
-            await _context.SaveChangesAsync();
-
-            return true;
         }
 
-        public async Task<bool> BanUser(int roomId, int userId, User admin)
+        public static async Task<bool> BanUser(Guid roomId, Guid userId)
         {
-            var room = await _context.Rooms.Include(r => r.Admin).Include(r => r.BannedUsers).FirstOrDefaultAsync(r => r.Id == roomId);
-
-            if (room == null || room.Admin.Id != admin.Id)
+            try
             {
-                return false;
+                ShowLoadingIndicator();
+                using (var db = new qAppDBContext())
+                {
+                    var room = await db.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+                    var user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+                    if (room != null && user != null)
+                    {
+                        var bannedUser = new BannedUser
+                        {
+                            Id = Guid.NewGuid(),
+                            UserId = user.Id,
+                            RoomId = room.Id
+                        };
+                        room.BannedUsers.Add(bannedUser);
+                        await db.SaveChangesAsync();
+                        return true;
+                    }
+                    return false;
+                }
             }
-
-            var user = await _context.Users.FindAsync(userId);
-
-            if (user == null)
+            finally
             {
-                return false;
+                HideLoadingIndicator();
             }
-
-            if (room.BannedUsers == null)
-            {
-                room.BannedUsers = new List<User>();
-            }
-
-            room.BannedUsers.Add(user);
-            await _context.SaveChangesAsync();
-
-            return true;
         }
 
-        public async Task<List<User>> GetRoomUsers(int roomId)
+        public static async Task<List<User>> GetRoomUsers(Guid roomId)
         {
-            var room = await _context.Rooms.Include(r => r.Users).FirstOrDefaultAsync(r => r.Id == roomId);
-
-            if (room == null)
+            try
             {
-                return null;
-            }
+                ShowLoadingIndicator();
+                using (var db = new qAppDBContext())
+                {
+                    var users = await db.Players
+                    .Where(p => p.RoomId == roomId)
+                    .Select(p => p.User)
+                    .ToListAsync();
 
-            return room.Users.ToList();
+                    return users;
+                }
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
         }
-
-        public async Task<bool> StartGame(int roomId, List<Category> categories, int adminId, DateTime endTime)
-        {
-            var room = await _context.Rooms
-                .Include(r => r.Admin)
-                .Include(r => r.Users)
-                .FirstOrDefaultAsync(r => r.Id == roomId);
-
-            if (room == null || room.Admin.Id != adminId)
-            {
-                return false;
-            }
-
-            var questions = await _context.Questions
-                .Where(q => categories.Any(c => q.Categories.Contains(c)))
-                .OrderBy(q => Guid.NewGuid())
-                .ToListAsync();
-
-            if (questions.Count == 0)
-            {
-                return false;
-            }
-
-            var game = new Game
-            {
-                RoomId = roomId,
-                Questions = questions,
-                StartTime = DateTime.Now,
-                EndTime = endTime
-            };
-
-            _context.Games.Add(game);
-            await _context.SaveChangesAsync();
-
-            room.CurrentGame = game;
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
-
-        public async Task<bool> ExitGame(int roomId, User user)
-        {
-            var room = await _context.Rooms
-                .Include(r => r.Admin)
-                .Include(r => r.Users)
-                .FirstOrDefaultAsync(r => r.Id == roomId);
-
-            if (room == null)
-            {
-                return false;
-            }
-
-            room.Users.Remove(user);
-
-            if (room.Admin.UserId == user.UserId)
-            {
-                room.Admin = null;
-            }
-
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
-
-         */
     }
 }
 

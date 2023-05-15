@@ -30,15 +30,17 @@ namespace GorselProg
         [Required]
         public string Code { get; set; }
 
-        public Guid PlayersId { get; set; }
+        public Guid? PlayersId { get; set; }
 
-        public Guid GamesId { get; set; }
+        public Guid? GamesId { get; set; }
 
-        public Guid MessagesId { get; set; }
+        public Guid? MessagesId { get; set; }
 
-        public Guid CurrentGameId { get; set; }
+        public Guid? CurrentGameId { get; set; }
 
-        public Guid BannedUsersId { get; set; }
+        public Guid? AdminId { get; set; }
+
+        public Guid? BannedUsersId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BannedUser> BannedUsers { get; set; }

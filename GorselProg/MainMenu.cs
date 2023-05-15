@@ -160,16 +160,38 @@ namespace GorselProg
 
             }
 
-            //RoomService2 roomService = new RoomService2(new qAppDBContext()); // qAppDBContext sınıfının örneğini burada oluşturmanız gerekiyor
+           
 
             User admin = UserSession.Instance.GetCurrentUser();
 
             
-            List<Category> categories = RoomSession.Instance.GetAllCategories();
+            //List<Category> categories = RoomSession.Instance.GetAllCategories();
 
-          
-             // Room oluşturulduğunda yapılacak işlemler
-             LobbyGame game = new LobbyGame("Leader");
+            // Oda oluşturma işlemini yap
+            var newRoom = new Room
+            {
+                Name = txtCAGRoomName.Text,
+                Password = txtCAGRoomPassword.Text,
+                Code = "C101",
+                AdminId = admin.Id,
+
+            };
+
+            bool isRoomCreated = await RoomService.CreateRoom(newRoom);
+
+            if (isRoomCreated)
+            {
+                MessageBox.Show("Oda başarıyla oluşturuldu.");
+                // Oda oluşturulduktan sonra yapılacak işlemler
+            }
+            else
+            {
+                MessageBox.Show("Oda oluşturulurken bir hata oluştu.");
+            }
+
+
+            // Room oluşturulduğunda yapılacak işlemler
+            LobbyGame game = new LobbyGame("Leader");
              game.Show();
              this.Hide();
 

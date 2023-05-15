@@ -28,9 +28,9 @@ namespace GorselProg
         [Required]
         public int CorrectAnswerIndex { get; set; }
 
-        public Guid CategoryId { get; set; }
+        public Guid? CategoryId { get; set; }
 
-        public Guid AnswersId { get; set; }
+        public Guid? AnswersId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Answer1> Answers { get; set; }

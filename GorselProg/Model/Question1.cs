@@ -18,9 +18,9 @@ namespace GorselProg
         [Key]
         public Guid Id { get; set; }
 
-        public Guid QuestionId { get; set; }
+        public Guid? QuestionId { get; set; }
 
-        public Guid GameId { get; set; }
+        public Guid? GameId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game> Games { get; set; }
