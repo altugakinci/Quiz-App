@@ -280,7 +280,7 @@ namespace GorselProg
             };
 
             int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
-            Guid categoryId = Guid.Parse("B5426946-4A06-47FA-B398-16A5322750E0");
+            Guid categoryId = Guid.Parse("DDB28117-98FF-4015-9CBD-4B53BFD5272A");
 
             // Yeni bir Question nesnesi oluşturun
             var newQuestion = new Question
@@ -432,6 +432,15 @@ namespace GorselProg
 
         private void btnTumuSG_Click(object sender, EventArgs e)
         {
+            viewQuestions("all");
+        }
+
+        private async void btnSoruSil_Click(object sender, EventArgs e)
+        {
+
+            Guid id = Guid.Parse(lvSorular.SelectedItems[0].Text);
+            await QuestionService.DeleteQuestion(id);
+
             viewQuestions("all");
         }
     }

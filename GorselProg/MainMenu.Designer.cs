@@ -1408,6 +1408,7 @@ namespace GorselProg
             this.btnSoruSil.TabIndex = 4;
             this.btnSoruSil.Text = "Soruyu Sil";
             this.btnSoruSil.UseVisualStyleBackColor = true;
+            this.btnSoruSil.Click += new System.EventHandler(this.btnSoruSil_Click);
             // 
             // btnSorulariGoruntuleGeri
             // 

@@ -68,10 +68,10 @@ namespace GorselProg.Services
                     return true;
                 }
             }
-            catch
+            /*catch
             {
                 return false;
-            }
+            }*/
             finally
             {
                 HideLoadingIndicator();
