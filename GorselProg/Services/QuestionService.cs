@@ -29,7 +29,7 @@ namespace GorselProg.Services
                 ShowLoadingIndicator();
                 using (var db = new qAppDBContext())
                 {
-                    var questions = await db.Questions.ToListAsync();
+                    var questions = await db.Questions.Include(q => q.Category).ToListAsync(); ;
                     return questions;
                 }
             }
