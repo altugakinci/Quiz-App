@@ -23,6 +23,8 @@ namespace GorselProg
         //ThemeHandler themeHandler = new ThemeHandler();
         PanelHandler panelHandler = new PanelHandler();
 
+
+
         private void btnSignOut_Click(object sender, EventArgs e)
         {
             UserService.LogoutUser();
@@ -190,7 +192,7 @@ namespace GorselProg
 
 
             // Room oluşturulduğunda yapılacak işlemler
-            LobbyGame game = new LobbyGame("Leader");
+             LobbyGame game = new LobbyGame("Leader");
              game.Show();
              this.Hide();
 
@@ -258,16 +260,99 @@ namespace GorselProg
             active_panel = pnlSorular;
         }
 
-        private void btnSorularSoruEkle_Click(object sender, EventArgs e)
+        private  void btnSorularSoruEkle_Click(object sender, EventArgs e)
         {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
-            active_panel = pnlSoruEkle;
+            
+              PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+              active_panel = pnlSoruEkle;
+            
+        }
+
+        private async void btnSoruEkle_Click(object sender, EventArgs e)
+        {
+            string questionText = txtSoruEkleSoru.Text;
+            string optionsText = Helper.ConcatenateStrings(txtSoruEkleOpt1.Text, txtSoruEkleOpt2.Text, txtSoruEkleOpt3.Text, txtSoruEkleOpt4.Text);
+            bool[] options = new bool[] { 
+                rbSoruEkleDogru1.Checked,
+                rbSoruEkleDogru2.Checked,
+                rbSoruEkleDogru3.Checked,
+                rbSoruEkleDogru4.Checked
+            };
+
+            int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
+            Guid categoryId = Guid.Parse("B5426946-4A06-47FA-B398-16A5322750E0");
+
+            // Yeni bir Question nesnesi oluşturun
+            var newQuestion = new Question
+            {
+                Id = Guid.NewGuid(),
+                QuestionText = questionText,
+                OptionsText = optionsText,
+                CorrectAnswerIndex = correctAnswerIndex,
+                CategoryId = categoryId
+            };
+
+            // QuestionService'e yeni soruyu ekleyin
+            bool result = await QuestionService.AddQuestion(newQuestion);
+
+            if (result)
+            {
+                MessageBox.Show("Soru başarıyla eklendi.");
+                ClearQuestionFields();
+                PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+                active_panel = pnlSoruEkle;
+            }
+            else
+            {
+                MessageBox.Show("Soru eklenirken bir hata oluştu.");
+            }
+            
+        }
+
+        private void ClearQuestionFields()
+        {
+            txtSoruEkleSoru.Text = "";
+
+            txtSoruEkleOpt1.Text = "";
+            txtSoruEkleOpt2.Text = "";
+            txtSoruEkleOpt3.Text = "";
+            txtSoruEkleOpt4.Text = "";
+
+            rbSoruEkleDogru1.Checked = false;
+            rbSoruEkleDogru2.Checked = false;
+            rbSoruEkleDogru3.Checked = false;
+            rbSoruEkleDogru4.Checked = false;
+
+           // Categories
         }
 
         private void btnSorularGoruntule_Click(object sender, EventArgs e)
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
             active_panel = pnlSorulariGoruntule;
+
+            //viewQuestions();
+            
+        }
+
+        private async void viewQuestions()
+        {
+            // ListView temizle
+            lvSorular.Items.Clear();
+
+            // Soruları veritabanından çek
+            List<Question> sorular = await QuestionService.GetAllQuestions();
+
+            // Soruları ListView'e ekle
+            foreach (Question soru in sorular)
+            {
+                ListViewItem item = new ListViewItem(soru.QuestionText);
+                item.SubItems.Add(soru.OptionsText);
+                item.SubItems.Add(soru.CorrectAnswerIndex.ToString());
+                item.SubItems.Add(soru.Category.Name);
+
+                lvSorular.Items.Add(item);
+            }
         }
 
         private void btnSorulariGoruntuleGeri_Click(object sender, EventArgs e)

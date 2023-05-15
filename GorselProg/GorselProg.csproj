@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper.cs" />
     <Compile Include="LevelHandler.cs" />
     <Compile Include="LobbyGame.cs">
       <SubType>Form</SubType>
