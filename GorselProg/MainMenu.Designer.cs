@@ -1319,6 +1319,7 @@ namespace GorselProg
             this.btnTumuSG.TabIndex = 11;
             this.btnTumuSG.Text = "Tümü";
             this.btnTumuSG.UseVisualStyleBackColor = true;
+            this.btnTumuSG.Click += new System.EventHandler(this.btnTumuSG_Click);
             // 
             // label24
             // 
@@ -1342,6 +1343,7 @@ namespace GorselProg
             this.btnEglenceSG.TabIndex = 9;
             this.btnEglenceSG.Text = "Eğlence";
             this.btnEglenceSG.UseVisualStyleBackColor = true;
+            this.btnEglenceSG.Click += new System.EventHandler(this.btnEglenceSG_Click);
             // 
             // btnBilimSG
             // 
@@ -1354,6 +1356,7 @@ namespace GorselProg
             this.btnBilimSG.TabIndex = 8;
             this.btnBilimSG.Text = "Bilim";
             this.btnBilimSG.UseVisualStyleBackColor = true;
+            this.btnBilimSG.Click += new System.EventHandler(this.btnBilimSG_Click);
             // 
             // btnSanatSG
             // 
@@ -1366,6 +1369,7 @@ namespace GorselProg
             this.btnSanatSG.TabIndex = 7;
             this.btnSanatSG.Text = "Sanat";
             this.btnSanatSG.UseVisualStyleBackColor = true;
+            this.btnSanatSG.Click += new System.EventHandler(this.btnSanatSG_Click);
             // 
             // btnTarihSG
             // 
@@ -1378,6 +1382,7 @@ namespace GorselProg
             this.btnTarihSG.TabIndex = 6;
             this.btnTarihSG.Text = "Tarih";
             this.btnTarihSG.UseVisualStyleBackColor = true;
+            this.btnTarihSG.Click += new System.EventHandler(this.btnTarihSG_Click);
             // 
             // btnSporSG
             // 
@@ -1390,6 +1395,7 @@ namespace GorselProg
             this.btnSporSG.TabIndex = 5;
             this.btnSporSG.Text = "Spor";
             this.btnSporSG.UseVisualStyleBackColor = true;
+            this.btnSporSG.Click += new System.EventHandler(this.btnSporSG_Click);
             // 
             // btnSoruSil
             // 

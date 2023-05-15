@@ -331,11 +331,11 @@ namespace GorselProg
             PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
             active_panel = pnlSorulariGoruntule;
 
-            viewQuestions();
+            viewQuestions("all");
             
         }
 
-        private async void viewQuestions()
+        private async void viewQuestions(string category)
         {
             // ListView temizle
             lvSorular.Items.Clear();
@@ -344,25 +344,47 @@ namespace GorselProg
             List<Question> questions = await QuestionService.GetAllQuestions();
 
             // Soruları ListView'e ekle
-            foreach (Question question in questions)
-            {
-                ListViewItem item = new ListViewItem(question.Id.ToString());
-                //item.SubItems.Add(question.Id.ToString());
-                item.SubItems.Add(question.Category.Name);
+            if (category.Equals("all")) {
+                foreach (Question question in questions)
+                {
+                        ListViewItem item = new ListViewItem(question.Id.ToString());
+                        string[] options = Helper.SplitString(question.OptionsText);
+                        //item.SubItems.Add(question.Id.ToString());
+                        item.SubItems.Add(question.Category.Name);
+                        item.SubItems.Add(question.QuestionText);
+                        item.SubItems.Add(options[0]);
+                        item.SubItems.Add(options[1]);
+                        item.SubItems.Add(options[2]);
+                        item.SubItems.Add(options[3]);
 
-                item.SubItems.Add(question.QuestionText);
+                        item.SubItems.Add(question.CorrectAnswerIndex.ToString());
 
-                string[] options = Helper.SplitString(question.OptionsText);
-
-                item.SubItems.Add(options[0]);
-                item.SubItems.Add(options[1]);
-                item.SubItems.Add(options[2]);
-                item.SubItems.Add(options[3]);
-
-                item.SubItems.Add(question.CorrectAnswerIndex.ToString());
-
-                lvSorular.Items.Add(item);
+                        lvSorular.Items.Add(item);
+                }
             }
+            else
+            {
+                foreach (Question question in questions)
+                {
+                    if (question.Category.Name.Equals(category))
+                    {
+                        ListViewItem item = new ListViewItem(question.Id.ToString());
+                        string[] options = Helper.SplitString(question.OptionsText);
+                        //item.SubItems.Add(question.Id.ToString());
+                        item.SubItems.Add(question.Category.Name);
+                        item.SubItems.Add(question.QuestionText);
+                        item.SubItems.Add(options[0]);
+                        item.SubItems.Add(options[1]);
+                        item.SubItems.Add(options[2]);
+                        item.SubItems.Add(options[3]);
+
+                        item.SubItems.Add(question.CorrectAnswerIndex.ToString());
+
+                        lvSorular.Items.Add(item);
+                    }
+                }
+            }
+            
         }
 
         private void btnSorulariGoruntuleGeri_Click(object sender, EventArgs e)
@@ -381,6 +403,36 @@ namespace GorselProg
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlSoruGuncelle);
             active_panel = pnlSoruGuncelle;
+        }
+
+        private void btnSporSG_Click(object sender, EventArgs e)
+        {
+            viewQuestions("Spor");
+        }
+
+        private void btnTarihSG_Click(object sender, EventArgs e)
+        {
+            viewQuestions("Tarih");
+        }
+
+        private void btnSanatSG_Click(object sender, EventArgs e)
+        {
+            viewQuestions("Sanat");
+        }
+
+        private void btnBilimSG_Click(object sender, EventArgs e)
+        {
+            viewQuestions("Bilim");
+        }
+
+        private void btnEglenceSG_Click(object sender, EventArgs e)
+        {
+            viewQuestions("Eglence");
+        }
+
+        private void btnTumuSG_Click(object sender, EventArgs e)
+        {
+            viewQuestions("all");
         }
     }
 }
