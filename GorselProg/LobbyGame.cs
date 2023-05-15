@@ -134,30 +134,33 @@ namespace GorselProg
 
         private async void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
         {
-           
-            // Get the selected categories
-            // TODO:Kategoriler
-            List<Category> categories = RoomSession.Instance.GetSelectedCategories();
+            /*
 
-            // Get the currently logged in user
-            User admin = UserSession.Instance.GetCurrentUser();
+             // Get the selected categories
+             // TODO:Kategoriler
+             List<Category> categories = RoomSession.Instance.GetSelectedCategories();
 
-            // Create an instance of RoomService
-            var roomService = new RoomService(new qAppDBContext());
+             // Get the currently logged in user
+             User admin = UserSession.Instance.GetCurrentUser();
 
-            Room room = RoomSession.Instance.GetCurrentRoom();
-            // Call the StartGame method
-            var result = await roomService.StartGame(room.Id, categories, admin.Id,DateTime.Now.AddMinutes(10));
+             // Create an instance of RoomService
+             var roomService = new RoomService(new qAppDBContext());
 
-            if (result)
-            {
-                MessageBox.Show("Game started successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Failed to start game.");
-            }
-             
+             Room room = RoomSession.Instance.GetCurrentRoom();
+             // Call the StartGame method
+             var result = await roomService.StartGame(room.Id, categories, admin.Id,DateTime.Now.AddMinutes(10));
+
+             if (result)
+             {
+                 MessageBox.Show("Game started successfully!");
+             }
+             else
+             {
+                 MessageBox.Show("Failed to start game.");
+             }
+             */
+
+
 
             PanelHandler.setPanelFill(active_panel, pnlGame);
             active_panel = pnlGame;

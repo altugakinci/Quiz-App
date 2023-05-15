@@ -15,6 +15,9 @@ namespace GorselProg.Services
 
     class RoomService
     {
+        /*
+         * 
+        
         private readonly qAppDBContext _context;
 
         public RoomService(qAppDBContext context)
@@ -164,7 +167,7 @@ namespace GorselProg.Services
 
             room.Users.Remove(user);
 
-            if (room.Admin.Id == user.Id)
+            if (room.Admin.UserId == user.UserId)
             {
                 room.Admin = null;
             }
@@ -174,7 +177,7 @@ namespace GorselProg.Services
             return true;
         }
 
-
+         */
     }
 }
 

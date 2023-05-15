@@ -6,26 +6,26 @@ namespace GorselProg
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Answer")]
-    public partial class Answer
+    public partial class Player
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Answer()
+        public Player()
         {
-            Answers = new HashSet<Answer1>();
+            Rooms = new HashSet<Room>();
         }
 
         [Key]
         public Guid Id { get; set; }
 
-        [Required]
-        public string AnswerText { get; set; }
+        public Guid RoomId { get; set; }
 
         public Guid UserId { get; set; }
+
+        public virtual Room Room { get; set; }
 
         public virtual User User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Answer1> Answers { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

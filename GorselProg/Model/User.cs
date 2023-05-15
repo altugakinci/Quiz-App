@@ -1,35 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GorselProg.Model
+namespace GorselProg
 {
-    class User
-    {
-        [Key]
-        public int Id { get; set; }
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-        [MaxLength(50)]
+    [Table("User")]
+    public partial class User
+    {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            Answers = new HashSet<Answer>();
+            BannedUsers = new HashSet<BannedUser>();
+            Messages = new HashSet<Message>();
+            Players = new HashSet<Player>();
+        }
+
+        [Key]
+        public Guid Id { get; set; }
+
+        [Required]
         public string UserName { get; set; }
 
         [Required]
-        [MaxLength(100)]
         public string Email { get; set; }
 
         [Required]
         public string Password { get; set; }
 
-        [Required]
         public string Salt { get; set; }
-        
-        [DefaultValue(1)]
+
         public int Level { get; set; }
 
-        [DefaultValue(0)]
         public int Xp { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Answer> Answers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BannedUser> BannedUsers { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message> Messages { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Player> Players { get; set; }
     }
 }

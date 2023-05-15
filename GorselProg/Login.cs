@@ -102,6 +102,8 @@ namespace GorselProg
             }
 
 
+            List<User> allUsers = await _userService.GetAllUsersAsync();
+
             bool isValid = await _userService.LoginUser(txtLoginEmail.Text, txtLoginPassword.Text);
 
             // TODO: Loading işlemleri buraya eklenebilir

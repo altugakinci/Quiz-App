@@ -1,27 +1,63 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GorselProg.Model
+namespace GorselProg
 {
-    class Room
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("Room")]
+    public partial class Room
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Room()
+        {
+            BannedUsers = new HashSet<BannedUser>();
+            Games = new HashSet<Game1>();
+            Messages = new HashSet<Message1>();
+            Players = new HashSet<Player>();
+        }
+
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+
+        [Required]
         public string Name { get; set; }
+
+        [Required]
         public string Password { get; set; }
 
-        public virtual Game CurrentGame { get; set; }
+        [Required]
+        public string Code { get; set; }
 
-        public virtual User Admin { get; set; }
+        public Guid PlayersId { get; set; }
 
-        public virtual ICollection<User> Users { get; set; }
-        public virtual ICollection<Game> Games { get; set; }
-        public virtual ICollection<Chat> Chats { get; set; }
-        public virtual ICollection<User> BannedUsers { get; set; }
+        public Guid GamesId { get; set; }
+
+        public Guid MessagesId { get; set; }
+
+        public Guid CurrentGameId { get; set; }
+
+        public Guid BannedUsersId { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BannedUser> BannedUsers { get; set; }
+
+        public virtual BannedUser BannedUser { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Game1> Games { get; set; }
+
+        public virtual Game1 Game { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Message1> Messages { get; set; }
+
+        public virtual Message1 Message { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Player> Players { get; set; }
+
+        public virtual Player Player { get; set; }
     }
 }

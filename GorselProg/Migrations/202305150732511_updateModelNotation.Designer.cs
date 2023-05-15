@@ -7,13 +7,13 @@ namespace GorselProg.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class userLevelXp : IMigrationMetadata
+    public sealed partial class updateModelNotation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(userLevelXp));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateModelNotation));
         
         string IMigrationMetadata.Id
         {
-            get { return "202304181632165_userLevelXp"; }
+            get { return "202305150732511_updateModelNotation"; }
         }
         
         string IMigrationMetadata.Source

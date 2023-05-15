@@ -66,7 +66,7 @@ namespace GorselProg.Services
         }
 
         // ID'ye göre kullanıcı getirme işlemi
-        public async Task<User> GetUserById(int id)
+        public async Task<User> GetUserById(Guid id)
         {
             try
             {
@@ -92,6 +92,7 @@ namespace GorselProg.Services
                 {
                     var newUser = new User
                     {
+                        Id = Guid.NewGuid(),
                         UserName = user.UserName,
                         Email = user.Email,
                         Password = passSalt[1],
@@ -126,10 +127,11 @@ namespace GorselProg.Services
             {
                 ShowLoadingIndicator();
                 bool isValid = false;
-                using (var db = _context)
-                {
-                    var user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);
-                    if (user == null)
+
+                List<User> allUser = await _context.Users.ToListAsync();
+                var user = await _context.Users.FirstAsync(u => u.Email == email);
+
+                if (user == null)
                     {
                         isValid = false;
                         //return false; // Kullanıcı adı yanlış
@@ -153,7 +155,7 @@ namespace GorselProg.Services
                             //return false; // Şifre yanlış
                         }
                     }
-                }
+                
                 return isValid;
             }
             catch

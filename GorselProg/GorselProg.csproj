@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,32 +65,31 @@
     <Compile Include="LobbyGame.Designer.cs">
       <DependentUpon>LobbyGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304160835197_initUserHash.cs" />
-    <Compile Include="Migrations\202304160835197_initUserHash.designer.cs">
-      <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
+    <Compile Include="Migrations\202305150656280_initModelDesing.cs" />
+    <Compile Include="Migrations\202305150656280_initModelDesing.designer.cs">
+      <DependentUpon>202305150656280_initModelDesing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304181632165_userLevelXp.cs" />
-    <Compile Include="Migrations\202304181632165_userLevelXp.designer.cs">
-      <DependentUpon>202304181632165_userLevelXp.cs</DependentUpon>
+    <Compile Include="Migrations\202305150657327_insertCategory.cs" />
+    <Compile Include="Migrations\202305150657327_insertCategory.designer.cs">
+      <DependentUpon>202305150657327_insertCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305040834040_game-mech.cs" />
-    <Compile Include="Migrations\202305040834040_game-mech.designer.cs">
-      <DependentUpon>202305040834040_game-mech.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305131040393_addAnswerModel.cs" />
-    <Compile Include="Migrations\202305131040393_addAnswerModel.designer.cs">
-      <DependentUpon>202305131040393_addAnswerModel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305131321347_insertCategory.cs" />
-    <Compile Include="Migrations\202305131321347_insertCategory.designer.cs">
-      <DependentUpon>202305131321347_insertCategory.cs</DependentUpon>
+    <Compile Include="Migrations\202305150732511_updateModelNotation.cs" />
+    <Compile Include="Migrations\202305150732511_updateModelNotation.designer.cs">
+      <DependentUpon>202305150732511_updateModelNotation.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Answer.cs" />
+    <Compile Include="Model\Answer1.cs" />
+    <Compile Include="Model\BannedUser.cs" />
     <Compile Include="Model\Category.cs" />
-    <Compile Include="Model\Chat.cs" />
     <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\Game1.cs" />
+    <Compile Include="Model\Message.cs" />
+    <Compile Include="Model\Message1.cs" />
+    <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Question.cs" />
+    <Compile Include="Model\Question1.cs" />
     <Compile Include="Model\Room.cs" />
+    <Compile Include="Model\User.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\RoomService.cs" />
@@ -108,17 +109,8 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202304131930455_initUser.cs" />
-    <Compile Include="Migrations\202304131930455_initUser.designer.cs">
-      <DependentUpon>202304131930455_initUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202304131941570_initUser1.cs" />
-    <Compile Include="Migrations\202304131941570_initUser1.designer.cs">
-      <DependentUpon>202304131941570_initUser1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\qAppDBContext.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="PanelHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -131,26 +123,14 @@
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304131930455_initUser.resx">
-      <DependentUpon>202304131930455_initUser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305150656280_initModelDesing.resx">
+      <DependentUpon>202305150656280_initModelDesing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304131941570_initUser1.resx">
-      <DependentUpon>202304131941570_initUser1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305150657327_insertCategory.resx">
+      <DependentUpon>202305150657327_insertCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304160835197_initUserHash.resx">
-      <DependentUpon>202304160835197_initUserHash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202304181632165_userLevelXp.resx">
-      <DependentUpon>202304181632165_userLevelXp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305040834040_game-mech.resx">
-      <DependentUpon>202305040834040_game-mech.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305131040393_addAnswerModel.resx">
-      <DependentUpon>202305131040393_addAnswerModel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305131321347_insertCategory.resx">
-      <DependentUpon>202305131321347_insertCategory.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202305150732511_updateModelNotation.resx">
+      <DependentUpon>202305150732511_updateModelNotation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

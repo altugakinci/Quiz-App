@@ -7,13 +7,13 @@ namespace GorselProg.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class gamemech : IMigrationMetadata
+    public sealed partial class initModelDesing : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(gamemech));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initModelDesing));
         
         string IMigrationMetadata.Id
         {
-            get { return "202305040834040_game-mech"; }
+            get { return "202305150656280_initModelDesing"; }
         }
         
         string IMigrationMetadata.Source

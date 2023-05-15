@@ -6,26 +6,28 @@ namespace GorselProg
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Answer")]
-    public partial class Answer
+    [Table("Message")]
+    public partial class Message
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Answer()
+        public Message()
         {
-            Answers = new HashSet<Answer1>();
+            Messages = new HashSet<Message1>();
         }
 
         [Key]
         public Guid Id { get; set; }
 
         [Required]
-        public string AnswerText { get; set; }
+        public string MessageText { get; set; }
+
+        public DateTime SentTime { get; set; }
 
         public Guid UserId { get; set; }
 
         public virtual User User { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Answer1> Answers { get; set; }
+        public virtual ICollection<Message1> Messages { get; set; }
     }
 }
