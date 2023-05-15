@@ -25,6 +25,7 @@ namespace GorselProg
 
         private void btnSignOut_Click(object sender, EventArgs e)
         {
+            UserService.LogoutUser();
             formLoginRegister form = new formLoginRegister();
             form.Show();
             form.updateTheme();
