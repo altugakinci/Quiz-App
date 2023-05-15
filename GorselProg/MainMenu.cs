@@ -182,6 +182,10 @@ namespace GorselProg
             {
                 MessageBox.Show("Oda başarıyla oluşturuldu.");
                 // Oda oluşturulduktan sonra yapılacak işlemler
+                // Room oluşturulduğunda yapılacak işlemler
+                LobbyGame game = new LobbyGame("Leader");
+                game.Show();
+                this.Hide();
             }
             else
             {
@@ -189,10 +193,7 @@ namespace GorselProg
             }
 
 
-            // Room oluşturulduğunda yapılacak işlemler
-            LobbyGame game = new LobbyGame("Leader");
-             game.Show();
-             this.Hide();
+            
 
         }
 

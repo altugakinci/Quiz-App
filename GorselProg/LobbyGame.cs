@@ -134,6 +134,9 @@ namespace GorselProg
 
         private async void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
         {
+            PanelHandler.setPanelFill(active_panel, pnlLoading);
+            active_panel = pnlLoading;
+
             /*
 
              // Get the selected categories
@@ -207,6 +210,23 @@ namespace GorselProg
             PanelHandler.setPanelFill(active_panel, pnlSum);
             active_panel = pnlSum;
             prgSumXP.Value = 50;
+        }
+
+        int timer_loading = 5;
+        private void tmrLoading_Tick(object sender, EventArgs e)
+        {
+            timer_loading--;
+            lblLoadingTimer.Text = timer_loading.ToString();
+            if(timer_loading == -1)
+            {
+                startGame();
+            }
+        }
+
+        private void startGame()
+        {
+            PanelHandler.setPanelFill(active_panel, pnlGame);
+            active_panel = pnlGame;
         }
     }
 }
