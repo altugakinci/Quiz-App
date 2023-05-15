@@ -54,10 +54,10 @@ namespace GorselProg.Services
                 }
                 return true;
             }
-            //catch
-            //{
-            //    return false;
-            //}
+            catch
+            {
+                return false;
+            }
             finally
             {
                 HideLoadingIndicator();
@@ -81,7 +81,63 @@ namespace GorselProg.Services
             }
         }
 
-        public static async Task<bool> JoinRoom(Guid userId, Guid roomId)
+        public static async Task<bool> JoinRoom(string code, string password, User user)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+                using (var db = new qAppDBContext())
+                {
+                    var room = await db.Rooms.FirstOrDefaultAsync(r => r.Code == code);
+
+                    if (room == null)
+                    {
+                        // Belirtilen kodla eşleşen bir oda bulunamadı
+                        return false;
+                    }
+
+                    if (room.Password != password)
+                    {
+                        // Şifre eşleşmiyor
+                        return false;
+                    }
+
+                    var existingPlayer = await db.Players.FirstOrDefaultAsync(p => p.RoomId == room.Id && p.UserId == user.Id);
+
+                    if (existingPlayer != null)
+                    {
+                        // Kullanıcı zaten bu odaya daha önce giriş yapmış
+                        return true;
+                    }
+
+                    var player = new Player
+                    {
+                        Id = Guid.NewGuid(),
+                        RoomId = room.Id,
+                        UserId = user.Id
+                    };
+
+                    db.Players.Add(player);
+                    await db.SaveChangesAsync();
+
+                    room.PlayersId = player.Id; // PlayersId alanını güncelle
+
+                    await db.SaveChangesAsync();
+
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
+        }
+
+        public static async Task<bool> ExitRoom(Guid roomId, User user)
         {
             try
             {
@@ -89,22 +145,31 @@ namespace GorselProg.Services
                 using (var db = new qAppDBContext())
                 {
                     var room = await db.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
-                    var user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
-                    if (room != null && user != null)
+                    if (room == null)
                     {
-                        var player = new Player
-                        {
-                            Id = Guid.NewGuid(),
-                            UserId = user.Id,
-                            RoomId = room.Id
-                        };
-                        room.Players.Add(player);
-                        await db.SaveChangesAsync();
-                        return true;
+                        // Belirtilen roomId ile eşleşen bir oda bulunamadı
+                        return false;
                     }
-                    return false;
+
+                    var player = room.Players.FirstOrDefault(p => p.UserId == user.Id);
+
+                    if (player == null)
+                    {
+                        // Kullanıcının odaya katılımı bulunmamaktadır
+                        return false;
+                    }
+
+                    room.Players.Remove(player); // Players listesinden kullanıcıyı sil
+
+                    await db.SaveChangesAsync();
+
+                    return true;
                 }
+            }
+            catch
+            {
+                return false;
             }
             finally
             {
@@ -131,6 +196,7 @@ namespace GorselProg.Services
                             RoomId = room.Id
                         };
                         room.BannedUsers.Add(bannedUser);
+                        room.BannedUsersId = bannedUser.Id;
                         await db.SaveChangesAsync();
                         return true;
                     }

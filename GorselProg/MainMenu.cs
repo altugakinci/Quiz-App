@@ -160,8 +160,6 @@ namespace GorselProg
 
             }
 
-           
-
             User admin = UserSession.Instance.GetCurrentUser();
 
             
@@ -197,11 +195,28 @@ namespace GorselProg
 
         }
 
-        private void btnJAGJoinRoom_Click(object sender, EventArgs e)
+        private async void btnJAGJoinRoom_ClickAsync(object sender, EventArgs e)
         {
-            LobbyGame game = new LobbyGame("Player");
-            game.Show();
-            this.Hide();
+            string roomCode = txtJoinCode.Text;
+            string roomPassword = txtJoinPassword.Text;
+            User currentUser = UserSession.Instance.GetCurrentUser();
+
+            bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
+
+            if (joined)
+            {
+                MessageBox.Show("Odaya katılma işlemi başarılı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Odaya katılma işlemi başarılı olduğunda yapılacak işlemler
+                LobbyGame game = new LobbyGame("Player");
+                game.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Odaya katılma işlemi başarısız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Odaya katılma işlemi başarısız olduğunda yapılacak işlemler
+            }
+
         }
 
         private void btnProfile_Click(object sender, EventArgs e)

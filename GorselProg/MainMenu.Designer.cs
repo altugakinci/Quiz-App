@@ -408,7 +408,7 @@ namespace GorselProg
             this.btnJAGJoinRoom.TabIndex = 4;
             this.btnJAGJoinRoom.Text = "Odaya Katıl";
             this.btnJAGJoinRoom.UseVisualStyleBackColor = true;
-            this.btnJAGJoinRoom.Click += new System.EventHandler(this.btnJAGJoinRoom_Click);
+            this.btnJAGJoinRoom.Click += new System.EventHandler(this.btnJAGJoinRoom_ClickAsync);
             // 
             // pnlCreateAGame
             // 
