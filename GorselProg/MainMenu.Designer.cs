@@ -126,6 +126,7 @@ namespace GorselProg
             this.btnSorulariGoruntuleGeri = new System.Windows.Forms.Button();
             this.lvSorular = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Kategori = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Soru = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Opt1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Opt2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -149,7 +150,6 @@ namespace GorselProg
             this.label29 = new System.Windows.Forms.Label();
             this.txtSoruSG = new System.Windows.Forms.TextBox();
             this.btnSoruGuncelleGeri = new System.Windows.Forms.Button();
-            this.Kategori = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pnlPreferences.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
             this.pnlJoinAGame.SuspendLayout();
@@ -1443,36 +1443,34 @@ namespace GorselProg
             this.ID.Text = "ID";
             this.ID.Width = 34;
             // 
+            // Kategori
+            // 
+            this.Kategori.Text = "Kategori";
+            // 
             // Soru
             // 
-            this.Soru.DisplayIndex = 1;
             this.Soru.Text = "Soru";
             this.Soru.Width = 66;
             // 
             // Opt1
             // 
-            this.Opt1.DisplayIndex = 2;
             this.Opt1.Text = "Cevap1";
             this.Opt1.Width = 73;
             // 
             // Opt2
             // 
-            this.Opt2.DisplayIndex = 3;
             this.Opt2.Text = "Cevap2";
             // 
             // Opt3
             // 
-            this.Opt3.DisplayIndex = 4;
             this.Opt3.Text = "Cevap3";
             // 
             // Opt4
             // 
-            this.Opt4.DisplayIndex = 5;
             this.Opt4.Text = "Cevap4";
             // 
             // DogruCevap
             // 
-            this.DogruCevap.DisplayIndex = 6;
             this.DogruCevap.Text = "Doğru Cevap";
             this.DogruCevap.Width = 100;
             // 
@@ -1679,11 +1677,6 @@ namespace GorselProg
             this.btnSoruGuncelleGeri.TabIndex = 2;
             this.btnSoruGuncelleGeri.UseVisualStyleBackColor = true;
             this.btnSoruGuncelleGeri.Click += new System.EventHandler(this.btnSoruGuncelleGeri_Click);
-            // 
-            // Kategori
-            // 
-            this.Kategori.DisplayIndex = 7;
-            this.Kategori.Text = "Kategori";
             // 
             // formMainMenu
             // 
