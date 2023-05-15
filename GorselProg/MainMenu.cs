@@ -403,6 +403,22 @@ namespace GorselProg
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlSoruGuncelle);
             active_panel = pnlSoruGuncelle;
+            txtSoruSG.Text = lvSorular.SelectedItems[0].SubItems[2].Text;
+            txtOption1SG.Text = lvSorular.SelectedItems[0].SubItems[3].Text;
+            txtOption2SG.Text = lvSorular.SelectedItems[0].SubItems[4].Text;
+            txtOption3SG.Text = lvSorular.SelectedItems[0].SubItems[5].Text;
+            txtOption4SG.Text = lvSorular.SelectedItems[0].SubItems[6].Text;
+            Button[] buttons_update = new Button[] { btnSanatGuncelle, btnBilimGuncelle, btnEglenceGuncelle,btnSoruGuncelle,btnSporGuncelle };
+            foreach(Button b in buttons_update)
+            {
+                if (b.Text.Equals(lvSorular.SelectedItems[0].SubItems[1].Text))
+                {
+                    b.ForeColor = Color.Green;
+                }
+            }
+            RadioButton[] radios_update = new RadioButton[] { rbOption1SG, rbOption2SG, rbOption3SG, rbOption4SG };
+            int index = int.Parse(lvSorular.SelectedItems[0].SubItems[7].Text);
+            radios_update[index].Checked = true;
         }
 
         private void btnSporSG_Click(object sender, EventArgs e)
@@ -443,5 +459,11 @@ namespace GorselProg
 
             viewQuestions("all");
         }
+
+        private void selectButtons()
+        {
+            
+        }
+
     }
 }

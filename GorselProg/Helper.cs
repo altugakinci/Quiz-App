@@ -1,8 +1,11 @@
-﻿using System;
+﻿using GorselProg.Session;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GorselProg
 {
@@ -29,6 +32,40 @@ namespace GorselProg
             }
 
             return -1; // Eğer true eleman bulunamazsa -1 döndürülür
+        }
+
+        public static void AddSelectedCategory(int buttonIndex)
+        {
+            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
+            Category selectedCategory = allCategories[buttonIndex];
+
+            RoomSession.Instance.AddSelectedCategory(selectedCategory);
+        }
+
+        public static void RemoveSelectedCategory(int buttonIndex)
+        {
+            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
+            Category selectedCategory = allCategories[buttonIndex];
+
+            RoomSession.Instance.RemoveSelectedCategory(selectedCategory);
+        }
+
+        public static void toggleButtons(object sender, int buttonIndex)
+        {
+
+            Button button = (Button)sender;
+
+            if (button.ForeColor != Color.Green)
+            {
+                button.ForeColor = Color.Green;
+                AddSelectedCategory(buttonIndex);
+            }
+            else
+            {
+                button.ForeColor = ThemeHandler.color_texts;
+                RemoveSelectedCategory(buttonIndex);
+            }
+
         }
     }
 }

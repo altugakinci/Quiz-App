@@ -81,31 +81,19 @@ namespace GorselProg
             if (button.ForeColor != Color.Green)
             {
                 button.ForeColor = Color.Green;
-                AddSelectedCategory(buttonIndex);
+                Helper.AddSelectedCategory(buttonIndex);
             }
             else
             {
                 button.ForeColor = ThemeHandler.color_texts;
-                RemoveSelectedCategory(buttonIndex);
+                Helper.RemoveSelectedCategory(buttonIndex);
             }
 
         }
 
-        private void AddSelectedCategory(int buttonIndex)
-        {
-            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
-            Category selectedCategory = allCategories[buttonIndex];
+        
 
-            RoomSession.Instance.AddSelectedCategory(selectedCategory);
-        }
-
-        private void RemoveSelectedCategory(int buttonIndex)
-        {
-            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
-            Category selectedCategory = allCategories[buttonIndex];
-
-            RoomSession.Instance.RemoveSelectedCategory(selectedCategory);
-        }
+        
 
         private void btnLeaderSpor_Click(object sender, EventArgs e)
         {
