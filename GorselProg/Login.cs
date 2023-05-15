@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography;
@@ -20,10 +21,6 @@ namespace GorselProg
         {
             InitializeComponent();
 
-            // DbContext sınıfının örneğini oluşturun
-            var context = new qAppDBContext();
-            // UserService sınıfının örneğini oluşturun
-            _userService = new UserService(context);
         }
 
         //PanelHandler ph = new PanelHandler();
@@ -37,7 +34,7 @@ namespace GorselProg
 
         Panel active_panel;
 
-        private  UserService _userService;
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -102,9 +99,12 @@ namespace GorselProg
             }
 
 
-            List<User> allUsers = await _userService.GetAllUsersAsync();
+            #region Login
 
-            bool isValid = await _userService.LoginUser(txtLoginEmail.Text, txtLoginPassword.Text);
+           
+            #endregion
+
+            bool isValid = await UserService.LoginUser(txtLoginEmail.Text, txtLoginPassword.Text);
 
             // TODO: Loading işlemleri buraya eklenebilir
 
@@ -151,7 +151,7 @@ namespace GorselProg
 
             User user = new User { UserName = txtRegUsername.Text, Email = txtRegMail.Text,Password = txtRegPassword.Text };
             
-            bool isSucces = await _userService.AddUser(user);
+            bool isSucces = await UserService.AddUser(user);
 
             if(isSucces)
             {

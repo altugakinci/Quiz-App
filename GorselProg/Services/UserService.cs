@@ -10,22 +10,21 @@ using System.Threading.Tasks;
 
 namespace GorselProg.Services
 {
-    class UserService
+    static class UserService
     {
 
-        private readonly qAppDBContext _context;
-        public bool loadingIndicator = false;
+        public static bool loadingIndicator = false;
 
 
-        public void ShowLoadingIndicator()
+        public static void ShowLoadingIndicator()
         {
-            this.loadingIndicator = true;
+            loadingIndicator = true;
         }
-        public void HideLoadingIndicator()
+        public static void HideLoadingIndicator()
         {
-            this.loadingIndicator = true;
+            loadingIndicator = true;
         }
-        public string[] PassSaltGenerator(string password)
+        public static string[] PassSaltGenerator(string password)
         {
             byte[] saltValue = new byte[8];
             using (var rng = new RNGCryptoServiceProvider())
@@ -45,19 +44,19 @@ namespace GorselProg.Services
         }
 
 
-        public UserService(qAppDBContext context)
-        {
-            _context = context;
-        }
 
         // Tüm kullanıcıları listeleme işlemi
-        public async Task<List<User>> GetAllUsersAsync()
+        public static async Task<List<User>> GetAllUsersAsync()
         {
             try
             {
                 ShowLoadingIndicator();
-                var users = await  _context.Users.ToListAsync();
-                return users;
+                using (var context = new qAppDBContext())
+                {
+                    var users = await context.Users.ToListAsync();
+                    return users;
+                }
+                    
             }
             finally
             {
@@ -66,13 +65,17 @@ namespace GorselProg.Services
         }
 
         // ID'ye göre kullanıcı getirme işlemi
-        public async Task<User> GetUserById(Guid id)
+        public static async Task<User> GetUserById(Guid id)
         {
             try
             {
                 ShowLoadingIndicator();
-                var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
-                return user;
+                using (var context = new qAppDBContext())
+                {
+                    var user = await context.Users.FirstOrDefaultAsync(u => u.Id == id);
+                    return user;
+                }
+               
             }
             finally
             {
@@ -82,13 +85,13 @@ namespace GorselProg.Services
         }
 
         // Kullanıcı ekleme işlemi (Register)
-        public async Task<bool> AddUser(User user)
+        public static async Task<bool> AddUser(User user)
         {
             try
             {
                 ShowLoadingIndicator();
                 string[] passSalt = PassSaltGenerator(user.Password);
-                using (var db = _context)
+                using (var db = new qAppDBContext())
                 {
                     var newUser = new User
                     {
@@ -121,15 +124,15 @@ namespace GorselProg.Services
         }
 
         // Kullanıcı Login servisi
-        public async Task<bool> LoginUser(string email,string password)
+        public static async Task<bool> LoginUser(string email,string password)
         {
-            try
-            {
-                ShowLoadingIndicator();
+          ShowLoadingIndicator();
                 bool isValid = false;
 
-                List<User> allUser = await _context.Users.ToListAsync();
-                var user = await _context.Users.FirstAsync(u => u.Email == email);
+            using (var context = new qAppDBContext())
+            {
+
+                var user = await context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
                 if (user == null)
                     {
@@ -143,7 +146,7 @@ namespace GorselProg.Services
                         byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
                         string encryptionKeyString = Convert.ToBase64String(encryptionKey);
 
-                        if (encryptionKeyString == user.Password)
+                        if (encryptionKeyString.Equals(user.Password))
                         {
                             isValid = true;
                             //return true; // Şifre doğru
@@ -158,27 +161,19 @@ namespace GorselProg.Services
                 
                 return isValid;
             }
-            catch
-            {
-                // An error 
-                return false;
-            }
-            finally
-            {
-                HideLoadingIndicator();
-            }
+         
         }
 
         // Kullanıcı güncelleme işlemi
-        public void UpdateUser(User user)
+        public static void UpdateUser(User user)
         {
             //_context.Users.Update(user);
-            _context.SaveChanges();
+            //_context.SaveChanges();
            
         }
 
         // Kullanıcı oturum kapatma işlemi
-        public void LogoutUser()
+        public static void LogoutUser()
         {
             UserSession.Instance.SetCurrentUser(null);
         }
