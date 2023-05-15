@@ -56,6 +56,9 @@ namespace GorselProg
                     }else if(ctrl is GroupBox)
                     {
                         ctrl.ForeColor = color_texts;
+                    }else if(ctrl is RadioButton)
+                    {
+                        ctrl.ForeColor = color_texts;
                     }
                 }
             }

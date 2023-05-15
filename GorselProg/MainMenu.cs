@@ -274,5 +274,17 @@ namespace GorselProg
             PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
             active_panel = pnlSorular;
         }
+
+        private void btnSoruGuncelleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSoruGuncelleSG_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruGuncelle);
+            active_panel = pnlSoruGuncelle;
+        }
     }
 }
