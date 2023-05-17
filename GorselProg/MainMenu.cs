@@ -263,8 +263,11 @@ namespace GorselProg
         private  void btnSorularSoruEkle_Click(object sender, EventArgs e)
         {
             
-              PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
-              active_panel = pnlSoruEkle;
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+            active_panel = pnlSoruEkle;
+
+            btnSporSE.ForeColor = Color.Green;
+            ekleme_aktif_buton = btnSporSE;
             
         }
 
@@ -299,6 +302,7 @@ namespace GorselProg
             {
                 MessageBox.Show("Soru başarıyla eklendi.");
                 ClearQuestionFields();
+
                 PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
                 active_panel = pnlSoruEkle;
             }
@@ -322,6 +326,10 @@ namespace GorselProg
             rbSoruEkleDogru2.Checked = false;
             rbSoruEkleDogru3.Checked = false;
             rbSoruEkleDogru4.Checked = false;
+
+            ekleme_aktif_buton.ForeColor = ThemeHandler.color_texts;
+            btnSporSE.ForeColor = Color.Green;
+            ekleme_aktif_buton = btnSporSE;
 
            // Categories
         }
@@ -465,7 +473,7 @@ namespace GorselProg
             viewQuestions("all");
         }
 
-        private void selectButtons(object sender)
+        private void selectButtons_Update(object sender)
         {
             Button aktif = (Button)sender;
             guncelle_aktif_buton.ForeColor = ThemeHandler.color_texts;
@@ -473,29 +481,42 @@ namespace GorselProg
             guncelle_aktif_buton = aktif;
         }
 
+        string soruekleme_kategori;
+        Button ekleme_aktif_buton;
+        private void selectButtons_Add(object sender)
+        {
+            Button basilan_button = (Button)sender;
+            basilan_button.ForeColor = Color.Green;
+            soruekleme_kategori = basilan_button.Text;
+
+            ekleme_aktif_buton.ForeColor = ThemeHandler.color_texts;
+            ekleme_aktif_buton = basilan_button;
+            
+        }
+
         private void btnSporGuncelle_Click(object sender, EventArgs e)
         {
-            selectButtons(sender);
+            selectButtons_Update(sender);
         }
 
         private void btnTarihGuncelle_Click(object sender, EventArgs e)
         {
-            selectButtons(sender);
+            selectButtons_Update(sender);
         }
 
         private void btnSanatGuncelle_Click(object sender, EventArgs e)
         {
-            selectButtons(sender);
+            selectButtons_Update(sender);
         }
 
         private void btnBilimGuncelle_Click(object sender, EventArgs e)
         {
-            selectButtons(sender);
+            selectButtons_Update(sender);
         }
 
         private void btnEglenceGuncelle_Click(object sender, EventArgs e)
         {
-            selectButtons(sender);
+            selectButtons_Update(sender);
         }
 
         private async void btnSoruGuncelle_Click(object sender, EventArgs e)
@@ -536,6 +557,31 @@ namespace GorselProg
             {
                 MessageBox.Show("Soru güncellenirken bir hata oluştu.");
             }
+        }
+
+        private void btnSporSE_Click(object sender, EventArgs e)
+        {
+            selectButtons_Add(sender);
+        }
+
+        private void btnTarihSE_Click(object sender, EventArgs e)
+        {
+            selectButtons_Add(sender);
+        }
+
+        private void btnSanatSE_Click(object sender, EventArgs e)
+        {
+            selectButtons_Add(sender);
+        }
+
+        private void btnBilimSE_Click(object sender, EventArgs e)
+        {
+            selectButtons_Add(sender);
+        }
+
+        private void btnEglenceSE_Click(object sender, EventArgs e)
+        {
+            selectButtons_Add(sender);
         }
     }
 }
