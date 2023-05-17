@@ -65,6 +65,7 @@ namespace GorselProg
             this.pnlBuildAGame = new System.Windows.Forms.Panel();
             this.btnBAGBack = new System.Windows.Forms.Button();
             this.pnlProfile = new System.Windows.Forms.Panel();
+            this.btnProfiliDuzenle = new System.Windows.Forms.Button();
             this.lblProfileXP = new System.Windows.Forms.Label();
             this.lblProfileLevel = new System.Windows.Forms.Label();
             this.prgProfileXP = new System.Windows.Forms.ProgressBar();
@@ -97,6 +98,11 @@ namespace GorselProg
             this.btnSorularGeri = new System.Windows.Forms.Button();
             this.btnSorularSoruEkle = new System.Windows.Forms.Button();
             this.pnlSoruEkle = new System.Windows.Forms.Panel();
+            this.btnEglenceSE = new System.Windows.Forms.Button();
+            this.btnBilimSE = new System.Windows.Forms.Button();
+            this.btnSanatSE = new System.Windows.Forms.Button();
+            this.btnTarihSE = new System.Windows.Forms.Button();
+            this.btnSporSE = new System.Windows.Forms.Button();
             this.btnSoruEkle = new System.Windows.Forms.Button();
             this.rbSoruEkleDogru4 = new System.Windows.Forms.RadioButton();
             this.rbSoruEkleDogru3 = new System.Windows.Forms.RadioButton();
@@ -155,12 +161,6 @@ namespace GorselProg
             this.label29 = new System.Windows.Forms.Label();
             this.txtSoruSG = new System.Windows.Forms.TextBox();
             this.btnSoruGuncelleGeri = new System.Windows.Forms.Button();
-            this.btnEglenceSE = new System.Windows.Forms.Button();
-            this.btnBilimSE = new System.Windows.Forms.Button();
-            this.btnSanatSE = new System.Windows.Forms.Button();
-            this.btnTarihSE = new System.Windows.Forms.Button();
-            this.btnSporSE = new System.Windows.Forms.Button();
-            this.btnProfiliDuzenle = new System.Windows.Forms.Button();
             this.pnlPreferences.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
             this.pnlJoinAGame.SuspendLayout();
@@ -713,12 +713,23 @@ namespace GorselProg
             this.pnlProfile.Controls.Add(this.label7);
             this.pnlProfile.Controls.Add(this.lblProfileUsername);
             this.pnlProfile.Controls.Add(this.btnProfileGeri);
-            this.pnlProfile.Location = new System.Drawing.Point(384, 35);
+            this.pnlProfile.Location = new System.Drawing.Point(107, 103);
             this.pnlProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlProfile.Name = "pnlProfile";
-            this.pnlProfile.Size = new System.Drawing.Size(444, 569);
+            this.pnlProfile.Size = new System.Drawing.Size(64, 67);
             this.pnlProfile.TabIndex = 9;
             this.pnlProfile.Visible = false;
+            // 
+            // btnProfiliDuzenle
+            // 
+            this.btnProfiliDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfiliDuzenle.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnProfiliDuzenle.Location = new System.Drawing.Point(25, 444);
+            this.btnProfiliDuzenle.Name = "btnProfiliDuzenle";
+            this.btnProfiliDuzenle.Size = new System.Drawing.Size(380, 54);
+            this.btnProfiliDuzenle.TabIndex = 37;
+            this.btnProfiliDuzenle.Text = "Profili Düzenle";
+            this.btnProfiliDuzenle.UseVisualStyleBackColor = true;
             // 
             // lblProfileXP
             // 
@@ -945,7 +956,7 @@ namespace GorselProg
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(138, 60);
+            this.label8.Location = new System.Drawing.Point(-52, 60);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(155, 21);
             this.label8.TabIndex = 13;
@@ -996,7 +1007,7 @@ namespace GorselProg
             this.lblProfileUsername.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblProfileUsername.AutoSize = true;
             this.lblProfileUsername.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblProfileUsername.Location = new System.Drawing.Point(117, 10);
+            this.lblProfileUsername.Location = new System.Drawing.Point(-73, 10);
             this.lblProfileUsername.Name = "lblProfileUsername";
             this.lblProfileUsername.Size = new System.Drawing.Size(191, 40);
             this.lblProfileUsername.TabIndex = 3;
@@ -1111,6 +1122,71 @@ namespace GorselProg
             this.pnlSoruEkle.Size = new System.Drawing.Size(61, 61);
             this.pnlSoruEkle.TabIndex = 11;
             this.pnlSoruEkle.Visible = false;
+            // 
+            // btnEglenceSE
+            // 
+            this.btnEglenceSE.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEglenceSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEglenceSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnEglenceSE.Location = new System.Drawing.Point(157, 187);
+            this.btnEglenceSE.Name = "btnEglenceSE";
+            this.btnEglenceSE.Size = new System.Drawing.Size(80, 60);
+            this.btnEglenceSE.TabIndex = 27;
+            this.btnEglenceSE.Text = "Eğlence";
+            this.btnEglenceSE.UseVisualStyleBackColor = true;
+            this.btnEglenceSE.Click += new System.EventHandler(this.btnEglenceSE_Click);
+            // 
+            // btnBilimSE
+            // 
+            this.btnBilimSE.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBilimSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBilimSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBilimSE.Location = new System.Drawing.Point(71, 187);
+            this.btnBilimSE.Name = "btnBilimSE";
+            this.btnBilimSE.Size = new System.Drawing.Size(80, 60);
+            this.btnBilimSE.TabIndex = 26;
+            this.btnBilimSE.Text = "Bilim";
+            this.btnBilimSE.UseVisualStyleBackColor = true;
+            this.btnBilimSE.Click += new System.EventHandler(this.btnBilimSE_Click);
+            // 
+            // btnSanatSE
+            // 
+            this.btnSanatSE.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSanatSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSanatSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSanatSE.Location = new System.Drawing.Point(-15, 187);
+            this.btnSanatSE.Name = "btnSanatSE";
+            this.btnSanatSE.Size = new System.Drawing.Size(80, 60);
+            this.btnSanatSE.TabIndex = 25;
+            this.btnSanatSE.Text = "Sanat";
+            this.btnSanatSE.UseVisualStyleBackColor = true;
+            this.btnSanatSE.Click += new System.EventHandler(this.btnSanatSE_Click);
+            // 
+            // btnTarihSE
+            // 
+            this.btnTarihSE.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTarihSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTarihSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTarihSE.Location = new System.Drawing.Point(-101, 187);
+            this.btnTarihSE.Name = "btnTarihSE";
+            this.btnTarihSE.Size = new System.Drawing.Size(80, 60);
+            this.btnTarihSE.TabIndex = 24;
+            this.btnTarihSE.Text = "Tarih";
+            this.btnTarihSE.UseVisualStyleBackColor = true;
+            this.btnTarihSE.Click += new System.EventHandler(this.btnTarihSE_Click);
+            // 
+            // btnSporSE
+            // 
+            this.btnSporSE.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSporSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSporSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSporSE.Location = new System.Drawing.Point(-187, 187);
+            this.btnSporSE.Name = "btnSporSE";
+            this.btnSporSE.Size = new System.Drawing.Size(80, 60);
+            this.btnSporSE.TabIndex = 23;
+            this.btnSporSE.Text = "Spor";
+            this.btnSporSE.UseVisualStyleBackColor = true;
+            this.btnSporSE.Click += new System.EventHandler(this.btnSporSE_Click);
             // 
             // btnSoruEkle
             // 
@@ -1772,82 +1848,6 @@ namespace GorselProg
             this.btnSoruGuncelleGeri.TabIndex = 2;
             this.btnSoruGuncelleGeri.UseVisualStyleBackColor = true;
             this.btnSoruGuncelleGeri.Click += new System.EventHandler(this.btnSoruGuncelleGeri_Click);
-            // 
-            // btnEglenceSE
-            // 
-            this.btnEglenceSE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEglenceSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEglenceSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEglenceSE.Location = new System.Drawing.Point(157, 187);
-            this.btnEglenceSE.Name = "btnEglenceSE";
-            this.btnEglenceSE.Size = new System.Drawing.Size(80, 60);
-            this.btnEglenceSE.TabIndex = 27;
-            this.btnEglenceSE.Text = "Eğlence";
-            this.btnEglenceSE.UseVisualStyleBackColor = true;
-            this.btnEglenceSE.Click += new System.EventHandler(this.btnEglenceSE_Click);
-            // 
-            // btnBilimSE
-            // 
-            this.btnBilimSE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBilimSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBilimSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBilimSE.Location = new System.Drawing.Point(71, 187);
-            this.btnBilimSE.Name = "btnBilimSE";
-            this.btnBilimSE.Size = new System.Drawing.Size(80, 60);
-            this.btnBilimSE.TabIndex = 26;
-            this.btnBilimSE.Text = "Bilim";
-            this.btnBilimSE.UseVisualStyleBackColor = true;
-            this.btnBilimSE.Click += new System.EventHandler(this.btnBilimSE_Click);
-            // 
-            // btnSanatSE
-            // 
-            this.btnSanatSE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSanatSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSanatSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSanatSE.Location = new System.Drawing.Point(-15, 187);
-            this.btnSanatSE.Name = "btnSanatSE";
-            this.btnSanatSE.Size = new System.Drawing.Size(80, 60);
-            this.btnSanatSE.TabIndex = 25;
-            this.btnSanatSE.Text = "Sanat";
-            this.btnSanatSE.UseVisualStyleBackColor = true;
-            this.btnSanatSE.Click += new System.EventHandler(this.btnSanatSE_Click);
-            // 
-            // btnTarihSE
-            // 
-            this.btnTarihSE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnTarihSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTarihSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTarihSE.Location = new System.Drawing.Point(-101, 187);
-            this.btnTarihSE.Name = "btnTarihSE";
-            this.btnTarihSE.Size = new System.Drawing.Size(80, 60);
-            this.btnTarihSE.TabIndex = 24;
-            this.btnTarihSE.Text = "Tarih";
-            this.btnTarihSE.UseVisualStyleBackColor = true;
-            this.btnTarihSE.Click += new System.EventHandler(this.btnTarihSE_Click);
-            // 
-            // btnSporSE
-            // 
-            this.btnSporSE.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSporSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSporSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSporSE.Location = new System.Drawing.Point(-187, 187);
-            this.btnSporSE.Name = "btnSporSE";
-            this.btnSporSE.Size = new System.Drawing.Size(80, 60);
-            this.btnSporSE.TabIndex = 23;
-            this.btnSporSE.Text = "Spor";
-            this.btnSporSE.UseVisualStyleBackColor = true;
-            this.btnSporSE.Click += new System.EventHandler(this.btnSporSE_Click);
-            // 
-            // btnProfiliDuzenle
-            // 
-            this.btnProfiliDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfiliDuzenle.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnProfiliDuzenle.Location = new System.Drawing.Point(25, 444);
-            this.btnProfiliDuzenle.Name = "btnProfiliDuzenle";
-            this.btnProfiliDuzenle.Size = new System.Drawing.Size(380, 54);
-            this.btnProfiliDuzenle.TabIndex = 37;
-            this.btnProfiliDuzenle.Text = "Profili Düzenle";
-            this.btnProfiliDuzenle.UseVisualStyleBackColor = true;
             // 
             // formMainMenu
             // 
