@@ -399,10 +399,14 @@ namespace GorselProg
             active_panel = pnlSorular;
         }
 
+        Button guncelle_aktif_buton;
+        Guid guncellenecek_soru_id;
         private void btnSoruGuncelleSG_Click(object sender, EventArgs e)
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlSoruGuncelle);
             active_panel = pnlSoruGuncelle;
+
+            guncellenecek_soru_id = Guid.Parse(lvSorular.SelectedItems[0].SubItems[0].Text);
             txtSoruSG.Text = lvSorular.SelectedItems[0].SubItems[2].Text;
             txtOption1SG.Text = lvSorular.SelectedItems[0].SubItems[3].Text;
             txtOption2SG.Text = lvSorular.SelectedItems[0].SubItems[4].Text;
@@ -414,6 +418,7 @@ namespace GorselProg
                 if (b.Text.Equals(lvSorular.SelectedItems[0].SubItems[1].Text))
                 {
                     b.ForeColor = Color.Green;
+                    guncelle_aktif_buton = b;
                 }
             }
             RadioButton[] radios_update = new RadioButton[] { rbOption1SG, rbOption2SG, rbOption3SG, rbOption4SG };
@@ -460,10 +465,77 @@ namespace GorselProg
             viewQuestions("all");
         }
 
-        private void selectButtons()
+        private void selectButtons(object sender)
         {
-            
+            Button aktif = (Button)sender;
+            guncelle_aktif_buton.ForeColor = ThemeHandler.color_texts;
+            aktif.ForeColor = Color.Green;
+            guncelle_aktif_buton = aktif;
         }
 
+        private void btnSporGuncelle_Click(object sender, EventArgs e)
+        {
+            selectButtons(sender);
+        }
+
+        private void btnTarihGuncelle_Click(object sender, EventArgs e)
+        {
+            selectButtons(sender);
+        }
+
+        private void btnSanatGuncelle_Click(object sender, EventArgs e)
+        {
+            selectButtons(sender);
+        }
+
+        private void btnBilimGuncelle_Click(object sender, EventArgs e)
+        {
+            selectButtons(sender);
+        }
+
+        private void btnEglenceGuncelle_Click(object sender, EventArgs e)
+        {
+            selectButtons(sender);
+        }
+
+        private async void btnSoruGuncelle_Click(object sender, EventArgs e)
+        {
+            Question guncellenecek_soru = await QuestionService.GetQuestionById(guncellenecek_soru_id);
+            string questionText = txtSoruSG.Text;
+            string optionsText = Helper.ConcatenateStrings(txtOption1SG.Text, txtOption2SG.Text, txtOption3SG.Text, txtOption4SG.Text);
+            bool[] options = new bool[] {
+                rbOption1SG.Checked,
+                rbOption2SG.Checked,
+                rbOption3SG.Checked,
+                rbOption4SG.Checked
+            };
+
+            int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
+            Guid categoryId = Guid.Parse("DDB28117-98FF-4015-9CBD-4B53BFD5272A");
+
+            // Mevcut question güncelleyeceğiz.
+
+            guncellenecek_soru.Id = guncellenecek_soru_id;
+            guncellenecek_soru.QuestionText = questionText;
+            guncellenecek_soru.OptionsText = optionsText;
+            guncellenecek_soru.CorrectAnswerIndex = correctAnswerIndex;
+            guncellenecek_soru.CategoryId = categoryId;
+            
+
+            // QuestionService'den update edeceğiz.
+            bool result = await QuestionService.UpdateQuestion(guncellenecek_soru);
+
+            if (result)
+            {
+                MessageBox.Show("Soru başarıyla güncellendi.");
+                ClearQuestionFields();
+                PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+                active_panel = pnlSoruEkle;
+            }
+            else
+            {
+                MessageBox.Show("Soru güncellenirken bir hata oluştu.");
+            }
+        }
     }
 }
