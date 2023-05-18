@@ -225,9 +225,15 @@ namespace GorselProg
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
+            User current = UserSession.Instance.GetCurrentUser();
+            lblProfileUsername.Text = current.UserName;
+            lblProfileMail.Text = current.Email;
+            lblProfileLevel.Text = $"{current.Level}. Level";
+            lblProfileXP.Text = $"{current.Xp} / 500";
+            prgProfileXP.Value = current.Xp;
+
             PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
             active_panel = pnlProfile;
-            prgProfileXP.Value = 50;
         }
 
         private void btnProfileGeri_Click(object sender, EventArgs e)
@@ -562,7 +568,6 @@ namespace GorselProg
             guncellenecek_soru.OptionsText = optionsText;
             guncellenecek_soru.CorrectAnswerIndex = correctAnswerIndex;
             guncellenecek_soru.CategoryId = categoryId;
-            
 
             // QuestionService'den update edeceğiz.
             bool result = await QuestionService.UpdateQuestion(guncellenecek_soru);
@@ -571,8 +576,8 @@ namespace GorselProg
             {
                 MessageBox.Show("Soru başarıyla güncellendi.");
                 //ClearQuestionFields();
-                PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
-                active_panel = pnlSoruEkle;
+                PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
+                active_panel = pnlSorulariGoruntule;
             }
             else
             {
@@ -605,9 +610,16 @@ namespace GorselProg
             selectButtons_Add(sender);
         }
 
-        private void btnProfiliKaydet_Click(object sender, EventArgs e)
+        private void btnProfiliDuzenle_Click(object sender, EventArgs e)
         {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfileDuzenle);
+            active_panel = pnlProfileDuzenle;
+        }
 
+        private void btnProfiliDuzenleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
+            active_panel = pnlProfile;
         }
     }
 }

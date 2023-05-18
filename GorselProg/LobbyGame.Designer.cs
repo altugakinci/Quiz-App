@@ -29,7 +29,6 @@ namespace GorselProg
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LobbyGame));
             this.pnlLobbyPlayer = new System.Windows.Forms.Panel();
             this.btnShowSum = new System.Windows.Forms.Button();
@@ -114,7 +113,6 @@ namespace GorselProg
             this.label11 = new System.Windows.Forms.Label();
             this.lblSumWinnerName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.timerLoading = new System.Windows.Forms.Timer(this.components);
             this.pnlLobbyPlayer.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlGame.SuspendLayout();
@@ -1150,10 +1148,6 @@ namespace GorselProg
             this.label8.Text = "KAZANAN";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timerLoading
-            // 
-            this.timerLoading.Tick += new System.EventHandler(this.timerLoading_Tick);
-            // 
             // LobbyGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1280,6 +1274,5 @@ namespace GorselProg
         private System.Windows.Forms.Button btnShowSum;
         private System.Windows.Forms.Label lblSumXP;
         private System.Windows.Forms.Label lblSumLevel;
-        private System.Windows.Forms.Timer timerLoading;
     }
 }

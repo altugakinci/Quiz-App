@@ -11,7 +11,6 @@ namespace GorselProg
     // Panellerin kolayca hareketi ve boyutlandırması için kullanılan bir handler sınıfı.
     class PanelHandler
     {
-
         public static void setPanelMiddle(Form form, Panel inactive_panel, Panel active_panel)
         {
             inactive_panel.Visible = false;
