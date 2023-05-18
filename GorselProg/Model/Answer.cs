@@ -12,7 +12,6 @@ namespace GorselProg.Model
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(255)]
         public string AnswerText { get; set; }
 
         public Guid? UserId { get; set; }

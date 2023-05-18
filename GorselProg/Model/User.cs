@@ -33,7 +33,6 @@ namespace GorselProg.Model
         public string Password { get; set; }
 
         [Required]
-        [StringLength(255)]
         public string Salt { get; set; }
 
         public int Level { get; set; }
