@@ -24,8 +24,6 @@ namespace GorselProg.Services
                 ShowLoadingIndicator();
                 using (var context = new qAppDBContext())
                 {
-                 
-
                     context.Rooms.Add(newRoom);
                     await context.SaveChangesAsync();
 

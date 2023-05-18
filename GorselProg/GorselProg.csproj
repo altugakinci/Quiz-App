@@ -86,6 +86,7 @@
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UserService.cs" />
