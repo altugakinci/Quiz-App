@@ -196,10 +196,5 @@ namespace GorselProg
             active_panel = pnlSum;
             prgSumXP.Value = 50;
         }
-
-        private void timerLoading_Tick(object sender, EventArgs e)
-        {
-
-        }
     }
 }
