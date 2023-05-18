@@ -30,7 +30,7 @@ namespace GorselProg.Model
 
         public Guid? CategoryId { get; set; }
 
-        public Guid GameId { get; set; }
+        public Guid? GameId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Answer> Answers { get; set; }

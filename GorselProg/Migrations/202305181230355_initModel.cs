@@ -47,7 +47,7 @@
                         OptionsText = c.String(nullable: false),
                         CorrectAnswerIndex = c.Int(nullable: false),
                         CategoryId = c.Guid(),
-                        GameId = c.Guid(nullable: false),
+                        GameId = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Category", t => t.CategoryId)
