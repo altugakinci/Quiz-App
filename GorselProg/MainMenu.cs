@@ -171,6 +171,7 @@ namespace GorselProg
             // Oda oluşturma işlemini yap
             var newRoom = new Room
             {
+                Id = Guid.NewGuid(),
                 Name = txtCAGRoomName.Text,
                 Password = txtCAGRoomPassword.Text,
                 Code = Helper.GenerateRoomCode(),
