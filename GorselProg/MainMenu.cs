@@ -543,7 +543,17 @@ namespace GorselProg
             };
 
             int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
-            Guid categoryId = Guid.Parse("DDB28117-98FF-4015-9CBD-4B53BFD5272A");
+
+            // Kategori ismi
+            string categoryName = guncelle_aktif_buton.Text;
+          
+            Guid categoryId = Guid.Empty;
+            using (var db = new qAppDBContext())
+            {
+                var Category = await db.Categories.FirstOrDefaultAsync(c => c.Name == categoryName);
+                categoryId = Category.Id;
+            }
+           
 
             // Mevcut question güncelleyeceğiz.
 
@@ -560,7 +570,7 @@ namespace GorselProg
             if (result)
             {
                 MessageBox.Show("Soru başarıyla güncellendi.");
-                ClearQuestionFields();
+                //ClearQuestionFields();
                 PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
                 active_panel = pnlSoruEkle;
             }
