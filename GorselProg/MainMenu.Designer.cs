@@ -34,19 +34,23 @@ namespace GorselProg
             this.btnHowToPlay = new System.Windows.Forms.Button();
             this.btnPlay = new System.Windows.Forms.Button();
             this.pnlPreferences = new System.Windows.Forms.Panel();
+            this.btnPreferencesGeri = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btnDarkMode = new System.Windows.Forms.Button();
             this.btnLightMode = new System.Windows.Forms.Button();
             this.pnlHowToPlay = new System.Windows.Forms.Panel();
+            this.btnHTPGeri = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pnlJoinAGame = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
             this.txtJoinPassword = new System.Windows.Forms.TextBox();
+            this.btnJAGGeri = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtJoinCode = new System.Windows.Forms.TextBox();
             this.btnJAGJoinRoom = new System.Windows.Forms.Button();
             this.pnlCreateAGame = new System.Windows.Forms.Panel();
+            this.btnCAGGeri = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCAGRoomPassword = new System.Windows.Forms.TextBox();
@@ -59,6 +63,7 @@ namespace GorselProg
             this.btnCreateAGame = new System.Windows.Forms.Button();
             this.btnJoinAGame = new System.Windows.Forms.Button();
             this.pnlBuildAGame = new System.Windows.Forms.Panel();
+            this.btnBAGBack = new System.Windows.Forms.Button();
             this.pnlProfile = new System.Windows.Forms.Panel();
             this.btnProfiliDuzenle = new System.Windows.Forms.Button();
             this.lblProfileXP = new System.Windows.Forms.Label();
@@ -87,8 +92,10 @@ namespace GorselProg
             this.lblProfileWins = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblProfileUsername = new System.Windows.Forms.Label();
+            this.btnProfileGeri = new System.Windows.Forms.Button();
             this.pnlSorular = new System.Windows.Forms.Panel();
             this.btnSorularGoruntule = new System.Windows.Forms.Button();
+            this.btnSorularGeri = new System.Windows.Forms.Button();
             this.btnSorularSoruEkle = new System.Windows.Forms.Button();
             this.pnlSoruEkle = new System.Windows.Forms.Panel();
             this.btnEglenceSE = new System.Windows.Forms.Button();
@@ -111,6 +118,7 @@ namespace GorselProg
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtSoruEkleSoru = new System.Windows.Forms.TextBox();
+            this.btnSoruEkleGeri = new System.Windows.Forms.Button();
             this.pnlSorulariGoruntule = new System.Windows.Forms.Panel();
             this.btnSoruGuncelleSG = new System.Windows.Forms.Button();
             this.btnTumuSG = new System.Windows.Forms.Button();
@@ -121,6 +129,7 @@ namespace GorselProg
             this.btnTarihSG = new System.Windows.Forms.Button();
             this.btnSporSG = new System.Windows.Forms.Button();
             this.btnSoruSil = new System.Windows.Forms.Button();
+            this.btnSorulariGoruntuleGeri = new System.Windows.Forms.Button();
             this.lvSorular = new System.Windows.Forms.ListView();
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Kategori = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -151,6 +160,7 @@ namespace GorselProg
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.txtSoruSG = new System.Windows.Forms.TextBox();
+            this.btnSoruGuncelleGeri = new System.Windows.Forms.Button();
             this.pnlProfileDznle = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -165,17 +175,7 @@ namespace GorselProg
             this.label44 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
-            this.btnSoruGuncelleGeri = new System.Windows.Forms.Button();
-            this.btnSoruEkleGeri = new System.Windows.Forms.Button();
-            this.btnSorularGeri = new System.Windows.Forms.Button();
-            this.btnProfileGeri = new System.Windows.Forms.Button();
-            this.btnJAGGeri = new System.Windows.Forms.Button();
-            this.btnBAGBack = new System.Windows.Forms.Button();
-            this.btnHTPGeri = new System.Windows.Forms.Button();
-            this.btnPreferencesGeri = new System.Windows.Forms.Button();
-            this.btnCAGGeri = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnSorulariGoruntuleGeri = new System.Windows.Forms.Button();
             this.pnlPreferences.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
             this.pnlJoinAGame.SuspendLayout();
@@ -278,6 +278,21 @@ namespace GorselProg
             this.pnlPreferences.TabIndex = 8;
             this.pnlPreferences.Visible = false;
             // 
+            // btnPreferencesGeri
+            // 
+            this.btnPreferencesGeri.FlatAppearance.BorderSize = 0;
+            this.btnPreferencesGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreferencesGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnPreferencesGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnPreferencesGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnPreferencesGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnPreferencesGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPreferencesGeri.Name = "btnPreferencesGeri";
+            this.btnPreferencesGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnPreferencesGeri.TabIndex = 15;
+            this.btnPreferencesGeri.UseVisualStyleBackColor = true;
+            this.btnPreferencesGeri.Click += new System.EventHandler(this.btnPreferencesGeri_Click);
+            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -333,6 +348,21 @@ namespace GorselProg
             this.pnlHowToPlay.Size = new System.Drawing.Size(68, 72);
             this.pnlHowToPlay.TabIndex = 7;
             this.pnlHowToPlay.Visible = false;
+            // 
+            // btnHTPGeri
+            // 
+            this.btnHTPGeri.FlatAppearance.BorderSize = 0;
+            this.btnHTPGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHTPGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHTPGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnHTPGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnHTPGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnHTPGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnHTPGeri.Name = "btnHTPGeri";
+            this.btnHTPGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnHTPGeri.TabIndex = 11;
+            this.btnHTPGeri.UseVisualStyleBackColor = true;
+            this.btnHTPGeri.Click += new System.EventHandler(this.btnHTPGeri_Click);
             // 
             // label6
             // 
@@ -404,6 +434,21 @@ namespace GorselProg
             this.txtJoinPassword.Size = new System.Drawing.Size(231, 25);
             this.txtJoinPassword.TabIndex = 17;
             // 
+            // btnJAGGeri
+            // 
+            this.btnJAGGeri.FlatAppearance.BorderSize = 0;
+            this.btnJAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnJAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnJAGGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnJAGGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnJAGGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnJAGGeri.Name = "btnJAGGeri";
+            this.btnJAGGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnJAGGeri.TabIndex = 16;
+            this.btnJAGGeri.UseVisualStyleBackColor = true;
+            this.btnJAGGeri.Click += new System.EventHandler(this.btnJAGGeri_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -460,6 +505,21 @@ namespace GorselProg
             this.pnlCreateAGame.Size = new System.Drawing.Size(63, 70);
             this.pnlCreateAGame.TabIndex = 2;
             this.pnlCreateAGame.Visible = false;
+            // 
+            // btnCAGGeri
+            // 
+            this.btnCAGGeri.FlatAppearance.BorderSize = 0;
+            this.btnCAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnCAGGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnCAGGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnCAGGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCAGGeri.Name = "btnCAGGeri";
+            this.btnCAGGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnCAGGeri.TabIndex = 17;
+            this.btnCAGGeri.UseVisualStyleBackColor = true;
+            this.btnCAGGeri.Click += new System.EventHandler(this.btnCAGGeri_Click);
             // 
             // label4
             // 
@@ -630,6 +690,21 @@ namespace GorselProg
             this.pnlBuildAGame.Size = new System.Drawing.Size(70, 70);
             this.pnlBuildAGame.TabIndex = 6;
             this.pnlBuildAGame.Visible = false;
+            // 
+            // btnBAGBack
+            // 
+            this.btnBAGBack.FlatAppearance.BorderSize = 0;
+            this.btnBAGBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBAGBack.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnBAGBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnBAGBack.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnBAGBack.Location = new System.Drawing.Point(3, 4);
+            this.btnBAGBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBAGBack.Name = "btnBAGBack";
+            this.btnBAGBack.Size = new System.Drawing.Size(52, 55);
+            this.btnBAGBack.TabIndex = 2;
+            this.btnBAGBack.UseVisualStyleBackColor = true;
+            this.btnBAGBack.Click += new System.EventHandler(this.btnBAGBack_Click);
             // 
             // pnlProfile
             // 
@@ -965,6 +1040,21 @@ namespace GorselProg
             this.lblProfileUsername.Text = "USERNAME";
             this.lblProfileUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnProfileGeri
+            // 
+            this.btnProfileGeri.FlatAppearance.BorderSize = 0;
+            this.btnProfileGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfileGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnProfileGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnProfileGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnProfileGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnProfileGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProfileGeri.Name = "btnProfileGeri";
+            this.btnProfileGeri.Size = new System.Drawing.Size(90, 53);
+            this.btnProfileGeri.TabIndex = 2;
+            this.btnProfileGeri.UseVisualStyleBackColor = true;
+            this.btnProfileGeri.Click += new System.EventHandler(this.btnProfileGeri_Click);
+            // 
             // pnlSorular
             // 
             this.pnlSorular.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -995,6 +1085,21 @@ namespace GorselProg
             this.btnSorularGoruntule.Text = "Soruları Görüntüle";
             this.btnSorularGoruntule.UseVisualStyleBackColor = true;
             this.btnSorularGoruntule.Click += new System.EventHandler(this.btnSorularGoruntule_Click);
+            // 
+            // btnSorularGeri
+            // 
+            this.btnSorularGeri.FlatAppearance.BorderSize = 0;
+            this.btnSorularGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSorularGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSorularGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnSorularGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnSorularGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnSorularGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSorularGeri.Name = "btnSorularGeri";
+            this.btnSorularGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnSorularGeri.TabIndex = 2;
+            this.btnSorularGeri.UseVisualStyleBackColor = true;
+            this.btnSorularGeri.Click += new System.EventHandler(this.btnSorularGeri_Click);
             // 
             // btnSorularSoruEkle
             // 
@@ -1038,10 +1143,10 @@ namespace GorselProg
             this.pnlSoruEkle.Controls.Add(this.label19);
             this.pnlSoruEkle.Controls.Add(this.txtSoruEkleSoru);
             this.pnlSoruEkle.Controls.Add(this.btnSoruEkleGeri);
-            this.pnlSoruEkle.Location = new System.Drawing.Point(449, 23);
+            this.pnlSoruEkle.Location = new System.Drawing.Point(256, 362);
             this.pnlSoruEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlSoruEkle.Name = "pnlSoruEkle";
-            this.pnlSoruEkle.Size = new System.Drawing.Size(712, 683);
+            this.pnlSoruEkle.Size = new System.Drawing.Size(65, 64);
             this.pnlSoruEkle.TabIndex = 11;
             this.pnlSoruEkle.Visible = false;
             // 
@@ -1050,7 +1155,7 @@ namespace GorselProg
             this.btnEglenceSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEglenceSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEglenceSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEglenceSE.Location = new System.Drawing.Point(483, 498);
+            this.btnEglenceSE.Location = new System.Drawing.Point(159, 189);
             this.btnEglenceSE.Name = "btnEglenceSE";
             this.btnEglenceSE.Size = new System.Drawing.Size(80, 60);
             this.btnEglenceSE.TabIndex = 27;
@@ -1063,7 +1168,7 @@ namespace GorselProg
             this.btnBilimSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBilimSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilimSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBilimSE.Location = new System.Drawing.Point(397, 498);
+            this.btnBilimSE.Location = new System.Drawing.Point(73, 189);
             this.btnBilimSE.Name = "btnBilimSE";
             this.btnBilimSE.Size = new System.Drawing.Size(80, 60);
             this.btnBilimSE.TabIndex = 26;
@@ -1076,7 +1181,7 @@ namespace GorselProg
             this.btnSanatSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSanatSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSanatSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSanatSE.Location = new System.Drawing.Point(311, 498);
+            this.btnSanatSE.Location = new System.Drawing.Point(-13, 189);
             this.btnSanatSE.Name = "btnSanatSE";
             this.btnSanatSE.Size = new System.Drawing.Size(80, 60);
             this.btnSanatSE.TabIndex = 25;
@@ -1089,7 +1194,7 @@ namespace GorselProg
             this.btnTarihSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTarihSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTarihSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTarihSE.Location = new System.Drawing.Point(225, 498);
+            this.btnTarihSE.Location = new System.Drawing.Point(-99, 189);
             this.btnTarihSE.Name = "btnTarihSE";
             this.btnTarihSE.Size = new System.Drawing.Size(80, 60);
             this.btnTarihSE.TabIndex = 24;
@@ -1102,7 +1207,7 @@ namespace GorselProg
             this.btnSporSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSporSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSporSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSporSE.Location = new System.Drawing.Point(139, 498);
+            this.btnSporSE.Location = new System.Drawing.Point(-185, 189);
             this.btnSporSE.Name = "btnSporSE";
             this.btnSporSE.Size = new System.Drawing.Size(80, 60);
             this.btnSporSE.TabIndex = 23;
@@ -1115,7 +1220,7 @@ namespace GorselProg
             this.btnSoruEkle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSoruEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoruEkle.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruEkle.Location = new System.Drawing.Point(151, 571);
+            this.btnSoruEkle.Location = new System.Drawing.Point(-173, 262);
             this.btnSoruEkle.Name = "btnSoruEkle";
             this.btnSoruEkle.Size = new System.Drawing.Size(400, 41);
             this.btnSoruEkle.TabIndex = 17;
@@ -1127,7 +1232,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru4.AutoSize = true;
-            this.rbSoruEkleDogru4.Location = new System.Drawing.Point(493, 465);
+            this.rbSoruEkleDogru4.Location = new System.Drawing.Point(169, 156);
             this.rbSoruEkleDogru4.Name = "rbSoruEkleDogru4";
             this.rbSoruEkleDogru4.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru4.TabIndex = 16;
@@ -1139,7 +1244,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru3.AutoSize = true;
-            this.rbSoruEkleDogru3.Location = new System.Drawing.Point(493, 399);
+            this.rbSoruEkleDogru3.Location = new System.Drawing.Point(169, 90);
             this.rbSoruEkleDogru3.Name = "rbSoruEkleDogru3";
             this.rbSoruEkleDogru3.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru3.TabIndex = 15;
@@ -1151,7 +1256,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru2.AutoSize = true;
-            this.rbSoruEkleDogru2.Location = new System.Drawing.Point(493, 337);
+            this.rbSoruEkleDogru2.Location = new System.Drawing.Point(169, 28);
             this.rbSoruEkleDogru2.Name = "rbSoruEkleDogru2";
             this.rbSoruEkleDogru2.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru2.TabIndex = 14;
@@ -1163,7 +1268,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru1.AutoSize = true;
-            this.rbSoruEkleDogru1.Location = new System.Drawing.Point(493, 277);
+            this.rbSoruEkleDogru1.Location = new System.Drawing.Point(169, -32);
             this.rbSoruEkleDogru1.Name = "rbSoruEkleDogru1";
             this.rbSoruEkleDogru1.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru1.TabIndex = 13;
@@ -1175,7 +1280,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt4.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt4.Location = new System.Drawing.Point(151, 457);
+            this.txtSoruEkleOpt4.Location = new System.Drawing.Point(-173, 148);
             this.txtSoruEkleOpt4.Name = "txtSoruEkleOpt4";
             this.txtSoruEkleOpt4.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt4.TabIndex = 12;
@@ -1185,7 +1290,7 @@ namespace GorselProg
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(147, 433);
+            this.label23.Location = new System.Drawing.Point(-177, 124);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(82, 21);
             this.label23.TabIndex = 11;
@@ -1195,7 +1300,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt3.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt3.Location = new System.Drawing.Point(151, 391);
+            this.txtSoruEkleOpt3.Location = new System.Drawing.Point(-173, 82);
             this.txtSoruEkleOpt3.Name = "txtSoruEkleOpt3";
             this.txtSoruEkleOpt3.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt3.TabIndex = 10;
@@ -1205,7 +1310,7 @@ namespace GorselProg
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label22.Location = new System.Drawing.Point(147, 367);
+            this.label22.Location = new System.Drawing.Point(-177, 58);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(82, 21);
             this.label22.TabIndex = 9;
@@ -1215,7 +1320,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt2.Location = new System.Drawing.Point(151, 329);
+            this.txtSoruEkleOpt2.Location = new System.Drawing.Point(-173, 20);
             this.txtSoruEkleOpt2.Name = "txtSoruEkleOpt2";
             this.txtSoruEkleOpt2.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt2.TabIndex = 8;
@@ -1225,7 +1330,7 @@ namespace GorselProg
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label21.Location = new System.Drawing.Point(147, 305);
+            this.label21.Location = new System.Drawing.Point(-177, -4);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(82, 21);
             this.label21.TabIndex = 7;
@@ -1235,7 +1340,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt1.Location = new System.Drawing.Point(151, 271);
+            this.txtSoruEkleOpt1.Location = new System.Drawing.Point(-173, -38);
             this.txtSoruEkleOpt1.Name = "txtSoruEkleOpt1";
             this.txtSoruEkleOpt1.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt1.TabIndex = 6;
@@ -1245,7 +1350,7 @@ namespace GorselProg
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label20.Location = new System.Drawing.Point(147, 247);
+            this.label20.Location = new System.Drawing.Point(-177, -62);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(82, 21);
             this.label20.TabIndex = 5;
@@ -1256,7 +1361,7 @@ namespace GorselProg
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label19.Location = new System.Drawing.Point(147, 86);
+            this.label19.Location = new System.Drawing.Point(-177, -223);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 23);
             this.label19.TabIndex = 4;
@@ -1266,11 +1371,26 @@ namespace GorselProg
             // 
             this.txtSoruEkleSoru.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleSoru.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleSoru.Location = new System.Drawing.Point(151, 112);
+            this.txtSoruEkleSoru.Location = new System.Drawing.Point(-173, -197);
             this.txtSoruEkleSoru.Multiline = true;
             this.txtSoruEkleSoru.Name = "txtSoruEkleSoru";
             this.txtSoruEkleSoru.Size = new System.Drawing.Size(384, 114);
             this.txtSoruEkleSoru.TabIndex = 3;
+            // 
+            // btnSoruEkleGeri
+            // 
+            this.btnSoruEkleGeri.FlatAppearance.BorderSize = 0;
+            this.btnSoruEkleGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSoruEkleGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSoruEkleGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnSoruEkleGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnSoruEkleGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnSoruEkleGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSoruEkleGeri.Name = "btnSoruEkleGeri";
+            this.btnSoruEkleGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnSoruEkleGeri.TabIndex = 2;
+            this.btnSoruEkleGeri.UseVisualStyleBackColor = true;
+            this.btnSoruEkleGeri.Click += new System.EventHandler(this.btnSoruEkleGeri_Click);
             // 
             // pnlSorulariGoruntule
             // 
@@ -1409,6 +1529,21 @@ namespace GorselProg
             this.btnSoruSil.Text = "Soruyu Sil";
             this.btnSoruSil.UseVisualStyleBackColor = true;
             this.btnSoruSil.Click += new System.EventHandler(this.btnSoruSil_Click);
+            // 
+            // btnSorulariGoruntuleGeri
+            // 
+            this.btnSorulariGoruntuleGeri.FlatAppearance.BorderSize = 0;
+            this.btnSorulariGoruntuleGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSorulariGoruntuleGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSorulariGoruntuleGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnSorulariGoruntuleGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnSorulariGoruntuleGeri.Location = new System.Drawing.Point(3, 379);
+            this.btnSorulariGoruntuleGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSorulariGoruntuleGeri.Name = "btnSorulariGoruntuleGeri";
+            this.btnSorulariGoruntuleGeri.Size = new System.Drawing.Size(52, 53);
+            this.btnSorulariGoruntuleGeri.TabIndex = 2;
+            this.btnSorulariGoruntuleGeri.UseVisualStyleBackColor = true;
+            this.btnSorulariGoruntuleGeri.Click += new System.EventHandler(this.btnSorulariGoruntuleGeri_Click);
             // 
             // lvSorular
             // 
@@ -1726,6 +1861,21 @@ namespace GorselProg
             this.txtSoruSG.Size = new System.Drawing.Size(384, 114);
             this.txtSoruSG.TabIndex = 3;
             // 
+            // btnSoruGuncelleGeri
+            // 
+            this.btnSoruGuncelleGeri.FlatAppearance.BorderSize = 0;
+            this.btnSoruGuncelleGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSoruGuncelleGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSoruGuncelleGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
+            this.btnSoruGuncelleGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
+            this.btnSoruGuncelleGeri.Location = new System.Drawing.Point(3, 4);
+            this.btnSoruGuncelleGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSoruGuncelleGeri.Name = "btnSoruGuncelleGeri";
+            this.btnSoruGuncelleGeri.Size = new System.Drawing.Size(52, 55);
+            this.btnSoruGuncelleGeri.TabIndex = 2;
+            this.btnSoruGuncelleGeri.UseVisualStyleBackColor = true;
+            this.btnSoruGuncelleGeri.Click += new System.EventHandler(this.btnSoruGuncelleGeri_Click);
+            // 
             // pnlProfileDznle
             // 
             this.pnlProfileDznle.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1745,7 +1895,7 @@ namespace GorselProg
             this.pnlProfileDznle.Controls.Add(this.label46);
             this.pnlProfileDznle.Controls.Add(this.label49);
             this.pnlProfileDznle.Controls.Add(this.button2);
-            this.pnlProfileDznle.Location = new System.Drawing.Point(339, 355);
+            this.pnlProfileDznle.Location = new System.Drawing.Point(199, 99);
             this.pnlProfileDznle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlProfileDznle.Name = "pnlProfileDznle";
             this.pnlProfileDznle.Size = new System.Drawing.Size(62, 66);
@@ -1876,141 +2026,6 @@ namespace GorselProg
             this.label49.TabIndex = 3;
             this.label49.Text = "USERNAME";
             // 
-            // btnSoruGuncelleGeri
-            // 
-            this.btnSoruGuncelleGeri.FlatAppearance.BorderSize = 0;
-            this.btnSoruGuncelleGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSoruGuncelleGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruGuncelleGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnSoruGuncelleGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnSoruGuncelleGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnSoruGuncelleGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSoruGuncelleGeri.Name = "btnSoruGuncelleGeri";
-            this.btnSoruGuncelleGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnSoruGuncelleGeri.TabIndex = 2;
-            this.btnSoruGuncelleGeri.UseVisualStyleBackColor = true;
-            this.btnSoruGuncelleGeri.Click += new System.EventHandler(this.btnSoruGuncelleGeri_Click);
-            // 
-            // btnSoruEkleGeri
-            // 
-            this.btnSoruEkleGeri.FlatAppearance.BorderSize = 0;
-            this.btnSoruEkleGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSoruEkleGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruEkleGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnSoruEkleGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnSoruEkleGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnSoruEkleGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSoruEkleGeri.Name = "btnSoruEkleGeri";
-            this.btnSoruEkleGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnSoruEkleGeri.TabIndex = 2;
-            this.btnSoruEkleGeri.UseVisualStyleBackColor = true;
-            this.btnSoruEkleGeri.Click += new System.EventHandler(this.btnSoruEkleGeri_Click);
-            // 
-            // btnSorularGeri
-            // 
-            this.btnSorularGeri.FlatAppearance.BorderSize = 0;
-            this.btnSorularGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSorularGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSorularGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnSorularGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnSorularGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnSorularGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSorularGeri.Name = "btnSorularGeri";
-            this.btnSorularGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnSorularGeri.TabIndex = 2;
-            this.btnSorularGeri.UseVisualStyleBackColor = true;
-            this.btnSorularGeri.Click += new System.EventHandler(this.btnSorularGeri_Click);
-            // 
-            // btnProfileGeri
-            // 
-            this.btnProfileGeri.FlatAppearance.BorderSize = 0;
-            this.btnProfileGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProfileGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnProfileGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnProfileGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnProfileGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnProfileGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnProfileGeri.Name = "btnProfileGeri";
-            this.btnProfileGeri.Size = new System.Drawing.Size(90, 53);
-            this.btnProfileGeri.TabIndex = 2;
-            this.btnProfileGeri.UseVisualStyleBackColor = true;
-            this.btnProfileGeri.Click += new System.EventHandler(this.btnProfileGeri_Click);
-            // 
-            // btnJAGGeri
-            // 
-            this.btnJAGGeri.FlatAppearance.BorderSize = 0;
-            this.btnJAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnJAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnJAGGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnJAGGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnJAGGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnJAGGeri.Name = "btnJAGGeri";
-            this.btnJAGGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnJAGGeri.TabIndex = 16;
-            this.btnJAGGeri.UseVisualStyleBackColor = true;
-            this.btnJAGGeri.Click += new System.EventHandler(this.btnJAGGeri_Click);
-            // 
-            // btnBAGBack
-            // 
-            this.btnBAGBack.FlatAppearance.BorderSize = 0;
-            this.btnBAGBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBAGBack.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBAGBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnBAGBack.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnBAGBack.Location = new System.Drawing.Point(3, 4);
-            this.btnBAGBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnBAGBack.Name = "btnBAGBack";
-            this.btnBAGBack.Size = new System.Drawing.Size(52, 55);
-            this.btnBAGBack.TabIndex = 2;
-            this.btnBAGBack.UseVisualStyleBackColor = true;
-            this.btnBAGBack.Click += new System.EventHandler(this.btnBAGBack_Click);
-            // 
-            // btnHTPGeri
-            // 
-            this.btnHTPGeri.FlatAppearance.BorderSize = 0;
-            this.btnHTPGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHTPGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnHTPGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnHTPGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnHTPGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnHTPGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnHTPGeri.Name = "btnHTPGeri";
-            this.btnHTPGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnHTPGeri.TabIndex = 11;
-            this.btnHTPGeri.UseVisualStyleBackColor = true;
-            this.btnHTPGeri.Click += new System.EventHandler(this.btnHTPGeri_Click);
-            // 
-            // btnPreferencesGeri
-            // 
-            this.btnPreferencesGeri.FlatAppearance.BorderSize = 0;
-            this.btnPreferencesGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPreferencesGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPreferencesGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnPreferencesGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnPreferencesGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnPreferencesGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnPreferencesGeri.Name = "btnPreferencesGeri";
-            this.btnPreferencesGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnPreferencesGeri.TabIndex = 15;
-            this.btnPreferencesGeri.UseVisualStyleBackColor = true;
-            this.btnPreferencesGeri.Click += new System.EventHandler(this.btnPreferencesGeri_Click);
-            // 
-            // btnCAGGeri
-            // 
-            this.btnCAGGeri.FlatAppearance.BorderSize = 0;
-            this.btnCAGGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCAGGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnCAGGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnCAGGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnCAGGeri.Location = new System.Drawing.Point(3, 4);
-            this.btnCAGGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCAGGeri.Name = "btnCAGGeri";
-            this.btnCAGGeri.Size = new System.Drawing.Size(52, 55);
-            this.btnCAGGeri.TabIndex = 17;
-            this.btnCAGGeri.UseVisualStyleBackColor = true;
-            this.btnCAGGeri.Click += new System.EventHandler(this.btnCAGGeri_Click);
-            // 
             // button2
             // 
             this.button2.FlatAppearance.BorderSize = 0;
@@ -2024,21 +2039,6 @@ namespace GorselProg
             this.button2.Size = new System.Drawing.Size(52, 55);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // btnSorulariGoruntuleGeri
-            // 
-            this.btnSorulariGoruntuleGeri.FlatAppearance.BorderSize = 0;
-            this.btnSorulariGoruntuleGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSorulariGoruntuleGeri.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSorulariGoruntuleGeri.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnSorulariGoruntuleGeri.Image = global::GorselProg.Properties.Resources._211689_left_arrow_icon;
-            this.btnSorulariGoruntuleGeri.Location = new System.Drawing.Point(3, 379);
-            this.btnSorulariGoruntuleGeri.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSorulariGoruntuleGeri.Name = "btnSorulariGoruntuleGeri";
-            this.btnSorulariGoruntuleGeri.Size = new System.Drawing.Size(52, 53);
-            this.btnSorulariGoruntuleGeri.TabIndex = 2;
-            this.btnSorulariGoruntuleGeri.UseVisualStyleBackColor = true;
-            this.btnSorulariGoruntuleGeri.Click += new System.EventHandler(this.btnSorulariGoruntuleGeri_Click);
             // 
             // formMainMenu
             // 
