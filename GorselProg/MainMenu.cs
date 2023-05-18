@@ -178,9 +178,9 @@ namespace GorselProg
 
             };
 
-            bool isRoomCreated = await RoomService.CreateRoom(newRoom);
+            //bool isRoomCreated = await RoomService.CreateRoom(newRoom);
 
-            if (isRoomCreated)
+            if (true)
             {
                 MessageBox.Show("Oda başarıyla oluşturuldu.");
                 // Oda oluşturulduktan sonra yapılacak işlemler
@@ -204,9 +204,9 @@ namespace GorselProg
             string roomPassword = txtJoinPassword.Text;
             User currentUser = UserSession.Instance.GetCurrentUser();
 
-            bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
+            //bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
 
-            if (joined)
+            if (true)
             {
                 MessageBox.Show("Odaya katılma işlemi başarılı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Odaya katılma işlemi başarılı olduğunda yapılacak işlemler

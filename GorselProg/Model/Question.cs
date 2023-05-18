@@ -18,12 +18,15 @@ namespace GorselProg.Model
         public Guid Id { get; set; }
 
         [Required]
-        [StringLength(255)]
+        
         public string QuestionText { get; set; }
 
         [Required]
-        [StringLength(255)]
+        
         public string OptionsText { get; set; }
+
+        [Required]
+        public int  CorrectAnswerIndex { get; set; }
 
         public Guid? CategoryId { get; set; }
 

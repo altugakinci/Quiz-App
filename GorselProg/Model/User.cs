@@ -23,7 +23,7 @@ namespace GorselProg.Model
 
         [Required]
         [StringLength(255)]
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         [StringLength(255)]
         public string Email { get; set; }
