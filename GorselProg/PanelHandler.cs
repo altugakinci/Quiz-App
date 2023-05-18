@@ -15,10 +15,10 @@ namespace GorselProg
         public static void setPanelMiddle(Form form, Panel inactive_panel, Panel active_panel)
         {
             inactive_panel.Visible = false;
-            active_panel.Visible = true;
             active_panel.Size = new Size(600, 600);
             active_panel.Left = (form.Width - active_panel.Width) / 2;
             active_panel.Top = (form.Height - active_panel.Height) / 2;
+            active_panel.Visible = true;
         }
 
         public static void setPanelFill(Panel inactive_panel,Panel active_panel)
