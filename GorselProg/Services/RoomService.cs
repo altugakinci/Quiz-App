@@ -30,6 +30,15 @@ namespace GorselProg.Services
                     await context.SaveChangesAsync();
 
                     RoomSession.Instance.SetCurrentRoom(newRoom);
+                    var player = new Player
+                    {
+                        Id = Guid.NewGuid(),
+                        RoomId = newRoom.Id,
+                        UserId = newRoom.AdminId
+                    };
+
+                    context.Players.Add(player);
+                    await context.SaveChangesAsync();
                     return true;
                 }
             }
@@ -59,6 +68,26 @@ namespace GorselProg.Services
                 HideLoadingIndicator();
             }
         }
+        public static async Task<List<User>> GetPlayers(Guid roomId)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+                using (var context = new qAppDBContext())
+                {
+                    var players = await context.Players
+                        .Where(p => p.RoomId == roomId)
+                        .Select(p => p.User)
+                        .ToListAsync();
+
+                    return players;
+                }
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
+        }
 
         public static async Task<bool> JoinRoom(string code, string password, User user)
         {
@@ -71,12 +100,14 @@ namespace GorselProg.Services
 
                     if (room != null)
                     {
+                        RoomSession.Instance.SetCurrentRoom(room);
                         var player = new Player
                         {
                             Id = Guid.NewGuid(),
                             RoomId = room.Id,
                             UserId = user.Id
                         };
+
 
                         context.Players.Add(player);
                         await context.SaveChangesAsync();

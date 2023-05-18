@@ -207,7 +207,7 @@ namespace GorselProg
 
             bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
 
-            if (true)
+            if (joined)
             {
                 MessageBox.Show("Odaya katılma işlemi başarılı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Odaya katılma işlemi başarılı olduğunda yapılacak işlemler
