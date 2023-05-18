@@ -38,8 +38,7 @@ namespace GorselProg.Services
                 using (var context = new qAppDBContext())
                 {
                     var messages=await context.Messages
-                        .Where(m=>m.RoomId==roomId)
-                        .Where(m=>m.UserId==userId)
+                        .Where(m=>m.RoomId==roomId && m.UserId==userId)
                         .ToListAsync();
                     return messages;
                 }
@@ -54,46 +53,38 @@ namespace GorselProg.Services
 
         public static async Task<List<Message>> GetMessagesByRoomId(Guid roomId)
         {
-            return await _dbContext.Messages
-                .Where(m => m.RoomId == roomId)
-                .ToListAsync();
+            try
+            {
+                using (var context = new qAppDBContext())
+                {
+                    var messages = await context.Messages
+                        .Where(m => m.RoomId == roomId)
+                        .ToListAsync();
+                    return messages;
+                }
+            }
+            finally
+            {
+
+            }
         }
 
         public static async Task<Message> GetMessageById(Guid messageId)
         {
-            return await _dbContext.Messages
-                .FirstOrDefaultAsync(m => m.Id == messageId);
-        }
-
-        public static async Task SendMessageAndSaveAsync(Guid userId, string messageText, Guid roomId)
-        {
-            var message = new Message
+            try
             {
-                Id = Guid.NewGuid(),
-                MessageText = messageText,
-                SentTime = DateTime.Now,
-                UserId = userId,
-                RoomId = roomId
-            };
-
-            _dbContext.Messages.Add(message);
-            await _dbContext.SaveChangesAsync();
-        }
-
-        public static async Task SendMessageAndSaveAsync(Guid userId, string messageText, Room room)
-        {
-            var message = new Message
+                using (var context = new qAppDBContext())
+                {
+                    var message = await context.Messages
+                        .Where(m => m.Id == messageId)
+                        .FirstOrDefaultAsync();
+                    return message;
+                }
+            }
+            finally
             {
-                Id = Guid.NewGuid(),
-                MessageText = messageText,
-                SentTime = DateTime.Now,
-                UserId = userId,
-                RoomId = room.Id,
-                Room = room
-            };
 
-            _dbContext.Messages.Add(message);
-            await _dbContext.SaveChangesAsync();
+            }
         }
     }
 }
