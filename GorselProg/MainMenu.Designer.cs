@@ -1143,10 +1143,10 @@ namespace GorselProg
             this.pnlSoruEkle.Controls.Add(this.label19);
             this.pnlSoruEkle.Controls.Add(this.txtSoruEkleSoru);
             this.pnlSoruEkle.Controls.Add(this.btnSoruEkleGeri);
-            this.pnlSoruEkle.Location = new System.Drawing.Point(256, 362);
+            this.pnlSoruEkle.Location = new System.Drawing.Point(256, 260);
             this.pnlSoruEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlSoruEkle.Name = "pnlSoruEkle";
-            this.pnlSoruEkle.Size = new System.Drawing.Size(65, 64);
+            this.pnlSoruEkle.Size = new System.Drawing.Size(49, 52);
             this.pnlSoruEkle.TabIndex = 11;
             this.pnlSoruEkle.Visible = false;
             // 
@@ -1155,7 +1155,7 @@ namespace GorselProg
             this.btnEglenceSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEglenceSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEglenceSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEglenceSE.Location = new System.Drawing.Point(159, 189);
+            this.btnEglenceSE.Location = new System.Drawing.Point(151, 183);
             this.btnEglenceSE.Name = "btnEglenceSE";
             this.btnEglenceSE.Size = new System.Drawing.Size(80, 60);
             this.btnEglenceSE.TabIndex = 27;
@@ -1168,7 +1168,7 @@ namespace GorselProg
             this.btnBilimSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBilimSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilimSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBilimSE.Location = new System.Drawing.Point(73, 189);
+            this.btnBilimSE.Location = new System.Drawing.Point(65, 183);
             this.btnBilimSE.Name = "btnBilimSE";
             this.btnBilimSE.Size = new System.Drawing.Size(80, 60);
             this.btnBilimSE.TabIndex = 26;
@@ -1181,7 +1181,7 @@ namespace GorselProg
             this.btnSanatSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSanatSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSanatSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSanatSE.Location = new System.Drawing.Point(-13, 189);
+            this.btnSanatSE.Location = new System.Drawing.Point(-21, 183);
             this.btnSanatSE.Name = "btnSanatSE";
             this.btnSanatSE.Size = new System.Drawing.Size(80, 60);
             this.btnSanatSE.TabIndex = 25;
@@ -1194,7 +1194,7 @@ namespace GorselProg
             this.btnTarihSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTarihSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTarihSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTarihSE.Location = new System.Drawing.Point(-99, 189);
+            this.btnTarihSE.Location = new System.Drawing.Point(-107, 183);
             this.btnTarihSE.Name = "btnTarihSE";
             this.btnTarihSE.Size = new System.Drawing.Size(80, 60);
             this.btnTarihSE.TabIndex = 24;
@@ -1207,7 +1207,7 @@ namespace GorselProg
             this.btnSporSE.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSporSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSporSE.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSporSE.Location = new System.Drawing.Point(-185, 189);
+            this.btnSporSE.Location = new System.Drawing.Point(-193, 183);
             this.btnSporSE.Name = "btnSporSE";
             this.btnSporSE.Size = new System.Drawing.Size(80, 60);
             this.btnSporSE.TabIndex = 23;
@@ -1220,7 +1220,7 @@ namespace GorselProg
             this.btnSoruEkle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSoruEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoruEkle.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruEkle.Location = new System.Drawing.Point(-173, 262);
+            this.btnSoruEkle.Location = new System.Drawing.Point(-181, 256);
             this.btnSoruEkle.Name = "btnSoruEkle";
             this.btnSoruEkle.Size = new System.Drawing.Size(400, 41);
             this.btnSoruEkle.TabIndex = 17;
@@ -1232,7 +1232,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru4.AutoSize = true;
-            this.rbSoruEkleDogru4.Location = new System.Drawing.Point(169, 156);
+            this.rbSoruEkleDogru4.Location = new System.Drawing.Point(161, 150);
             this.rbSoruEkleDogru4.Name = "rbSoruEkleDogru4";
             this.rbSoruEkleDogru4.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru4.TabIndex = 16;
@@ -1244,7 +1244,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru3.AutoSize = true;
-            this.rbSoruEkleDogru3.Location = new System.Drawing.Point(169, 90);
+            this.rbSoruEkleDogru3.Location = new System.Drawing.Point(161, 84);
             this.rbSoruEkleDogru3.Name = "rbSoruEkleDogru3";
             this.rbSoruEkleDogru3.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru3.TabIndex = 15;
@@ -1256,7 +1256,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru2.AutoSize = true;
-            this.rbSoruEkleDogru2.Location = new System.Drawing.Point(169, 28);
+            this.rbSoruEkleDogru2.Location = new System.Drawing.Point(161, 22);
             this.rbSoruEkleDogru2.Name = "rbSoruEkleDogru2";
             this.rbSoruEkleDogru2.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru2.TabIndex = 14;
@@ -1268,7 +1268,7 @@ namespace GorselProg
             // 
             this.rbSoruEkleDogru1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbSoruEkleDogru1.AutoSize = true;
-            this.rbSoruEkleDogru1.Location = new System.Drawing.Point(169, -32);
+            this.rbSoruEkleDogru1.Location = new System.Drawing.Point(161, -38);
             this.rbSoruEkleDogru1.Name = "rbSoruEkleDogru1";
             this.rbSoruEkleDogru1.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru1.TabIndex = 13;
@@ -1280,7 +1280,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt4.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt4.Location = new System.Drawing.Point(-173, 148);
+            this.txtSoruEkleOpt4.Location = new System.Drawing.Point(-181, 142);
             this.txtSoruEkleOpt4.Name = "txtSoruEkleOpt4";
             this.txtSoruEkleOpt4.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt4.TabIndex = 12;
@@ -1290,7 +1290,7 @@ namespace GorselProg
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(-177, 124);
+            this.label23.Location = new System.Drawing.Point(-185, 118);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(82, 21);
             this.label23.TabIndex = 11;
@@ -1300,7 +1300,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt3.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt3.Location = new System.Drawing.Point(-173, 82);
+            this.txtSoruEkleOpt3.Location = new System.Drawing.Point(-181, 76);
             this.txtSoruEkleOpt3.Name = "txtSoruEkleOpt3";
             this.txtSoruEkleOpt3.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt3.TabIndex = 10;
@@ -1310,7 +1310,7 @@ namespace GorselProg
             this.label22.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label22.Location = new System.Drawing.Point(-177, 58);
+            this.label22.Location = new System.Drawing.Point(-185, 52);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(82, 21);
             this.label22.TabIndex = 9;
@@ -1320,7 +1320,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt2.Location = new System.Drawing.Point(-173, 20);
+            this.txtSoruEkleOpt2.Location = new System.Drawing.Point(-181, 14);
             this.txtSoruEkleOpt2.Name = "txtSoruEkleOpt2";
             this.txtSoruEkleOpt2.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt2.TabIndex = 8;
@@ -1330,7 +1330,7 @@ namespace GorselProg
             this.label21.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label21.Location = new System.Drawing.Point(-177, -4);
+            this.label21.Location = new System.Drawing.Point(-185, -10);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(82, 21);
             this.label21.TabIndex = 7;
@@ -1340,7 +1340,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleOpt1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleOpt1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleOpt1.Location = new System.Drawing.Point(-173, -38);
+            this.txtSoruEkleOpt1.Location = new System.Drawing.Point(-181, -44);
             this.txtSoruEkleOpt1.Name = "txtSoruEkleOpt1";
             this.txtSoruEkleOpt1.Size = new System.Drawing.Size(336, 32);
             this.txtSoruEkleOpt1.TabIndex = 6;
@@ -1350,7 +1350,7 @@ namespace GorselProg
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label20.Location = new System.Drawing.Point(-177, -62);
+            this.label20.Location = new System.Drawing.Point(-185, -68);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(82, 21);
             this.label20.TabIndex = 5;
@@ -1361,7 +1361,7 @@ namespace GorselProg
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label19.Location = new System.Drawing.Point(-177, -223);
+            this.label19.Location = new System.Drawing.Point(-185, -229);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 23);
             this.label19.TabIndex = 4;
@@ -1371,7 +1371,7 @@ namespace GorselProg
             // 
             this.txtSoruEkleSoru.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruEkleSoru.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruEkleSoru.Location = new System.Drawing.Point(-173, -197);
+            this.txtSoruEkleSoru.Location = new System.Drawing.Point(-181, -203);
             this.txtSoruEkleSoru.Multiline = true;
             this.txtSoruEkleSoru.Name = "txtSoruEkleSoru";
             this.txtSoruEkleSoru.Size = new System.Drawing.Size(384, 114);
@@ -1627,10 +1627,10 @@ namespace GorselProg
             this.pnlSoruGuncelle.Controls.Add(this.label29);
             this.pnlSoruGuncelle.Controls.Add(this.txtSoruSG);
             this.pnlSoruGuncelle.Controls.Add(this.btnSoruGuncelleGeri);
-            this.pnlSoruGuncelle.Location = new System.Drawing.Point(186, 355);
+            this.pnlSoruGuncelle.Location = new System.Drawing.Point(344, 17);
             this.pnlSoruGuncelle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlSoruGuncelle.Name = "pnlSoruGuncelle";
-            this.pnlSoruGuncelle.Size = new System.Drawing.Size(57, 66);
+            this.pnlSoruGuncelle.Size = new System.Drawing.Size(683, 561);
             this.pnlSoruGuncelle.TabIndex = 18;
             this.pnlSoruGuncelle.Visible = false;
             // 
@@ -1639,7 +1639,7 @@ namespace GorselProg
             this.btnEglenceGuncelle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEglenceGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEglenceGuncelle.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnEglenceGuncelle.Location = new System.Drawing.Point(157, 165);
+            this.btnEglenceGuncelle.Location = new System.Drawing.Point(470, 412);
             this.btnEglenceGuncelle.Name = "btnEglenceGuncelle";
             this.btnEglenceGuncelle.Size = new System.Drawing.Size(80, 60);
             this.btnEglenceGuncelle.TabIndex = 22;
@@ -1652,7 +1652,7 @@ namespace GorselProg
             this.btnBilimGuncelle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnBilimGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBilimGuncelle.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnBilimGuncelle.Location = new System.Drawing.Point(71, 165);
+            this.btnBilimGuncelle.Location = new System.Drawing.Point(384, 412);
             this.btnBilimGuncelle.Name = "btnBilimGuncelle";
             this.btnBilimGuncelle.Size = new System.Drawing.Size(80, 60);
             this.btnBilimGuncelle.TabIndex = 21;
@@ -1665,7 +1665,7 @@ namespace GorselProg
             this.btnSanatGuncelle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSanatGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSanatGuncelle.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSanatGuncelle.Location = new System.Drawing.Point(-15, 165);
+            this.btnSanatGuncelle.Location = new System.Drawing.Point(298, 412);
             this.btnSanatGuncelle.Name = "btnSanatGuncelle";
             this.btnSanatGuncelle.Size = new System.Drawing.Size(80, 60);
             this.btnSanatGuncelle.TabIndex = 20;
@@ -1678,7 +1678,7 @@ namespace GorselProg
             this.btnTarihGuncelle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnTarihGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTarihGuncelle.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnTarihGuncelle.Location = new System.Drawing.Point(-101, 165);
+            this.btnTarihGuncelle.Location = new System.Drawing.Point(212, 412);
             this.btnTarihGuncelle.Name = "btnTarihGuncelle";
             this.btnTarihGuncelle.Size = new System.Drawing.Size(80, 60);
             this.btnTarihGuncelle.TabIndex = 19;
@@ -1691,7 +1691,7 @@ namespace GorselProg
             this.btnSporGuncelle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSporGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSporGuncelle.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSporGuncelle.Location = new System.Drawing.Point(-187, 165);
+            this.btnSporGuncelle.Location = new System.Drawing.Point(126, 412);
             this.btnSporGuncelle.Name = "btnSporGuncelle";
             this.btnSporGuncelle.Size = new System.Drawing.Size(80, 60);
             this.btnSporGuncelle.TabIndex = 18;
@@ -1704,7 +1704,7 @@ namespace GorselProg
             this.btnSoruGuncelle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSoruGuncelle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoruGuncelle.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruGuncelle.Location = new System.Drawing.Point(-178, 242);
+            this.btnSoruGuncelle.Location = new System.Drawing.Point(135, 489);
             this.btnSoruGuncelle.Name = "btnSoruGuncelle";
             this.btnSoruGuncelle.Size = new System.Drawing.Size(400, 41);
             this.btnSoruGuncelle.TabIndex = 17;
@@ -1716,7 +1716,7 @@ namespace GorselProg
             // 
             this.rbOption4SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbOption4SG.AutoSize = true;
-            this.rbOption4SG.Location = new System.Drawing.Point(164, 124);
+            this.rbOption4SG.Location = new System.Drawing.Point(477, 371);
             this.rbOption4SG.Name = "rbOption4SG";
             this.rbOption4SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption4SG.TabIndex = 16;
@@ -1728,7 +1728,7 @@ namespace GorselProg
             // 
             this.rbOption3SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbOption3SG.AutoSize = true;
-            this.rbOption3SG.Location = new System.Drawing.Point(164, 58);
+            this.rbOption3SG.Location = new System.Drawing.Point(477, 305);
             this.rbOption3SG.Name = "rbOption3SG";
             this.rbOption3SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption3SG.TabIndex = 15;
@@ -1740,7 +1740,7 @@ namespace GorselProg
             // 
             this.rbOption2SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbOption2SG.AutoSize = true;
-            this.rbOption2SG.Location = new System.Drawing.Point(164, -4);
+            this.rbOption2SG.Location = new System.Drawing.Point(477, 243);
             this.rbOption2SG.Name = "rbOption2SG";
             this.rbOption2SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption2SG.TabIndex = 14;
@@ -1752,7 +1752,7 @@ namespace GorselProg
             // 
             this.rbOption1SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rbOption1SG.AutoSize = true;
-            this.rbOption1SG.Location = new System.Drawing.Point(164, -64);
+            this.rbOption1SG.Location = new System.Drawing.Point(477, 183);
             this.rbOption1SG.Name = "rbOption1SG";
             this.rbOption1SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption1SG.TabIndex = 13;
@@ -1764,7 +1764,7 @@ namespace GorselProg
             // 
             this.txtOption4SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOption4SG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtOption4SG.Location = new System.Drawing.Point(-178, 116);
+            this.txtOption4SG.Location = new System.Drawing.Point(135, 363);
             this.txtOption4SG.Name = "txtOption4SG";
             this.txtOption4SG.Size = new System.Drawing.Size(336, 32);
             this.txtOption4SG.TabIndex = 12;
@@ -1774,7 +1774,7 @@ namespace GorselProg
             this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label25.Location = new System.Drawing.Point(-182, 92);
+            this.label25.Location = new System.Drawing.Point(131, 339);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(82, 21);
             this.label25.TabIndex = 11;
@@ -1784,7 +1784,7 @@ namespace GorselProg
             // 
             this.txtOption3SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOption3SG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtOption3SG.Location = new System.Drawing.Point(-178, 50);
+            this.txtOption3SG.Location = new System.Drawing.Point(135, 297);
             this.txtOption3SG.Name = "txtOption3SG";
             this.txtOption3SG.Size = new System.Drawing.Size(336, 32);
             this.txtOption3SG.TabIndex = 10;
@@ -1794,7 +1794,7 @@ namespace GorselProg
             this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label26.Location = new System.Drawing.Point(-182, 26);
+            this.label26.Location = new System.Drawing.Point(131, 273);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(82, 21);
             this.label26.TabIndex = 9;
@@ -1804,7 +1804,7 @@ namespace GorselProg
             // 
             this.txtOption2SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOption2SG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtOption2SG.Location = new System.Drawing.Point(-178, -12);
+            this.txtOption2SG.Location = new System.Drawing.Point(135, 235);
             this.txtOption2SG.Name = "txtOption2SG";
             this.txtOption2SG.Size = new System.Drawing.Size(336, 32);
             this.txtOption2SG.TabIndex = 8;
@@ -1814,7 +1814,7 @@ namespace GorselProg
             this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label27.Location = new System.Drawing.Point(-182, -36);
+            this.label27.Location = new System.Drawing.Point(131, 211);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(82, 21);
             this.label27.TabIndex = 7;
@@ -1824,7 +1824,7 @@ namespace GorselProg
             // 
             this.txtOption1SG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtOption1SG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtOption1SG.Location = new System.Drawing.Point(-178, -70);
+            this.txtOption1SG.Location = new System.Drawing.Point(135, 177);
             this.txtOption1SG.Name = "txtOption1SG";
             this.txtOption1SG.Size = new System.Drawing.Size(336, 32);
             this.txtOption1SG.TabIndex = 6;
@@ -1834,7 +1834,7 @@ namespace GorselProg
             this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label28.Location = new System.Drawing.Point(-182, -94);
+            this.label28.Location = new System.Drawing.Point(131, 153);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(82, 21);
             this.label28.TabIndex = 5;
@@ -1845,7 +1845,7 @@ namespace GorselProg
             this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label29.Location = new System.Drawing.Point(-182, -255);
+            this.label29.Location = new System.Drawing.Point(131, -8);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(56, 23);
             this.label29.TabIndex = 4;
@@ -1855,7 +1855,7 @@ namespace GorselProg
             // 
             this.txtSoruSG.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSoruSG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSoruSG.Location = new System.Drawing.Point(-178, -229);
+            this.txtSoruSG.Location = new System.Drawing.Point(135, 18);
             this.txtSoruSG.Multiline = true;
             this.txtSoruSG.Name = "txtSoruSG";
             this.txtSoruSG.Size = new System.Drawing.Size(384, 114);
@@ -1895,7 +1895,7 @@ namespace GorselProg
             this.pnlProfileDznle.Controls.Add(this.label46);
             this.pnlProfileDznle.Controls.Add(this.label49);
             this.pnlProfileDznle.Controls.Add(this.button2);
-            this.pnlProfileDznle.Location = new System.Drawing.Point(199, 99);
+            this.pnlProfileDznle.Location = new System.Drawing.Point(339, 355);
             this.pnlProfileDznle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlProfileDznle.Name = "pnlProfileDznle";
             this.pnlProfileDznle.Size = new System.Drawing.Size(62, 66);
