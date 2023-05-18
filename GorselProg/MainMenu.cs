@@ -597,5 +597,22 @@ namespace GorselProg
         {
             selectButtons_Add(sender);
         }
+
+        private void btnProfiliDuzenle_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfileDznle);
+            active_panel = pnlProfileDznle;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
+            active_panel = pnlProfile;
+        }
+
+        private void btnProfiliKaydet_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("profil kaydedildi! ");
+        }
     }
 }
