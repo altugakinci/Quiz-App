@@ -29,7 +29,6 @@ namespace GorselProg
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.btnPreferences = new System.Windows.Forms.Button();
             this.btnHowToPlay = new System.Windows.Forms.Button();
@@ -162,7 +161,6 @@ namespace GorselProg
             this.label29 = new System.Windows.Forms.Label();
             this.txtSoruSG = new System.Windows.Forms.TextBox();
             this.btnSoruGuncelleGeri = new System.Windows.Forms.Button();
-
             this.pnlProfileDznle = new System.Windows.Forms.Panel();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -178,7 +176,6 @@ namespace GorselProg
             this.label46 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-
             this.pnlPreferences.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
             this.pnlJoinAGame.SuspendLayout();
@@ -196,7 +193,6 @@ namespace GorselProg
             this.pnlSorulariGoruntule.SuspendLayout();
             this.pnlSoruGuncelle.SuspendLayout();
             this.pnlProfileDznle.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // btnSignOut
@@ -737,7 +733,6 @@ namespace GorselProg
             this.pnlProfile.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlProfile.Name = "pnlProfile";
             this.pnlProfile.Size = new System.Drawing.Size(70, 68);
-
             this.pnlProfile.TabIndex = 9;
             this.pnlProfile.Visible = false;
             // 
@@ -752,7 +747,6 @@ namespace GorselProg
             this.btnProfiliDuzenle.TabIndex = 37;
             this.btnProfiliDuzenle.Text = "Profili Düzenle";
             this.btnProfiliDuzenle.UseVisualStyleBackColor = true;
-            this.btnProfiliDuzenle.Click += new System.EventHandler(this.btnProfiliDuzenle_Click);
             // 
             // lblProfileXP
             // 
@@ -986,16 +980,10 @@ namespace GorselProg
             // 
             // lblProfileMail
             // 
-
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(-49, 60);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(155, 21);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "mail@domain.com";
-
+            this.lblProfileMail.Location = new System.Drawing.Point(0, 0);
+            this.lblProfileMail.Name = "lblProfileMail";
+            this.lblProfileMail.Size = new System.Drawing.Size(100, 23);
+            this.lblProfileMail.TabIndex = 38;
             // 
             // lblProfilePlayedGames
             // 
@@ -1046,7 +1034,6 @@ namespace GorselProg
             this.lblProfileUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblProfileUsername.Font = new System.Drawing.Font("Century Gothic", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblProfileUsername.Location = new System.Drawing.Point(-70, 10);
-
             this.lblProfileUsername.Name = "lblProfileUsername";
             this.lblProfileUsername.Size = new System.Drawing.Size(336, 40);
             this.lblProfileUsername.TabIndex = 3;
@@ -1247,7 +1234,7 @@ namespace GorselProg
             this.rbSoruEkleDogru4.AutoSize = true;
             this.rbSoruEkleDogru4.Location = new System.Drawing.Point(167, 154);
             this.rbSoruEkleDogru4.Name = "rbSoruEkleDogru4";
-            this.rbSoruEkleDogru4.Size = new System.Drawing.Size(57, 20);
+            this.rbSoruEkleDogru4.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru4.TabIndex = 16;
             this.rbSoruEkleDogru4.TabStop = true;
             this.rbSoruEkleDogru4.Text = "Doğru";
@@ -1259,7 +1246,7 @@ namespace GorselProg
             this.rbSoruEkleDogru3.AutoSize = true;
             this.rbSoruEkleDogru3.Location = new System.Drawing.Point(167, 88);
             this.rbSoruEkleDogru3.Name = "rbSoruEkleDogru3";
-            this.rbSoruEkleDogru3.Size = new System.Drawing.Size(57, 20);
+            this.rbSoruEkleDogru3.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru3.TabIndex = 15;
             this.rbSoruEkleDogru3.TabStop = true;
             this.rbSoruEkleDogru3.Text = "Doğru";
@@ -1271,7 +1258,7 @@ namespace GorselProg
             this.rbSoruEkleDogru2.AutoSize = true;
             this.rbSoruEkleDogru2.Location = new System.Drawing.Point(167, 26);
             this.rbSoruEkleDogru2.Name = "rbSoruEkleDogru2";
-            this.rbSoruEkleDogru2.Size = new System.Drawing.Size(57, 20);
+            this.rbSoruEkleDogru2.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru2.TabIndex = 14;
             this.rbSoruEkleDogru2.TabStop = true;
             this.rbSoruEkleDogru2.Text = "Doğru";
@@ -1283,7 +1270,7 @@ namespace GorselProg
             this.rbSoruEkleDogru1.AutoSize = true;
             this.rbSoruEkleDogru1.Location = new System.Drawing.Point(167, -34);
             this.rbSoruEkleDogru1.Name = "rbSoruEkleDogru1";
-            this.rbSoruEkleDogru1.Size = new System.Drawing.Size(57, 20);
+            this.rbSoruEkleDogru1.Size = new System.Drawing.Size(58, 20);
             this.rbSoruEkleDogru1.TabIndex = 13;
             this.rbSoruEkleDogru1.TabStop = true;
             this.rbSoruEkleDogru1.Text = "Doğru";
@@ -1731,7 +1718,7 @@ namespace GorselProg
             this.rbOption4SG.AutoSize = true;
             this.rbOption4SG.Location = new System.Drawing.Point(164, 124);
             this.rbOption4SG.Name = "rbOption4SG";
-            this.rbOption4SG.Size = new System.Drawing.Size(57, 20);
+            this.rbOption4SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption4SG.TabIndex = 16;
             this.rbOption4SG.TabStop = true;
             this.rbOption4SG.Text = "Doğru";
@@ -1743,7 +1730,7 @@ namespace GorselProg
             this.rbOption3SG.AutoSize = true;
             this.rbOption3SG.Location = new System.Drawing.Point(164, 58);
             this.rbOption3SG.Name = "rbOption3SG";
-            this.rbOption3SG.Size = new System.Drawing.Size(57, 20);
+            this.rbOption3SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption3SG.TabIndex = 15;
             this.rbOption3SG.TabStop = true;
             this.rbOption3SG.Text = "Doğru";
@@ -1755,7 +1742,7 @@ namespace GorselProg
             this.rbOption2SG.AutoSize = true;
             this.rbOption2SG.Location = new System.Drawing.Point(164, -4);
             this.rbOption2SG.Name = "rbOption2SG";
-            this.rbOption2SG.Size = new System.Drawing.Size(57, 20);
+            this.rbOption2SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption2SG.TabIndex = 14;
             this.rbOption2SG.TabStop = true;
             this.rbOption2SG.Text = "Doğru";
@@ -1767,7 +1754,7 @@ namespace GorselProg
             this.rbOption1SG.AutoSize = true;
             this.rbOption1SG.Location = new System.Drawing.Point(164, -64);
             this.rbOption1SG.Name = "rbOption1SG";
-            this.rbOption1SG.Size = new System.Drawing.Size(57, 20);
+            this.rbOption1SG.Size = new System.Drawing.Size(58, 20);
             this.rbOption1SG.TabIndex = 13;
             this.rbOption1SG.TabStop = true;
             this.rbOption1SG.Text = "Doğru";
@@ -1908,7 +1895,7 @@ namespace GorselProg
             this.pnlProfileDznle.Controls.Add(this.label46);
             this.pnlProfileDznle.Controls.Add(this.label49);
             this.pnlProfileDznle.Controls.Add(this.button2);
-            this.pnlProfileDznle.Location = new System.Drawing.Point(407, 94);
+            this.pnlProfileDznle.Location = new System.Drawing.Point(367, 23);
             this.pnlProfileDznle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlProfileDznle.Name = "pnlProfileDznle";
             this.pnlProfileDznle.Size = new System.Drawing.Size(597, 503);
@@ -1999,13 +1986,12 @@ namespace GorselProg
             // 
             this.btnProfiliKaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfiliKaydet.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnProfiliKaydet.Location = new System.Drawing.Point(25, 444);
+            this.btnProfiliKaydet.Location = new System.Drawing.Point(82, 399);
             this.btnProfiliKaydet.Name = "btnProfiliKaydet";
             this.btnProfiliKaydet.Size = new System.Drawing.Size(380, 54);
             this.btnProfiliKaydet.TabIndex = 37;
             this.btnProfiliKaydet.Text = "Profili Kaydet";
             this.btnProfiliKaydet.UseVisualStyleBackColor = true;
-            this.btnProfiliKaydet.Click += new System.EventHandler(this.btnProfiliKaydet_Click);
             // 
             // label44
             // 
@@ -2052,8 +2038,6 @@ namespace GorselProg
             this.button2.Size = new System.Drawing.Size(52, 55);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-
             // 
             // formMainMenu
             // 
@@ -2061,7 +2045,6 @@ namespace GorselProg
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(194)))), ((int)(((byte)(178)))));
             this.ClientSize = new System.Drawing.Size(1193, 782);
-
             this.Controls.Add(this.pnlProfileDznle);
             this.Controls.Add(this.pnlSorulariGoruntule);
             this.Controls.Add(this.pnlSoruGuncelle);
@@ -2103,10 +2086,8 @@ namespace GorselProg
             this.pnlSorulariGoruntule.PerformLayout();
             this.pnlSoruGuncelle.ResumeLayout(false);
             this.pnlSoruGuncelle.PerformLayout();
-
             this.pnlProfileDznle.ResumeLayout(false);
             this.pnlProfileDznle.PerformLayout();
-
             this.ResumeLayout(false);
 
         }

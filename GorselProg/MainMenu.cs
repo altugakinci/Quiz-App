@@ -226,21 +226,7 @@ namespace GorselProg
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
             active_panel = pnlProfile;
-
-            User current = Session.UserSession.Instance.GetCurrentUser();
-
-            lblProfileUsername.Text = current.UserName;
-            lblProfileMail.Text = current.Email;
-
-            //lblProfileSpor.Text = current.Answers.Count("Spor");
-            //lblProfileSpor.Text = current.Answers.Count("Tarih");
-            //lblProfileSpor.Text = current.Answers.Count("Sanat");
-            //lblProfileSpor.Text = current.Answers.Count("Bilim");
-            //lblProfileSpor.Text = current.Answers.Count("Eğlence");
-
-            lblProfileLevel.Text = $"{current.Level.ToString()}. Level";
-            lblProfileXP.Text = $"{current.Xp.ToString()} / 500";
-            prgProfileXP.Value = current.Xp;
+            prgProfileXP.Value = 50;
         }
 
         private void btnProfileGeri_Click(object sender, EventArgs e)
@@ -596,23 +582,6 @@ namespace GorselProg
         private void btnEglenceSE_Click(object sender, EventArgs e)
         {
             selectButtons_Add(sender);
-        }
-
-        private void btnProfiliDuzenle_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlProfileDznle);
-            active_panel = pnlProfileDznle;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
-            active_panel = pnlProfile;
-        }
-
-        private void btnProfiliKaydet_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("profil kaydedildi! ");
         }
     }
 }
