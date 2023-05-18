@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -283,7 +284,17 @@ namespace GorselProg
             };
 
             int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
-            Guid categoryId = Guid.Parse("DDB28117-98FF-4015-9CBD-4B53BFD5272A");
+
+
+            string categoryName = soruekleme_kategori;
+            Guid categoryId = Guid.Empty;
+            using (var db = new qAppDBContext())
+            {
+                var Category = await db.Categories.FirstOrDefaultAsync(c => c.Name == categoryName);
+                categoryId = Category.Id;
+            }
+               
+            // Name eşleşen kategoriyi getir
 
             // Yeni bir Question nesnesi oluşturun
             var newQuestion = new Question
@@ -294,7 +305,7 @@ namespace GorselProg
                 CorrectAnswerIndex = correctAnswerIndex,
                 CategoryId = categoryId
             };
-
+           
             // QuestionService'e yeni soruyu ekleyin
             bool result = await QuestionService.AddQuestion(newQuestion);
 
@@ -582,6 +593,11 @@ namespace GorselProg
         private void btnEglenceSE_Click(object sender, EventArgs e)
         {
             selectButtons_Add(sender);
+        }
+
+        private void btnProfiliKaydet_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
