@@ -122,7 +122,6 @@ namespace GorselProg
 
         private async void btnRegister_Click(object sender, EventArgs e)
         {
-            Application.UseWaitCursor = true;
             if (txtRegUsername.Text == "")
             {
                 lblRegWarning.Text = "Kullanıcı adı boş bırakılamaz!";

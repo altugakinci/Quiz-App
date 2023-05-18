@@ -185,9 +185,9 @@ namespace GorselProg
             this.pnlRegister.Controls.Add(this.label9);
             this.pnlRegister.Controls.Add(this.label7);
             this.pnlRegister.Controls.Add(this.label8);
-            this.pnlRegister.Location = new System.Drawing.Point(193, 86);
+            this.pnlRegister.Location = new System.Drawing.Point(147, 48);
             this.pnlRegister.Name = "pnlRegister";
-            this.pnlRegister.Size = new System.Drawing.Size(59, 52);
+            this.pnlRegister.Size = new System.Drawing.Size(57, 57);
             this.pnlRegister.TabIndex = 8;
             this.pnlRegister.Visible = false;
             // 
@@ -198,7 +198,7 @@ namespace GorselProg
             this.txtRegMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRegMail.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtRegMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
-            this.txtRegMail.Location = new System.Drawing.Point(-112, -38);
+            this.txtRegMail.Location = new System.Drawing.Point(-113, -36);
             this.txtRegMail.Name = "txtRegMail";
             this.txtRegMail.Size = new System.Drawing.Size(272, 41);
             this.txtRegMail.TabIndex = 1;
@@ -209,7 +209,7 @@ namespace GorselProg
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.label5.Location = new System.Drawing.Point(-115, -59);
+            this.label5.Location = new System.Drawing.Point(-116, -57);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(38, 17);
             this.label5.TabIndex = 10;
@@ -221,7 +221,7 @@ namespace GorselProg
             this.lblRetLogin.AutoSize = true;
             this.lblRetLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblRetLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.lblRetLogin.Location = new System.Drawing.Point(33, 227);
+            this.lblRetLogin.Location = new System.Drawing.Point(32, 229);
             this.lblRetLogin.Name = "lblRetLogin";
             this.lblRetLogin.Size = new System.Drawing.Size(127, 17);
             this.lblRetLogin.TabIndex = 8;
@@ -234,7 +234,7 @@ namespace GorselProg
             this.lblRegWarning.AutoSize = true;
             this.lblRegWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblRegWarning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.lblRegWarning.Location = new System.Drawing.Point(-114, 140);
+            this.lblRegWarning.Location = new System.Drawing.Point(-115, 142);
             this.lblRegWarning.Name = "lblRegWarning";
             this.lblRegWarning.Size = new System.Drawing.Size(0, 17);
             this.lblRegWarning.TabIndex = 7;
@@ -246,7 +246,7 @@ namespace GorselProg
             this.txtRegUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRegUsername.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtRegUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
-            this.txtRegUsername.Location = new System.Drawing.Point(-112, -103);
+            this.txtRegUsername.Location = new System.Drawing.Point(-113, -101);
             this.txtRegUsername.Name = "txtRegUsername";
             this.txtRegUsername.Size = new System.Drawing.Size(272, 41);
             this.txtRegUsername.TabIndex = 0;
@@ -258,7 +258,7 @@ namespace GorselProg
             this.txtRegPassword2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRegPassword2.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtRegPassword2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
-            this.txtRegPassword2.Location = new System.Drawing.Point(-112, 92);
+            this.txtRegPassword2.Location = new System.Drawing.Point(-113, 94);
             this.txtRegPassword2.Name = "txtRegPassword2";
             this.txtRegPassword2.PasswordChar = '*';
             this.txtRegPassword2.Size = new System.Drawing.Size(272, 41);
@@ -271,7 +271,7 @@ namespace GorselProg
             this.txtRegPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRegPassword.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtRegPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
-            this.txtRegPassword.Location = new System.Drawing.Point(-112, 27);
+            this.txtRegPassword.Location = new System.Drawing.Point(-113, 29);
             this.txtRegPassword.Name = "txtRegPassword";
             this.txtRegPassword.PasswordChar = '*';
             this.txtRegPassword.Size = new System.Drawing.Size(272, 41);
@@ -284,7 +284,7 @@ namespace GorselProg
             this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(222)))), ((int)(((byte)(201)))));
-            this.btnRegister.Location = new System.Drawing.Point(-112, 167);
+            this.btnRegister.Location = new System.Drawing.Point(-113, 169);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(272, 42);
             this.btnRegister.TabIndex = 5;
@@ -298,7 +298,7 @@ namespace GorselProg
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.label6.Location = new System.Drawing.Point(-115, -124);
+            this.label6.Location = new System.Drawing.Point(-116, -122);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 2;
@@ -310,7 +310,7 @@ namespace GorselProg
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.label9.Location = new System.Drawing.Point(-115, 71);
+            this.label9.Location = new System.Drawing.Point(-116, 73);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 17);
             this.label9.TabIndex = 3;
@@ -322,7 +322,7 @@ namespace GorselProg
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.label7.Location = new System.Drawing.Point(-118, -174);
+            this.label7.Location = new System.Drawing.Point(-119, -172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(116, 33);
             this.label7.TabIndex = 4;
@@ -334,7 +334,7 @@ namespace GorselProg
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.label8.Location = new System.Drawing.Point(-115, 6);
+            this.label8.Location = new System.Drawing.Point(-116, 8);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 17);
             this.label8.TabIndex = 3;
