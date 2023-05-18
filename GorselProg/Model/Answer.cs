@@ -1,4 +1,4 @@
-namespace GorselProg
+namespace GorselProg.Model
 {
     using System;
     using System.Collections.Generic;
@@ -9,23 +9,22 @@ namespace GorselProg
     [Table("Answer")]
     public partial class Answer
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Answer()
-        {
-            Answers = new HashSet<Answer1>();
-        }
-
-        [Key]
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(255)]
         public string AnswerText { get; set; }
 
         public Guid? UserId { get; set; }
 
-        public virtual User User { get; set; }
+        public Guid? QuestionId { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Answer1> Answers { get; set; }
+        public Guid? GameId { get; set; }
+
+        public virtual Game Game { get; set; }
+
+        public virtual Question Question { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

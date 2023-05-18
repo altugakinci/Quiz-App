@@ -91,16 +91,12 @@
       <DependentUpon>202305151211029_updateRelations.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Answer.cs" />
-    <Compile Include="Model\Answer1.cs" />
     <Compile Include="Model\BannedUser.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Game.cs" />
-    <Compile Include="Model\Game1.cs" />
     <Compile Include="Model\Message.cs" />
-    <Compile Include="Model\Message1.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Question.cs" />
-    <Compile Include="Model\Question1.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Services\GameService.cs" />
@@ -186,7 +182,9 @@
     <None Include="Resources\1564528_fly_messager_send_communication_email_icon.png" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Modela\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

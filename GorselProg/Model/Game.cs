@@ -1,4 +1,4 @@
-namespace GorselProg
+namespace GorselProg.Model
 {
     using System;
     using System.Collections.Generic;
@@ -12,25 +12,28 @@ namespace GorselProg
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Game()
         {
-            Games = new HashSet<Game1>();
-            Questions = new HashSet<Question1>();
+            Answers = new HashSet<Answer>();
+            Questions = new HashSet<Question>();
+            Rooms = new HashSet<Room>();
         }
 
-        [Key]
         public Guid Id { get; set; }
-
-        public Guid? QuestionsId { get; set; }
 
         public DateTime StartTime { get; set; }
 
         public DateTime EndTime { get; set; }
 
-        public virtual Question1 Question { get; set; }
+        public Guid? RoomId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Game1> Games { get; set; }
+        public virtual ICollection<Answer> Answers { get; set; }
+
+        public virtual Room Room { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question1> Questions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

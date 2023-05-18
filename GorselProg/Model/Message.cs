@@ -1,4 +1,4 @@
-namespace GorselProg
+namespace GorselProg.Model
 {
     using System;
     using System.Collections.Generic;
@@ -9,25 +9,20 @@ namespace GorselProg
     [Table("Message")]
     public partial class Message
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Message()
-        {
-            Messages = new HashSet<Message1>();
-        }
-
-        [Key]
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(255)]
         public string MessageText { get; set; }
 
         public DateTime SentTime { get; set; }
 
         public Guid? UserId { get; set; }
 
-        public virtual User User { get; set; }
+        public Guid? RoomId { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Message1> Messages { get; set; }
+        public virtual Room Room { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

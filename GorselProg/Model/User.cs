@@ -1,4 +1,4 @@
-namespace GorselProg
+namespace GorselProg.Model
 {
     using System;
     using System.Collections.Generic;
@@ -16,20 +16,24 @@ namespace GorselProg
             BannedUsers = new HashSet<BannedUser>();
             Messages = new HashSet<Message>();
             Players = new HashSet<Player>();
+            Rooms = new HashSet<Room>();
         }
 
-        [Key]
         public Guid Id { get; set; }
 
         [Required]
-        public string UserName { get; set; }
+        [StringLength(255)]
+        public string Username { get; set; }
 
-        [Required]
+        [StringLength(255)]
         public string Email { get; set; }
 
         [Required]
+        
         public string Password { get; set; }
 
+        [Required]
+        [StringLength(255)]
         public string Salt { get; set; }
 
         public int Level { get; set; }
@@ -47,5 +51,8 @@ namespace GorselProg
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Player> Players { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }
