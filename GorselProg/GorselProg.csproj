@@ -90,6 +90,10 @@
     <Compile Include="Migrations\202305151211029_updateRelations.designer.cs">
       <DependentUpon>202305151211029_updateRelations.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305181106215_fixModel.cs" />
+    <Compile Include="Migrations\202305181106215_fixModel.designer.cs">
+      <DependentUpon>202305181106215_fixModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\BannedUser.cs" />
     <Compile Include="Model\Category.cs" />
@@ -149,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305151211029_updateRelations.resx">
       <DependentUpon>202305151211029_updateRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305181106215_fixModel.resx">
+      <DependentUpon>202305181106215_fixModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
