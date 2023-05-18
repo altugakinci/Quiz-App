@@ -67,6 +67,11 @@
     <Compile Include="LobbyGame.Designer.cs">
       <DependentUpon>LobbyGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305181230355_initModel.cs" />
+    <Compile Include="Migrations\202305181230355_initModel.designer.cs">
+      <DependentUpon>202305181230355_initModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\BannedUser.cs" />
     <Compile Include="Model\Category.cs" />
@@ -107,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305181230355_initModel.resx">
+      <DependentUpon>202305181230355_initModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
