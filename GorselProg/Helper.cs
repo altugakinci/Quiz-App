@@ -1,4 +1,5 @@
-﻿using GorselProg.Session;
+﻿using GorselProg.Model;
+using GorselProg.Session;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -36,18 +37,18 @@ namespace GorselProg
 
         public static void AddSelectedCategory(int buttonIndex)
         {
-            //List<Category> allCategories = RoomSession.Instance.GetAllCategories();
-            //Category selectedCategory = allCategories[buttonIndex];
+            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
+            Category selectedCategory = allCategories[buttonIndex];
 
-            //RoomSession.Instance.AddSelectedCategory(selectedCategory);
+            RoomSession.Instance.AddSelectedCategory(selectedCategory);
         }
 
         public static void RemoveSelectedCategory(int buttonIndex)
         {
-            //List<Category> allCategories = RoomSession.Instance.GetAllCategories();
-            //Category selectedCategory = allCategories[buttonIndex];
+            List<Category> allCategories = RoomSession.Instance.GetAllCategories();
+            Category selectedCategory = allCategories[buttonIndex];
 
-            //RoomSession.Instance.RemoveSelectedCategory(selectedCategory);
+            RoomSession.Instance.RemoveSelectedCategory(selectedCategory);
         }
 
         public static void toggleButtons(object sender, int buttonIndex)
@@ -66,6 +67,21 @@ namespace GorselProg
                 RemoveSelectedCategory(buttonIndex);
             }
 
+        }
+
+        public static string GenerateRoomCode()
+        {
+            string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            Random random = new Random();
+
+            char randomChar = characters[random.Next(characters.Length)];
+            string randomString = new string(
+                Enumerable.Repeat(characters, 3)
+                          .Select(s => s[random.Next(s.Length)])
+                          .ToArray()
+            );
+
+            return randomChar + randomString;
         }
     }
 }

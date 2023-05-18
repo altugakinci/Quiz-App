@@ -166,7 +166,6 @@ namespace GorselProg
 
             User admin = UserSession.Instance.GetCurrentUser();
 
-            
             //List<Category> categories = RoomSession.Instance.GetAllCategories();
 
             // Oda oluşturma işlemini yap
@@ -174,14 +173,14 @@ namespace GorselProg
             {
                 Name = txtCAGRoomName.Text,
                 Password = txtCAGRoomPassword.Text,
-                Code = "C101",
+                Code = Helper.GenerateRoomCode(),
                 AdminId = admin.Id,
 
             };
 
-            //bool isRoomCreated = await RoomService.CreateRoom(newRoom);
+            bool isRoomCreated = await RoomService.CreateRoom(newRoom);
 
-            if (true)
+            if (isRoomCreated)
             {
                 MessageBox.Show("Oda başarıyla oluşturuldu.");
                 // Oda oluşturulduktan sonra yapılacak işlemler
@@ -205,7 +204,7 @@ namespace GorselProg
             string roomPassword = txtJoinPassword.Text;
             User currentUser = UserSession.Instance.GetCurrentUser();
 
-            //bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
+            bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
 
             if (true)
             {
