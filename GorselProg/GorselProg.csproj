@@ -60,47 +60,20 @@
   <ItemGroup>
     <Compile Include="Helper.cs" />
     <Compile Include="LevelHandler.cs" />
+    <Compile Include="LevelingModule.cs" />
     <Compile Include="LobbyGame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LobbyGame.Designer.cs">
       <DependentUpon>LobbyGame.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305150656280_initModelDesing.cs" />
-    <Compile Include="Migrations\202305150656280_initModelDesing.designer.cs">
-      <DependentUpon>202305150656280_initModelDesing.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305150657327_insertCategory.cs" />
-    <Compile Include="Migrations\202305150657327_insertCategory.designer.cs">
-      <DependentUpon>202305150657327_insertCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305150732511_updateModelNotation.cs" />
-    <Compile Include="Migrations\202305150732511_updateModelNotation.designer.cs">
-      <DependentUpon>202305150732511_updateModelNotation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305151133312_addAdminToRoom.cs" />
-    <Compile Include="Migrations\202305151133312_addAdminToRoom.designer.cs">
-      <DependentUpon>202305151133312_addAdminToRoom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305151143400_setNullable.cs" />
-    <Compile Include="Migrations\202305151143400_setNullable.designer.cs">
-      <DependentUpon>202305151143400_setNullable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202305151211029_updateRelations.cs" />
-    <Compile Include="Migrations\202305151211029_updateRelations.designer.cs">
-      <DependentUpon>202305151211029_updateRelations.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\Answer.cs" />
-    <Compile Include="Model\Answer1.cs" />
     <Compile Include="Model\BannedUser.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Game.cs" />
-    <Compile Include="Model\Game1.cs" />
     <Compile Include="Model\Message.cs" />
-    <Compile Include="Model\Message1.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Question.cs" />
-    <Compile Include="Model\Question1.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Services\GameService.cs" />
@@ -122,7 +95,6 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\qAppDBContext.cs" />
     <Compile Include="PanelHandler.cs" />
     <Compile Include="Program.cs" />
@@ -135,24 +107,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305150656280_initModelDesing.resx">
-      <DependentUpon>202305150656280_initModelDesing.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305150657327_insertCategory.resx">
-      <DependentUpon>202305150657327_insertCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305150732511_updateModelNotation.resx">
-      <DependentUpon>202305150732511_updateModelNotation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305151133312_addAdminToRoom.resx">
-      <DependentUpon>202305151133312_addAdminToRoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305151143400_setNullable.resx">
-      <DependentUpon>202305151143400_setNullable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305151211029_updateRelations.resx">
-      <DependentUpon>202305151211029_updateRelations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -186,7 +140,9 @@
     <None Include="Resources\1564528_fly_messager_send_communication_email_icon.png" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Modela\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -1,4 +1,4 @@
-namespace GorselProg
+namespace GorselProg.Model
 {
     using System;
     using System.Collections.Generic;
@@ -8,13 +8,6 @@ namespace GorselProg
 
     public partial class Player
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Player()
-        {
-            Rooms = new HashSet<Room>();
-        }
-
-        [Key]
         public Guid Id { get; set; }
 
         public Guid? RoomId { get; set; }
@@ -24,8 +17,5 @@ namespace GorselProg
         public virtual Room Room { get; set; }
 
         public virtual User User { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

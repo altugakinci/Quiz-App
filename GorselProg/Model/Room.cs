@@ -1,4 +1,4 @@
-namespace GorselProg
+namespace GorselProg.Model
 {
     using System;
     using System.Collections.Generic;
@@ -13,53 +13,43 @@ namespace GorselProg
         public Room()
         {
             BannedUsers = new HashSet<BannedUser>();
-            Games = new HashSet<Game1>();
-            Messages = new HashSet<Message1>();
+            Games = new HashSet<Game>();
+            Messages = new HashSet<Message>();
             Players = new HashSet<Player>();
         }
 
-        [Key]
         public Guid Id { get; set; }
 
         [Required]
+        [StringLength(255)]
         public string Name { get; set; }
 
         [Required]
+        [StringLength(255)]
         public string Password { get; set; }
 
         [Required]
+        [StringLength(255)]
         public string Code { get; set; }
-
-        public Guid? PlayersId { get; set; }
-
-        public Guid? GamesId { get; set; }
-
-        public Guid? MessagesId { get; set; }
 
         public Guid? CurrentGameId { get; set; }
 
         public Guid? AdminId { get; set; }
 
-        public Guid? BannedUsersId { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BannedUser> BannedUsers { get; set; }
 
-        public virtual BannedUser BannedUser { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Game> Games { get; set; }
+
+        public virtual Game Game { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Game1> Games { get; set; }
-
-        public virtual Game1 Game { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Message1> Messages { get; set; }
-
-        public virtual Message1 Message { get; set; }
+        public virtual ICollection<Message> Messages { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Player> Players { get; set; }
 
-        public virtual Player Player { get; set; }
+        public virtual User User { get; set; }
     }
 }
