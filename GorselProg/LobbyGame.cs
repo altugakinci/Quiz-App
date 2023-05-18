@@ -199,24 +199,18 @@ namespace GorselProg
 
         private async void timerForPlayers_Tick(object sender, EventArgs e)
         {
-            flpPlayerPlayers.Controls.Clear();
+            lvPlayerPlayers.Items.Clear();
             Room room = RoomSession.Instance.GetCurrentRoom();
             List<User> players = await RoomService.GetPlayers(room.Id);
             foreach (User u in players)
             {
-                Label label = new Label();
-                label.Text = u.UserName;
-                label.ForeColor = ThemeHandler.color_texts;
-                label.AutoSize = true;
-                label.Font = new Font(label.Font.FontFamily, 20, FontStyle.Regular);
-                //label.BackColor = Color.Blue;
-                label.Width = flpLeaderChat.Width - 30;
-                label.Dock = DockStyle.Top;
-                txtLeaderMsg.Clear();
-                flpLeaderChat.Controls.Add(label);
-                //MessageBox.Show(u.UserName);
-                flpPlayerPlayers.Controls.Add(label);
+                string guid = u.Id.ToString();
+                string username = u.UserName;
+                ListViewItem item = new ListViewItem(guid);
+                item.SubItems.Add(username);
+                lvPlayerPlayers.Items.Add(item);
             }
+            lvPlayerPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         private void timerForChat_Tick(object sender, EventArgs e)
@@ -227,6 +221,16 @@ namespace GorselProg
         private void txtPlayerSend_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void lvPlayerPlayers_MouseClick(object sender, MouseEventArgs e)
+        {
+            timerForPlayers.Stop();
+        }
+
+        private void panel1_MouseLeave(object sender, EventArgs e)
+        {
+            timerForPlayers.Start();
         }
     }
 }

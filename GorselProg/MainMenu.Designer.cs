@@ -1071,10 +1071,10 @@ namespace GorselProg
             this.pnlSorular.Controls.Add(this.btnSorularGoruntule);
             this.pnlSorular.Controls.Add(this.btnSorularGeri);
             this.pnlSorular.Controls.Add(this.btnSorularSoruEkle);
-            this.pnlSorular.Location = new System.Drawing.Point(28, 361);
+            this.pnlSorular.Location = new System.Drawing.Point(367, 78);
             this.pnlSorular.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlSorular.Name = "pnlSorular";
-            this.pnlSorular.Size = new System.Drawing.Size(66, 62);
+            this.pnlSorular.Size = new System.Drawing.Size(383, 318);
             this.pnlSorular.TabIndex = 10;
             this.pnlSorular.Visible = false;
             // 
@@ -1085,7 +1085,7 @@ namespace GorselProg
             this.btnSorularGoruntule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSorularGoruntule.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSorularGoruntule.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnSorularGoruntule.Location = new System.Drawing.Point(-124, 35);
+            this.btnSorularGoruntule.Location = new System.Drawing.Point(34, 163);
             this.btnSorularGoruntule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSorularGoruntule.Name = "btnSorularGoruntule";
             this.btnSorularGoruntule.Size = new System.Drawing.Size(315, 51);
@@ -1116,7 +1116,7 @@ namespace GorselProg
             this.btnSorularSoruEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSorularSoruEkle.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnSorularSoruEkle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(56)))), ((int)(((byte)(50)))));
-            this.btnSorularSoruEkle.Location = new System.Drawing.Point(-124, -20);
+            this.btnSorularSoruEkle.Location = new System.Drawing.Point(34, 108);
             this.btnSorularSoruEkle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSorularSoruEkle.Name = "btnSorularSoruEkle";
             this.btnSorularSoruEkle.Size = new System.Drawing.Size(315, 47);
@@ -1416,10 +1416,10 @@ namespace GorselProg
             this.pnlSorulariGoruntule.Controls.Add(this.btnSoruSil);
             this.pnlSorulariGoruntule.Controls.Add(this.btnSorulariGoruntuleGeri);
             this.pnlSorulariGoruntule.Controls.Add(this.lvSorular);
-            this.pnlSorulariGoruntule.Location = new System.Drawing.Point(115, 361);
+            this.pnlSorulariGoruntule.Location = new System.Drawing.Point(108, 361);
             this.pnlSorulariGoruntule.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlSorulariGoruntule.Name = "pnlSorulariGoruntule";
-            this.pnlSorulariGoruntule.Size = new System.Drawing.Size(56, 60);
+            this.pnlSorulariGoruntule.Size = new System.Drawing.Size(50, 60);
             this.pnlSorulariGoruntule.TabIndex = 12;
             this.pnlSorulariGoruntule.Visible = false;
             // 
@@ -1428,7 +1428,7 @@ namespace GorselProg
             this.btnSoruGuncelleSG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSoruGuncelleSG.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoruGuncelleSG.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruGuncelleSG.Location = new System.Drawing.Point(-124, 438);
+            this.btnSoruGuncelleSG.Location = new System.Drawing.Point(-130, 438);
             this.btnSoruGuncelleSG.Name = "btnSoruGuncelleSG";
             this.btnSoruGuncelleSG.Size = new System.Drawing.Size(164, 52);
             this.btnSoruGuncelleSG.TabIndex = 12;
@@ -1530,7 +1530,7 @@ namespace GorselProg
             this.btnSoruSil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSoruSil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSoruSil.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSoruSil.Location = new System.Drawing.Point(-124, 380);
+            this.btnSoruSil.Location = new System.Drawing.Point(-130, 380);
             this.btnSoruSil.Name = "btnSoruSil";
             this.btnSoruSil.Size = new System.Drawing.Size(164, 52);
             this.btnSoruSil.TabIndex = 4;
@@ -1569,7 +1569,7 @@ namespace GorselProg
             this.lvSorular.HideSelection = false;
             this.lvSorular.Location = new System.Drawing.Point(0, 0);
             this.lvSorular.Name = "lvSorular";
-            this.lvSorular.Size = new System.Drawing.Size(52, 373);
+            this.lvSorular.Size = new System.Drawing.Size(46, 373);
             this.lvSorular.TabIndex = 3;
             this.lvSorular.UseCompatibleStateImageBehavior = false;
             this.lvSorular.View = System.Windows.Forms.View.Details;

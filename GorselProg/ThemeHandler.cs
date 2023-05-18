@@ -59,6 +59,10 @@ namespace GorselProg
                     }else if(ctrl is RadioButton)
                     {
                         ctrl.ForeColor = color_texts;
+                    }else if(ctrl is ListView)
+                    {
+                        ctrl.BackColor = color_background;
+                        ctrl.ForeColor = color_texts;
                     }
                 }
             }
