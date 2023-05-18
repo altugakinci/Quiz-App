@@ -59,6 +59,8 @@ namespace GorselProg.Services
                 {
                     var messages = await context.Messages
                         .Where(m => m.RoomId == roomId)
+                        .OrderBy(m => m.SentTime)
+                        .Include(m => m.User)
                         .ToListAsync();
                     return messages;
                 }

@@ -90,11 +90,6 @@ namespace GorselProg
             }
 
         }
-
-        
-
-        
-
         private void btnLeaderSpor_Click(object sender, EventArgs e)
         {
             toggleButtons(sender, 0);
@@ -213,13 +208,29 @@ namespace GorselProg
             lvPlayerPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
-        private void timerForChat_Tick(object sender, EventArgs e)
+        private async void timerForChat_Tick(object sender, EventArgs e)
         {
-
+            lvPlayerChat.Items.Clear();
+            Room room = RoomSession.Instance.GetCurrentRoom();
+            List<Model.Message> messages = await MessageService.GetMessagesByRoomId(room.Id);
+            foreach(Model.Message m in messages)
+            {
+                string user = m.User.UserName;
+                string message = m.MessageText;
+                ListViewItem item = new ListViewItem(user);
+                item.SubItems.Add(message);
+                lvPlayerChat.Items.Add(item);
+            }
+            lvPlayerChat.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
-        private void txtPlayerSend_Click(object sender, EventArgs e)
+        private async void txtPlayerSend_Click(object sender, EventArgs e)
         {
+            User current = UserSession.Instance.GetCurrentUser();
+            Room room = RoomSession.Instance.GetCurrentRoom();
+            string message = txtPlayerMsg.Text;
+            txtPlayerMsg.Clear();
+            await MessageService.SendMessageAsync(current.Id, message, room.Id);
 
         }
 
