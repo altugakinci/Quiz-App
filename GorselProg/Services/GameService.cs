@@ -38,6 +38,7 @@ namespace GorselProg.Services
                             EndTime = endTime,
                             RoomId = roomId
                         };
+                        // Todo: User Player tablosunda var mı?
 
                         // Kategorilere ait rastgele 10 soru getirme
                         var categoryIds = categories.Select(c => c.Id).ToList();

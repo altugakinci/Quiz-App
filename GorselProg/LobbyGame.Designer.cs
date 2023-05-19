@@ -154,7 +154,7 @@ namespace GorselProg
             this.pnlLobbyPlayer.Controls.Add(this.lblPlayerRoomName);
             this.pnlLobbyPlayer.Location = new System.Drawing.Point(20, 133);
             this.pnlLobbyPlayer.Name = "pnlLobbyPlayer";
-            this.pnlLobbyPlayer.Size = new System.Drawing.Size(63, 51);
+            this.pnlLobbyPlayer.Size = new System.Drawing.Size(877, 403);
             this.pnlLobbyPlayer.TabIndex = 16;
             this.pnlLobbyPlayer.Visible = false;
             // 
@@ -168,7 +168,7 @@ namespace GorselProg
             this.lvPlayerChat.FullRowSelect = true;
             this.lvPlayerChat.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lvPlayerChat.HideSelection = false;
-            this.lvPlayerChat.Location = new System.Drawing.Point(140, 90);
+            this.lvPlayerChat.Location = new System.Drawing.Point(547, 90);
             this.lvPlayerChat.MultiSelect = false;
             this.lvPlayerChat.Name = "lvPlayerChat";
             this.lvPlayerChat.Size = new System.Drawing.Size(321, 449);
@@ -194,7 +194,7 @@ namespace GorselProg
             this.lvPlayerPlayers.FullRowSelect = true;
             this.lvPlayerPlayers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.lvPlayerPlayers.HideSelection = false;
-            this.lvPlayerPlayers.Location = new System.Drawing.Point(-399, 91);
+            this.lvPlayerPlayers.Location = new System.Drawing.Point(8, 91);
             this.lvPlayerPlayers.MultiSelect = false;
             this.lvPlayerPlayers.Name = "lvPlayerPlayers";
             this.lvPlayerPlayers.Size = new System.Drawing.Size(351, 449);
@@ -215,7 +215,7 @@ namespace GorselProg
             this.btnShowSum.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnShowSum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowSum.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnShowSum.Location = new System.Drawing.Point(-399, 601);
+            this.btnShowSum.Location = new System.Drawing.Point(8, 601);
             this.btnShowSum.Name = "btnShowSum";
             this.btnShowSum.Size = new System.Drawing.Size(351, 46);
             this.btnShowSum.TabIndex = 33;
@@ -227,7 +227,7 @@ namespace GorselProg
             this.btnPlayerLeave.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnPlayerLeave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlayerLeave.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnPlayerLeave.Location = new System.Drawing.Point(-399, 548);
+            this.btnPlayerLeave.Location = new System.Drawing.Point(8, 548);
             this.btnPlayerLeave.Name = "btnPlayerLeave";
             this.btnPlayerLeave.Size = new System.Drawing.Size(351, 46);
             this.btnPlayerLeave.TabIndex = 32;
@@ -242,7 +242,7 @@ namespace GorselProg
             this.btnPlayerSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPlayerSend.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnPlayerSend.Image = global::GorselProg.Properties.Resources._1564528_fly_messager_send_communication_email_icon;
-            this.btnPlayerSend.Location = new System.Drawing.Point(428, 546);
+            this.btnPlayerSend.Location = new System.Drawing.Point(835, 546);
             this.btnPlayerSend.Name = "btnPlayerSend";
             this.btnPlayerSend.Size = new System.Drawing.Size(33, 32);
             this.btnPlayerSend.TabIndex = 17;
@@ -253,7 +253,7 @@ namespace GorselProg
             this.txtPlayerMsg.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPlayerMsg.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPlayerMsg.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtPlayerMsg.Location = new System.Drawing.Point(140, 546);
+            this.txtPlayerMsg.Location = new System.Drawing.Point(547, 546);
             this.txtPlayerMsg.Name = "txtPlayerMsg";
             this.txtPlayerMsg.Size = new System.Drawing.Size(282, 33);
             this.txtPlayerMsg.TabIndex = 26;
@@ -268,7 +268,7 @@ namespace GorselProg
             this.panel3.Controls.Add(this.btnPlayerTarih);
             this.panel3.Controls.Add(this.btnPlayerSpor);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(-42, 91);
+            this.panel3.Location = new System.Drawing.Point(365, 91);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(176, 449);
             this.panel3.TabIndex = 21;
@@ -348,7 +348,7 @@ namespace GorselProg
             this.lblPlayerRoomName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblPlayerRoomName.AutoSize = true;
             this.lblPlayerRoomName.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblPlayerRoomName.Location = new System.Drawing.Point(-82, 41);
+            this.lblPlayerRoomName.Location = new System.Drawing.Point(325, 41);
             this.lblPlayerRoomName.Name = "lblPlayerRoomName";
             this.lblPlayerRoomName.Size = new System.Drawing.Size(270, 33);
             this.lblPlayerRoomName.TabIndex = 18;
@@ -366,9 +366,9 @@ namespace GorselProg
             this.pnlGame.Controls.Add(this.btnOption2);
             this.pnlGame.Controls.Add(this.btnOption1);
             this.pnlGame.Controls.Add(this.lblCategory);
-            this.pnlGame.Location = new System.Drawing.Point(448, -2);
+            this.pnlGame.Location = new System.Drawing.Point(1050, 521);
             this.pnlGame.Name = "pnlGame";
-            this.pnlGame.Size = new System.Drawing.Size(635, 553);
+            this.pnlGame.Size = new System.Drawing.Size(33, 30);
             this.pnlGame.TabIndex = 17;
             this.pnlGame.Visible = false;
             // 
@@ -391,7 +391,7 @@ namespace GorselProg
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-22, 186);
+            this.pictureBox1.Location = new System.Drawing.Point(-323, -75);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);
             this.pictureBox1.TabIndex = 19;
@@ -402,7 +402,7 @@ namespace GorselProg
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(10, 186);
+            this.label5.Location = new System.Drawing.Point(-291, -75);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 33);
             this.label5.TabIndex = 18;
@@ -413,7 +413,7 @@ namespace GorselProg
             this.btnOption4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption4.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption4.Location = new System.Drawing.Point(61, 396);
+            this.btnOption4.Location = new System.Drawing.Point(-240, 135);
             this.btnOption4.Name = "btnOption4";
             this.btnOption4.Size = new System.Drawing.Size(538, 51);
             this.btnOption4.TabIndex = 17;
@@ -426,7 +426,7 @@ namespace GorselProg
             this.btnOption3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption3.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption3.Location = new System.Drawing.Point(61, 339);
+            this.btnOption3.Location = new System.Drawing.Point(-240, 78);
             this.btnOption3.Name = "btnOption3";
             this.btnOption3.Size = new System.Drawing.Size(538, 51);
             this.btnOption3.TabIndex = 16;
@@ -440,7 +440,7 @@ namespace GorselProg
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(61, 39);
+            this.textBox1.Location = new System.Drawing.Point(-240, -222);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(538, 180);
@@ -454,7 +454,7 @@ namespace GorselProg
             this.btnOption2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption2.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption2.Location = new System.Drawing.Point(61, 282);
+            this.btnOption2.Location = new System.Drawing.Point(-240, 21);
             this.btnOption2.Name = "btnOption2";
             this.btnOption2.Size = new System.Drawing.Size(538, 51);
             this.btnOption2.TabIndex = 14;
@@ -467,7 +467,7 @@ namespace GorselProg
             this.btnOption1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnOption1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOption1.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnOption1.Location = new System.Drawing.Point(61, 225);
+            this.btnOption1.Location = new System.Drawing.Point(-240, -36);
             this.btnOption1.Name = "btnOption1";
             this.btnOption1.Size = new System.Drawing.Size(538, 51);
             this.btnOption1.TabIndex = 12;
@@ -480,7 +480,7 @@ namespace GorselProg
             this.lblCategory.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblCategory.Location = new System.Drawing.Point(258, 3);
+            this.lblCategory.Location = new System.Drawing.Point(-43, -258);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(144, 33);
             this.lblCategory.TabIndex = 9;

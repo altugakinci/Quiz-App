@@ -157,6 +157,7 @@ namespace GorselProg.Services
                 {
                     var player = await context.Players.FirstOrDefaultAsync(p => p.RoomId == roomId && p.UserId == user.Id);
 
+                    // Todo: odada ayrılmalarda ExitRoom servisine bağlantı yapılacak
                     if (player != null)
                     {
                         context.Players.Remove(player);
