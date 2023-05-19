@@ -13,30 +13,27 @@ namespace GorselProg.Model
         public Question()
         {
             Answers = new HashSet<Answer>();
+            GameQuestions = new HashSet<GameQuestion>();
         }
 
         public Guid Id { get; set; }
 
         [Required]
-        
         public string QuestionText { get; set; }
 
         [Required]
-        
         public string OptionsText { get; set; }
-
         [Required]
-        public int  CorrectAnswerIndex { get; set; }
+        public int CorrectAnswerIndex { get; set; }
 
         public Guid? CategoryId { get; set; }
-
-        public Guid? GameId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Answer> Answers { get; set; }
 
         public virtual Category Category { get; set; }
 
-        public virtual Game Game { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GameQuestion> GameQuestions { get; set; }
     }
 }

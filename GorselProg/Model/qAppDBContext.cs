@@ -13,6 +13,7 @@ namespace GorselProg.Model
         public virtual DbSet<BannedUser> BannedUsers { get; set; }
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Game> Games { get; set; }
+        public virtual DbSet<GameQuestion> GameQuestions { get; set; }
         public virtual DbSet<Message> Messages { get; set; }
         public virtual DbSet<Player> Players { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
@@ -21,11 +22,6 @@ namespace GorselProg.Model
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Game>()
-                .HasMany(e => e.Questions)
-                .WithRequired(e => e.Game)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<Game>()
                 .HasMany(e => e.Rooms)
                 .WithOptional(e => e.Game)

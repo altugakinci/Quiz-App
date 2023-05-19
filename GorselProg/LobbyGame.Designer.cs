@@ -201,7 +201,7 @@ namespace GorselProg
             this.lvPlayerPlayers.TabIndex = 34;
             this.lvPlayerPlayers.UseCompatibleStateImageBehavior = false;
             this.lvPlayerPlayers.View = System.Windows.Forms.View.Details;
-            this.lvPlayerPlayers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvPlayerPlayers_MouseClick);
+            //this.lvPlayerPlayers.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvPlayerPlayers_MouseClick);
             // 
             // ID
             // 
@@ -248,7 +248,7 @@ namespace GorselProg
             this.btnPlayerSend.Size = new System.Drawing.Size(33, 32);
             this.btnPlayerSend.TabIndex = 17;
             this.btnPlayerSend.UseVisualStyleBackColor = true;
-            this.btnPlayerSend.Click += new System.EventHandler(this.btnPlayerSend_Click);
+            //this.btnPlayerSend.Click += new System.EventHandler(this.btnPlayerSend_Click);
             // 
             // txtPlayerMsg
             // 
@@ -259,7 +259,7 @@ namespace GorselProg
             this.txtPlayerMsg.Name = "txtPlayerMsg";
             this.txtPlayerMsg.Size = new System.Drawing.Size(282, 33);
             this.txtPlayerMsg.TabIndex = 26;
-            this.txtPlayerMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlayerMsg_KeyDown);
+            ///this.txtPlayerMsg.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPlayerMsg_KeyDown);
             // 
             // panel3
             // 
@@ -1224,22 +1224,22 @@ namespace GorselProg
             // timerForPlayers
             // 
             this.timerForPlayers.Interval = 2500;
-            this.timerForPlayers.Tick += new System.EventHandler(this.timerForPlayers_Tick);
+            //this.timerForPlayers.Tick += new System.EventHandler(this.timerForPlayers_Tick);
             // 
             // timerForChat
             // 
             this.timerForChat.Interval = 2500;
-            this.timerForChat.Tick += new System.EventHandler(this.timerForChat_Tick);
+            //this.timerForChat.Tick += new System.EventHandler(this.timerForChat_Tick);
             // 
             // timerForPlayersLeader
             // 
             this.timerForPlayersLeader.Interval = 2500;
-            this.timerForPlayersLeader.Tick += new System.EventHandler(this.timerForPlayersLeader_Tick);
+            //this.timerForPlayersLeader.Tick += new System.EventHandler(this.timerForPlayersLeader_Tick);
             // 
             // timerForChatLeader
             // 
             this.timerForChatLeader.Interval = 2500;
-            this.timerForChatLeader.Tick += new System.EventHandler(this.timerForChatLeader_Tick);
+            //this.timerForChatLeader.Tick += new System.EventHandler(this.timerForChatLeader_Tick);
             // 
             // LobbyGame
             // 

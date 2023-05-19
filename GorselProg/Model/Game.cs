@@ -13,7 +13,7 @@ namespace GorselProg.Model
         public Game()
         {
             Answers = new HashSet<Answer>();
-            Questions = new HashSet<Question>();
+            GameQuestions = new HashSet<GameQuestion>();
             Rooms = new HashSet<Room>();
         }
 
@@ -31,7 +31,7 @@ namespace GorselProg.Model
         public virtual Room Room { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Question> Questions { get; set; }
+        public virtual ICollection<GameQuestion> GameQuestions { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Rooms { get; set; }

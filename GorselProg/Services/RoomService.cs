@@ -17,6 +17,16 @@ namespace GorselProg.Services
     static class RoomService
     {
         public static bool loadingIndicator;
+        public static void ShowLoadingIndicator()
+        {
+            loadingIndicator = true;
+        }
+
+        public static void HideLoadingIndicator()
+        {
+            loadingIndicator = false;
+        }
+
         public static async Task<bool> CreateRoom(Room newRoom)
         {
             try
@@ -24,10 +34,15 @@ namespace GorselProg.Services
                 ShowLoadingIndicator();
                 using (var context = new qAppDBContext())
                 {
+                 
+
                     context.Rooms.Add(newRoom);
                     await context.SaveChangesAsync();
 
                     RoomSession.Instance.SetCurrentRoom(newRoom);
+                    // set all categories to session
+                    var categories = await context.Categories.ToListAsync();
+                    RoomSession.Instance.SetAllCategories(categories);
                     var player = new Player
                     {
                         Id = Guid.NewGuid(),
@@ -37,6 +52,7 @@ namespace GorselProg.Services
 
                     context.Players.Add(player);
                     await context.SaveChangesAsync();
+                    
                     return true;
                 }
             }
@@ -99,16 +115,21 @@ namespace GorselProg.Services
                     if (room != null)
                     {
                         RoomSession.Instance.SetCurrentRoom(room);
-                        var player = new Player
+                        var existingPlayer = await context.Players.FirstOrDefaultAsync(p => p.RoomId == room.Id && p.UserId == user.Id);
+
+                        if (existingPlayer == null)
                         {
-                            Id = Guid.NewGuid(),
-                            RoomId = room.Id,
-                            UserId = user.Id
-                        };
+                            var player = new Player
+                            {
+                                Id = Guid.NewGuid(),
+                                RoomId = room.Id,
+                                UserId = user.Id
+                            };
 
+                            context.Players.Add(player);
+                            await context.SaveChangesAsync();
+                        }
 
-                        context.Players.Add(player);
-                        await context.SaveChangesAsync();
                         return true;
                     }
                     else
@@ -157,15 +178,6 @@ namespace GorselProg.Services
             }
         }
 
-        public static void ShowLoadingIndicator()
-        {
-            loadingIndicator = true;
-        }
-
-        public static void HideLoadingIndicator()
-        {
-            loadingIndicator = false;
-        }
 
     }
 }

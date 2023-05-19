@@ -75,11 +75,16 @@
     <Compile Include="Migrations\202305181414430_insertCategory.designer.cs">
       <DependentUpon>202305181414430_insertCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305190627085_updateRelation.cs" />
+    <Compile Include="Migrations\202305190627085_updateRelation.designer.cs">
+      <DependentUpon>202305190627085_updateRelation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\BannedUser.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\GameQuestion.cs" />
     <Compile Include="Model\Message.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\Question.cs" />
@@ -90,6 +95,7 @@
     <Compile Include="Services\QuestionService.cs" />
     <Compile Include="Services\RoomService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Session\GameSession.cs" />
     <Compile Include="Session\RoomSession.cs" />
     <Compile Include="Session\UserSession.cs" />
     <Compile Include="ThemeHandler.cs" />
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305181414430_insertCategory.resx">
       <DependentUpon>202305181414430_insertCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305190627085_updateRelation.resx">
+      <DependentUpon>202305190627085_updateRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
