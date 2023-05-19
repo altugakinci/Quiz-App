@@ -165,11 +165,43 @@ namespace GorselProg.Services
         }
 
         // Kullanıcı güncelleme işlemi
-        public static void UpdateUser(User user)
+        public static async Task<bool> UpdateUser(User user)
         {
-            //_context.Users.Update(user);
-            //_context.SaveChanges();
-           
+            try
+            {
+                ShowLoadingIndicator();
+                string[] passSalt = PassSaltGenerator(user.Password);
+                using (var db = new qAppDBContext())
+                {
+                    var existingUser = await db.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+
+                    if (existingUser != null)
+                    {
+                        existingUser.UserName = user.UserName;
+                        existingUser.Email = user.Email;
+                        existingUser.Password = passSalt[1];
+                        existingUser.Salt = passSalt[0];
+                        existingUser.Level = user.Level;
+                        existingUser.Xp = user.Xp;
+
+                        await db.SaveChangesAsync();
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
         }
 
         // Kullanıcı oturum kapatma işlemi

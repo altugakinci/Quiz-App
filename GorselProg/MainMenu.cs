@@ -621,5 +621,42 @@ namespace GorselProg
             PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
             active_panel = pnlProfile;
         }
+
+        private async void btnProfiliKaydet_Click(object sender, EventArgs e)
+        {
+            if (txtMvctSifre.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "")
+            {
+                // TODO: uygun bir hata mesajı
+            }
+            else if (textBox3.Text != textBox4.Text )
+            {
+                // Todo: uygun bir hata mesajı
+            }
+            string currPassword = txtMvctSifre.Text;
+            string newPassword = textBox3.Text;
+            string newMail = textBox5.Text;
+            string newUserName = textBox6.Text;
+
+            var updateUser = new User
+            {
+                Id = Guid.NewGuid(),
+                UserName = newUserName,
+                Email = newMail,
+                Password = newPassword,
+            };
+
+            bool isSaved = await UserService.UpdateUser(updateUser);
+
+            if(isSaved)
+            {
+                //TODO: uygun bir hata mesajı
+            }
+            else
+            {
+                // Todo: uygun bir hata mesajı
+            }
+
+
+        }
     }
 }
