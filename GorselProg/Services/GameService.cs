@@ -20,7 +20,7 @@ namespace GorselProg.Services
         {
             loadingIndicator = false;
         }
-        public static async Task<Game> StartGame(Guid roomId, List<Category> categories, DateTime startTime,  DateTime endTime )
+        public static async Task<Game> StartGame(Guid roomId, List<Category> categories, DateTime startTime, DateTime endTime)
         {
             try
             {
@@ -80,6 +80,65 @@ namespace GorselProg.Services
             finally
             {
                 HideLoadingIndicator();
+            }
+        }
+
+        public static async Task<bool> AnswerQuestion(Guid userId, Guid questionId, Guid gameId, string answerText)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+                using (var context = new qAppDBContext())
+                {
+                    var answer = new Answer
+                    {
+                        Id = Guid.NewGuid(),
+                        UserId = userId,
+                        QuestionId = questionId,
+                        GameId = gameId,
+                        AnswerText = answerText
+                    };
+
+                    context.Answers.Add(answer);
+                    await context.SaveChangesAsync();
+
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
+        }
+
+        public static async Task<Question> GetQuestionsByGame(Guid gameId)
+        {
+            try
+            {
+                using (var context = new qAppDBContext())
+                {
+                    var gameQuestion = await context.GameQuestions
+                        .Where(gq => gq.GameId == gameId)
+                        .FirstOrDefaultAsync();
+
+                    if (gameQuestion != null)
+                    {
+                        var question = await context.Questions
+                            .FirstOrDefaultAsync(q => q.Id == gameQuestion.QuestionId);
+
+                        return question;
+                    }
+
+                    return null;
+                }
+            }
+            catch
+            {
+                return null;
             }
         }
     }

@@ -31,10 +31,12 @@ namespace GorselProg
 
         private void LobbyGame_Load(object sender, EventArgs e)
         {
-            
+
+            User user = UserSession.Instance.GetCurrentUser();
+            Room room = RoomSession.Instance.GetCurrentRoom();
 
             //Lobi lideriyse:
-            if (  rank.Equals("Leader") )
+            if (rank.Equals("Leader") && user.Id == room.AdminId)
             {
                 active_panel = pnlLobbyLeader;
                 PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
@@ -49,7 +51,6 @@ namespace GorselProg
             ThemeHandler.changeFormsColor(this);
             ThemeHandler.changeAllControlsColor(this);
             this.WindowState = FormWindowState.Maximized;
-
         }
 
         private void btnPlayerLeave_Click(object sender, EventArgs e)
@@ -189,6 +190,31 @@ namespace GorselProg
             PanelHandler.setPanelFill(active_panel, pnlSum);
             active_panel = pnlSum;
             prgSumXP.Value = 50;
+        }
+
+        private void btnOption1_Click(object sender, EventArgs e)
+        {
+            // option 1
+            textBox1.Text = "Sorunun kendisi";
+            btnOption1.Text = "A";
+        }
+
+        private void btnOption2_Click(object sender, EventArgs e)
+        {
+            // option 2
+            btnOption2.Text = "B";
+        }
+
+        private void btnOption3_Click(object sender, EventArgs e)
+        {
+            // option 3
+            btnOption3.Text = "C";
+        }
+
+        private void btnOption4_Click(object sender, EventArgs e)
+        {
+            // option 4
+            btnOption4.Text = "D";
         }
     }
 }
