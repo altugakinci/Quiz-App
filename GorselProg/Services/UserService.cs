@@ -165,24 +165,72 @@ namespace GorselProg.Services
         }
 
         // Kullanıcı güncelleme işlemi
-        public static async Task<bool> UpdateUser(User user)
+        public static async Task<bool> UpdateUser(User user,string currentPassword,Guid currentId)
         {
             try
             {
                 ShowLoadingIndicator();
-                string[] passSalt = PassSaltGenerator(user.Password);
+                
+
                 using (var db = new qAppDBContext())
                 {
-                    var existingUser = await db.Users.FirstOrDefaultAsync(u => u.Id == user.Id);
+                    var existingUser = await db.Users.FirstOrDefaultAsync(u => u.Id == currentId);
 
-                    if (existingUser != null)
+                    if(existingUser != null)
                     {
-                        existingUser.UserName = user.UserName;
-                        existingUser.Email = user.Email;
-                        existingUser.Password = passSalt[1];
-                        existingUser.Salt = passSalt[0];
-                        existingUser.Level = user.Level;
-                        existingUser.Xp = user.Xp;
+                        byte[] saltValue = Convert.FromBase64String(existingUser.Salt);
+                        var keyGenerator = new Rfc2898DeriveBytes(currentPassword, saltValue, 10000);
+                        byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
+                        string encryptionKeyString = Convert.ToBase64String(encryptionKey);
+
+                        if (encryptionKeyString.Equals(existingUser.Password))
+                        {
+                            //return true; // Şifre doğru
+                            string[] passSalt = PassSaltGenerator(user.Password);
+
+                            existingUser.UserName = user.UserName;
+                            existingUser.Email = user.Email;
+                            existingUser.Password = passSalt[1];
+                            existingUser.Salt = passSalt[0];
+                            
+                            UserSession.Instance.SetCurrentUser(existingUser);
+                            await db.SaveChangesAsync();
+
+                            return true;
+                        }
+                        else return false;
+                    }
+
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            //catch
+            //{
+            //    return false;
+            //}
+            finally
+            {
+                HideLoadingIndicator();
+            }
+        }
+
+        public static async Task<bool> UpdateUserLevel(Guid userId,int newLevel, int newXp)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+
+                using (var db = new qAppDBContext())
+                {
+                    var user = await db.Users.FirstOrDefaultAsync(u => u.Id == userId);
+
+                    if (user != null)
+                    {
+                        user.Level = newLevel;
+                        user.Xp = newXp;
 
                         await db.SaveChangesAsync();
 
