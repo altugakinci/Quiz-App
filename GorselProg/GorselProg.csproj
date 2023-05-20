@@ -94,6 +94,7 @@
     <Compile Include="Model\Question.cs" />
     <Compile Include="Model\Room.cs" />
     <Compile Include="Model\User.cs" />
+    <Compile Include="Objects\SummaryGame.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\QuestionService.cs" />
