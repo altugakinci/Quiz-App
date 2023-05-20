@@ -155,6 +155,7 @@ namespace GorselProg
              if (result != null)
              {
                 //MessageBox.Show("Game started successfully!");
+                question_list = GameSession.Instance.GetAllQuestions();
                 question_index = 0;
                 printQuestion();
                 timerForGame.Start();
@@ -360,7 +361,7 @@ namespace GorselProg
         int time_for_question = 10;
         int[] remaining_seconds = new int[10];
         int question_index;
-        List<Question> question_list = GameSession.Instance.GetAllQuestions();
+        List<Question> question_list;
         Question current_question;
         string[] options;
 
