@@ -430,5 +430,10 @@ namespace GorselProg
             
         }
         #endregion
+
+        private void timerForCheckCurrGame_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

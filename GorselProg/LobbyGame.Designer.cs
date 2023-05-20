@@ -127,6 +127,7 @@ namespace GorselProg
             this.timerForPlayersLeader = new System.Windows.Forms.Timer(this.components);
             this.timerForChatLeader = new System.Windows.Forms.Timer(this.components);
             this.timerForGame = new System.Windows.Forms.Timer(this.components);
+            this.timerForCheckCurrGame = new System.Windows.Forms.Timer(this.components);
             this.pnlLobbyPlayer.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnlGame.SuspendLayout();
@@ -910,9 +911,9 @@ namespace GorselProg
             this.pnlSum.Controls.Add(this.label11);
             this.pnlSum.Controls.Add(this.lblSumWinnerName);
             this.pnlSum.Controls.Add(this.label8);
-            this.pnlSum.Location = new System.Drawing.Point(183, 104);
+            this.pnlSum.Location = new System.Drawing.Point(20, 17);
             this.pnlSum.Name = "pnlSum";
-            this.pnlSum.Size = new System.Drawing.Size(895, 716);
+            this.pnlSum.Size = new System.Drawing.Size(59, 56);
             this.pnlSum.TabIndex = 17;
             this.pnlSum.Visible = false;
             // 
@@ -921,7 +922,7 @@ namespace GorselProg
             this.lblSumXP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSumXP.AutoSize = true;
             this.lblSumXP.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSumXP.Location = new System.Drawing.Point(607, 496);
+            this.lblSumXP.Location = new System.Drawing.Point(189, 166);
             this.lblSumXP.Name = "lblSumXP";
             this.lblSumXP.Size = new System.Drawing.Size(68, 21);
             this.lblSumXP.TabIndex = 31;
@@ -933,7 +934,7 @@ namespace GorselProg
             this.lblSumLevel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSumLevel.AutoSize = true;
             this.lblSumLevel.Font = new System.Drawing.Font("Century Gothic", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSumLevel.Location = new System.Drawing.Point(295, 496);
+            this.lblSumLevel.Location = new System.Drawing.Point(-123, 166);
             this.lblSumLevel.Name = "lblSumLevel";
             this.lblSumLevel.Size = new System.Drawing.Size(88, 21);
             this.lblSumLevel.TabIndex = 30;
@@ -945,7 +946,7 @@ namespace GorselProg
             this.lblSumLevelUp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSumLevelUp.AutoSize = true;
             this.lblSumLevelUp.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSumLevelUp.Location = new System.Drawing.Point(394, 577);
+            this.lblSumLevelUp.Location = new System.Drawing.Point(-24, 247);
             this.lblSumLevelUp.Name = "lblSumLevelUp";
             this.lblSumLevelUp.Size = new System.Drawing.Size(176, 30);
             this.lblSumLevelUp.TabIndex = 29;
@@ -957,7 +958,7 @@ namespace GorselProg
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(120, 524);
+            this.label12.Location = new System.Drawing.Point(-298, 194);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(170, 30);
             this.label12.TabIndex = 28;
@@ -968,7 +969,7 @@ namespace GorselProg
             // 
             this.prgSumXP.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.prgSumXP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.prgSumXP.Location = new System.Drawing.Point(295, 520);
+            this.prgSumXP.Location = new System.Drawing.Point(-123, 190);
             this.prgSumXP.Name = "prgSumXP";
             this.prgSumXP.Size = new System.Drawing.Size(380, 42);
             this.prgSumXP.TabIndex = 27;
@@ -980,7 +981,7 @@ namespace GorselProg
             this.panel5.Controls.Add(this.lblSumEglence);
             this.panel5.Controls.Add(this.label17);
             this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.panel5.Location = new System.Drawing.Point(599, 367);
+            this.panel5.Location = new System.Drawing.Point(181, 37);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(76, 85);
@@ -1015,7 +1016,7 @@ namespace GorselProg
             this.panel4.Controls.Add(this.lblSumSanat);
             this.panel4.Controls.Add(this.label16);
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.panel4.Location = new System.Drawing.Point(523, 367);
+            this.panel4.Location = new System.Drawing.Point(105, 37);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(76, 85);
@@ -1050,7 +1051,7 @@ namespace GorselProg
             this.panel2.Controls.Add(this.lblSumTarih);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.panel2.Location = new System.Drawing.Point(447, 367);
+            this.panel2.Location = new System.Drawing.Point(29, 37);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(76, 85);
@@ -1085,7 +1086,7 @@ namespace GorselProg
             this.panel6.Controls.Add(this.lblSumBilim);
             this.panel6.Controls.Add(this.label14);
             this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.panel6.Location = new System.Drawing.Point(371, 367);
+            this.panel6.Location = new System.Drawing.Point(-47, 37);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(76, 85);
@@ -1120,7 +1121,7 @@ namespace GorselProg
             this.panel7.Controls.Add(this.lblSumSpor);
             this.panel7.Controls.Add(this.label10);
             this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.panel7.Location = new System.Drawing.Point(295, 367);
+            this.panel7.Location = new System.Drawing.Point(-123, 37);
             this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(76, 85);
@@ -1153,7 +1154,7 @@ namespace GorselProg
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(-40, 391);
+            this.label9.Location = new System.Drawing.Point(-458, 61);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(330, 30);
             this.label9.TabIndex = 6;
@@ -1165,7 +1166,7 @@ namespace GorselProg
             this.lblSumThirdName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSumThirdName.AutoSize = true;
             this.lblSumThirdName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSumThirdName.Location = new System.Drawing.Point(544, 220);
+            this.lblSumThirdName.Location = new System.Drawing.Point(126, -110);
             this.lblSumThirdName.Name = "lblSumThirdName";
             this.lblSumThirdName.Size = new System.Drawing.Size(139, 30);
             this.lblSumThirdName.TabIndex = 5;
@@ -1177,7 +1178,7 @@ namespace GorselProg
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(500, 166);
+            this.label13.Location = new System.Drawing.Point(82, -164);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(226, 49);
             this.label13.TabIndex = 4;
@@ -1189,7 +1190,7 @@ namespace GorselProg
             this.lblSumSecondName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSumSecondName.AutoSize = true;
             this.lblSumSecondName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSumSecondName.Location = new System.Drawing.Point(168, 220);
+            this.lblSumSecondName.Location = new System.Drawing.Point(-250, -110);
             this.lblSumSecondName.Name = "lblSumSecondName";
             this.lblSumSecondName.Size = new System.Drawing.Size(176, 30);
             this.lblSumSecondName.TabIndex = 3;
@@ -1201,7 +1202,7 @@ namespace GorselProg
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(172, 166);
+            this.label11.Location = new System.Drawing.Point(-246, -164);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(159, 49);
             this.label11.TabIndex = 2;
@@ -1213,7 +1214,7 @@ namespace GorselProg
             this.lblSumWinnerName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSumWinnerName.AutoSize = true;
             this.lblSumWinnerName.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSumWinnerName.Location = new System.Drawing.Point(358, 94);
+            this.lblSumWinnerName.Location = new System.Drawing.Point(-60, -236);
             this.lblSumWinnerName.Name = "lblSumWinnerName";
             this.lblSumWinnerName.Size = new System.Drawing.Size(166, 30);
             this.lblSumWinnerName.TabIndex = 1;
@@ -1225,7 +1226,7 @@ namespace GorselProg
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(267, 13);
+            this.label8.Location = new System.Drawing.Point(-151, -317);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(348, 81);
             this.label8.TabIndex = 0;
@@ -1256,6 +1257,10 @@ namespace GorselProg
             // 
             this.timerForGame.Interval = 1000;
             this.timerForGame.Tick += new System.EventHandler(this.timerForGame_Tick);
+            // 
+            // timerForCheckCurrGame
+            // 
+            this.timerForCheckCurrGame.Tick += new System.EventHandler(this.timerForCheckCurrGame_Tick);
             // 
             // LobbyGame
             // 
@@ -1396,5 +1401,6 @@ namespace GorselProg
         private System.Windows.Forms.ColumnHeader PlayerID;
         private System.Windows.Forms.ColumnHeader PlayerName;
         private System.Windows.Forms.Timer timerForGame;
+        private System.Windows.Forms.Timer timerForCheckCurrGame;
     }
 }
