@@ -66,6 +66,8 @@ namespace GorselProg.Services
 
                         room.CurrentGameId = newGame.Id;
 
+                        RoomSession.Instance.SetCurrentRoom(room);
+
                         context.Games.Add(newGame);
                         await context.SaveChangesAsync();
 
@@ -274,6 +276,7 @@ namespace GorselProg.Services
                     {
                         room.CurrentGameId = null;
                     }
+                    RoomSession.Instance.SetCurrentRoom(room);
                     GameSession.Instance.SetCurrentGame(null);
                     GameSession.Instance.SetAllQuestions(null);
                     await context.SaveChangesAsync();
