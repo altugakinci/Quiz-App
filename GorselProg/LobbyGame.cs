@@ -378,6 +378,12 @@ namespace GorselProg
         private void printQuestion()
         {
 
+            if(question_index == 2)
+            {
+                getSummary();
+                return;
+            }
+
             current_question = question_list[question_index];
 
             string question_text = current_question.QuestionText;
@@ -400,6 +406,23 @@ namespace GorselProg
             Game current_game = GameSession.Instance.GetCurrentGame();
 
             await GameService.AnswerQuestion(current_user.Id, current_question.Id, current_game.Id, options[index]);
+        }
+
+        private async void getSummary()
+        {
+
+            User curr_user = UserSession.Instance.GetCurrentUser();
+            Game curr_game = GameSession.Instance.GetCurrentGame();
+
+            var summary = await GameService.GetSummaryGame(curr_game.Id, curr_user.Id);
+
+            if(summary != null)
+            {
+
+            }
+
+            PanelHandler.setPanelFill(active_panel, pnlSum);
+            active_panel = pnlSum;
         }
 
         private void nextLoading()
