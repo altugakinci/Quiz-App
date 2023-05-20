@@ -179,6 +179,49 @@ namespace GorselProg.Services
             }
         }
 
+        public static async Task<bool> BanUser(Guid userId, Guid roomId, Guid adminId)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+                using (var context = new qAppDBContext())
+                {
+                    var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId && r.AdminId == adminId);
+
+                    if (room != null)
+                    {
+                        var player = await context.Players.FirstOrDefaultAsync(p => p.UserId == userId && p.RoomId == roomId);
+
+                        if (player != null)
+                        {
+                            var bannedUser = new BannedUser
+                            {
+                                Id = Guid.NewGuid(),
+                                UserId = player.UserId,
+                                RoomId = player.RoomId
+                            };
+
+                            context.Players.Remove(player);
+                            context.BannedUsers.Add(bannedUser);
+
+                            await context.SaveChangesAsync();
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
+        }
+
 
     }
 }
