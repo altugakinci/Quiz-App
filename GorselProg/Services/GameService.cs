@@ -191,23 +191,38 @@ namespace GorselProg.Services
                         summaryGame.FirstUser = await context.Users.FirstOrDefaultAsync(u => u.Id == firstUser);
                     }
                     if (topUsers.Count >= 2)
-                        summaryGame.SecondUser = await context.Users.FirstOrDefaultAsync(u => u.Id == topUsers[1].UserId);
+                    {
+                        Guid? secondUser = topUsers[1].UserId;
+                        summaryGame.SecondUser = await context.Users.FirstOrDefaultAsync(u => u.Id == secondUser);
+                    }
+                        
                     if (topUsers.Count >= 3)
-                        summaryGame.ThirdUser = await context.Users.FirstOrDefaultAsync(u => u.Id == topUsers[2].UserId);
+                    {
+                        Guid? thirdUser = topUsers[1].UserId;
+                        summaryGame.ThirdUser = await context.Users.FirstOrDefaultAsync(u => u.Id == thirdUser);
+                    }
+                        
 
                     // Category-wise correct answers for a specific user
                     var categoryIds = await context.Categories.Select(c => c.Id).ToListAsync();
 
+                    Guid? Category_1 = categoryIds[0];
+                    Guid? Category_2 = categoryIds[1];
+                    Guid? Category_3 = categoryIds[2];
+                    Guid? Category_4 = categoryIds[3];
+                    Guid? Category_5 = categoryIds[4];
+
+
                     summaryGame.Category1Correct = await context.Answers
-                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == categoryIds[0] && a.GainedXp > 0);
+                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == Category_1 && a.GainedXp > 0);
                     summaryGame.Category2Correct = await context.Answers
-                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == categoryIds[1] && a.GainedXp > 0);
+                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == Category_2 && a.GainedXp > 0);
                     summaryGame.Category3Correct = await context.Answers
-                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == categoryIds[2] && a.GainedXp > 0);
+                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == Category_3 && a.GainedXp > 0);
                     summaryGame.Category4Correct = await context.Answers
-                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == categoryIds[3] && a.GainedXp > 0);
+                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == Category_4 && a.GainedXp > 0);
                     summaryGame.Category5Correct = await context.Answers
-                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == categoryIds[4] && a.GainedXp > 0);
+                        .CountAsync(a => a.UserId == userId && a.GameId == gameId && a.Question.CategoryId == Category_5 && a.GainedXp > 0);
 
                     // Sum of gained XP for a specific user
                     summaryGame.SumXP = await context.Answers
