@@ -38,7 +38,8 @@ namespace GorselProg
         public static void AddSelectedCategory(int buttonIndex)
         {
             List<Category> allCategories = RoomSession.Instance.GetAllCategories();
-            Category selectedCategory = allCategories[buttonIndex];
+            
+            Category selectedCategory = allCategories.FirstOrDefault(c => c.Index == buttonIndex);
 
             RoomSession.Instance.AddSelectedCategory(selectedCategory);
         }
@@ -46,7 +47,7 @@ namespace GorselProg
         public static void RemoveSelectedCategory(int buttonIndex)
         {
             List<Category> allCategories = RoomSession.Instance.GetAllCategories();
-            Category selectedCategory = allCategories[buttonIndex];
+            Category selectedCategory = allCategories.FirstOrDefault(c => c.Index == buttonIndex);
 
             RoomSession.Instance.RemoveSelectedCategory(selectedCategory);
         }
