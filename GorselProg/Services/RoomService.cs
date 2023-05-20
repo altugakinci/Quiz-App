@@ -34,7 +34,7 @@ namespace GorselProg.Services
                 ShowLoadingIndicator();
                 using (var context = new qAppDBContext())
                 {
-                 
+
 
                     context.Rooms.Add(newRoom);
                     await context.SaveChangesAsync();
@@ -52,7 +52,7 @@ namespace GorselProg.Services
 
                     context.Players.Add(player);
                     await context.SaveChangesAsync();
-                    
+
                     return true;
                 }
             }
@@ -265,6 +265,34 @@ namespace GorselProg.Services
             {
                 HideLoadingIndicator();
             }
+        }
+
+        public static async Task<bool> CheckCurrentGame(Guid roomId)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+
+                using (var context = new qAppDBContext())
+                {
+                    var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+
+                    if (room != null)
+                    {
+                        return room.CurrentGameId != null;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
+
+            return false;
         }
     }
 }

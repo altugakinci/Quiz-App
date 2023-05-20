@@ -431,9 +431,15 @@ namespace GorselProg
         }
         #endregion
 
-        private void timerForCheckCurrGame_Tick(object sender, EventArgs e)
+        private async void timerForCheckCurrGame_Tick(object sender, EventArgs e)
         {
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            bool isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
 
+            if(isReadyToPlay)
+            {
+                // player oyuna başlayabilir
+            }
         }
     }
 }
