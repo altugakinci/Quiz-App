@@ -154,7 +154,10 @@ namespace GorselProg
 
              if (result != null)
              {
-                 MessageBox.Show("Game started successfully!");
+                //MessageBox.Show("Game started successfully!");
+                question_index = 0;
+                printQuestion();
+                timerForGame.Start();
              }
              else
              {
@@ -227,6 +230,7 @@ namespace GorselProg
         }
         #endregion
 
+        #region Listeler ile Timer Handling
         private void lvPlayerPlayers_MouseClick(object sender, MouseEventArgs e)
         {
             timerForPlayers.Stop();
@@ -246,6 +250,7 @@ namespace GorselProg
         {
             timerForChatLeader.Start();
         }
+        #endregion
 
         #region Timers
         private async void timerForPlayersLeader_Tick(object sender, EventArgs e)
@@ -330,34 +335,76 @@ namespace GorselProg
         #region Cevaplar
         private void btnOption1_Click(object sender, EventArgs e)
         {
-            // option 1
-            textBox1.Text = "Sorunun kendisi";
-            btnOption1.Text = "A";
+            answerQuestion(0);
         }
 
         private void btnOption2_Click(object sender, EventArgs e)
         {
-            // option 2
-            btnOption2.Text = "B";
+            answerQuestion(1);
         }
 
         private void btnOption3_Click(object sender, EventArgs e)
         {
-            // option 3
-            btnOption3.Text = "C";
+            answerQuestion(2);
         }
 
         private void btnOption4_Click(object sender, EventArgs e)
         {
-            // option 4
-            btnOption4.Text = "D";
+            answerQuestion(3);
         }
-
-
-
-
         #endregion
 
-        
+        #region Oyun Baslangici
+
+        int game_timer = 0;
+        int time_for_question = 10;
+        int[] remaining_seconds = new int[10];
+        int question_index;
+        List<Question> question_list = GameSession.Instance.GetAllQuestions();
+        Question current_question;
+        string[] options;
+
+        private void timerForGame_Tick(object sender, EventArgs e)
+        {
+            game_timer++;
+            if(game_timer == time_for_question)
+            {
+                printQuestion();
+                game_timer = 0;
+            }
+        }
+
+        private void printQuestion()
+        {
+
+            current_question = question_list[question_index];
+
+            string question_text = current_question.QuestionText;
+            options = Helper.SplitString(current_question.OptionsText);
+            int correct_ans_index = current_question.CorrectAnswerIndex;
+
+            txtGameQuestionText.Text = question_text;
+            btnOption1.Text = options[0];
+            btnOption2.Text = options[1];
+            btnOption3.Text = options[2];
+            btnOption4.Text = options[3];
+
+            question_index++;
+            
+        }
+
+        private async void answerQuestion(int index)
+        {
+            User current_user = UserSession.Instance.GetCurrentUser();
+            Game current_game = GameSession.Instance.GetCurrentGame();
+
+            await GameService.AnswerQuestion(current_user.Id, current_question.Id, current_game.Id, options[index]);
+        }
+
+        private void nextLoading()
+        {
+            
+        }
+        #endregion
     }
 }

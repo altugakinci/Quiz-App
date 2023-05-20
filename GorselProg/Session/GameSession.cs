@@ -40,11 +40,11 @@ namespace GorselProg.Session
         {
             return _gameQuestions;
         }
-        public void SetCurrentRoom(Game game)
+        public void SetCurrentGame(Game game)
         {
             _currentGame = game;
         }
-        public Game GetCurrentRoom()
+        public Game GetCurrentGame()
         {
             return _currentGame;
         }
