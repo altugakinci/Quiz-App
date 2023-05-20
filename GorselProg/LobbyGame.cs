@@ -113,6 +113,7 @@ namespace GorselProg
 
         }
 
+        #region Liderin Kategori Secimi
         private void btnLeaderSpor_Click(object sender, EventArgs e)
         {
             toggleButtons(sender, 0);
@@ -137,6 +138,7 @@ namespace GorselProg
         {
             toggleButtons(sender, 4);
         }
+        #endregion
 
         private async void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
         {
@@ -172,11 +174,23 @@ namespace GorselProg
             active_panel = pnlLobbyLeader;
         }
 
+        #region Mesaj Gonderme Butonlari
         private void btnLeaderMsgSend_Click(object sender, EventArgs e)
         {
             sendMessageLeader();
         }
 
+        private async void btnPlayerSend_Click(object sender, EventArgs e)
+        {
+            User current = UserSession.Instance.GetCurrentUser();
+            Room room = RoomSession.Instance.GetCurrentRoom();
+            string message = txtPlayerMsg.Text;
+            txtPlayerMsg.Clear();
+            await MessageService.SendMessageAsync(current.Id, message, room.Id);
+        }
+        #endregion
+
+        #region Enter Ile Mesaj Gonderme
         private void txtLeaderMsg_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -191,7 +205,9 @@ namespace GorselProg
                 sendMessagePlayer();
             }
         }
+        #endregion
 
+        #region Mesaj Gonderme Metotlari
         private async void sendMessagePlayer()
         {
             User current = UserSession.Instance.GetCurrentUser();
@@ -209,26 +225,29 @@ namespace GorselProg
             txtLeaderMsg.Clear();
             await MessageService.SendMessageAsync(current.Id, message, room.Id);
         }
+        #endregion
 
-        private void LvPlayerPlayers_MouseClick(object sender, MouseEventArgs e)
+        private void lvPlayerPlayers_MouseClick(object sender, MouseEventArgs e)
         {
             timerForPlayers.Stop();
         }
 
-        private void Panel1_MouseLeave(object sender, EventArgs e)
+        private void lvLeaderPlayers_MouseClick(object sender, MouseEventArgs e)
+        {
+            timerForPlayersLeader.Stop();
+        }
+
+        private void lvPlayerPlayers_MouseLeave(object sender, EventArgs e)
         {
             timerForPlayers.Start();
         }
 
-        private async void btnPlayerSend_Click(object sender, EventArgs e)
+        private void lvLeaderPlayers_MouseLeave(object sender, EventArgs e)
         {
-            User current = UserSession.Instance.GetCurrentUser();
-            Room room = RoomSession.Instance.GetCurrentRoom();
-            string message = txtPlayerMsg.Text;
-            txtPlayerMsg.Clear();
-            await MessageService.SendMessageAsync(current.Id, message, room.Id);
+            timerForChatLeader.Start();
         }
 
+        #region Timers
         private async void timerForPlayersLeader_Tick(object sender, EventArgs e)
         {
             lvLeaderPlayers.Items.Clear();
@@ -261,10 +280,39 @@ namespace GorselProg
             lvLeaderChat.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
-        private void lvPlayerPlayers_MouseClick(object sender, MouseEventArgs e)
+        private async void timerForPlayers_Tick(object sender, EventArgs e)
         {
-            timerForPlayers.Stop();
+            lvPlayerPlayers.Items.Clear();
+            Room room = RoomSession.Instance.GetCurrentRoom();
+            List<User> players = await RoomService.GetPlayers(room.Id);
+            foreach (User u in players)
+            {
+                string guid = u.Id.ToString();
+                string username = u.UserName;
+                ListViewItem item = new ListViewItem(guid);
+                item.SubItems.Add(username);
+                lvPlayerPlayers.Items.Add(item);
+            }
+            lvPlayerPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
+
+        private async void timerForChat_Tick(object sender, EventArgs e)
+        {
+            lvPlayerChat.Items.Clear();
+            Room room = RoomSession.Instance.GetCurrentRoom();
+            List<Model.Message> messages = await MessageService.GetMessagesByRoomId(room.Id);
+            foreach (Model.Message m in messages)
+            {
+                string user = m.User.UserName;
+                string message = m.MessageText;
+                ListViewItem item = new ListViewItem(user);
+                item.SubItems.Add(message);
+                lvPlayerChat.Items.Add(item);
+            }
+            lvPlayerChat.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+        #endregion
+
 
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
@@ -305,6 +353,11 @@ namespace GorselProg
             btnOption4.Text = "D";
         }
 
+
+
+
         #endregion
+
+        
     }
 }
