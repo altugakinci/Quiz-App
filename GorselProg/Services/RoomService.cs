@@ -157,15 +157,31 @@ namespace GorselProg.Services
                 {
                     var player = await context.Players.FirstOrDefaultAsync(p => p.RoomId == roomId && p.UserId == user.Id);
 
-                    // Todo: odada ayrılmalarda ExitRoom servisine bağlantı yapılacak
                     if (player != null)
                     {
+                        bool isPlayerAdmin = player.UserId == (await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId)).AdminId; // Oyuncu admin mi kontrol ediyoruz
+
                         context.Players.Remove(player);
                         await context.SaveChangesAsync();
+
+                        // Admin ise adminliği devret
+                        if (isPlayerAdmin)
+                        {
+                            var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+                            var remainingPlayers = await context.Players.Where(p => p.Id != player.Id).ToListAsync();
+
+                            if (remainingPlayers.Count > 0)
+                            {
+                                Random random = new Random();
+                                int randomIndex = random.Next(0, remainingPlayers.Count);
+                                var newAdminPlayer = remainingPlayers[randomIndex];
+                                room.AdminId = newAdminPlayer.UserId; // Yeni adminin UserId'sini room.AdminId'ye atıyoruz
+                            }
+                        }
+
                         RoomSession.Instance.SetCurrentRoom(null);
                     }
 
-                    
                     return true;
                 }
             }
@@ -222,7 +238,33 @@ namespace GorselProg.Services
             }
         }
 
+        public static async Task<bool> KickUser(Guid roomId, Guid userId)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+                using (var context = new qAppDBContext())
+                {
+                    var player = await context.Players.FirstOrDefaultAsync(p => p.RoomId == roomId && p.UserId == userId);
 
+                    if (player != null)
+                    {
+                        context.Players.Remove(player);
+                        await context.SaveChangesAsync();
+                    }
+
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
+        }
     }
 }
 
