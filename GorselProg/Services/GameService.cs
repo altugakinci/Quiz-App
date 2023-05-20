@@ -198,7 +198,7 @@ namespace GorselProg.Services
                         
                     if (topUsers.Count >= 3)
                     {
-                        Guid? thirdUser = topUsers[1].UserId;
+                        Guid? thirdUser = topUsers[2].UserId;
                         summaryGame.ThirdUser = await context.Users.FirstOrDefaultAsync(u => u.Id == thirdUser);
                     }
                         
