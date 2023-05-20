@@ -114,6 +114,12 @@ namespace GorselProg.Services
 
                     if (room != null)
                     {
+                        var bannedPlayer = await context.BannedUsers.FirstOrDefaultAsync(p => p.UserId == user.Id && p.RoomId == room.Id);
+                        if (bannedPlayer != null)
+                        {
+
+                            return false;
+                        }
                         RoomSession.Instance.SetCurrentRoom(room);
                         var existingPlayer = await context.Players.FirstOrDefaultAsync(p => p.RoomId == room.Id && p.UserId == user.Id);
 
@@ -293,6 +299,30 @@ namespace GorselProg.Services
             }
 
             return false;
+        }
+
+        public static async Task<bool> CheckRoomStatus(Guid userId, Guid roomId)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+
+                using (var context = new qAppDBContext())
+                {
+                    var player = await context.Players.FirstOrDefaultAsync(p => p.UserId == userId && p.RoomId == roomId);
+
+                    return player != null;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
+
         }
     }
 }
