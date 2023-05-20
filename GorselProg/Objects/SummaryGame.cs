@@ -9,9 +9,9 @@ namespace GorselProg.Objects
 {
     public class SummaryGame
     {
-        public User FirstUserId { get; set; }
-        public User SecondUserId { get; set; }
-        public User ThirdUserId { get; set; }
+        public User FirstUser { get; set; }
+        public User SecondUser { get; set; }
+        public User ThirdUser { get; set; }
         public int Category1Correct { get; set; }
         public int Category2Correct { get; set; }
         public int Category3Correct { get; set; }

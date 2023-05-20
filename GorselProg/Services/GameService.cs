@@ -186,11 +186,14 @@ namespace GorselProg.Services
                         .ToListAsync();
 
                     if (topUsers.Count >= 1)
-                        summaryGame.FirstUserId = await context.Users.FirstOrDefaultAsync(u => u.Id == topUsers[0].UserId);
+                    {
+                        Guid? firstUser = topUsers[0].UserId;
+                        summaryGame.FirstUser = await context.Users.FirstOrDefaultAsync(u => u.Id == firstUser);
+                    }
                     if (topUsers.Count >= 2)
-                        summaryGame.SecondUserId = await context.Users.FirstOrDefaultAsync(u => u.Id == topUsers[1].UserId);
+                        summaryGame.SecondUser = await context.Users.FirstOrDefaultAsync(u => u.Id == topUsers[1].UserId);
                     if (topUsers.Count >= 3)
-                        summaryGame.ThirdUserId = await context.Users.FirstOrDefaultAsync(u => u.Id == topUsers[2].UserId);
+                        summaryGame.ThirdUser = await context.Users.FirstOrDefaultAsync(u => u.Id == topUsers[2].UserId);
 
                     // Category-wise correct answers for a specific user
                     var categoryIds = await context.Categories.Select(c => c.Id).ToListAsync();
@@ -232,10 +235,6 @@ namespace GorselProg.Services
 
                     return summaryGame;
                 }
-            }
-            catch
-            {
-                return null;
             }
             finally
             {

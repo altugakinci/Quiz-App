@@ -358,7 +358,7 @@ namespace GorselProg
         #region Oyun Baslangici
 
         int game_timer = 0;
-        int time_for_question = 10;
+        int time_for_question = 5;
         int[] remaining_seconds = new int[10];
         int question_index;
         List<Question> question_list;
