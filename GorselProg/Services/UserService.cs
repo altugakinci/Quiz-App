@@ -1,4 +1,5 @@
 ﻿using GorselProg.Model;
+using GorselProg.Objects;
 using GorselProg.Session;
 using System;
 using System.Collections.Generic;
@@ -217,7 +218,7 @@ namespace GorselProg.Services
             }
         }
 
-        public static async Task<bool> UpdateUserLevel(Guid userId,int newLevel, int newXp)
+        public static async Task<bool> UpdateUserLevel(Guid userId, int newLevel, int newXp)
         {
             try
             {

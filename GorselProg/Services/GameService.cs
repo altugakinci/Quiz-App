@@ -69,6 +69,8 @@ namespace GorselProg.Services
                         context.Games.Add(newGame);
                         await context.SaveChangesAsync();
 
+                        GameSession.Instance.SetCurrentGame(newGame);
+
                         return newGame;
                     }
                     else
@@ -272,7 +274,8 @@ namespace GorselProg.Services
                     {
                         room.CurrentGameId = null;
                     }
-
+                    GameSession.Instance.SetCurrentGame(null);
+                    GameSession.Instance.SetAllQuestions(null);
                     await context.SaveChangesAsync();
                 }
 
