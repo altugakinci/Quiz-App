@@ -17,6 +17,8 @@ namespace GorselProg.Model
 
         public Guid Id { get; set; }
 
+        public int Index { get; set; }
+
         [Required]
         [StringLength(255)]
         public string Name { get; set; }

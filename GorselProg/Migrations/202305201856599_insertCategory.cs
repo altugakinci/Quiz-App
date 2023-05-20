@@ -10,11 +10,11 @@
             // Veri eklemek istediğiniz örnekleri oluşturunuz
             var categories = new[]
             {
-            new { Id = Guid.NewGuid(), Name = "Spor" },
-            new { Id = Guid.NewGuid(), Name = "Tarih" },
-            new { Id = Guid.NewGuid(), Name = "Sanat" },
-            new { Id = Guid.NewGuid(), Name = "Bilim" },
-            new { Id = Guid.NewGuid(), Name = "Eğlence" },
+            new { Id = Guid.NewGuid(), Name = "Spor",Index = 0 },
+            new { Id = Guid.NewGuid(), Name = "Tarih",Index = 1 },
+            new { Id = Guid.NewGuid(), Name = "Sanat",Index = 2 },
+            new { Id = Guid.NewGuid(), Name = "Bilim",Index = 3 },
+            new { Id = Guid.NewGuid(), Name = "Eğlence",Index = 4 },
 
         };
 

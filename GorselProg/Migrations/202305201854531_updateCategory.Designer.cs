@@ -7,13 +7,13 @@ namespace GorselProg.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class insertCategory : IMigrationMetadata
+    public sealed partial class updateCategory : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(insertCategory));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateCategory));
         
         string IMigrationMetadata.Id
         {
-            get { return "202305181414430_insertCategory"; }
+            get { return "202305201854531_updateCategory"; }
         }
         
         string IMigrationMetadata.Source

@@ -71,10 +71,6 @@
     <Compile Include="Migrations\202305181230355_initModel.designer.cs">
       <DependentUpon>202305181230355_initModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202305181414430_insertCategory.cs" />
-    <Compile Include="Migrations\202305181414430_insertCategory.designer.cs">
-      <DependentUpon>202305181414430_insertCategory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202305190627085_updateRelation.cs" />
     <Compile Include="Migrations\202305190627085_updateRelation.designer.cs">
       <DependentUpon>202305190627085_updateRelation.cs</DependentUpon>
@@ -82,6 +78,14 @@
     <Compile Include="Migrations\202305201425288_gainedXp.cs" />
     <Compile Include="Migrations\202305201425288_gainedXp.designer.cs">
       <DependentUpon>202305201425288_gainedXp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305201854531_updateCategory.cs" />
+    <Compile Include="Migrations\202305201854531_updateCategory.designer.cs">
+      <DependentUpon>202305201854531_updateCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305201856599_insertCategory.cs" />
+    <Compile Include="Migrations\202305201856599_insertCategory.designer.cs">
+      <DependentUpon>202305201856599_insertCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Answer.cs" />
@@ -133,14 +137,17 @@
     <EmbeddedResource Include="Migrations\202305181230355_initModel.resx">
       <DependentUpon>202305181230355_initModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202305181414430_insertCategory.resx">
-      <DependentUpon>202305181414430_insertCategory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305190627085_updateRelation.resx">
       <DependentUpon>202305190627085_updateRelation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305201425288_gainedXp.resx">
       <DependentUpon>202305201425288_gainedXp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305201854531_updateCategory.resx">
+      <DependentUpon>202305201854531_updateCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305201856599_insertCategory.resx">
+      <DependentUpon>202305201856599_insertCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

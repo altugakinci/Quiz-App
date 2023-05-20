@@ -180,6 +180,7 @@ namespace GorselProg.Services
                         }
 
                         RoomSession.Instance.SetCurrentRoom(null);
+                        RoomSession.Instance.SetAllCategories(null);
                     }
 
                     return true;
