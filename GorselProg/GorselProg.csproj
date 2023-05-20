@@ -79,6 +79,10 @@
     <Compile Include="Migrations\202305190627085_updateRelation.designer.cs">
       <DependentUpon>202305190627085_updateRelation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305201425288_gainedXp.cs" />
+    <Compile Include="Migrations\202305201425288_gainedXp.designer.cs">
+      <DependentUpon>202305201425288_gainedXp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Answer.cs" />
     <Compile Include="Model\BannedUser.cs" />
@@ -132,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305190627085_updateRelation.resx">
       <DependentUpon>202305190627085_updateRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305201425288_gainedXp.resx">
+      <DependentUpon>202305201425288_gainedXp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

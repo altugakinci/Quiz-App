@@ -14,6 +14,8 @@ namespace GorselProg.Model
         [Required]
         public string AnswerText { get; set; }
 
+        public int GainedXp { get; set; }
+
         public Guid? UserId { get; set; }
 
         public Guid? QuestionId { get; set; }
