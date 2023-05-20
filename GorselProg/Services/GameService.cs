@@ -204,7 +204,7 @@ namespace GorselProg.Services
                         
 
                     // Category-wise correct answers for a specific user
-                    var categoryIds = await context.Categories.Select(c => c.Id).ToListAsync();
+                    var categoryIds = await context.Categories.OrderBy(c=>c.Index).Select(c => c.Id).ToListAsync();
 
                     Guid? Category_1 = categoryIds[0];
                     Guid? Category_2 = categoryIds[1];
