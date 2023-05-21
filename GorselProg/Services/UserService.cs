@@ -57,7 +57,7 @@ namespace GorselProg.Services
                     var users = await context.Users.ToListAsync();
                     return users;
                 }
-                    
+
             }
             finally
             {
@@ -76,7 +76,7 @@ namespace GorselProg.Services
                     var user = await context.Users.FirstOrDefaultAsync(u => u.Id == id);
                     return user;
                 }
-               
+
             }
             finally
             {
@@ -104,10 +104,10 @@ namespace GorselProg.Services
                         Level = 1,
                     };
                     var isDuplicate = await db.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
-                    if(isDuplicate != null)
+                    if (isDuplicate != null)
                     {
                         return false;
-                    } 
+                    }
                     db.Users.Add(newUser);
                     await db.SaveChangesAsync();
                 }
@@ -121,14 +121,14 @@ namespace GorselProg.Services
             {
                 HideLoadingIndicator();
             }
- 
+
         }
 
         // Kullanıcı Login servisi
-        public static async Task<bool> LoginUser(string email,string password)
+        public static async Task<bool> LoginUser(string email, string password)
         {
-          ShowLoadingIndicator();
-                bool isValid = false;
+            ShowLoadingIndicator();
+            bool isValid = false;
 
             using (var context = new qAppDBContext())
             {
@@ -136,48 +136,48 @@ namespace GorselProg.Services
                 var user = await context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
                 if (user == null)
+                {
+                    isValid = false;
+                    //return false; // Kullanıcı adı yanlış
+                }
+                else
+                {
+                    byte[] saltValue = Convert.FromBase64String(user.Salt);
+                    var keyGenerator = new Rfc2898DeriveBytes(password, saltValue, 10000);
+                    byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
+                    string encryptionKeyString = Convert.ToBase64String(encryptionKey);
+
+                    if (encryptionKeyString.Equals(user.Password))
                     {
-                        isValid = false;
-                        //return false; // Kullanıcı adı yanlış
+                        isValid = true;
+                        //return true; // Şifre doğru
+                        UserSession.Instance.SetCurrentUser(user);
                     }
                     else
                     {
-                        byte[] saltValue = Convert.FromBase64String(user.Salt);
-                        var keyGenerator = new Rfc2898DeriveBytes(password, saltValue, 10000);
-                        byte[] encryptionKey = keyGenerator.GetBytes(32); // 256 bit = 32 byte
-                        string encryptionKeyString = Convert.ToBase64String(encryptionKey);
-
-                        if (encryptionKeyString.Equals(user.Password))
-                        {
-                            isValid = true;
-                            //return true; // Şifre doğru
-                            UserSession.Instance.SetCurrentUser(user);
-                        }
-                        else
-                        {
-                            isValid = false;
-                            //return false; // Şifre yanlış
-                        }
+                        isValid = false;
+                        //return false; // Şifre yanlış
                     }
-                
+                }
+
                 return isValid;
             }
-         
+
         }
 
         // Kullanıcı güncelleme işlemi
-        public static async Task<bool> UpdateUser(User user,string currentPassword,Guid currentId)
+        public static async Task<bool> UpdateUser(User user, string currentPassword, Guid currentId)
         {
             try
             {
                 ShowLoadingIndicator();
-                
+
 
                 using (var db = new qAppDBContext())
                 {
                     var existingUser = await db.Users.FirstOrDefaultAsync(u => u.Id == currentId);
 
-                    if(existingUser != null)
+                    if (existingUser != null)
                     {
                         byte[] saltValue = Convert.FromBase64String(existingUser.Salt);
                         var keyGenerator = new Rfc2898DeriveBytes(currentPassword, saltValue, 10000);
@@ -193,7 +193,7 @@ namespace GorselProg.Services
                             existingUser.Email = user.Email;
                             existingUser.Password = passSalt[1];
                             existingUser.Salt = passSalt[0];
-                            
+
                             UserSession.Instance.SetCurrentUser(existingUser);
                             await db.SaveChangesAsync();
 
@@ -258,5 +258,66 @@ namespace GorselProg.Services
         {
             UserSession.Instance.SetCurrentUser(null);
         }
+
+        public static async Task<UserGamesSummary> GetUserGamesSummary(Guid userId)
+        {
+            using (var context = new qAppDBContext())
+            {
+                var userGamesSummary = new UserGamesSummary();
+
+                userGamesSummary.TotalGamesPlayed = await context.Answers
+                    .Where(a => a.UserId == userId)
+                    .Select(a => a.GameId)
+                    .Distinct()
+                    .CountAsync();
+
+                var distinctGameIds = await context.Answers
+                    .Where(a => a.UserId == userId)
+                    .Select(a => a.GameId)
+                    .Distinct()
+                    .ToListAsync();
+
+                userGamesSummary.WonGames = distinctGameIds.Count(g => context.Answers
+                    .Where(a => a.UserId == userId && a.GameId == g)
+                    .Sum(a => a.GainedXp) == distinctGameIds.Max(g2 => context.Answers
+                        .Where(a => a.UserId == userId && a.GameId == g2)
+                        .Sum(a => a.GainedXp)));
+
+                userGamesSummary.CorrectAnswers = await context.Answers
+                    .CountAsync(a => a.UserId == userId && a.GainedXp >= 50);
+
+                // Kategori bazında doğru sayısını hesapla ve atama yap
+                var categoryIds = await context.Categories.OrderBy(c => c.Index).Select(c => c.Id).ToListAsync();
+
+                Guid? Category_1 = categoryIds[0];
+                Guid? Category_2 = categoryIds[1];
+                Guid? Category_3 = categoryIds[2];
+                Guid? Category_4 = categoryIds[3];
+                Guid? Category_5 = categoryIds[4];
+
+                userGamesSummary.Category1Correct = await GetCategoryCorrectCount(userId, (Guid)Category_1);
+                userGamesSummary.Category2Correct = await GetCategoryCorrectCount(userId, (Guid)Category_2);
+                userGamesSummary.Category3Correct = await GetCategoryCorrectCount(userId, (Guid)Category_3);
+                userGamesSummary.Category4Correct = await GetCategoryCorrectCount(userId, (Guid)Category_4);
+                userGamesSummary.Category5Correct = await GetCategoryCorrectCount(userId, (Guid)Category_5);
+
+                return userGamesSummary;
+            }
+        }
+
+        private static async Task<int> GetCategoryCorrectCount(Guid userId, Guid categoryId)
+        {
+            using (var context = new qAppDBContext())
+            {
+                var questionIds = await context.Questions
+                    .Where(q => q.CategoryId == categoryId)
+                    .Select(q => q.Id)
+                    .ToListAsync();
+
+                return await context.Answers
+                    .CountAsync(a => a.UserId == userId && questionIds.Contains((Guid)a.QuestionId) && a.GainedXp >= 50);
+            }
+        }
+
     }
 }
