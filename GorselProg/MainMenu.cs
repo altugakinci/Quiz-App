@@ -614,6 +614,8 @@ namespace GorselProg
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlProfileDuzenle);
             active_panel = pnlProfileDuzenle;
+            txtPDUsername.Text = lblProfileUsername.Text;
+            txtPDMail.Text = lblProfileMail.Text;
         }
 
         private void btnProfiliDuzenleGeri_Click(object sender, EventArgs e)
@@ -624,21 +626,21 @@ namespace GorselProg
 
         private async void btnProfiliKaydet_Click(object sender, EventArgs e)
         {
-            if (txtMvctSifre.Text == "" && textBox3.Text == "" && textBox4.Text == "" && textBox5.Text == "" && textBox6.Text == "")
+            if (txtPDMevcutSifre.Text == "" && txtPDYeniSifre.Text == "" && txtPDYeniSifreTekrar.Text == "" && txtPDMail.Text == "" && txtPDUsername.Text == "")
             {
                 // TODO: uygun bir hata mesajı
             }
-            else if (textBox3.Text != textBox4.Text )
+            else if (txtPDYeniSifre.Text != txtPDYeniSifreTekrar.Text )
             {
                 // Todo: uygun bir hata mesajı
             }
 
-            string currPassword = txtMvctSifre.Text;
+            string currPassword = txtPDMevcutSifre.Text;
             Guid currUser = UserSession.Instance.GetCurrentUser().Id;
 
-            string newPassword = textBox3.Text;
-            string newMail = textBox5.Text;
-            string newUserName = textBox6.Text;
+            string newPassword = txtPDYeniSifre.Text;
+            string newMail = txtPDMail.Text;
+            string newUserName = txtPDUsername.Text;
 
             var updateUser = new User
             {
