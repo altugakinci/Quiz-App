@@ -53,6 +53,7 @@ namespace GorselProg
             {
                 timerForChat.Start();
                 timerForPlayers.Start();
+                timerForCheckCurrGame.Start();
             }
 
             //Lobi lideriyse:
@@ -157,15 +158,8 @@ namespace GorselProg
         private async void startGame()
         {
             
-            var curr_game = GameSession.Instance.GetCurrentGame();
-            if(curr_game != null)
-            {
-                question_list = GameSession.Instance.GetAllQuestions();
-                question_index = 0;
-                printQuestion();
-            }
-            else
-            {
+           
+            
                 // Get the selected categories
                 List<Category> categories = RoomSession.Instance.GetSelectedCategories();
                 Room room = RoomSession.Instance.GetCurrentRoom();
@@ -183,7 +177,7 @@ namespace GorselProg
                 {
                     MessageBox.Show("Failed to start game.");
                 }
-            }
+            
            
 
             PanelHandler.setPanelFill(active_panel, pnlGame);
@@ -532,7 +526,21 @@ namespace GorselProg
         {
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             var isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
-            if (isReadyToPlay) ;
+            if (isReadyToPlay) {
+                var curr_game = GameSession.Instance.GetCurrentGame();
+
+                if (curr_game != null)
+                {
+                    question_list = GameSession.Instance.GetAllQuestions();
+                    question_index = 0;
+                    printQuestion();
+
+                    PanelHandler.setPanelFill(active_panel, pnlGame);
+                    active_panel = pnlGame;
+                    timerForCheckCurrGame.Stop();
+                }
+
+            }
         }
 
         #region Game Quits
