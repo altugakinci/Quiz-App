@@ -156,24 +156,19 @@ namespace GorselProg
 
         private async void startGame()
         {
-
+            /*
+            var curr_game = GameSession.Instance.GetCurrentGame();
+            if(curr_game != null)
+            {
+                question_list = GameSession.Instance.GetAllQuestions();
+                question_index = 0;
+                printQuestion();
+            }*/
             // Get the selected categories
-
             List<Category> categories = RoomSession.Instance.GetSelectedCategories();
-
             Room room = RoomSession.Instance.GetCurrentRoom();
-            var result;
-            if(leader || )
-            {
-                            // Call the StartGame method
-            var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
 
-            }
-            
-            if(player && currentGame)
-            {
-                                
-            }
+            var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
 
             if (result != null)
             {
@@ -532,15 +527,8 @@ namespace GorselProg
         private async void timerForCheckCurrGame_Tick(object sender, EventArgs e)
         {
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
-            bool isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
-            bool _isOnPlay;
+            var isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
 
-            if(isReadyToPlay)
-            {
-                _isOnPlay = await Services.RoomService.CheckCurrentGame(curr_room.Id);
-                isPlayerPlay = _isOnPlay;
-                // player oyuna başlayabilir
-            }
         }
 
         #region Game Quits
