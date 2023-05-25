@@ -246,6 +246,10 @@ namespace GorselProg.Services
                         summaryGame.Level = user.Level;
                         summaryGame.SumXP = user.Xp;
 
+
+                        // set the current user to sesssion
+                        UserSession.Instance.SetCurrentUser(user);
+
                     }
 
                     return summaryGame;
