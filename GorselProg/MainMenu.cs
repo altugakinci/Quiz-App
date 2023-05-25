@@ -24,8 +24,6 @@ namespace GorselProg
         //ThemeHandler themeHandler = new ThemeHandler();
         PanelHandler panelHandler = new PanelHandler();
 
-
-
         private void btnSignOut_Click(object sender, EventArgs e)
         {
             UserService.LogoutUser();
@@ -57,7 +55,7 @@ namespace GorselProg
             this.WindowState = FormWindowState.Maximized;
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
 
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formMainMenu_FormClosing);
 
             //CODE
         }
@@ -672,16 +670,20 @@ namespace GorselProg
 
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private void formMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Kapatma işlemi hakkında gereken kontrolleri yapın
             // Örneğin, kullanıcıya bir onay iletişim kutusu göstermek isteyebilirsiniz
 
-            DialogResult result = MessageBox.Show("Programdan çıkmak istiyor musunuz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
                 // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
                 e.Cancel = true;
+            }
+            else
+            {
+                Environment.Exit(0);
             }
         }
 

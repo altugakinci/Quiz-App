@@ -336,20 +336,6 @@ namespace GorselProg
         }
         #endregion
 
-
-        private void panel1_MouseLeave(object sender, EventArgs e)
-        {
-            timerForPlayers.Start();
-        }
-
-
-        private void btnShowSum_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelFill(active_panel, pnlSum);
-            active_panel = pnlSum;
-            prgSumXP.Value = 50;
-        }
-
         #region Cevaplar
         private void btnOption1_Click(object sender, EventArgs e)
         {
@@ -392,6 +378,35 @@ namespace GorselProg
                 game_timer = 0;
                 next = 3;
                 nextLoading();
+            }
+        }
+
+        int loading = 3;
+        private void timerForStart_Tick(object sender, EventArgs e)
+        {
+            lblGameStartingCD.Text = loading.ToString();
+            loading--;
+
+            if (loading == -1)
+            {
+                timerForStart.Stop();
+                startGame();
+                return;
+            }
+        }
+
+        int next;
+        private void timerForNextLoading_Tick(object sender, EventArgs e)
+        {
+            lblNextLoading.Text = next.ToString();
+            --next;
+            if (next == -1)
+            {
+                timerForNextLoading.Stop();
+                printQuestion();
+                PanelHandler.setPanelFill(active_panel, pnlGame);
+                active_panel = pnlGame;
+                lblNextLoading.Text = "3";
             }
         }
 
@@ -468,6 +483,7 @@ namespace GorselProg
 
         private void nextLoading()
         {
+            lblTimeLeft.Text = "10";
             PanelHandler.setPanelFill(active_panel, pnlNextLoading);
             active_panel = pnlNextLoading;
 
@@ -486,44 +502,19 @@ namespace GorselProg
             }
         }
 
-        int loading = 3;
-        private void timerForStart_Tick(object sender, EventArgs e)
-        {
-            lblGameStartingCD.Text = loading.ToString();
-            loading--;
-            
-            if (loading == -1)
-            {
-                timerForStart.Stop();
-                startGame();
-                return;
-            }
-        }
-
-        int next;
-        private void timerForNextLoading_Tick(object sender, EventArgs e)
-        {
-            lblNextLoading.Text = next.ToString();
-            --next;
-            if(next == -1)
-            {
-                timerForNextLoading.Stop();
-                printQuestion();
-                PanelHandler.setPanelFill(active_panel, pnlGame);
-                active_panel = pnlGame;
-            }
-        }
+        #region Game Quits
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Kapatma işlemi hakkında gereken kontrolleri yapın
-            // Örneğin, kullanıcıya bir onay iletişim kutusu göstermek isteyebilirsiniz
-
-            DialogResult result = MessageBox.Show("Programdan çıkmak istiyor musunuz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
                 // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
                 e.Cancel = true;
+            }
+            else
+            {
+                Environment.Exit(0);
             }
         }
 
@@ -536,5 +527,6 @@ namespace GorselProg
         {
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
+        #endregion
     }
 }

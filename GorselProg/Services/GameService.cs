@@ -48,7 +48,7 @@ namespace GorselProg.Services
                         var randomQuestions = await context.Questions
                             .Where(q => categoryIds.Contains((Guid)q.CategoryId))
                             .OrderBy(q => Guid.NewGuid())
-                            .Take(2)
+                            .Take(10)
                             .ToListAsync();
                         //set to session all questions
                         GameSession.Instance.SetAllQuestions(randomQuestions);
