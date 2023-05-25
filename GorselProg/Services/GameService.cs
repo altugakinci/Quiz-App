@@ -253,7 +253,8 @@ namespace GorselProg.Services
                         await context.SaveChangesAsync();
 
                     }
-
+                    GameSession.Instance.SetCurrentGame(null);
+                    GameSession.Instance.SetAllQuestions(null);
                     return summaryGame;
                 }
             }

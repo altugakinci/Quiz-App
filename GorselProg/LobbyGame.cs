@@ -156,31 +156,35 @@ namespace GorselProg
 
         private async void startGame()
         {
-            /*
+            
             var curr_game = GameSession.Instance.GetCurrentGame();
             if(curr_game != null)
             {
                 question_list = GameSession.Instance.GetAllQuestions();
                 question_index = 0;
                 printQuestion();
-            }*/
-            // Get the selected categories
-            List<Category> categories = RoomSession.Instance.GetSelectedCategories();
-            Room room = RoomSession.Instance.GetCurrentRoom();
-
-            var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
-
-            if (result != null)
-            {
-                //MessageBox.Show("Game started successfully!");
-                question_list = GameSession.Instance.GetAllQuestions();
-                question_index = 0;
-                printQuestion();
             }
             else
             {
-                MessageBox.Show("Failed to start game.");
+                // Get the selected categories
+                List<Category> categories = RoomSession.Instance.GetSelectedCategories();
+                Room room = RoomSession.Instance.GetCurrentRoom();
+
+                var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
+
+                if (result != null)
+                {
+                    //MessageBox.Show("Game started successfully!");
+                    question_list = GameSession.Instance.GetAllQuestions();
+                    question_index = 0;
+                    printQuestion();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to start game.");
+                }
             }
+           
 
             PanelHandler.setPanelFill(active_panel, pnlGame);
             active_panel = pnlGame;
@@ -528,7 +532,7 @@ namespace GorselProg
         {
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             var isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
-
+            if (isReadyToPlay) ;
         }
 
         #region Game Quits

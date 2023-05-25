@@ -274,7 +274,7 @@ namespace GorselProg.Services
             }
         }
 
-        public static async Task<Game> CheckCurrentGame(Guid roomId)
+        public static async Task<bool> CheckCurrentGame(Guid roomId)
         {
             try
             {
@@ -288,20 +288,33 @@ namespace GorselProg.Services
                     {
                         var game = await context.Games.FirstOrDefaultAsync(g => g.Id == room.CurrentGameId);
                         GameSession.Instance.SetCurrentGame(game);
-                        return game;
+
+                        var gameQuestions = await context.GameQuestions
+                            .Where(gq => gq.GameId == game.Id)
+                            .ToListAsync();
+
+                        var questionIds = gameQuestions.Select(gq => gq.QuestionId).ToList();
+
+                        var questions = await context.Questions
+                            .Where(q => questionIds.Contains(q.Id))
+                            .ToListAsync();
+
+                        GameSession.Instance.SetAllQuestions(questions);
+
+                        return true;
                     }
                 }
             }
             catch
             {
-                return null;
+                return false;
             }
             finally
             {
                 HideLoadingIndicator();
             }
 
-            return null;
+            return false;
         }
 
         public static async Task<bool> CheckRoomStatus(Guid userId, Guid roomId)
