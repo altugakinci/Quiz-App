@@ -229,14 +229,22 @@ namespace GorselProg
 
         }
 
-        private void btnProfile_Click(object sender, EventArgs e)
+        private async void btnProfile_Click(object sender, EventArgs e)
         {
             User current = UserSession.Instance.GetCurrentUser();
+            Objects.UserGamesSummary sum = await UserService.GetUserGamesSummary(current.Id); 
             lblProfileUsername.Text = current.UserName;
             lblProfileMail.Text = current.Email;
             lblProfileLevel.Text = $"{current.Level}. Level";
             lblProfileXP.Text = $"{current.Xp} / 500";
             prgProfileXP.Value = current.Xp;
+
+            //spor tarih sanat bilim eğl
+            lblProfileSpor.Text = sum.Category1Correct.ToString();
+            lblProfileTarih.Text = sum.Category2Correct.ToString();
+            lblProfileSanat.Text = sum.Category3Correct.ToString();
+            lblProfileBilim.Text = sum.Category4Correct.ToString();
+            lblProfileEglence.Text = sum.Category5Correct.ToString();
 
             PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
             active_panel = pnlProfile;

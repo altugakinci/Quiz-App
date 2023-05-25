@@ -413,11 +413,11 @@ namespace GorselProg
         private void printQuestion()
         {
             
-            //if (question_index == 2)
-            //{
-            //    getSummary();
-            //    return;
-            //}
+            if (question_index == 10)
+            {
+                getSummary();
+                return;
+            }
 
             current_question = question_list[question_index];
 
