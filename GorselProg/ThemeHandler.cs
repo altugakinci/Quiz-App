@@ -10,7 +10,6 @@ namespace GorselProg
 {
     class ThemeHandler
     {
-
         static public Color color_texts = Color.White;
         static public Color color_background = Color.FromArgb(37, 37, 37);
         static public Color color_textboxes = Color.FromArgb(62, 62, 66);

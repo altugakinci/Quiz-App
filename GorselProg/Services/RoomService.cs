@@ -82,6 +82,7 @@ namespace GorselProg.Services
                 HideLoadingIndicator();
             }
         }
+
         public static async Task<List<User>> GetPlayers(Guid roomId)
         {
             try
@@ -117,10 +118,10 @@ namespace GorselProg.Services
                         var bannedPlayer = await context.BannedUsers.FirstOrDefaultAsync(p => p.UserId == user.Id && p.RoomId == room.Id);
                         if (bannedPlayer != null)
                         {
-
                             return false;
                         }
                         RoomSession.Instance.SetCurrentRoom(room);
+
                         var existingPlayer = await context.Players.FirstOrDefaultAsync(p => p.RoomId == room.Id && p.UserId == user.Id);
 
                         if (existingPlayer == null)

@@ -152,6 +152,7 @@ namespace GorselProg
 
             timerForStart.Start();
         }
+        bool isPlayerPlay;
 
         private async void startGame()
         {
@@ -161,8 +162,18 @@ namespace GorselProg
             List<Category> categories = RoomSession.Instance.GetSelectedCategories();
 
             Room room = RoomSession.Instance.GetCurrentRoom();
-            // Call the StartGame method
+            var result;
+            if(leader || )
+            {
+                            // Call the StartGame method
             var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
+
+            }
+            
+            if(player && currentGame)
+            {
+                                
+            }
 
             if (result != null)
             {
@@ -410,10 +421,31 @@ namespace GorselProg
             }
         }
 
+        int returnLobby = 20;
+        private void timerForReturnLobby_Tick(object sender, EventArgs e)
+        {
+            lblReturnLobby.Text = returnLobby.ToString();
+            returnLobby--;
+            if(returnLobby == 0)
+            {
+                if(UserSession.Instance.GetCurrentUser().Id == RoomSession.Instance.GetCurrentRoom().AdminId)
+                {
+                    PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
+                    active_panel = pnlLobbyLeader;
+                }
+                else
+                {
+                    PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
+                    active_panel = pnlLobbyPlayer;
+                }
+                timerForReturnLobby.Stop();
+            }
+        }
+
         private void printQuestion()
         {
             
-            if (question_index == 10)
+            if (question_index == 2)
             {
                 getSummary();
                 return;
@@ -453,9 +485,14 @@ namespace GorselProg
 
             if(summary != null)
             {
-                lblSumWinnerName.Text = summary.FirstUser.UserName;
-                lblSumSecondName.Text = summary.SecondUser.UserName;
-                lblSumThirdName.Text = summary.ThirdUser.UserName;
+                if(summary.FirstUser != null)
+                    lblSumWinnerName.Text = summary.FirstUser.UserName;
+                
+                if(summary.SecondUser != null)
+                    lblSumSecondName.Text = summary.SecondUser.UserName;
+
+                if(summary.ThirdUser != null)
+                    lblSumThirdName.Text = summary.ThirdUser.UserName;
 
                 lblSumSpor.Text = summary.Category1Correct.ToString();
                 lblSumTarih.Text = summary.Category2Correct.ToString();
@@ -479,6 +516,7 @@ namespace GorselProg
 
             PanelHandler.setPanelFill(active_panel, pnlSum);
             active_panel = pnlSum;
+            timerForReturnLobby.Start();
         }
 
         private void nextLoading()
@@ -495,9 +533,12 @@ namespace GorselProg
         {
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             bool isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
+            bool _isOnPlay;
 
             if(isReadyToPlay)
             {
+                _isOnPlay = await Services.RoomService.CheckCurrentGame(curr_room.Id);
+                isPlayerPlay = _isOnPlay;
                 // player oyuna başlayabilir
             }
         }
@@ -528,5 +569,7 @@ namespace GorselProg
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
         #endregion
+
+        
     }
 }

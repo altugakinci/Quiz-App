@@ -18,6 +18,7 @@ namespace GorselProg.Services
         {
             loadingIndicator = true;
         }
+
         public static void HideLoadingIndicator()
         {
             loadingIndicator = true;

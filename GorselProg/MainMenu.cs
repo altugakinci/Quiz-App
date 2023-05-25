@@ -164,10 +164,10 @@ namespace GorselProg
         private async void btnCAGCreateRoom_ClickAsync(object sender, EventArgs e)
         {
             
-            if (txtCAGRoomName.Text == "" && txtCAGRoomPassword.Text == "")
+            if (txtCAGRoomName.Text == "" || txtCAGRoomPassword.Text == "")
             {
-                // Hata mesajı dönelim
-
+                MessageBox.Show("Oda ismi veya şifreyi eksiksiz girdiğinize emin olun!", "Oda Oluşturma", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             User admin = UserSession.Instance.GetCurrentUser();
@@ -238,6 +238,8 @@ namespace GorselProg
             lblProfileLevel.Text = $"{current.Level}. Level";
             lblProfileXP.Text = $"{current.Xp} / 500";
             prgProfileXP.Value = current.Xp;
+
+            lblProfilePlayedGames.Text = 
 
             //spor tarih sanat bilim eğl
             lblProfileSpor.Text = sum.Category1Correct.ToString();

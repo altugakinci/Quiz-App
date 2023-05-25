@@ -31,7 +31,6 @@ namespace GorselProg
                     return i;
                 }
             }
-
             return -1; // Eğer true eleman bulunamazsa -1 döndürülür
         }
 
@@ -47,6 +46,7 @@ namespace GorselProg
         public static void RemoveSelectedCategory(int buttonIndex)
         {
             List<Category> allCategories = RoomSession.Instance.GetAllCategories();
+
             Category selectedCategory = allCategories.FirstOrDefault(c => c.Index == buttonIndex);
 
             RoomSession.Instance.RemoveSelectedCategory(selectedCategory);

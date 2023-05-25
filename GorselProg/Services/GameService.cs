@@ -22,6 +22,7 @@ namespace GorselProg.Services
         {
             loadingIndicator = false;
         }
+
         public static async Task<Game> StartGame(Guid roomId, List<Category> categories, DateTime startTime, DateTime endTime)
         {
             try
