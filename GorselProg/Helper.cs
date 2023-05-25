@@ -37,7 +37,7 @@ namespace GorselProg
         public static void AddSelectedCategory(int buttonIndex)
         {
             List<Category> allCategories = RoomSession.Instance.GetAllCategories();
-            
+
             Category selectedCategory = allCategories.FirstOrDefault(c => c.Index == buttonIndex);
 
             RoomSession.Instance.AddSelectedCategory(selectedCategory);
@@ -83,6 +83,16 @@ namespace GorselProg
             );
 
             return randomChar + randomString;
+        }
+
+        public static void ClearGameSession() {
+            GameSession.Instance.SetAllQuestions(null);
+            GameSession.Instance.SetCurrentGame(null);
+        }
+
+        public static void ClearRoomSession() {
+            RoomSession.Instance.SetAllCategories(null);
+            RoomSession.Instance.SetCurrentRoom(null);
         }
     }
 }

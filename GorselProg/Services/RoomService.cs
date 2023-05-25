@@ -183,6 +183,7 @@ namespace GorselProg.Services
                                 int randomIndex = random.Next(0, remainingPlayers.Count);
                                 var newAdminPlayer = remainingPlayers[randomIndex];
                                 room.AdminId = newAdminPlayer.UserId; // Yeni adminin UserId'sini room.AdminId'ye atıyoruz
+                                UserSession.Instance.SetCurrentUser(user);
                             }
                         }
 

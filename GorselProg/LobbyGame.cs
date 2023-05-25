@@ -321,6 +321,19 @@ namespace GorselProg
                 lvPlayerPlayers.Items.Add(item);
             }
             lvPlayerPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
+            var user = UserSession.Instance.GetCurrentUser();
+            bool isPlayer = await RoomService.CheckRoomStatus(user.Id, room.Id);
+
+            if(!isPlayer)
+            {
+               // bütün timerlar durması lazım
+
+                Helper.ClearGameSession();
+                Helper.ClearRoomSession();
+                formMainMenu pnlForm = new formMainMenu();
+                pnlForm.Show();
+                this.Close();
+            }
         }
 
         private async void timerForChat_Tick(object sender, EventArgs e)
@@ -568,8 +581,29 @@ namespace GorselProg
         {
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
+
         #endregion
 
-        
+        private async void btnLeaderKick_Click(object sender, EventArgs e)
+        {
+            // kick the player
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            Guid userId = Guid.Parse(lvLeaderPlayers.SelectedItems[0].SubItems[0].Text);
+            await RoomService.KickUser(userId,curr_room.Id);
+        }
+
+        private async void btnLeaderBan_Click(object sender, EventArgs e)
+        {
+            // Ban the player
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            Guid userId = Guid.Parse(lvLeaderPlayers.SelectedItems[0].SubItems[0].Text);
+            User admin = UserSession.Instance.GetCurrentUser();
+            await RoomService.BanUser(userId, curr_room.Id,admin.Id);
+        }
+
+        private void lvLeaderPlayers_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+        }
     }
 }
