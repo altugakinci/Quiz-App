@@ -249,6 +249,7 @@ namespace GorselProg.Services
 
                         // set the current user to sesssion
                         UserSession.Instance.SetCurrentUser(user);
+                        await context.SaveChangesAsync();
 
                     }
 
