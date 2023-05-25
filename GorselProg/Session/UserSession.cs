@@ -9,7 +9,7 @@ namespace GorselProg.Session
 {
     class UserSession
     {
-        private static  UserSession _instance;
+        private static UserSession _instance;
         private User _currentUser;
 
         private UserSession() {

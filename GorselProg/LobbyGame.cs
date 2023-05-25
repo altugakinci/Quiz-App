@@ -31,8 +31,13 @@ namespace GorselProg
 
         private void LobbyGame_Load(object sender, EventArgs e)
         {
+            Application.ApplicationExit += new EventHandler(ApplicationExitHandler);
+            Application.ThreadExit += new EventHandler(ThreadExitHandler);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+
             string room_code = RoomSession.Instance.GetCurrentRoom().Code;
             string room_name = RoomSession.Instance.GetCurrentRoom().Name;
+
             lblPlayerRoomName.Text = $"{room_name} #{room_code}";
             lblLeaderRoomName.Text = $"{room_name} #{room_code}";
 
@@ -140,33 +145,36 @@ namespace GorselProg
         }
         #endregion
 
-        private async void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
+        private void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
         {
-            
+            PanelHandler.setPanelFill(active_panel, pnlGameStarting);
+            active_panel = pnlGameStarting;
 
-             // Get the selected categories
-             
-             List<Category> categories = RoomSession.Instance.GetSelectedCategories();
+            timerForStart.Start();
+        }
 
-             Room room = RoomSession.Instance.GetCurrentRoom();
-             // Call the StartGame method
-             var result = await GameService.StartGame(room.Id, categories, DateTime.Now,DateTime.Now.AddMinutes(10));
+        private async void startGame()
+        {
 
-             if (result != null)
-             {
+            // Get the selected categories
+
+            List<Category> categories = RoomSession.Instance.GetSelectedCategories();
+
+            Room room = RoomSession.Instance.GetCurrentRoom();
+            // Call the StartGame method
+            var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
+
+            if (result != null)
+            {
                 //MessageBox.Show("Game started successfully!");
                 question_list = GameSession.Instance.GetAllQuestions();
                 question_index = 0;
                 printQuestion();
-                timerForGame.Start();
-             }
-             else
-             {
-                 MessageBox.Show("Failed to start game.");
-             }
-             
-
-
+            }
+            else
+            {
+                MessageBox.Show("Failed to start game.");
+            }
 
             PanelHandler.setPanelFill(active_panel, pnlGame);
             active_panel = pnlGame;
@@ -186,11 +194,14 @@ namespace GorselProg
 
         private async void btnPlayerSend_Click(object sender, EventArgs e)
         {
-            User current = UserSession.Instance.GetCurrentUser();
-            Room room = RoomSession.Instance.GetCurrentRoom();
-            string message = txtPlayerMsg.Text;
-            txtPlayerMsg.Clear();
-            await MessageService.SendMessageAsync(current.Id, message, room.Id);
+            if(txtPlayerMsg.Text != "")
+            {
+                User current = UserSession.Instance.GetCurrentUser();
+                Room room = RoomSession.Instance.GetCurrentRoom();
+                string message = txtPlayerMsg.Text;
+                txtPlayerMsg.Clear();
+                await MessageService.SendMessageAsync(current.Id, message, room.Id);
+            }
         }
         #endregion
 
@@ -223,11 +234,14 @@ namespace GorselProg
 
         private async void sendMessageLeader()
         {
-            User current = UserSession.Instance.GetCurrentUser();
-            Room room = RoomSession.Instance.GetCurrentRoom();
-            string message = txtLeaderMsg.Text;
-            txtLeaderMsg.Clear();
-            await MessageService.SendMessageAsync(current.Id, message, room.Id);
+            if (txtLeaderMsg.Text != "")
+            {
+                User current = UserSession.Instance.GetCurrentUser();
+                Room room = RoomSession.Instance.GetCurrentRoom();
+                string message = txtLeaderMsg.Text;
+                txtLeaderMsg.Clear();
+                await MessageService.SendMessageAsync(current.Id, message, room.Id);
+            }
         }
         #endregion
 
@@ -284,6 +298,9 @@ namespace GorselProg
                 lvLeaderChat.Items.Add(item);
             }
             lvLeaderChat.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
+            if (lvLeaderChat.Items.Count > 0)
+                lvLeaderChat.EnsureVisible(lvLeaderChat.Items.Count - 1);
+            
         }
 
         private async void timerForPlayers_Tick(object sender, EventArgs e)
@@ -358,7 +375,7 @@ namespace GorselProg
         #region Oyun Baslangici
 
         int game_timer = 0;
-        int time_for_question = 5;
+        int time_for_question = 10;
         int[] remaining_seconds = new int[10];
         int question_index;
         List<Question> question_list;
@@ -368,21 +385,24 @@ namespace GorselProg
         private void timerForGame_Tick(object sender, EventArgs e)
         {
             game_timer++;
+            lblTimeLeft.Text = (time_for_question - game_timer).ToString();
             if(game_timer == time_for_question)
             {
-                printQuestion();
+                timerForGame.Stop();
                 game_timer = 0;
+                next = 3;
+                nextLoading();
             }
         }
 
         private void printQuestion()
         {
-
-            if(question_index == 2)
-            {
-                getSummary();
-                return;
-            }
+            
+            //if (question_index == 2)
+            //{
+            //    getSummary();
+            //    return;
+            //}
 
             current_question = question_list[question_index];
 
@@ -397,7 +417,7 @@ namespace GorselProg
             btnOption4.Text = options[3];
 
             question_index++;
-            
+            timerForGame.Start();
         }
 
         private async void answerQuestion(int index)
@@ -418,7 +438,28 @@ namespace GorselProg
 
             if(summary != null)
             {
+                lblSumWinnerName.Text = summary.FirstUser.UserName;
+                lblSumSecondName.Text = summary.SecondUser.UserName;
+                lblSumThirdName.Text = summary.ThirdUser.UserName;
 
+                lblSumSpor.Text = summary.Category1Correct.ToString();
+                lblSumTarih.Text = summary.Category2Correct.ToString();
+                lblSumSanat.Text = summary.Category3Correct.ToString();
+                lblSumBilim.Text = summary.Category4Correct.ToString();
+                lblSumEglence.Text = summary.Category5Correct.ToString();
+
+                lblSumLevel.Text = $"{summary.Level}. Seviye";
+                lblSumXP.Text = $"{summary.SumXP} / 500";
+                prgSumXP.Value = summary.SumXP;
+
+                if (summary.isLevelUp)
+                    lblSumLevelUp.Visible = true;
+                else
+                    lblSumLevelUp.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Bir hata oluştu.");
             }
 
             PanelHandler.setPanelFill(active_panel, pnlSum);
@@ -427,7 +468,10 @@ namespace GorselProg
 
         private void nextLoading()
         {
-            
+            PanelHandler.setPanelFill(active_panel, pnlNextLoading);
+            active_panel = pnlNextLoading;
+
+            timerForNextLoading.Start();
         }
         #endregion
 
@@ -440,6 +484,57 @@ namespace GorselProg
             {
                 // player oyuna başlayabilir
             }
+        }
+
+        int loading = 3;
+        private void timerForStart_Tick(object sender, EventArgs e)
+        {
+            lblGameStartingCD.Text = loading.ToString();
+            loading--;
+            
+            if (loading == -1)
+            {
+                timerForStart.Stop();
+                startGame();
+                return;
+            }
+        }
+
+        int next;
+        private void timerForNextLoading_Tick(object sender, EventArgs e)
+        {
+            lblNextLoading.Text = next.ToString();
+            --next;
+            if(next == -1)
+            {
+                timerForNextLoading.Stop();
+                printQuestion();
+                PanelHandler.setPanelFill(active_panel, pnlGame);
+                active_panel = pnlGame;
+            }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Kapatma işlemi hakkında gereken kontrolleri yapın
+            // Örneğin, kullanıcıya bir onay iletişim kutusu göstermek isteyebilirsiniz
+
+            DialogResult result = MessageBox.Show("Programdan çıkmak istiyor musunuz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
+                e.Cancel = true;
+            }
+        }
+
+        private void ApplicationExitHandler(object sender, EventArgs e)
+        {
+            //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
+        }
+
+        private void ThreadExitHandler(object sender, EventArgs e)
+        {
+            //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
     }
 }

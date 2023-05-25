@@ -23,18 +23,7 @@ namespace GorselProg
 
         }
 
-        //PanelHandler ph = new PanelHandler();
-        //ThemeHandler themeHandler = new ThemeHandler();
-        Panel[] panels;
-        TextBox[] textboxes;
-        MaskedTextBox[] maskedtextboxes;
-        Label[] labels;
-        Button[] buttons;
-        GroupBox[] groupBoxes;
-
         Panel active_panel;
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -44,46 +33,21 @@ namespace GorselProg
             ThemeHandler.changeAllControlsColor(this);
             ThemeHandler.changeFormsColor(this);
             this.WindowState = FormWindowState.Maximized;
-
-            /*
-            ph.showPanel(pnlLogin);
-            ph.hidePanel(pnlRegister);
-            this.MaximizeBox = false;
-            */
-
-            /*
-            panels = new Panel[] { pnlLogin,pnlRegister };
-            textboxes = new TextBox[] { txtRegUsername, txtRegMail };
-            maskedtextboxes = new MaskedTextBox[] { txtLoginPassword, txtRegPassword, txtRegPassword2, txtLoginEmail };
-            labels = new Label[] { lblLoginWarning,lblRegWarning,lblRetLogin,label1,label2,label3,label4,label5,label6,label7,label8,label9 };
-            buttons = new Button[] { btnLogin,btnRegister };
-            groupBoxes = new GroupBox[] {};
-            */
-
-            //themeHandler.applyTheme(this, buttons, labels, textboxes,maskedtextboxes, groupBoxes);
         }
 
+        #region Routings
         private void lblNoAcc_click(object sender, EventArgs e)
         {
             PanelHandler.setPanelFill(active_panel, pnlRegister);
             active_panel = pnlRegister;
-
-            /*
-            ph.hidePanel(pnlLogin);
-            ph.showPanel(pnlRegister);
-            */
         }
 
         private void lblRetLogin_MouseClick(object sender, MouseEventArgs e)
         {
             PanelHandler.setPanelFill(active_panel, pnlLogin);
             active_panel = pnlLogin;
-
-            /*
-            ph.hidePanel(pnlRegister);
-            ph.showPanel(pnlLogin);
-            */
         }
+        #endregion
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
@@ -172,22 +136,55 @@ namespace GorselProg
             active_panel = pnlLogin;
         }
 
-        public void updateTheme()
+        #region Enter tuşu entegrasyonu
+        private void txtLoginPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            //themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(null,null);
+            }
         }
 
-        private void formLoginRegister_Shown(object sender, EventArgs e)
+        private void txtLoginEmail_KeyDown(object sender, KeyEventArgs e)
         {
-            /*
-            themeHandler.darkTheme();
-            themeHandler.applyTheme(this, buttons, labels, textboxes, maskedtextboxes, groupBoxes);
-            */
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(null, null);
+            }
         }
 
-        private void pnlLogin_Paint(object sender, PaintEventArgs e)
+        private void txtRegPassword2_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRegister_Click(null, null);
+            }
         }
+
+        private void txtRegUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRegister_Click(null, null);
+            }
+        }
+
+        private void txtRegMail_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRegister_Click(null, null);
+            }
+        }
+
+        private void txtRegPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnRegister_Click(null, null);
+            }
+        }
+        #endregion
+
     }
 }

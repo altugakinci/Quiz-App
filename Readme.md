@@ -1,1 +1,3 @@
 # Quiz - App
+
+Bilgi yarışması

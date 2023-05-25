@@ -20,7 +20,7 @@ namespace GorselProg
         {
             InitializeComponent();
         }
-        Panel active_panel;
+        static Panel active_panel;
         //ThemeHandler themeHandler = new ThemeHandler();
         PanelHandler panelHandler = new PanelHandler();
 
@@ -31,7 +31,7 @@ namespace GorselProg
             UserService.LogoutUser();
             formLoginRegister form = new formLoginRegister();
             form.Show();
-            form.updateTheme();
+            //form.updateTheme();
             this.Hide();
             
         }
@@ -57,9 +57,12 @@ namespace GorselProg
             this.WindowState = FormWindowState.Maximized;
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
 
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+
             //CODE
         }
 
+        #region Routings
         private void btnCreateAGame_Click(object sender, EventArgs e)
         {
             //DESIGN
@@ -103,20 +106,6 @@ namespace GorselProg
             //CODE
         }
 
-        private void btnLightMode_Click(object sender, EventArgs e)
-        {
-            ThemeHandler.theme_olaQasem();
-            ThemeHandler.changeAllControlsColor(this);
-            ThemeHandler.changeFormsColor(this);
-        }
-
-        private void btnDarkMode_Click(object sender, EventArgs e)
-        {
-            ThemeHandler.darkTheme();
-            ThemeHandler.changeAllControlsColor(this);
-            ThemeHandler.changeFormsColor(this);
-        }
-
         private void btnBAGBack_Click(object sender, EventArgs e)
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
@@ -154,6 +143,25 @@ namespace GorselProg
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
             active_panel = pnlMainMenu;
         }
+
+        #endregion
+
+        #region Themes
+        private void btnLightMode_Click(object sender, EventArgs e)
+        {
+            ThemeHandler.theme_olaQasem();
+            ThemeHandler.changeAllControlsColor(this);
+            ThemeHandler.changeFormsColor(this);
+        }
+
+        private void btnDarkMode_Click(object sender, EventArgs e)
+        {
+            ThemeHandler.darkTheme();
+            ThemeHandler.changeAllControlsColor(this);
+            ThemeHandler.changeFormsColor(this);
+        }
+        #endregion
+
 
         private async void btnCAGCreateRoom_ClickAsync(object sender, EventArgs e)
         {
@@ -662,6 +670,19 @@ namespace GorselProg
             }
 
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Kapatma işlemi hakkında gereken kontrolleri yapın
+            // Örneğin, kullanıcıya bir onay iletişim kutusu göstermek isteyebilirsiniz
+
+            DialogResult result = MessageBox.Show("Programdan çıkmak istiyor musunuz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
+                e.Cancel = true;
+            }
         }
 
     }
