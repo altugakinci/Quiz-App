@@ -235,14 +235,14 @@ namespace GorselProg.Services
                     var user = await context.Users.FirstOrDefaultAsync(u => u.Id == userId);
                     if (user != null)
                     {
-                        int result = (summaryGame.SumXP / 500);
+                        int result = (summaryGame.SumXP + user.Xp) / 500;
                         if (result > 0)                      
                             summaryGame.isLevelUp = true;
                         else
                             summaryGame.isLevelUp = false;
                         
                         user.Level += result;
-                        user.Xp += (summaryGame.SumXP % 500);
+                        user.Xp = ((summaryGame.SumXP + user.Xp) % 500);
 
                         summaryGame.Level = user.Level;
                         summaryGame.SumXP = user.Xp;
