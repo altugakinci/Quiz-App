@@ -657,9 +657,10 @@ namespace GorselProg
 
         private void formMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             // Kapatma işlemi hakkında gereken kontrolleri yapın
             // Örneğin, kullanıcıya bir onay iletişim kutusu göstermek isteyebilirsiniz
-
+            /*
             DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
@@ -669,7 +670,7 @@ namespace GorselProg
             else
             {
                 Environment.Exit(0);
-            }
+            }*/
         }
 
     }

@@ -92,13 +92,14 @@ namespace GorselProg
             //DialogResult cevap = MessageBox.Show("Oda dağıtılacaktır. Yine de ayrılmak istiyor musunuz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning
             timerForPlayersLeader.Stop();
             timerForChatLeader.Stop();
+            isLeaving = true;
 
-            Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
-            User current = UserSession.Instance.GetCurrentUser();
-            await RoomService.ExitRoom(room_id, current);
+            //Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
+            //User current = UserSession.Instance.GetCurrentUser();
+            //await RoomService.ExitRoom(room_id, current);
 
-            formMainMenu mainmenu = new formMainMenu();
-            mainmenu.Show();
+            //formMainMenu mainmenu = new formMainMenu();
+            //mainmenu.Show();
             this.Close();
         }
 
@@ -623,9 +624,39 @@ namespace GorselProg
 
         #region Game Quits
 
+        public bool isLeaving = false;
         //Form kapatılmaya çalışıldığında handle edilir ve db'de ilgili yerler güncellenir.
         private async void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (isLeaving)
+            {
+                DialogResult result = MessageBox.Show("Ana menüye dönmek istediğinize emin misiniz?", "Ana Menüye Dön", MessageBoxButtons.YesNo);
+                if (result == DialogResult.No)
+                {
+                    // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
+                    e.Cancel = true;
+                }
+                else if(result == DialogResult.Yes)
+                {
+                    Room curr_room = RoomSession.Instance.GetCurrentRoom();
+                    Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                    await RoomService.ExitRoom(curr_room.Id, curr_user);
+                    isLeaving = false;
+
+                    formMainMenu f = new formMainMenu();
+                    f.Show();
+                }
+            }
+            else if (!isLeaving)
+            {
+                Room curr_room = RoomSession.Instance.GetCurrentRoom();
+                Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                await RoomService.ExitRoom(curr_room.Id, curr_user);
+                stopLeaderTimers();
+                stopPlayerTimers();
+                Environment.Exit(0);
+            }
+            /*
             DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
             {
@@ -639,6 +670,7 @@ namespace GorselProg
                 await RoomService.ExitRoom(curr_room.Id, curr_user);
                 Environment.Exit(0);
             }
+            */
         }
 
         //Uygulama kapatılırsa bunun handle edilmesi ve db'de ilgili yerlerin güncellenmesi.
@@ -647,6 +679,7 @@ namespace GorselProg
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             Model.User curr_user = UserSession.Instance.GetCurrentUser();
             await RoomService.ExitRoom(curr_room.Id, curr_user);
+            stopAllTimers();
             Environment.Exit(0);
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
@@ -657,10 +690,32 @@ namespace GorselProg
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             Model.User curr_user = UserSession.Instance.GetCurrentUser();
             await RoomService.ExitRoom(curr_room.Id, curr_user);
+            stopAllTimers();
             Environment.Exit(0);
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
 
+        #endregion
+
+        #region Timer Kontrolü
+        private void stopLeaderTimers()
+        {
+            timerForChatLeader.Stop();
+            timerForPlayersLeader.Stop();
+        }
+        private void stopPlayerTimers()
+        {
+            timerForPlayers.Stop();
+            timerForChat.Stop();
+        }
+        private void stopAllTimers()
+        {
+            timerForChatLeader.Stop();
+            timerForPlayersLeader.Stop();
+            timerForPlayers.Stop();
+            timerForChat.Stop();
+            timerForCheckCurrGame.Stop();
+        }
         #endregion
 
         #region Kick ve Ban
