@@ -241,8 +241,8 @@ namespace GorselProg.Services
                         else
                             summaryGame.isLevelUp = false;
                         
-                        user.Level = user.Level + result;
-                        user.Xp = (summaryGame.SumXP % 500);
+                        user.Level += result;
+                        user.Xp += (summaryGame.SumXP % 500);
 
                         summaryGame.Level = user.Level;
                         summaryGame.SumXP = user.Xp;
