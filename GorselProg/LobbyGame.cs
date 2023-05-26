@@ -20,30 +20,33 @@ namespace GorselProg
             InitializeComponent();
         }
 
-        private String rank; //Geçici bir rank değişkeni.
-        public LobbyGame(String rank) //Geçici bir constructor.
+        private String rank;
+        public LobbyGame(String rank)
         {
             InitializeComponent();
             this.rank = rank;
         }
         
+        //Aktif paneli bu değişkende tutuyoruz.
         Panel active_panel;
 
+        //Lobi yüklendiğinde çalışacak olan komutlar
         private void LobbyGame_Load(object sender, EventArgs e)
         {
+            //Bu olaylar form beklenmedik şekilde kapanırsa uygulanacak olan komutların bağlantısı.
             Application.ApplicationExit += new EventHandler(ApplicationExitHandler);
             Application.ThreadExit += new EventHandler(ThreadExitHandler);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 
+            //Lobinin yukarısında oda ismi ve kodun görüntülenmesini sağlıyor.
             string room_code = RoomSession.Instance.GetCurrentRoom().Code;
             string room_name = RoomSession.Instance.GetCurrentRoom().Name;
-
             lblPlayerRoomName.Text = $"{room_name} #{room_code}";
             lblLeaderRoomName.Text = $"{room_name} #{room_code}";
 
+            //Adminin veya kullanıcının lobiyi oluşturmasına göre hangi refresh timerlarının başlatılacağı.
             User currentuser = UserSession.Instance.GetCurrentUser();
             Room room = RoomSession.Instance.GetCurrentRoom();
-
             if (currentuser.Id.Equals(room.AdminId))
             {
                 timerForChatLeader.Start();
@@ -56,6 +59,7 @@ namespace GorselProg
                 timerForCheckCurrGame.Start();
             }
 
+            //Main menüden parametre ile LobbyGame çağırılıyor. Lider ve oyuncu olmasına göre paneller değişiyor.
             //Lobi lideriyse:
             if (rank.Equals("Leader"))
             {
@@ -69,24 +73,33 @@ namespace GorselProg
                 PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
             }
 
+            //Tüm forma geçerli temanın uygulanmasını sağlıyor.
             ThemeHandler.changeFormsColor(this);
             ThemeHandler.changeAllControlsColor(this);
             this.WindowState = FormWindowState.Maximized;
         }
 
+        #region Lobiden çıkış işlemleri
+        //Oyuncu lobiden çıkış yapma butonuna bastığında gerçekleşen işlemler.
         private async void btnPlayerLeave_Click(object sender, EventArgs e)
         {
+            //Refresh timerları durduruluyor.
             timerForChat.Stop();
             timerForPlayers.Stop();
+
+            //Oda ve kullanıcı bilgileri alındıktan sonra kullanıcı o odadan servis yardımı ile siliniyor.
             Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
             User current = UserSession.Instance.GetCurrentUser();
             await RoomService.ExitRoom(room_id, current);
 
+            //Main menu formuna geçiş yapılıyor.
             formMainMenu mainmenu = new formMainMenu();
             mainmenu.Show();
             this.Hide();
         }
 
+
+        //Lider lobiden çıkış yapmak istediğinde gerçekleşen işlemler.
         private void btnLeaderLeave_Click(object sender, EventArgs e)
         {
             DialogResult cevap = MessageBox.Show("Oda dağıtılacaktır. Yine de ayrılmak istiyor musunuz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -99,11 +112,19 @@ namespace GorselProg
             }            
         }
 
-        bool[] categoryButtons = new bool[] { false,false,false,false,false };
+        //Oyuncunun oyundan çıkmasını sağlayan buton.
+        private void btnGameGeri_Click(object sender, EventArgs e)
+        {
+            //To do: Database güncellemesi için servis çağırılacak
+            PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
+            active_panel = pnlLobbyLeader;
+        }
+        #endregion
 
+        #region Liderin Kategori Secimi
+        //Lider kategori seçtiği zaman hem butonları yeşil yapan hem de seçilen kategori listesine ekleme yapması için Helper'ı çağıran metot.
         private void toggleButtons(object sender, int buttonIndex)
         {
-
             Button button = (Button)sender;
 
             if (button.ForeColor != Color.Green)
@@ -116,100 +137,58 @@ namespace GorselProg
                 button.ForeColor = ThemeHandler.color_texts;
                 Helper.RemoveSelectedCategory(buttonIndex);
             }
-
         }
 
-        #region Liderin Kategori Secimi
+        //Spor kategorisi seçildiğinde 0 indexini togglebuttons'a gönderiyor.
         private void btnLeaderSpor_Click(object sender, EventArgs e)
         {
             toggleButtons(sender, 0);
         }
 
+        //Bilim kategorisi seçildiğinde 1 indexini togglebuttons'a gönderiyor.
         private void btnLeaderBilim_Click(object sender, EventArgs e)
         {
             toggleButtons(sender, 1);
         }
 
+        //Tarih kategorisi seçildiğinde 2 indexini togglebuttons'a gönderiyor.
         private void btnLeaderTarih_Click(object sender, EventArgs e)
         {
             toggleButtons(sender, 2);
         }
 
+        //Sanat kategorisi seçildiğinde 3 indexini togglebuttons'a gönderiyor.
         private void btnLeaderSanat_Click(object sender, EventArgs e)
         {
             toggleButtons(sender, 3);
         }
 
+        //Eğlence kategorisi seçildiğinde 4 indexini togglebuttons'a gönderiyor.
         private void btnLeaderEglence_Click(object sender, EventArgs e)
         {
             toggleButtons(sender, 4);
         }
         #endregion
 
-        private void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelFill(active_panel, pnlGameStarting);
-            active_panel = pnlGameStarting;
-
-            timerForStart.Start();
-        }
-        bool isPlayerPlay;
-
-        private async void startGame()
-        {
-            
-           
-            
-                // Get the selected categories
-                List<Category> categories = RoomSession.Instance.GetSelectedCategories();
-                Room room = RoomSession.Instance.GetCurrentRoom();
-
-                var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
-
-                if (result != null)
-                {
-                    //MessageBox.Show("Game started successfully!");
-                    question_list = GameSession.Instance.GetAllQuestions();
-                    question_index = 0;
-                    printQuestion();
-                }
-                else
-                {
-                    MessageBox.Show("Failed to start game.");
-                }
-            
-           
-
-            PanelHandler.setPanelFill(active_panel, pnlGame);
-            active_panel = pnlGame;
-        }
-
-        private void btnGameGeri_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
-            active_panel = pnlLobbyLeader;
-        }
+        #region Tüm Mesajlaşma İşlemleri
 
         #region Mesaj Gonderme Butonlari
+
+        //Liderin mesaj göndermesini sağlayan buton.
         private void btnLeaderMsgSend_Click(object sender, EventArgs e)
         {
             sendMessageLeader();
         }
 
-        private async void btnPlayerSend_Click(object sender, EventArgs e)
+        //Oyuncunun mesaj göndermesini sağlayan buton.
+        private void btnPlayerSend_Click(object sender, EventArgs e)
         {
-            if(txtPlayerMsg.Text != "")
-            {
-                User current = UserSession.Instance.GetCurrentUser();
-                Room room = RoomSession.Instance.GetCurrentRoom();
-                string message = txtPlayerMsg.Text;
-                txtPlayerMsg.Clear();
-                await MessageService.SendMessageAsync(current.Id, message, room.Id);
-            }
+            sendMessagePlayer();
         }
         #endregion
 
         #region Enter Ile Mesaj Gonderme
+        //Textbox seçiliyken Enter'a tıklandığında çalışan metotlar.
         private void txtLeaderMsg_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
@@ -217,6 +196,7 @@ namespace GorselProg
                 sendMessageLeader();
             }
         }
+        //Textbox seçiliyken Enter'a tıklandığında çalışan metotlar.
         private void txtPlayerMsg_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -227,15 +207,19 @@ namespace GorselProg
         #endregion
 
         #region Mesaj Gonderme Metotlari
+        //Oyuncu mesaj gönderirken mesajı oluşturma ve database'de güncelleme işlemi.
         private async void sendMessagePlayer()
         {
-            User current = UserSession.Instance.GetCurrentUser();
-            Room room = RoomSession.Instance.GetCurrentRoom();
-            string message = txtPlayerMsg.Text;
-            txtPlayerMsg.Clear();
-            await MessageService.SendMessageAsync(current.Id, message, room.Id);
+            if(txtPlayerMsg.Text != "")
+            {
+                User current = UserSession.Instance.GetCurrentUser();
+                Room room = RoomSession.Instance.GetCurrentRoom();
+                string message = txtPlayerMsg.Text;
+                txtPlayerMsg.Clear();
+                await MessageService.SendMessageAsync(current.Id, message, room.Id);
+            }
         }
-
+        //Lider mesaj gönderirken mesajı oluşturma ve database'de güncelleme işlemi.
         private async void sendMessageLeader()
         {
             if (txtLeaderMsg.Text != "")
@@ -249,7 +233,10 @@ namespace GorselProg
         }
         #endregion
 
+        #endregion
+
         #region Listeler ile Timer Handling
+        //Daha kolay bir kullanım için, listeye tıklandığında refreshi durduran ve seçimi kolaylaştıran metotlar.
         private void lvPlayerPlayers_MouseClick(object sender, MouseEventArgs e)
         {
             timerForPlayers.Stop();
@@ -260,6 +247,7 @@ namespace GorselProg
             timerForPlayersLeader.Stop();
         }
 
+        //Mouse panel alanından çıktığında refresh işlemine devam etmesi gerekiyor.
         private void lvPlayerPlayers_MouseLeave(object sender, EventArgs e)
         {
             timerForPlayers.Start();
@@ -272,6 +260,8 @@ namespace GorselProg
         #endregion
 
         #region Timers
+
+        //Liderin oyuncu listesini güncelleyen timer'ın ticki.
         private async void timerForPlayersLeader_Tick(object sender, EventArgs e)
         {
             lvLeaderPlayers.Items.Clear();
@@ -288,6 +278,7 @@ namespace GorselProg
             lvLeaderPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
+        //Liderin sohbet listesini güncelleyen timer'ın ticki.
         private async void timerForChatLeader_Tick(object sender, EventArgs e)
         {
             lvLeaderChat.Items.Clear();
@@ -307,6 +298,7 @@ namespace GorselProg
             
         }
 
+        //Oyuncuların oyuncu listesini güncelleyen timer'ın ticki.
         private async void timerForPlayers_Tick(object sender, EventArgs e)
         {
             lvPlayerPlayers.Items.Clear();
@@ -335,7 +327,8 @@ namespace GorselProg
                 this.Close();
             }
         }
-
+        
+        //Oyuncuların sohbet listesini güncelleyen timer'ın ticki.
         private async void timerForChat_Tick(object sender, EventArgs e)
         {
             lvPlayerChat.Items.Clear();
@@ -351,32 +344,85 @@ namespace GorselProg
             }
             lvPlayerChat.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
+
+        //Oyuncular için, liderin oyunu başlatıp başlatmadığını 500ms tick ile kontrol eden timer.
+        private async void timerForCheckCurrGame_Tick(object sender, EventArgs e)
+        {
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            var isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
+            if (isReadyToPlay)
+            {
+                var curr_game = GameSession.Instance.GetCurrentGame();
+
+                if (curr_game != null)
+                {
+                    question_list = GameSession.Instance.GetAllQuestions();
+                    question_index = 0;
+                    printQuestion();
+
+                    PanelHandler.setPanelFill(active_panel, pnlGame);
+                    active_panel = pnlGame;
+                    timerForCheckCurrGame.Stop();
+                }
+
+            }
+        }
         #endregion
 
         #region Cevaplar
+        //Sorulara cevap vermek için kullanılması gereken metotlar. Butonlar, kendi indexlerini metota gönderiyorlar.
         private void btnOption1_Click(object sender, EventArgs e)
         {
             answerQuestion(0);
+            disableOtherOptionButtons((Button)sender);
         }
 
         private void btnOption2_Click(object sender, EventArgs e)
         {
             answerQuestion(1);
+            disableOtherOptionButtons((Button)sender);
         }
 
         private void btnOption3_Click(object sender, EventArgs e)
         {
             answerQuestion(2);
+            disableOtherOptionButtons((Button)sender);
         }
 
         private void btnOption4_Click(object sender, EventArgs e)
         {
             answerQuestion(3);
+            disableOtherOptionButtons((Button)sender);
+        }
+
+        //Cevap verilen butonu yeşil, ve hepsini disable et.
+        Button[] option_buttons_list;
+        private void disableOtherOptionButtons(Button sender)
+        {
+            option_buttons_list = new Button[] { btnOption1, btnOption2, btnOption3, btnOption4 };
+            sender.ForeColor = Color.Green;
+
+            foreach(Button btn in option_buttons_list)
+            {
+                btn.Enabled = false;
+            }
+        }
+
+        private void resetAllOptionButtons()
+        {
+            option_buttons_list = new Button[] { btnOption1, btnOption2, btnOption3, btnOption4 };
+
+            foreach (Button btn in option_buttons_list)
+            {
+                btn.Enabled = true;
+                btn.ForeColor = ThemeHandler.color_texts;
+            }
         }
         #endregion
 
         #region Oyun Baslangici
 
+        //Oyunun global değişkenleri
         int game_timer = 0;
         int time_for_question = 10;
         int[] remaining_seconds = new int[10];
@@ -385,6 +431,43 @@ namespace GorselProg
         Question current_question;
         string[] options;
 
+        //Liderin oyunu başlatmasını sağlayan buton.
+        private void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelFill(active_panel, pnlGameStarting);
+            active_panel = pnlGameStarting;
+
+            //Start verilmesi için koyulan timer'ı başlatıyor.
+            timerForStart.Start();
+        }
+
+        //Yükleme süresi bittiği anda çalışan metot.
+        private async void startGame()
+        {
+            //Roomsessionda tutulan önbellekteki seçilen kategorileri getiriyoruz.
+            List<Category> categories = RoomSession.Instance.GetSelectedCategories();
+            Room room = RoomSession.Instance.GetCurrentRoom();
+
+            //İlgili servisin oyunu başlatması ve database'e kaydetmesi.
+            var result = await GameService.StartGame(room.Id, categories, DateTime.Now, DateTime.Now.AddMinutes(10));
+
+            if (result != null) //Oyunu başlatma başarılı
+            {
+                //MessageBox.Show("Oyun başladı!");
+                question_list = GameSession.Instance.GetAllQuestions();
+                question_index = 0;
+                printQuestion();
+            }
+            else //Oyun başlatılamadı.
+            {
+                MessageBox.Show("Oyun başlatılamadı.");
+            }
+
+            PanelHandler.setPanelFill(active_panel, pnlGame);
+            active_panel = pnlGame;
+        }
+
+        //Soru cevaplama için verilen sürenin güncellenmesi.
         private void timerForGame_Tick(object sender, EventArgs e)
         {
             game_timer++;
@@ -398,6 +481,7 @@ namespace GorselProg
             }
         }
 
+        //Oyun başlamadan önceki Yarışma Başlıyor paneli.
         int loading = 3;
         private void timerForStart_Tick(object sender, EventArgs e)
         {
@@ -408,10 +492,12 @@ namespace GorselProg
             {
                 timerForStart.Stop();
                 startGame();
+                loading = 3;
                 return;
             }
         }
 
+        //Sonraki soruya geçişte kullanılan Sonraki Soru paneli.
         int next;
         private void timerForNextLoading_Tick(object sender, EventArgs e)
         {
@@ -421,12 +507,14 @@ namespace GorselProg
             {
                 timerForNextLoading.Stop();
                 printQuestion();
+                next = 3;
                 PanelHandler.setPanelFill(active_panel, pnlGame);
                 active_panel = pnlGame;
                 lblNextLoading.Text = "3";
             }
         }
 
+        //Oyun bittikten sonra lobiye dönüşte kullanılan panel.
         int returnLobby = 20;
         private void timerForReturnLobby_Tick(object sender, EventArgs e)
         {
@@ -448,15 +536,17 @@ namespace GorselProg
             }
         }
 
+        //Panel geldiğinde sıradaki soruyu ilgili alanlara basan metot.
         private void printQuestion()
         {
-            
+            resetAllOptionButtons();
             if (question_index == 2)
             {
                 getSummary();
                 return;
             }
 
+            //Soruyu çekiyoruz.
             current_question = question_list[question_index];
 
             string question_text = current_question.QuestionText;
@@ -473,6 +563,7 @@ namespace GorselProg
             timerForGame.Start();
         }
 
+        //Cevabı servis yardımı ile db'e ileten metot.
         private async void answerQuestion(int index)
         {
             User current_user = UserSession.Instance.GetCurrentUser();
@@ -481,12 +572,14 @@ namespace GorselProg
             await GameService.AnswerQuestion(current_user.Id, current_question.Id, current_game.Id, options[index]);
         }
 
+        //Oyun bitiminde sonuç ekranını getiren metot.
         private async void getSummary()
         {
 
             User curr_user = UserSession.Instance.GetCurrentUser();
             Game curr_game = GameSession.Instance.GetCurrentGame();
 
+            //db ile bağlantı kurup özeti önbelleğe alıyoruz.
             var summary = await GameService.GetSummaryGame(curr_game.Id, curr_user.Id);
 
             if(summary != null)
@@ -520,11 +613,14 @@ namespace GorselProg
                 MessageBox.Show("Bir hata oluştu.");
             }
 
+            
             PanelHandler.setPanelFill(active_panel, pnlSum);
             active_panel = pnlSum;
+            //Özetten belli bir süre sonra lobiye dönülmesi gerekiyor.
             timerForReturnLobby.Start();
         }
 
+        //Sonraki soru yükleme ekranı
         private void nextLoading()
         {
             lblTimeLeft.Text = "10";
@@ -535,29 +631,9 @@ namespace GorselProg
         }
         #endregion
 
-        private async void timerForCheckCurrGame_Tick(object sender, EventArgs e)
-        {
-            Room curr_room = RoomSession.Instance.GetCurrentRoom();
-            var isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
-            if (isReadyToPlay) {
-                var curr_game = GameSession.Instance.GetCurrentGame();
-
-                if (curr_game != null)
-                {
-                    question_list = GameSession.Instance.GetAllQuestions();
-                    question_index = 0;
-                    printQuestion();
-
-                    PanelHandler.setPanelFill(active_panel, pnlGame);
-                    active_panel = pnlGame;
-                    timerForCheckCurrGame.Stop();
-                }
-
-            }
-        }
-
         #region Game Quits
 
+        //Form kapatılmaya çalışıldığında handle edilir ve db'de ilgili yerler güncellenir.
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
@@ -572,11 +648,13 @@ namespace GorselProg
             }
         }
 
+        //Uygulama kapatılırsa bunun handle edilmesi ve db'de ilgili yerlerin güncellenmesi.
         private void ApplicationExitHandler(object sender, EventArgs e)
         {
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
-
+        
+        //Uygulama olağanüstü bir durumla kapatılırsa bunun kontrol edilip db'nin güncellenmesi.
         private void ThreadExitHandler(object sender, EventArgs e)
         {
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
@@ -584,6 +662,8 @@ namespace GorselProg
 
         #endregion
 
+        #region Kick ve Ban
+        //Liderin, oyuncuyu lobiden atma işlemi
         private async void btnLeaderKick_Click(object sender, EventArgs e)
         {
             // kick the player
@@ -592,6 +672,7 @@ namespace GorselProg
             await RoomService.KickUser(userId,curr_room.Id);
         }
 
+        //Liderin, oyuncuyu lobiden banlama işlemi
         private async void btnLeaderBan_Click(object sender, EventArgs e)
         {
             // Ban the player
@@ -600,10 +681,6 @@ namespace GorselProg
             User admin = UserSession.Instance.GetCurrentUser();
             await RoomService.BanUser(userId, curr_room.Id,admin.Id);
         }
-
-        private void lvLeaderPlayers_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            
-        }
+        #endregion
     }
 }

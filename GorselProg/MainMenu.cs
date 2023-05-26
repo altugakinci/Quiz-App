@@ -210,6 +210,7 @@ namespace GorselProg
             string roomCode = txtJoinCode.Text;
             string roomPassword = txtJoinPassword.Text;
             User currentUser = UserSession.Instance.GetCurrentUser();
+            
 
             bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
 
