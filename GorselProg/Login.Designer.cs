@@ -29,6 +29,7 @@ namespace GorselProg
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formLoginRegister));
             this.txtLoginPassword = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@ namespace GorselProg
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.pnlLogin.SuspendLayout();
             this.pnlRegister.SuspendLayout();
             this.SuspendLayout();
@@ -345,16 +347,29 @@ namespace GorselProg
             this.label8.TabIndex = 3;
             this.label8.Text = "Şifre";
             // 
+            // label10
+            // 
+            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label10.Font = new System.Drawing.Font("Happy Chicken", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(0, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(459, 219);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Bilmatik";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // formLoginRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(200)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(459, 543);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.pnlRegister);
             this.Controls.Add(this.pnlLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "formLoginRegister";
-            this.Text = "Bilgi Yarışması";
+            this.Text = "Bilmatik";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlLogin.ResumeLayout(false);
             this.pnlLogin.PerformLayout();
@@ -387,6 +402,7 @@ namespace GorselProg
         private System.Windows.Forms.MaskedTextBox txtLoginEmail;
         private System.Windows.Forms.TextBox txtRegMail;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label10;
     }
 }
 

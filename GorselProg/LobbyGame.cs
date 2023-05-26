@@ -19,16 +19,9 @@ namespace GorselProg
         {
             InitializeComponent();
         }
-
-        private String rank;
-        public LobbyGame(String rank)
-        {
-            InitializeComponent();
-            this.rank = rank;
-        }
         
         //Aktif paneli bu değişkende tutuyoruz.
-        Panel active_panel;
+        public static Panel active_panel;
 
         //Lobi yüklendiğinde çalışacak olan komutlar
         private void LobbyGame_Load(object sender, EventArgs e)
@@ -49,28 +42,22 @@ namespace GorselProg
             Room room = RoomSession.Instance.GetCurrentRoom();
             if (currentuser.Id.Equals(room.AdminId))
             {
+                active_panel = pnlLobbyLeader;
+                PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
+                active_panel = pnlLobbyLeader;
+
                 timerForChatLeader.Start();
                 timerForPlayersLeader.Start();
             }
             else
             {
+                active_panel = pnlLobbyPlayer;
+                PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
+                active_panel = pnlLobbyPlayer;
+
                 timerForChat.Start();
                 timerForPlayers.Start();
                 timerForCheckCurrGame.Start();
-            }
-
-            //Main menüden parametre ile LobbyGame çağırılıyor. Lider ve oyuncu olmasına göre paneller değişiyor.
-            //Lobi lideriyse:
-            if (rank.Equals("Leader"))
-            {
-                active_panel = pnlLobbyLeader;
-                PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
-            }
-            //Oyuncuysa:
-            else if ( rank.Equals("Player")) 
-            {
-                active_panel = pnlLobbyPlayer;
-                PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
             }
 
             //Tüm forma geçerli temanın uygulanmasını sağlıyor.
@@ -95,21 +82,24 @@ namespace GorselProg
             //Main menu formuna geçiş yapılıyor.
             formMainMenu mainmenu = new formMainMenu();
             mainmenu.Show();
-            this.Hide();
+            this.Close();
         }
 
 
         //Lider lobiden çıkış yapmak istediğinde gerçekleşen işlemler.
-        private void btnLeaderLeave_Click(object sender, EventArgs e)
+        private async void btnLeaderLeave_Click(object sender, EventArgs e)
         {
-            DialogResult cevap = MessageBox.Show("Oda dağıtılacaktır. Yine de ayrılmak istiyor musunuz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            //DialogResult cevap = MessageBox.Show("Oda dağıtılacaktır. Yine de ayrılmak istiyor musunuz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning
+            timerForPlayersLeader.Stop();
+            timerForChatLeader.Stop();
 
-            if(cevap == DialogResult.Yes)
-            {
-                formMainMenu mainmenu = new formMainMenu();
-                mainmenu.Show();
-                this.Hide();
-            }            
+            Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
+            User current = UserSession.Instance.GetCurrentUser();
+            await RoomService.ExitRoom(room_id, current);
+
+            formMainMenu mainmenu = new formMainMenu();
+            mainmenu.Show();
+            this.Close();
         }
 
         //Oyuncunun oyundan çıkmasını sağlayan buton.
@@ -540,7 +530,7 @@ namespace GorselProg
         private void printQuestion()
         {
             resetAllOptionButtons();
-            if (question_index == 2)
+            if (question_index == 5)
             {
                 getSummary();
                 return;
@@ -634,7 +624,7 @@ namespace GorselProg
         #region Game Quits
 
         //Form kapatılmaya çalışıldığında handle edilir ve db'de ilgili yerler güncellenir.
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        private async void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
             if (result == DialogResult.No)
@@ -644,19 +634,30 @@ namespace GorselProg
             }
             else
             {
+                Room curr_room = RoomSession.Instance.GetCurrentRoom();
+                Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                await RoomService.ExitRoom(curr_room.Id, curr_user);
                 Environment.Exit(0);
             }
         }
 
         //Uygulama kapatılırsa bunun handle edilmesi ve db'de ilgili yerlerin güncellenmesi.
-        private void ApplicationExitHandler(object sender, EventArgs e)
+        private async void ApplicationExitHandler(object sender, EventArgs e)
         {
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            Model.User curr_user = UserSession.Instance.GetCurrentUser();
+            await RoomService.ExitRoom(curr_room.Id, curr_user);
+            Environment.Exit(0);
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
         
         //Uygulama olağanüstü bir durumla kapatılırsa bunun kontrol edilip db'nin güncellenmesi.
-        private void ThreadExitHandler(object sender, EventArgs e)
+        private async void ThreadExitHandler(object sender, EventArgs e)
         {
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            Model.User curr_user = UserSession.Instance.GetCurrentUser();
+            await RoomService.ExitRoom(curr_room.Id, curr_user);
+            Environment.Exit(0);
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
 

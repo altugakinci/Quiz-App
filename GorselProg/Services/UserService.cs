@@ -16,14 +16,13 @@ namespace GorselProg.Services
 
         public static bool loadingIndicator = false;
 
-
         public static void ShowLoadingIndicator()
         {
             loadingIndicator = true;
         }
         public static void HideLoadingIndicator()
         {
-            loadingIndicator = true;
+            loadingIndicator = false;
         }
         public static string[] PassSaltGenerator(string password)
         {
@@ -261,6 +260,7 @@ namespace GorselProg.Services
 
         public static async Task<UserGamesSummary> GetUserGamesSummary(Guid userId)
         {
+            ShowLoadingIndicator();
             using (var context = new qAppDBContext())
             {
                 var userGamesSummary = new UserGamesSummary();
@@ -300,7 +300,7 @@ namespace GorselProg.Services
                 userGamesSummary.Category3Correct = await GetCategoryCorrectCount(userId, (Guid)Category_3);
                 userGamesSummary.Category4Correct = await GetCategoryCorrectCount(userId, (Guid)Category_4);
                 userGamesSummary.Category5Correct = await GetCategoryCorrectCount(userId, (Guid)Category_5);
-
+                HideLoadingIndicator();
                 return userGamesSummary;
             }
         }

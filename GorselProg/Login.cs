@@ -30,6 +30,7 @@ namespace GorselProg
             active_panel = pnlLogin;
             PanelHandler.setPanelFill(active_panel, pnlLogin);
 
+            ThemeHandler.loadColors();
             ThemeHandler.changeAllControlsColor(this);
             ThemeHandler.changeFormsColor(this);
             this.WindowState = FormWindowState.Maximized;

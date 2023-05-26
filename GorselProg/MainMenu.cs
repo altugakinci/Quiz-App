@@ -20,35 +20,13 @@ namespace GorselProg
         {
             InitializeComponent();
         }
+
+        //Aktif panelin tutulduğu değişken
         static Panel active_panel;
-        //ThemeHandler themeHandler = new ThemeHandler();
-        PanelHandler panelHandler = new PanelHandler();
 
-        private void btnSignOut_Click(object sender, EventArgs e)
-        {
-            UserService.LogoutUser();
-            formLoginRegister form = new formLoginRegister();
-            form.Show();
-            //form.updateTheme();
-            this.Hide();
-            
-        }
-
-        private void btnPlay_Click(object sender, EventArgs e)
-        {
-            //DESIGN
-
-            PanelHandler.setPanelMiddle(this, active_panel, pnlBuildAGame);
-            active_panel = pnlBuildAGame;
-            //setPanel(pnlBuildAGame);
-            
-            //CODE
-        }
-
+        //Ana Menü Formu yüklendiğinde çalışacak komutlar.
         private void Game_Load(object sender, EventArgs e)
         {
-            //DESIGN
-
             active_panel = pnlMainMenu;
             ThemeHandler.changeAllControlsColor(this);
             ThemeHandler.changeFormsColor(this);
@@ -56,86 +34,83 @@ namespace GorselProg
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
 
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formMainMenu_FormClosing);
-
-            //CODE
         }
 
-        #region Routings
+        #region Routing
+
+        //Oturumu kapatma butonu
+        private void btnSignOut_Click(object sender, EventArgs e)
+        {
+            UserService.LogoutUser();
+            formLoginRegister form = new formLoginRegister();
+            form.Show();
+            this.Hide();
+        }
+
+        //Gamebuilderi açar, Create ve Join işlemleri gelir.
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlBuildAGame);
+            active_panel = pnlBuildAGame;
+        }
+
+        //Oda kurma panelini açar.
         private void btnCreateAGame_Click(object sender, EventArgs e)
         {
-            //DESIGN
-
             PanelHandler.setPanelMiddle(this, active_panel, pnlCreateAGame);
             active_panel = pnlCreateAGame;
-
-            //CODE
-
         }
 
+        //Odaya katılma panelini açar.
         private void btnJoinAGame_Click(object sender, EventArgs e)
         {
-            //DESIGN
-
             PanelHandler.setPanelMiddle(this, active_panel, pnlJoinAGame);
             active_panel = pnlJoinAGame;
-
-            //CODE
-
         }
 
+        //Nasıl oynanır panelini açar.
         private void btnHowToPlay_Click(object sender, EventArgs e)
         {
-
-            //DESIGN
-
             PanelHandler.setPanelMiddle(this, active_panel, pnlHowToPlay);
             active_panel = pnlHowToPlay;
-
-            //CODE
         }
 
+        //Seçenekler panelini açar.
         private void btnPreferences_Click(object sender, EventArgs e)
         {
-            //DESIGN
-
             PanelHandler.setPanelMiddle(this, active_panel, pnlPreferences);
             active_panel = pnlPreferences;
-
-            //CODE
         }
 
+        //Create-Join seçilen panelden Ana Menüye dönmeyi sağlar.
         private void btnBAGBack_Click(object sender, EventArgs e)
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
             active_panel = pnlMainMenu;
         }
 
+        //Odaya katılma panelinde buildera geri döner.
         private void btnJAGGeri_Click(object sender, EventArgs e)
         {
-            //DESIGN
-
             PanelHandler.setPanelMiddle(this, active_panel, pnlBuildAGame);
             active_panel = pnlBuildAGame;
-
-            //CODE
         }
 
+        //Odayı oluşturma panelinden buildera geri döner.
         private void btnCAGGeri_Click(object sender, EventArgs e)
         {
-            //DESIGN
-
             PanelHandler.setPanelMiddle(this, active_panel, pnlBuildAGame);
             active_panel = pnlBuildAGame;
-
-            //CODE
         }
 
+        //Nasıl oynanır panelinden Ana Menüye dönmeyi sağlar.
         private void btnHTPGeri_Click(object sender, EventArgs e)
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
             active_panel = pnlMainMenu;
         }
 
+        //Seçeneklerden Ana Menüye dönmeyi sağlar.
         private void btnPreferencesGeri_Click(object sender, EventArgs e)
         {
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
@@ -144,10 +119,11 @@ namespace GorselProg
 
         #endregion
 
+        //Açık ve koyu temaların ayarlanması
         #region Themes
         private void btnLightMode_Click(object sender, EventArgs e)
         {
-            ThemeHandler.theme_olaQasem();
+            ThemeHandler.lightTheme();
             ThemeHandler.changeAllControlsColor(this);
             ThemeHandler.changeFormsColor(this);
         }
@@ -163,7 +139,7 @@ namespace GorselProg
 
         private async void btnCAGCreateRoom_ClickAsync(object sender, EventArgs e)
         {
-            
+            //Oda ismi ve şifrenin boş olup olmadığının kontrolü
             if (txtCAGRoomName.Text == "" || txtCAGRoomPassword.Text == "")
             {
                 MessageBox.Show("Oda ismi veya şifreyi eksiksiz girdiğinize emin olun!", "Oda Oluşturma", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -184,13 +160,12 @@ namespace GorselProg
                 AdminId = admin.Id,
 
             };
-
+            //Servis başarılı sonuç döndüğünde kullanıcıyı bilgilendiriyoruz.
             bool isRoomCreated = await RoomService.CreateRoom(newRoom);
 
             if (isRoomCreated)
             {
-                MessageBox.Show("Oda başarıyla oluşturuldu.");
-                // Oda oluşturulduktan sonra yapılacak işlemler
+                //MessageBox.Show("Oda başarıyla oluşturuldu.");
             }
             else
             {
@@ -199,9 +174,9 @@ namespace GorselProg
 
 
             // Room oluşturulduğunda yapılacak işlemler
-             LobbyGame game = new LobbyGame("Leader");
+             LobbyGame game = new LobbyGame();
              game.Show();
-             this.Hide();
+             this.Close();
 
         }
 
@@ -216,11 +191,10 @@ namespace GorselProg
 
             if (joined)
             {
-                MessageBox.Show("Odaya katılma işlemi başarılı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Odaya katılma işlemi başarılı olduğunda yapılacak işlemler
-                LobbyGame game = new LobbyGame("Player");
+                //MessageBox.Show("Odaya katılma işlemi başarılı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LobbyGame game = new LobbyGame();
                 game.Show();
-                this.Hide();
+                this.Close();
             }
             else
             {

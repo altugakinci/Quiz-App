@@ -10,15 +10,18 @@ namespace GorselProg
 {
     class ThemeHandler
     {
-        static public Color color_texts = Color.White;
-        static public Color color_background = Color.FromArgb(37, 37, 37);
-        static public Color color_textboxes = Color.FromArgb(62, 62, 66);
+        static public Color color_texts;
+        static public Color color_background;
+        static public Color color_textboxes;
+        static public Color color_alt1;
+        static public Color color_alt2;
         //static public Color color_textboxes = Color.FromArgb(51, 50, 55);
         public Color color_buttons;
 
-        public ThemeHandler()
+
+        public static void loadColors()
         {
-            lightTheme();
+            theme3();
         }
 
         public static void changeFormsColor(Form form)
@@ -84,76 +87,33 @@ namespace GorselProg
         // Light theme alternatifleri
         public static void lightTheme() //Default light theme
         {
-            color_texts = Color.FromArgb(51, 50, 55);
-            color_background = Color.FromArgb(202, 194, 178);
-            color_textboxes = Color.FromArgb(135, 118, 109);
+            color_texts = ColorTranslator.FromHtml("#392E3C");
+            color_background = ColorTranslator.FromHtml("#BAB4E1");
+            color_textboxes = ColorTranslator.FromHtml("#9891C1");
+            color_alt1 = ColorTranslator.FromHtml("#3C3A49");
+            color_alt2 = ColorTranslator.FromHtml("#1F1531");
             //color_buttons = Color.White;
         }
 
-        public void theme_oldschool()
+        public static void theme2()
         {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
+            color_texts = ColorTranslator.FromHtml("White");
+            color_background = ColorTranslator.FromHtml("#14213D");
+            color_textboxes = ColorTranslator.FromHtml("White");
+            color_alt1= ColorTranslator.FromHtml("#FCA311");
+            color_alt2 = ColorTranslator.FromHtml("#FF8341");
+        }
+
+        public static void theme3()
+        {
+            color_texts = ColorTranslator.FromHtml("#BBE1FA");
+            color_background = ColorTranslator.FromHtml("#1B262C");
+            color_textboxes = ColorTranslator.FromHtml("#294749");
+            color_alt1 = ColorTranslator.FromHtml("#0F4C75");
+            color_alt2 = ColorTranslator.FromHtml("#FF8341");
         }
 
         public static void theme_olaQasem()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void theme_hayleyMarshall()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void theme_1_1()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void gallons_of_blood()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void ziya2()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void galactic_cloud()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void woodland_work()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void blood_in_the_dark()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void amber_eyes()
         {
             color_texts = Color.FromArgb(61, 56, 50);
             color_background = Color.FromArgb(217, 200, 181);
@@ -170,63 +130,6 @@ namespace GorselProg
             //color_buttons = Color.Black;
         }
 
-        public void theme_darktheme1()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void theme_darktheme2()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void theme_darktheme3()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-        public void theme_vs_dark_theme()
-        {
-            color_texts = Color.FromArgb(61, 56, 50);
-            color_background = Color.FromArgb(217, 200, 181);
-            color_textboxes = Color.FromArgb(164, 144, 124);
-        }
-
-
-
-        public void applyTheme(Form form, Button[] buttons, Label[] labels, TextBox[] textBoxes,MaskedTextBox[] maskedtextboxes, GroupBox[] groupboxes)
-        {
-            form.BackColor = color_background;
-
-            foreach (Button b in buttons)
-                b.ForeColor = color_texts;
-
-            foreach (Label l in labels)
-                l.ForeColor = color_texts;
-
-            foreach (TextBox t in textBoxes)
-            {
-                t.BackColor = color_textboxes;
-                t.ForeColor = color_texts;
-            }
-
-            foreach (MaskedTextBox m in maskedtextboxes)
-            {
-                m.BackColor = color_textboxes;
-                m.ForeColor = color_texts;
-            }
-
-            foreach (GroupBox g in groupboxes)
-                g.ForeColor = color_texts;
-
-
-        }
 
         /*
         (27,15,0)
