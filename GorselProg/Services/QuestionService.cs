@@ -106,14 +106,49 @@ namespace GorselProg.Services
             try
             {
                 ShowLoadingIndicator();
+
                 using (var db = new qAppDBContext())
                 {
                     var question = await db.Questions.FirstOrDefaultAsync(q => q.Id == id);
+
                     if (question != null)
                     {
+                        // İlgili Answer kayıtlarını silme
+                        var answerIds = await db.Answers
+                            .Where(a => a.QuestionId == id)
+                            .Select(a => a.Id)
+                            .ToListAsync();
+
+                        foreach (var answerId in answerIds)
+                        {
+                            var answer = await db.Answers.FindAsync(answerId);
+                            if (answer != null)
+                            {
+                                db.Answers.Remove(answer);
+                            }
+                        }
+
+                        // İlgili GameQuestion kayıtlarını silme
+                        var gameQuestionIds = await db.GameQuestions
+                            .Where(gq => gq.QuestionId == id)
+                            .Select(gq => gq.Id)
+                            .ToListAsync();
+
+                        foreach (var gameQuestionId in gameQuestionIds)
+                        {
+                            var gameQuestion = await db.GameQuestions.FindAsync(gameQuestionId);
+                            if (gameQuestion != null)
+                            {
+                                db.GameQuestions.Remove(gameQuestion);
+                            }
+                        }
+
+                        // Question kaydını silme
                         db.Questions.Remove(question);
+
                         await db.SaveChangesAsync();
                     }
+
                     return true;
                 }
             }
