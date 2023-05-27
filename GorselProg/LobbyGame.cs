@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -552,7 +553,7 @@ namespace GorselProg
         }
 
         //Panel geldiğinde sıradaki soruyu ilgili alanlara basan metot.
-        private void printQuestion()
+        private async void printQuestion()
         {
             resetAllOptionButtons();
             if (question_index == 5)
@@ -573,7 +574,17 @@ namespace GorselProg
             btnOption2.Text = options[1];
             btnOption3.Text = options[2];
             btnOption4.Text = options[3];
-            lblCategory.Text = current_question.Category.ToString();
+
+            Category curr_question_category = null;
+
+            using (var db = new qAppDBContext())
+            {
+                var Category = await db.Categories.FirstOrDefaultAsync(c => c.Id == current_question.CategoryId );
+                if (Category != null)
+                    curr_question_category = Category;
+            }
+
+            lblCategory.Text = curr_question_category.Name.ToString();
 
             question_index++;
             timerForGame.Start();
