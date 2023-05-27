@@ -302,6 +302,14 @@ namespace GorselProg
         {
             lvPlayerPlayers.Items.Clear();
             Room room = RoomSession.Instance.GetCurrentRoom();
+            var user = UserSession.Instance.GetCurrentUser();
+            if(room.AdminId == user.Id)
+            {
+                PanelHandler.setPanelMiddle(this, active_panel, pnlLobbyLeader);
+                active_panel = pnlLobbyLeader;
+                stopPlayerTimers();
+                startLeaderTimers();
+            }
             List<User> players = await RoomService.GetPlayers(room.Id);
             foreach (User u in players)
             {
@@ -312,7 +320,7 @@ namespace GorselProg
                 lvPlayerPlayers.Items.Add(item);
             }
             lvPlayerPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
-            var user = UserSession.Instance.GetCurrentUser();
+            
             bool isPlayer = await RoomService.CheckRoomStatus(user.Id, room.Id);
 
             if(!isPlayer)
@@ -530,6 +538,7 @@ namespace GorselProg
                 {
                     PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
                     active_panel = pnlLobbyPlayer;
+                    timerForCheckCurrGame.Start();
                 }
                 timerForReturnLobby.Stop();
             }
@@ -557,6 +566,7 @@ namespace GorselProg
             btnOption2.Text = options[1];
             btnOption3.Text = options[2];
             btnOption4.Text = options[3];
+            lblCategory.Text = current_question.Category.ToString();
 
             question_index++;
             timerForGame.Start();
@@ -574,7 +584,6 @@ namespace GorselProg
         //Oyun bitiminde sonuç ekranını getiren metot.
         private async void getSummary()
         {
-
             User curr_user = UserSession.Instance.GetCurrentUser();
             Game curr_game = GameSession.Instance.GetCurrentGame();
 
@@ -646,6 +655,7 @@ namespace GorselProg
                 }
                 else if(result == DialogResult.Yes)
                 {
+                    stopLeaderTimers();
                     Room curr_room = RoomSession.Instance.GetCurrentRoom();
                     Model.User curr_user = UserSession.Instance.GetCurrentUser();
                     await RoomService.ExitRoom(curr_room.Id, curr_user);
@@ -723,6 +733,16 @@ namespace GorselProg
             timerForPlayers.Stop();
             timerForChat.Stop();
             timerForCheckCurrGame.Stop();
+        }
+        private void startLeaderTimers()
+        {
+            timerForChatLeader.Start();
+            timerForPlayersLeader.Start();
+        }
+        private void startPlayerTimers()
+        {
+            timerForChat.Start();
+            timerForPlayers.Start();
         }
         #endregion
 
