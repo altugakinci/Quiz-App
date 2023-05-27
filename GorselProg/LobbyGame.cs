@@ -71,44 +71,14 @@ namespace GorselProg
         //Oyuncu lobiden çıkış yapma butonuna bastığında gerçekleşen işlemler.
         private async void btnPlayerLeave_Click(object sender, EventArgs e)
         {
-            //Refresh timerları durduruluyor.
-            /*
-            timerForChat.Stop();
-            timerForPlayers.Stop();
-            */
-            //Oda ve kullanıcı bilgileri alındıktan sonra kullanıcı o odadan servis yardımı ile siliniyor.
-            
-            /*
-            Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
-            User current = UserSession.Instance.GetCurrentUser();
-            await RoomService.ExitRoom(room_id, current);
-            */
-
-            //Main menu formuna geçiş yapılıyor.
-            /*
-            formMainMenu mainmenu = new formMainMenu();
-            mainmenu.Show();
-            */
+            isLeaving = true;
             this.Close();
         }
-
 
         //Lider lobiden çıkış yapmak istediğinde gerçekleşen işlemler.
         private async void btnLeaderLeave_Click(object sender, EventArgs e)
         {
-            //DialogResult cevap = MessageBox.Show("Oda dağıtılacaktır. Yine de ayrılmak istiyor musunuz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning
-            /*
-            timerForPlayersLeader.Stop();
-            timerForChatLeader.Stop();
-            */
             isLeaving = true;
-
-            //Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
-            //User current = UserSession.Instance.GetCurrentUser();
-            //await RoomService.ExitRoom(room_id, current);
-
-            //formMainMenu mainmenu = new formMainMenu();
-            //mainmenu.Show();
             this.Close();
         }
 
@@ -692,21 +662,6 @@ namespace GorselProg
                 stopPlayerTimers();
                 Environment.Exit(0);
             }
-            /*
-            DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
-            {
-                // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
-                e.Cancel = true;
-            }
-            else
-            {
-                Room curr_room = RoomSession.Instance.GetCurrentRoom();
-                Model.User curr_user = UserSession.Instance.GetCurrentUser();
-                await RoomService.ExitRoom(curr_room.Id, curr_user);
-                Environment.Exit(0);
-            }
-            */
         }
 
         //Uygulama kapatılırsa bunun handle edilmesi ve db'de ilgili yerlerin güncellenmesi.
