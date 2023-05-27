@@ -228,10 +228,10 @@ namespace GorselProg.Services
                     // Sum of gained XP for a specific user
                     summaryGame.SumXP = await context.Answers
                         .Where(a => a.UserId == userId && a.GameId == gameId)
-                        .SumAsync(a => a.GainedXp);
+                        .SumAsync(a => (int?)a.GainedXp) ?? 0;
 
                     // User's level
-                   
+
                     var user = await context.Users.FirstOrDefaultAsync(u => u.Id == userId);
                     if (user != null)
                     {
