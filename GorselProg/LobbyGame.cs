@@ -556,7 +556,7 @@ namespace GorselProg
         private async void printQuestion()
         {
             resetAllOptionButtons();
-            if (question_index == 5)
+            if (question_index == GameSession.Instance.GetAllQuestions().Count)
             {
                 getSummary();
                 return;
