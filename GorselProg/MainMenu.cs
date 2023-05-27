@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace GorselProg
 {
@@ -117,6 +118,100 @@ namespace GorselProg
             active_panel = pnlMainMenu;
         }
 
+        private void btnProfileGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
+            active_panel = pnlMainMenu;
+        }
+
+        private void btnSorular_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSorularGeri_Click(object sender, EventArgs e)
+        {
+
+            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
+            active_panel = pnlMainMenu;
+        }
+
+        private void btnSoruEkleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSorulariGoruntule_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSorularSoruEkle_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+            active_panel = pnlSoruEkle;
+        }
+
+        private void btnSorulariGoruntuleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSoruGuncelleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
+            active_panel = pnlSorular;
+        }
+
+        private void btnSorularGoruntule_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
+            active_panel = pnlSorulariGoruntule;
+
+            viewQuestions("all");
+        }
+
+        private void btnProfiliDuzenle_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfileDuzenle);
+            active_panel = pnlProfileDuzenle;
+            txtPDUsername.Text = lblProfileUsername.Text;
+            txtPDMail.Text = lblProfileMail.Text;
+        }
+
+        private void btnProfiliDuzenleGeri_Click(object sender, EventArgs e)
+        {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
+            active_panel = pnlProfile;
+        }
+
+        private async void btnProfile_Click(object sender, EventArgs e)
+        {
+            User current = UserSession.Instance.GetCurrentUser();
+            Objects.UserGamesSummary sum = await UserService.GetUserGamesSummary(current.Id);
+            lblProfileUsername.Text = current.UserName;
+            lblProfileMail.Text = current.Email;
+            lblProfileLevel.Text = $"{current.Level}. Level";
+            lblProfileXP.Text = $"{current.Xp} / 500";
+            prgProfileXP.Value = current.Xp;
+
+            lblProfilePlayedGames.Text =
+
+            //spor tarih sanat bilim eğl
+            lblProfileSpor.Text = sum.Category1Correct.ToString();
+            lblProfileTarih.Text = sum.Category2Correct.ToString();
+            lblProfileSanat.Text = sum.Category3Correct.ToString();
+            lblProfileBilim.Text = sum.Category4Correct.ToString();
+            lblProfileEglence.Text = sum.Category5Correct.ToString();
+
+            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
+            active_panel = pnlProfile;
+        }
+
         #endregion
 
         //Açık ve koyu temaların ayarlanması
@@ -136,6 +231,7 @@ namespace GorselProg
         }
         #endregion
 
+        #region Oda oluşturma - Katılma Modülleri
 
         private async void btnCAGCreateRoom_ClickAsync(object sender, EventArgs e)
         {
@@ -174,9 +270,9 @@ namespace GorselProg
 
 
             // Room oluşturulduğunda yapılacak işlemler
-             LobbyGame game = new LobbyGame();
-             game.Show();
-             this.Close();
+            LobbyGame game = new LobbyGame();
+            game.Show();
+            this.Close();
 
         }
 
@@ -185,7 +281,7 @@ namespace GorselProg
             string roomCode = txtJoinCode.Text;
             string roomPassword = txtJoinPassword.Text;
             User currentUser = UserSession.Instance.GetCurrentUser();
-            
+
 
             bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
 
@@ -204,153 +300,53 @@ namespace GorselProg
 
         }
 
-        private async void btnProfile_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Profil İşlemleri
+
+        private async void btnProfiliKaydet_Click(object sender, EventArgs e)
         {
-            User current = UserSession.Instance.GetCurrentUser();
-            Objects.UserGamesSummary sum = await UserService.GetUserGamesSummary(current.Id); 
-            lblProfileUsername.Text = current.UserName;
-            lblProfileMail.Text = current.Email;
-            lblProfileLevel.Text = $"{current.Level}. Level";
-            lblProfileXP.Text = $"{current.Xp} / 500";
-            prgProfileXP.Value = current.Xp;
-
-            lblProfilePlayedGames.Text = 
-
-            //spor tarih sanat bilim eğl
-            lblProfileSpor.Text = sum.Category1Correct.ToString();
-            lblProfileTarih.Text = sum.Category2Correct.ToString();
-            lblProfileSanat.Text = sum.Category3Correct.ToString();
-            lblProfileBilim.Text = sum.Category4Correct.ToString();
-            lblProfileEglence.Text = sum.Category5Correct.ToString();
-
-            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
-            active_panel = pnlProfile;
-        }
-
-        private void btnProfileGeri_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
-            active_panel = pnlMainMenu;
-        }
-
-        private void btnSorular_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
-            active_panel = pnlSorular;
-        }
-
-        private void btnSorularGeri_Click(object sender, EventArgs e)
-        {
-
-            PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
-            active_panel = pnlMainMenu;
-        }
-
-        private void btnSoruEkleGeri_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
-            active_panel = pnlSorular;
-        }
-
-        private void btnSorulariGoruntule_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
-            active_panel = pnlSorular;
-        }
-
-        private  void btnSorularSoruEkle_Click(object sender, EventArgs e)
-        {
-            
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
-            active_panel = pnlSoruEkle;
-
-            btnSporSE.ForeColor = Color.Green;
-            ekleme_aktif_buton = btnSporSE;
-            
-        }
-
-        private async void btnSoruEkle_Click(object sender, EventArgs e)
-        {
-            string questionText = txtSoruEkleSoru.Text;
-            string optionsText = Helper.ConcatenateStrings(txtSoruEkleOpt1.Text, txtSoruEkleOpt2.Text, txtSoruEkleOpt3.Text, txtSoruEkleOpt4.Text);
-            bool[] options = new bool[] { 
-                rbSoruEkleDogru1.Checked,
-                rbSoruEkleDogru2.Checked,
-                rbSoruEkleDogru3.Checked,
-                rbSoruEkleDogru4.Checked
-            };
-
-            int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
-
-
-            string categoryName = soruekleme_kategori;
-            Guid categoryId = Guid.Empty;
-            using (var db = new qAppDBContext())
+            if (txtPDMevcutSifre.Text == "" && txtPDYeniSifre.Text == "" && txtPDYeniSifreTekrar.Text == "" && txtPDMail.Text == "" && txtPDUsername.Text == "")
             {
-                var Category = await db.Categories.FirstOrDefaultAsync(c => c.Name == categoryName);
-                categoryId = Category.Id;
+                // TODO: uygun bir hata mesajı
             }
-               
-            // Name eşleşen kategoriyi getir
-
-            // Yeni bir Question nesnesi oluşturun
-            var newQuestion = new Question
+            else if (txtPDYeniSifre.Text != txtPDYeniSifreTekrar.Text)
             {
-                Id = Guid.NewGuid(),
-                QuestionText = questionText,
-                OptionsText = optionsText,
-                CorrectAnswerIndex = correctAnswerIndex,
-                CategoryId = categoryId
+                // Todo: uygun bir hata mesajı
+            }
+
+            string currPassword = txtPDMevcutSifre.Text;
+            Guid currUser = UserSession.Instance.GetCurrentUser().Id;
+
+            string newPassword = txtPDYeniSifre.Text;
+            string newMail = txtPDMail.Text;
+            string newUserName = txtPDUsername.Text;
+
+            var updateUser = new User
+            {
+                UserName = newUserName,
+                Email = newMail,
+                Password = newPassword,
             };
-           
-            // QuestionService'e yeni soruyu ekleyin
-            bool result = await QuestionService.AddQuestion(newQuestion);
 
-            if (result)
+            bool isSaved = await UserService.UpdateUser(updateUser, currPassword, currUser);
+
+            if (isSaved)
             {
-                MessageBox.Show("Soru başarıyla eklendi.");
-                ClearQuestionFields();
-
-                PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
-                active_panel = pnlSoruEkle;
+                //TODO: uygun bir hata mesajı
+                // TODO: profil sayfasına geri yönlendirme
             }
             else
             {
-                MessageBox.Show("Soru eklenirken bir hata oluştu.");
+                // Todo: uygun bir hata mesajı
             }
-            
+
+
         }
 
-        private void ClearQuestionFields()
-        {
-            txtSoruEkleSoru.Text = "";
+        #endregion
 
-            txtSoruEkleOpt1.Text = "";
-            txtSoruEkleOpt2.Text = "";
-            txtSoruEkleOpt3.Text = "";
-            txtSoruEkleOpt4.Text = "";
-
-            rbSoruEkleDogru1.Checked = false;
-            rbSoruEkleDogru2.Checked = false;
-            rbSoruEkleDogru3.Checked = false;
-            rbSoruEkleDogru4.Checked = false;
-
-            ekleme_aktif_buton.ForeColor = ThemeHandler.color_texts;
-            btnSporSE.ForeColor = Color.Green;
-            ekleme_aktif_buton = btnSporSE;
-
-           // Categories
-        }
-
-        private void btnSorularGoruntule_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
-            active_panel = pnlSorulariGoruntule;
-
-            viewQuestions("all");
-            
-        }
-
+        #region Soruları Görüntüleme
         private async void viewQuestions(string category)
         {
             // ListView temizle
@@ -360,22 +356,23 @@ namespace GorselProg
             List<Question> questions = await QuestionService.GetAllQuestions();
 
             // Soruları ListView'e ekle
-            if (category.Equals("all")) {
+            if (category.Equals("all"))
+            {
                 foreach (Question question in questions)
                 {
-                        ListViewItem item = new ListViewItem(question.Id.ToString());
-                        string[] options = Helper.SplitString(question.OptionsText);
-                        //item.SubItems.Add(question.Id.ToString());
-                        item.SubItems.Add(question.Category.Name);
-                        item.SubItems.Add(question.QuestionText);
-                        item.SubItems.Add(options[0]);
-                        item.SubItems.Add(options[1]);
-                        item.SubItems.Add(options[2]);
-                        item.SubItems.Add(options[3]);
+                    ListViewItem item = new ListViewItem(question.Id.ToString());
+                    string[] options = Helper.SplitString(question.OptionsText);
+                    //item.SubItems.Add(question.Id.ToString());
+                    item.SubItems.Add(question.Category.Name);
+                    item.SubItems.Add(question.QuestionText);
+                    item.SubItems.Add(options[0]);
+                    item.SubItems.Add(options[1]);
+                    item.SubItems.Add(options[2]);
+                    item.SubItems.Add(options[3]);
 
-                        item.SubItems.Add(question.CorrectAnswerIndex.ToString());
+                    item.SubItems.Add(question.CorrectAnswerIndex.ToString());
 
-                        lvSorular.Items.Add(item);
+                    lvSorular.Items.Add(item);
                 }
             }
             else
@@ -400,48 +397,15 @@ namespace GorselProg
                     }
                 }
             }
-            
-        }
 
-        private void btnSorulariGoruntuleGeri_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
-            active_panel = pnlSorular;
-        }
-
-        private void btnSoruGuncelleGeri_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSorular);
-            active_panel = pnlSorular;
         }
 
         Button guncelle_aktif_buton;
         Guid guncellenecek_soru_id;
-        private void btnSoruGuncelleSG_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruGuncelle);
-            active_panel = pnlSoruGuncelle;
 
-            guncellenecek_soru_id = Guid.Parse(lvSorular.SelectedItems[0].SubItems[0].Text);
-            txtSoruSG.Text = lvSorular.SelectedItems[0].SubItems[2].Text;
-            txtOption1SG.Text = lvSorular.SelectedItems[0].SubItems[3].Text;
-            txtOption2SG.Text = lvSorular.SelectedItems[0].SubItems[4].Text;
-            txtOption3SG.Text = lvSorular.SelectedItems[0].SubItems[5].Text;
-            txtOption4SG.Text = lvSorular.SelectedItems[0].SubItems[6].Text;
-            Button[] buttons_update = new Button[] { btnSanatGuncelle, btnBilimGuncelle, btnEglenceGuncelle,btnSoruGuncelle,btnSporGuncelle };
-            foreach(Button b in buttons_update)
-            {
-                if (b.Text.Equals(lvSorular.SelectedItems[0].SubItems[1].Text))
-                {
-                    b.ForeColor = Color.Green;
-                    guncelle_aktif_buton = b;
-                }
-            }
-            RadioButton[] radios_update = new RadioButton[] { rbOption1SG, rbOption2SG, rbOption3SG, rbOption4SG };
-            int index = int.Parse(lvSorular.SelectedItems[0].SubItems[7].Text);
-            radios_update[index].Checked = true;
-        }
+        #endregion
 
+        #region Soruları Görüntülemede Kategoriye Göre Sıralama
         private void btnSporSG_Click(object sender, EventArgs e)
         {
             viewQuestions("Spor");
@@ -472,13 +436,33 @@ namespace GorselProg
             viewQuestions("all");
         }
 
-        private async void btnSoruSil_Click(object sender, EventArgs e)
+        #endregion
+
+        #region Soruları Güncelleme Metotları
+
+        private void btnSoruGuncelleSG_Click(object sender, EventArgs e)
         {
+            PanelHandler.setPanelMiddle(this, active_panel, pnlSoruGuncelle);
+            active_panel = pnlSoruGuncelle;
 
-            Guid id = Guid.Parse(lvSorular.SelectedItems[0].Text);
-            await QuestionService.DeleteQuestion(id);
-
-            viewQuestions("all");
+            guncellenecek_soru_id = Guid.Parse(lvSorular.SelectedItems[0].SubItems[0].Text);
+            txtSoruSG.Text = lvSorular.SelectedItems[0].SubItems[2].Text;
+            txtOption1SG.Text = lvSorular.SelectedItems[0].SubItems[3].Text;
+            txtOption2SG.Text = lvSorular.SelectedItems[0].SubItems[4].Text;
+            txtOption3SG.Text = lvSorular.SelectedItems[0].SubItems[5].Text;
+            txtOption4SG.Text = lvSorular.SelectedItems[0].SubItems[6].Text;
+            Button[] buttons_update = new Button[] { btnSanatGuncelle, btnBilimGuncelle, btnEglenceGuncelle, btnSoruGuncelle, btnSporGuncelle };
+            foreach (Button b in buttons_update)
+            {
+                if (b.Text.Equals(lvSorular.SelectedItems[0].SubItems[1].Text))
+                {
+                    b.ForeColor = Color.Green;
+                    guncelle_aktif_buton = b;
+                }
+            }
+            RadioButton[] radios_update = new RadioButton[] { rbOption1SG, rbOption2SG, rbOption3SG, rbOption4SG };
+            int index = int.Parse(lvSorular.SelectedItems[0].SubItems[7].Text);
+            radios_update[index].Checked = true;
         }
 
         private void selectButtons_Update(object sender)
@@ -488,19 +472,164 @@ namespace GorselProg
             aktif.ForeColor = Color.Green;
             guncelle_aktif_buton = aktif;
         }
+        #endregion
 
-        string soruekleme_kategori;
+        #region Soruları Silme Metotları
+
+        private async void btnSoruSil_Click(object sender, EventArgs e)
+        {
+
+            Guid id = Guid.Parse(lvSorular.SelectedItems[0].Text);
+            await QuestionService.DeleteQuestion(id);
+
+            viewQuestions("all");
+        }
+
+        #endregion
+
+        #region Soru Ekleme Modülleri
+
+        int se_cat_index;
         Button ekleme_aktif_buton;
-        private void selectButtons_Add(object sender)
+        private void selectButtons_Add(object sender, int index)
         {
             Button basilan_button = (Button)sender;
             basilan_button.ForeColor = Color.Green;
-            soruekleme_kategori = basilan_button.Text;
+            se_cat_index = index;
 
             ekleme_aktif_buton.ForeColor = ThemeHandler.color_texts;
             ekleme_aktif_buton = basilan_button;
-            
+
         }
+
+        private async void btnSoruEkle_Click(object sender, EventArgs e)
+        {
+            string questionText = txtSoruEkleSoru.Text;
+            string optionsText = Helper.ConcatenateStrings(txtSoruEkleOpt1.Text, txtSoruEkleOpt2.Text, txtSoruEkleOpt3.Text, txtSoruEkleOpt4.Text);
+            bool[] options = new bool[] {
+                rbSoruEkleDogru1.Checked,
+                rbSoruEkleDogru2.Checked,
+                rbSoruEkleDogru3.Checked,
+                rbSoruEkleDogru4.Checked
+            };
+
+            int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
+
+            int cat_index = se_cat_index;
+            Guid categoryId = Guid.Empty;
+
+            using (var db = new qAppDBContext())
+            {
+                var Category = await db.Categories.FirstOrDefaultAsync(c => c.Index == cat_index);
+                categoryId = Category.Id;
+            }
+
+            // Name eşleşen kategoriyi getir
+
+            // Yeni bir Question nesnesi oluşturun
+            var newQuestion = new Question
+            {
+                Id = Guid.NewGuid(),
+                QuestionText = questionText,
+                OptionsText = optionsText,
+                CorrectAnswerIndex = correctAnswerIndex,
+                CategoryId = categoryId
+            };
+
+            // QuestionService'e yeni soruyu ekleyin
+            bool result = await QuestionService.AddQuestion(newQuestion);
+
+            if (result)
+            {
+                MessageBox.Show("Soru başarıyla eklendi.");
+                ClearQuestionFields();
+
+                PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+                active_panel = pnlSoruEkle;
+            }
+            else
+            {
+                MessageBox.Show("Soru eklenirken bir hata oluştu.");
+            }
+        }
+
+        private void ClearQuestionFields()
+        {
+            txtSoruEkleSoru.Text = "";
+
+            txtSoruEkleOpt1.Text = "";
+            txtSoruEkleOpt2.Text = "";
+            txtSoruEkleOpt3.Text = "";
+            txtSoruEkleOpt4.Text = "";
+
+            rbSoruEkleDogru1.Checked = false;
+            rbSoruEkleDogru2.Checked = false;
+            rbSoruEkleDogru3.Checked = false;
+            rbSoruEkleDogru4.Checked = false;
+
+            ekleme_aktif_buton.ForeColor = ThemeHandler.color_texts;
+
+            btnSporSE_Click(btnSporSE, EventArgs.Empty);
+
+            // Categories
+        }
+
+        #endregion
+
+        #region Soru Güncelle
+
+        private async void btnSoruGuncelle_Click(object sender, EventArgs e)
+        {
+            Question guncellenecek_soru = await QuestionService.GetQuestionById(guncellenecek_soru_id);
+            string questionText = txtSoruSG.Text;
+            string optionsText = Helper.ConcatenateStrings(txtOption1SG.Text, txtOption2SG.Text, txtOption3SG.Text, txtOption4SG.Text);
+            bool[] options = new bool[] {
+                rbOption1SG.Checked,
+                rbOption2SG.Checked,
+                rbOption3SG.Checked,
+                rbOption4SG.Checked
+            };
+
+            int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
+
+            // Kategori ismi
+            string categoryName = guncelle_aktif_buton.Text;
+
+            Guid categoryId = Guid.Empty;
+            using (var db = new qAppDBContext())
+            {
+                var Category = await db.Categories.FirstOrDefaultAsync(c => c.Name == categoryName);
+                categoryId = Category.Id;
+            }
+
+
+            // Mevcut question güncelleyeceğiz.
+
+            guncellenecek_soru.Id = guncellenecek_soru_id;
+            guncellenecek_soru.QuestionText = questionText;
+            guncellenecek_soru.OptionsText = optionsText;
+            guncellenecek_soru.CorrectAnswerIndex = correctAnswerIndex;
+            guncellenecek_soru.CategoryId = categoryId;
+
+            // QuestionService'den update edeceğiz.
+            bool result = await QuestionService.UpdateQuestion(guncellenecek_soru);
+
+            if (result)
+            {
+                MessageBox.Show("Soru başarıyla güncellendi.");
+                //ClearQuestionFields();
+                PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
+                active_panel = pnlSorulariGoruntule;
+            }
+            else
+            {
+                MessageBox.Show("Soru güncellenirken bir hata oluştu.");
+            }
+        }
+
+        #endregion
+
+        #region Soru Güncellemede Kategori Butonları
 
         private void btnSporGuncelle_Click(object sender, EventArgs e)
         {
@@ -527,151 +656,49 @@ namespace GorselProg
             selectButtons_Update(sender);
         }
 
-        private async void btnSoruGuncelle_Click(object sender, EventArgs e)
-        {
-            Question guncellenecek_soru = await QuestionService.GetQuestionById(guncellenecek_soru_id);
-            string questionText = txtSoruSG.Text;
-            string optionsText = Helper.ConcatenateStrings(txtOption1SG.Text, txtOption2SG.Text, txtOption3SG.Text, txtOption4SG.Text);
-            bool[] options = new bool[] {
-                rbOption1SG.Checked,
-                rbOption2SG.Checked,
-                rbOption3SG.Checked,
-                rbOption4SG.Checked
-            };
+        #endregion
 
-            int correctAnswerIndex = Helper.FindFirstTrueIndex(options);
-
-            // Kategori ismi
-            string categoryName = guncelle_aktif_buton.Text;
-          
-            Guid categoryId = Guid.Empty;
-            using (var db = new qAppDBContext())
-            {
-                var Category = await db.Categories.FirstOrDefaultAsync(c => c.Name == categoryName);
-                categoryId = Category.Id;
-            }
-           
-
-            // Mevcut question güncelleyeceğiz.
-
-            guncellenecek_soru.Id = guncellenecek_soru_id;
-            guncellenecek_soru.QuestionText = questionText;
-            guncellenecek_soru.OptionsText = optionsText;
-            guncellenecek_soru.CorrectAnswerIndex = correctAnswerIndex;
-            guncellenecek_soru.CategoryId = categoryId;
-
-            // QuestionService'den update edeceğiz.
-            bool result = await QuestionService.UpdateQuestion(guncellenecek_soru);
-
-            if (result)
-            {
-                MessageBox.Show("Soru başarıyla güncellendi.");
-                //ClearQuestionFields();
-                PanelHandler.setPanelMiddle(this, active_panel, pnlSorulariGoruntule);
-                active_panel = pnlSorulariGoruntule;
-            }
-            else
-            {
-                MessageBox.Show("Soru güncellenirken bir hata oluştu.");
-            }
-        }
+        #region Soru Eklemede Kategori Butonları
 
         private void btnSporSE_Click(object sender, EventArgs e)
         {
-            selectButtons_Add(sender);
+            selectButtons_Add(sender, 0);
         }
 
         private void btnTarihSE_Click(object sender, EventArgs e)
         {
-            selectButtons_Add(sender);
+            selectButtons_Add(sender, 1);
         }
 
         private void btnSanatSE_Click(object sender, EventArgs e)
         {
-            selectButtons_Add(sender);
+            selectButtons_Add(sender, 2);
         }
 
         private void btnBilimSE_Click(object sender, EventArgs e)
         {
-            selectButtons_Add(sender);
+            selectButtons_Add(sender, 3);
         }
 
         private void btnEglenceSE_Click(object sender, EventArgs e)
         {
-            selectButtons_Add(sender);
+            selectButtons_Add(sender, 4);
         }
 
-        private void btnProfiliDuzenle_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlProfileDuzenle);
-            active_panel = pnlProfileDuzenle;
-            txtPDUsername.Text = lblProfileUsername.Text;
-            txtPDMail.Text = lblProfileMail.Text;
-        }
+        #endregion
 
-        private void btnProfiliDuzenleGeri_Click(object sender, EventArgs e)
-        {
-            PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
-            active_panel = pnlProfile;
-        }
+        #region Quit Handle
 
-        private async void btnProfiliKaydet_Click(object sender, EventArgs e)
-        {
-            if (txtPDMevcutSifre.Text == "" && txtPDYeniSifre.Text == "" && txtPDYeniSifreTekrar.Text == "" && txtPDMail.Text == "" && txtPDUsername.Text == "")
-            {
-                // TODO: uygun bir hata mesajı
-            }
-            else if (txtPDYeniSifre.Text != txtPDYeniSifreTekrar.Text )
-            {
-                // Todo: uygun bir hata mesajı
-            }
-
-            string currPassword = txtPDMevcutSifre.Text;
-            Guid currUser = UserSession.Instance.GetCurrentUser().Id;
-
-            string newPassword = txtPDYeniSifre.Text;
-            string newMail = txtPDMail.Text;
-            string newUserName = txtPDUsername.Text;
-
-            var updateUser = new User
-            {
-                UserName = newUserName,
-                Email = newMail,
-                Password = newPassword,
-            };
-
-            bool isSaved = await UserService.UpdateUser(updateUser,currPassword,currUser);
-
-            if(isSaved)
-            {
-                //TODO: uygun bir hata mesajı
-                // TODO: profil sayfasına geri yönlendirme
-            }
-            else
-            {
-                // Todo: uygun bir hata mesajı
-            }
-
-
-        }
-
+        public bool isLeaving = false;
         private void formMainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            // Kapatma işlemi hakkında gereken kontrolleri yapın
-            // Örneğin, kullanıcıya bir onay iletişim kutusu göstermek isteyebilirsiniz
-            /*
-            DialogResult result = MessageBox.Show("Çıkmak İstediğinize Emin Misiniz?", "Uygulamadan Çıkış", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
-            {
-                // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
-                e.Cancel = true;
-            }
-            else
+            if (!isLeaving)
             {
                 Environment.Exit(0);
-            }*/
+            }
         }
 
+        #endregion
     }
+    
 }

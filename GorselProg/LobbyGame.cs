@@ -71,17 +71,23 @@ namespace GorselProg
         private async void btnPlayerLeave_Click(object sender, EventArgs e)
         {
             //Refresh timerları durduruluyor.
+            /*
             timerForChat.Stop();
             timerForPlayers.Stop();
-
+            */
             //Oda ve kullanıcı bilgileri alındıktan sonra kullanıcı o odadan servis yardımı ile siliniyor.
+            
+            /*
             Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
             User current = UserSession.Instance.GetCurrentUser();
             await RoomService.ExitRoom(room_id, current);
+            */
 
             //Main menu formuna geçiş yapılıyor.
+            /*
             formMainMenu mainmenu = new formMainMenu();
             mainmenu.Show();
+            */
             this.Close();
         }
 
@@ -90,8 +96,10 @@ namespace GorselProg
         private async void btnLeaderLeave_Click(object sender, EventArgs e)
         {
             //DialogResult cevap = MessageBox.Show("Oda dağıtılacaktır. Yine de ayrılmak istiyor musunuz?", "Uyarı!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning
+            /*
             timerForPlayersLeader.Stop();
             timerForChatLeader.Stop();
+            */
             isLeaving = true;
 
             //Guid room_id = RoomSession.Instance.GetCurrentRoom().Id;
@@ -294,6 +302,14 @@ namespace GorselProg
         {
             lvPlayerPlayers.Items.Clear();
             Room room = RoomSession.Instance.GetCurrentRoom();
+            var user = UserSession.Instance.GetCurrentUser();
+            if(room.AdminId == user.Id)
+            {
+                PanelHandler.setPanelMiddle(this, active_panel, pnlLobbyLeader);
+                active_panel = pnlLobbyLeader;
+                stopPlayerTimers();
+                startLeaderTimers();
+            }
             List<User> players = await RoomService.GetPlayers(room.Id);
             foreach (User u in players)
             {
@@ -304,7 +320,7 @@ namespace GorselProg
                 lvPlayerPlayers.Items.Add(item);
             }
             lvPlayerPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
-            var user = UserSession.Instance.GetCurrentUser();
+            
             bool isPlayer = await RoomService.CheckRoomStatus(user.Id, room.Id);
 
             if(!isPlayer)
@@ -522,6 +538,7 @@ namespace GorselProg
                 {
                     PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
                     active_panel = pnlLobbyPlayer;
+                    timerForCheckCurrGame.Start();
                 }
                 timerForReturnLobby.Stop();
             }
@@ -549,6 +566,7 @@ namespace GorselProg
             btnOption2.Text = options[1];
             btnOption3.Text = options[2];
             btnOption4.Text = options[3];
+            lblCategory.Text = current_question.Category.ToString();
 
             question_index++;
             timerForGame.Start();
@@ -566,7 +584,6 @@ namespace GorselProg
         //Oyun bitiminde sonuç ekranını getiren metot.
         private async void getSummary()
         {
-
             User curr_user = UserSession.Instance.GetCurrentUser();
             Game curr_game = GameSession.Instance.GetCurrentGame();
 
@@ -638,6 +655,7 @@ namespace GorselProg
                 }
                 else if(result == DialogResult.Yes)
                 {
+                    stopLeaderTimers();
                     Room curr_room = RoomSession.Instance.GetCurrentRoom();
                     Model.User curr_user = UserSession.Instance.GetCurrentUser();
                     await RoomService.ExitRoom(curr_room.Id, curr_user);
@@ -715,6 +733,16 @@ namespace GorselProg
             timerForPlayers.Stop();
             timerForChat.Stop();
             timerForCheckCurrGame.Stop();
+        }
+        private void startLeaderTimers()
+        {
+            timerForChatLeader.Start();
+            timerForPlayersLeader.Start();
+        }
+        private void startPlayerTimers()
+        {
+            timerForChat.Start();
+            timerForPlayers.Start();
         }
         #endregion
 
