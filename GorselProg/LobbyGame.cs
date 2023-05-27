@@ -380,7 +380,7 @@ namespace GorselProg
         int returnLobby = 20;
         private void timerForReturnLobby_Tick(object sender, EventArgs e)
         {
-            lblReturnLobby.Text = returnLobby.ToString();
+            lblReturnLobby.Text = $"{returnLobby.ToString()} saniye içinde lobiye dönülecek...";
             returnLobby--;
             if (returnLobby == 0)
             {
@@ -399,6 +399,7 @@ namespace GorselProg
                 timerForReturnLobby.Stop();
             }
         }
+
         #endregion
 
         #region Cevaplar
@@ -641,9 +642,10 @@ namespace GorselProg
                 MessageBox.Show("Bir hata oluştu.");
             }
 
-            
             PanelHandler.setPanelFill(active_panel, pnlSum);
             active_panel = pnlSum;
+            //Oynanan oyunu kapatıyor, diğer oyuncular otomatik yeni bir oyuna başlamasın.
+            GameSession.Instance.SetCurrentGame(null);
             //Özetten belli bir süre sonra lobiye dönülmesi gerekiyor.
             timerForReturnLobby.Start();
         }
