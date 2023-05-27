@@ -185,11 +185,19 @@ namespace GorselProg.Services
                                 room.AdminId = newAdminPlayer.UserId; // Yeni adminin UserId'sini room.AdminId'ye atıyoruz
                                 UserSession.Instance.SetCurrentUser(user);
                             }
+                            else
+                            {
+                                // if no players left Delete the current room
+                                context.Rooms.Remove(room);
+                                await context.SaveChangesAsync();
+                            }
                         }
 
-                        RoomSession.Instance.SetCurrentRoom(null);
-                        RoomSession.Instance.SetAllCategories(null);
+                        
                     }
+
+                    RoomSession.Instance.SetCurrentRoom(null);
+                    RoomSession.Instance.SetAllCategories(null);
 
                     return true;
                 }
