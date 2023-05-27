@@ -483,8 +483,13 @@ namespace GorselProg
         private async void btnSoruSil_Click(object sender, EventArgs e)
         {
 
-            Guid id = Guid.Parse(lvSorular.SelectedItems[0].SubItems[0].Text);
-            await QuestionService.DeleteQuestion(id);
+            Guid selected_id = Guid.Parse(lvSorular.SelectedItems[0].SubItems[0].Text);
+            bool result = await QuestionService.DeleteQuestion(selected_id);
+            if (result)
+                MessageBox.Show(result.ToString());
+            else
+                MessageBox.Show(result.ToString());
+
 
             viewQuestions("all");
         }
@@ -718,6 +723,7 @@ namespace GorselProg
         }
 
         #endregion
+
     }
     
 }
