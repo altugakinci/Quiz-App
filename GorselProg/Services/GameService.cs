@@ -168,7 +168,7 @@ namespace GorselProg.Services
             }
         }
 
-        public static async Task<SummaryGame> GetSummaryGame(Guid gameId,Guid userId)
+        public static async Task<SummaryGame> GetSummaryGame(Guid gameId,Guid userId,Guid roomId)
         {
             try
             {
@@ -253,8 +253,19 @@ namespace GorselProg.Services
                         await context.SaveChangesAsync();
 
                     }
+
+                    // Room'un currentGameId'sini null yap
+                    var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+                    if (room != null)
+                    {
+                        room.CurrentGameId = null;
+                    }
+
+                   
+                    RoomSession.Instance.SetCurrentRoom(room);
                     GameSession.Instance.SetCurrentGame(null);
                     GameSession.Instance.SetAllQuestions(null);
+                    await context.SaveChangesAsync();
                     return summaryGame;
                 }
             }

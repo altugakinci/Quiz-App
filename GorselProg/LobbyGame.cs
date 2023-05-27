@@ -572,9 +572,10 @@ namespace GorselProg
         {
             User curr_user = UserSession.Instance.GetCurrentUser();
             Game curr_game = GameSession.Instance.GetCurrentGame();
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
 
             //db ile bağlantı kurup özeti önbelleğe alıyoruz.
-            var summary = await GameService.GetSummaryGame(curr_game.Id, curr_user.Id);
+            var summary = await GameService.GetSummaryGame(curr_game.Id, curr_user.Id,curr_room.Id);
 
             if(summary != null)
             {
