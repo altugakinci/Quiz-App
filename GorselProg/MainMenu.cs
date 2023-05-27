@@ -284,9 +284,20 @@ namespace GorselProg
             string roomCode = txtJoinCode.Text;
             string roomPassword = txtJoinPassword.Text;
             User currentUser = UserSession.Instance.GetCurrentUser();
+            Room curr_room = RoomSession.Instance.GetCurrentRoom();
 
+            using (var context = new qAppDBContext())
+            {
+                var room = await context.Rooms.FirstOrDefaultAsync(r => r.Code == roomCode && r.Password == roomPassword);
 
-            bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
+                if(room.CurrentGameId != null)
+                {
+                    MessageBox.Show("Odada bir oyun oynanıyor", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+                bool joined = await RoomService.JoinRoom(roomCode, roomPassword, currentUser);
 
             if (joined)
             {
