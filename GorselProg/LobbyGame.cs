@@ -375,6 +375,30 @@ namespace GorselProg
 
             }
         }
+
+        //Oyun bittikten sonra lobiye dönüşte kullanılan panel.
+        int returnLobby = 20;
+        private void timerForReturnLobby_Tick(object sender, EventArgs e)
+        {
+            lblReturnLobby.Text = returnLobby.ToString();
+            returnLobby--;
+            if (returnLobby == 0)
+            {
+                if (UserSession.Instance.GetCurrentUser().Id == RoomSession.Instance.GetCurrentRoom().AdminId)
+                {
+                    PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
+                    active_panel = pnlLobbyLeader;
+                }
+                else
+                {
+                    PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
+                    active_panel = pnlLobbyPlayer;
+                    timerForCheckCurrGame.Start();
+                }
+                returnLobby = 20;
+                timerForReturnLobby.Stop();
+            }
+        }
         #endregion
 
         #region Cevaplar
@@ -523,32 +547,8 @@ namespace GorselProg
                 timerForNextLoading.Stop();
                 printQuestion();
                 next = 3;
-                PanelHandler.setPanelFill(active_panel, pnlGame);
-                active_panel = pnlGame;
+                
                 lblNextLoading.Text = "3";
-            }
-        }
-
-        //Oyun bittikten sonra lobiye dönüşte kullanılan panel.
-        int returnLobby = 20;
-        private void timerForReturnLobby_Tick(object sender, EventArgs e)
-        {
-            lblReturnLobby.Text = returnLobby.ToString();
-            returnLobby--;
-            if(returnLobby == 0)
-            {
-                if(UserSession.Instance.GetCurrentUser().Id == RoomSession.Instance.GetCurrentRoom().AdminId)
-                {
-                    PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
-                    active_panel = pnlLobbyLeader;
-                }
-                else
-                {
-                    PanelHandler.setPanelFill(active_panel, pnlLobbyPlayer);
-                    active_panel = pnlLobbyPlayer;
-                    timerForCheckCurrGame.Start();
-                }
-                timerForReturnLobby.Stop();
             }
         }
 
@@ -561,6 +561,8 @@ namespace GorselProg
                 getSummary();
                 return;
             }
+            PanelHandler.setPanelFill(active_panel, pnlGame);
+            active_panel = pnlGame;
 
             //Soruyu çekiyoruz.
             current_question = question_list[question_index];
