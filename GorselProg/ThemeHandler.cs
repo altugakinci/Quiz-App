@@ -53,7 +53,7 @@ namespace GorselProg
                         ctrl.ForeColor = color_texts;
                         ctrl.BackColor = Color.Transparent;
                         Button b = (Button)ctrl;
-                        b.FlatAppearance.MouseOverBackColor = Color.Transparent;
+                        b.FlatAppearance.MouseOverBackColor = ControlPaint.Light(color_background);
                         b.FlatAppearance.MouseDownBackColor = Color.Transparent;
                     }else if(ctrl is GroupBox)
                     {

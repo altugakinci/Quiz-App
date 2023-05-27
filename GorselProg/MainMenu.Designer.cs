@@ -409,7 +409,7 @@ namespace GorselProg
             this.pnlJoinAGame.Location = new System.Drawing.Point(27, 373);
             this.pnlJoinAGame.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlJoinAGame.Name = "pnlJoinAGame";
-            this.pnlJoinAGame.Size = new System.Drawing.Size(57, 48);
+            this.pnlJoinAGame.Size = new System.Drawing.Size(57, 60);
             this.pnlJoinAGame.TabIndex = 3;
             this.pnlJoinAGame.Visible = false;
             // 
@@ -417,7 +417,7 @@ namespace GorselProg
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label18.Location = new System.Drawing.Point(-85, 4);
+            this.label18.Location = new System.Drawing.Point(-85, 10);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(231, 22);
             this.label18.TabIndex = 18;
@@ -430,11 +430,13 @@ namespace GorselProg
             this.txtJoinPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtJoinPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtJoinPassword.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtJoinPassword.Location = new System.Drawing.Point(-85, 30);
+            this.txtJoinPassword.Location = new System.Drawing.Point(-85, 36);
             this.txtJoinPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtJoinPassword.Name = "txtJoinPassword";
+            this.txtJoinPassword.PasswordChar = '*';
             this.txtJoinPassword.Size = new System.Drawing.Size(231, 41);
             this.txtJoinPassword.TabIndex = 1;
+            this.txtJoinPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnJAGGeri
             // 
@@ -455,7 +457,7 @@ namespace GorselProg
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(-85, -81);
+            this.label1.Location = new System.Drawing.Point(-85, -75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(231, 31);
             this.label1.TabIndex = 6;
@@ -468,18 +470,19 @@ namespace GorselProg
             this.txtJoinCode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(144)))), ((int)(((byte)(124)))));
             this.txtJoinCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtJoinCode.Font = new System.Drawing.Font("Century Gothic", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtJoinCode.Location = new System.Drawing.Point(-85, -46);
+            this.txtJoinCode.Location = new System.Drawing.Point(-85, -40);
             this.txtJoinCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtJoinCode.Name = "txtJoinCode";
             this.txtJoinCode.Size = new System.Drawing.Size(231, 41);
             this.txtJoinCode.TabIndex = 0;
+            this.txtJoinCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnJAGJoinRoom
             // 
             this.btnJAGJoinRoom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnJAGJoinRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJAGJoinRoom.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnJAGJoinRoom.Location = new System.Drawing.Point(-85, 83);
+            this.btnJAGJoinRoom.Location = new System.Drawing.Point(-85, 89);
             this.btnJAGJoinRoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnJAGJoinRoom.Name = "btnJAGJoinRoom";
             this.btnJAGJoinRoom.Size = new System.Drawing.Size(231, 48);
@@ -541,8 +544,10 @@ namespace GorselProg
             this.txtCAGRoomPassword.Location = new System.Drawing.Point(-85, 28);
             this.txtCAGRoomPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCAGRoomPassword.Name = "txtCAGRoomPassword";
+            this.txtCAGRoomPassword.PasswordChar = '*';
             this.txtCAGRoomPassword.Size = new System.Drawing.Size(231, 41);
             this.txtCAGRoomPassword.TabIndex = 1;
+            this.txtCAGRoomPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -566,6 +571,7 @@ namespace GorselProg
             this.txtCAGRoomName.Name = "txtCAGRoomName";
             this.txtCAGRoomName.Size = new System.Drawing.Size(231, 41);
             this.txtCAGRoomName.TabIndex = 0;
+            this.txtCAGRoomName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCAGCreateRoom
             // 

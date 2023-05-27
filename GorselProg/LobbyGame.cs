@@ -112,13 +112,6 @@ namespace GorselProg
             this.Close();
         }
 
-        //Oyuncunun oyundan çıkmasını sağlayan buton.
-        private void btnGameGeri_Click(object sender, EventArgs e)
-        {
-            //To do: Database güncellemesi için servis çağırılacak
-            PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
-            active_panel = pnlLobbyLeader;
-        }
         #endregion
 
         #region Liderin Kategori Secimi

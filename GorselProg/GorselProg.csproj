@@ -105,8 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper.cs" />
-    <Compile Include="LevelHandler.cs" />
-    <Compile Include="LevelingModule.cs" />
     <Compile Include="LobbyGame.cs">
       <SubType>Form</SubType>
     </Compile>
