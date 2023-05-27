@@ -175,7 +175,7 @@ namespace GorselProg
             this.btnProfiliDuzenleGeri = new System.Windows.Forms.Button();
             this.pnlLoading = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblBilmatik = new System.Windows.Forms.Label();
             this.pnlPreferences.SuspendLayout();
             this.pnlHowToPlay.SuspendLayout();
             this.pnlJoinAGame.SuspendLayout();
@@ -2035,16 +2035,16 @@ namespace GorselProg
             this.label8.TabIndex = 3;
             this.label8.Text = "Yükleniyor...";
             // 
-            // label4
+            // lblBilmatik
             // 
-            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Happy Chicken", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(1193, 133);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "Bilmatik";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblBilmatik.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblBilmatik.Font = new System.Drawing.Font("Century Gothic", 65.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblBilmatik.Location = new System.Drawing.Point(0, 0);
+            this.lblBilmatik.Name = "lblBilmatik";
+            this.lblBilmatik.Size = new System.Drawing.Size(1193, 133);
+            this.lblBilmatik.TabIndex = 21;
+            this.lblBilmatik.Text = "Bilmatik";
+            this.lblBilmatik.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // formMainMenu
             // 
@@ -2052,7 +2052,7 @@ namespace GorselProg
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(194)))), ((int)(((byte)(178)))));
             this.ClientSize = new System.Drawing.Size(1193, 782);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblBilmatik);
             this.Controls.Add(this.pnlLoading);
             this.Controls.Add(this.pnlProfileDuzenle);
             this.Controls.Add(this.pnlSorulariGoruntule);
@@ -2251,6 +2251,6 @@ namespace GorselProg
         public System.Windows.Forms.Panel pnlLoading;
         private System.Windows.Forms.Label lblProfileMail;
         private System.Windows.Forms.Button btnProfiliDuzenle;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblBilmatik;
     }
 }
