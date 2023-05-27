@@ -483,7 +483,7 @@ namespace GorselProg
         private async void btnSoruSil_Click(object sender, EventArgs e)
         {
 
-            Guid id = Guid.Parse(lvSorular.SelectedItems[0].Text);
+            Guid id = Guid.Parse(lvSorular.SelectedItems[0].SubItems[0].Text);
             await QuestionService.DeleteQuestion(id);
 
             viewQuestions("all");
