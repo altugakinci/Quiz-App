@@ -220,14 +220,14 @@ namespace GorselProg
         #region Themes
         private void btnLightMode_Click(object sender, EventArgs e)
         {
-            ThemeHandler.lightTheme();
+            ThemeHandler.setLightTheme();
             ThemeHandler.changeAllControlsColor(this);
             ThemeHandler.changeFormsColor(this);
         }
 
         private void btnDarkMode_Click(object sender, EventArgs e)
         {
-            ThemeHandler.darkTheme();
+            ThemeHandler.setDarkTheme();
             ThemeHandler.changeAllControlsColor(this);
             ThemeHandler.changeFormsColor(this);
         }
@@ -358,7 +358,7 @@ namespace GorselProg
 
             // Soruları veritabanından çek
             List<Question> questions = await QuestionService.GetAllQuestions();
-
+            int count = 0;
             // Soruları ListView'e ekle
             if (category.Equals("all"))
             {
@@ -375,7 +375,7 @@ namespace GorselProg
                     item.SubItems.Add(options[3]);
 
                     item.SubItems.Add(question.CorrectAnswerIndex.ToString());
-
+                    count++;
                     lvSorular.Items.Add(item);
                 }
             }
@@ -396,12 +396,12 @@ namespace GorselProg
                         item.SubItems.Add(options[3]);
 
                         item.SubItems.Add(question.CorrectAnswerIndex.ToString());
-
+                        count++;
                         lvSorular.Items.Add(item);
                     }
                 }
             }
-
+            lblSoruSayisi.Text = $"Soru sayısı: {count}";
         }
 
         Button guncelle_aktif_buton;

@@ -145,7 +145,7 @@ namespace GorselProg
             this.pnlLogin.Controls.Add(this.label1);
             this.pnlLogin.Controls.Add(this.label3);
             this.pnlLogin.Controls.Add(this.label2);
-            this.pnlLogin.Location = new System.Drawing.Point(57, 442);
+            this.pnlLogin.Location = new System.Drawing.Point(73, 314);
             this.pnlLogin.Name = "pnlLogin";
             this.pnlLogin.Size = new System.Drawing.Size(57, 45);
             this.pnlLogin.TabIndex = 7;
@@ -188,7 +188,7 @@ namespace GorselProg
             this.pnlRegister.Controls.Add(this.label9);
             this.pnlRegister.Controls.Add(this.label7);
             this.pnlRegister.Controls.Add(this.label8);
-            this.pnlRegister.Location = new System.Drawing.Point(165, 414);
+            this.pnlRegister.Location = new System.Drawing.Point(136, 314);
             this.pnlRegister.Name = "pnlRegister";
             this.pnlRegister.Size = new System.Drawing.Size(51, 51);
             this.pnlRegister.TabIndex = 8;

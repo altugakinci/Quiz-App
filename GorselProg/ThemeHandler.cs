@@ -70,14 +70,14 @@ namespace GorselProg
             }
         }
 
-        public void setLightTheme()
+        public static void setLightTheme()
         {
-            theme_olaQasem();
+            lightTheme();
         }
 
-        public void setDarkTheme()
+        public static void setDarkTheme()
         {
-            darkTheme();
+            theme3();
         }
 
         public void current_theme()

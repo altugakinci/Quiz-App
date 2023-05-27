@@ -661,6 +661,7 @@ namespace GorselProg
 
             timerForNextLoading.Start();
         }
+
         #endregion
 
         #region Game Quits
