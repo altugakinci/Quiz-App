@@ -42,6 +42,7 @@ namespace GorselProg
         //Oturumu kapatma butonu
         private void btnSignOut_Click(object sender, EventArgs e)
         {
+            isLeaving = true;
             UserService.LogoutUser();
             formLoginRegister form = new formLoginRegister();
             form.Show();
@@ -199,7 +200,8 @@ namespace GorselProg
             lblProfileXP.Text = $"{current.Xp} / 500";
             prgProfileXP.Value = current.Xp;
 
-            lblProfilePlayedGames.Text =
+            lblProfilePlayedGames.Text = sum.TotalGamesPlayed.ToString();
+            lblProfileWins.Text = sum.WonGames.ToString();
 
             //spor tarih sanat bilim eğl
             lblProfileSpor.Text = sum.Category1Correct.ToString();
@@ -261,7 +263,11 @@ namespace GorselProg
 
             if (isRoomCreated)
             {
-                //MessageBox.Show("Oda başarıyla oluşturuldu.");
+                // Room oluşturulduğunda yapılacak işlemler
+                isLeaving = true;
+                LobbyGame game = new LobbyGame();
+                game.Show();
+                this.Close();
             }
             else
             {
@@ -269,10 +275,7 @@ namespace GorselProg
             }
 
 
-            // Room oluşturulduğunda yapılacak işlemler
-            LobbyGame game = new LobbyGame();
-            game.Show();
-            this.Close();
+            
 
         }
 
@@ -287,6 +290,7 @@ namespace GorselProg
 
             if (joined)
             {
+                isLeaving = true;
                 //MessageBox.Show("Odaya katılma işlemi başarılı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LobbyGame game = new LobbyGame();
                 game.Show();
@@ -494,16 +498,20 @@ namespace GorselProg
         private void selectButtons_Add(object sender, int index)
         {
             Button basilan_button = (Button)sender;
-            basilan_button.ForeColor = Color.Green;
             se_cat_index = index;
 
-            ekleme_aktif_buton.ForeColor = ThemeHandler.color_texts;
+            if(ekleme_aktif_buton != null)
+            {
+                ekleme_aktif_buton.ForeColor = ThemeHandler.color_texts;
+            }
+            basilan_button.ForeColor = Color.Green;
             ekleme_aktif_buton = basilan_button;
 
         }
 
         private async void btnSoruEkle_Click(object sender, EventArgs e)
         {
+            
             string questionText = txtSoruEkleSoru.Text;
             string optionsText = Helper.ConcatenateStrings(txtSoruEkleOpt1.Text, txtSoruEkleOpt2.Text, txtSoruEkleOpt3.Text, txtSoruEkleOpt4.Text);
             bool[] options = new bool[] {
@@ -521,36 +529,47 @@ namespace GorselProg
             using (var db = new qAppDBContext())
             {
                 var Category = await db.Categories.FirstOrDefaultAsync(c => c.Index == cat_index);
-                categoryId = Category.Id;
+                if(Category != null)
+                    categoryId = Category.Id;
+            }
+
+            if (questionText != "" && optionsText != "" && correctAnswerIndex != -1 && categoryId != null)
+            {
+                // Yeni bir Question nesnesi oluşturun
+                var newQuestion = new Question
+                {
+                    Id = Guid.NewGuid(),
+                    QuestionText = questionText,
+                    OptionsText = optionsText,
+                    CorrectAnswerIndex = correctAnswerIndex,
+                    CategoryId = categoryId
+                };
+
+                // QuestionService'e yeni soruyu ekleyin
+                bool result = await QuestionService.AddQuestion(newQuestion);
+
+                if (result)
+                {
+                    MessageBox.Show("Soru başarıyla eklendi.");
+                    ClearQuestionFields();
+
+                    PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
+                    active_panel = pnlSoruEkle;
+                }
+                else
+                {
+                    MessageBox.Show("Soru eklenirken bir hata oluştu.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Alanları kontrol edin.", "Soru Ekleme Uyarısı", MessageBoxButtons.OK);
             }
 
             // Name eşleşen kategoriyi getir
 
-            // Yeni bir Question nesnesi oluşturun
-            var newQuestion = new Question
-            {
-                Id = Guid.NewGuid(),
-                QuestionText = questionText,
-                OptionsText = optionsText,
-                CorrectAnswerIndex = correctAnswerIndex,
-                CategoryId = categoryId
-            };
-
-            // QuestionService'e yeni soruyu ekleyin
-            bool result = await QuestionService.AddQuestion(newQuestion);
-
-            if (result)
-            {
-                MessageBox.Show("Soru başarıyla eklendi.");
-                ClearQuestionFields();
-
-                PanelHandler.setPanelMiddle(this, active_panel, pnlSoruEkle);
-                active_panel = pnlSoruEkle;
-            }
-            else
-            {
-                MessageBox.Show("Soru eklenirken bir hata oluştu.");
-            }
+            
+            
         }
 
         private void ClearQuestionFields()

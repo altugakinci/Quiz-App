@@ -441,11 +441,18 @@ namespace GorselProg
         //Liderin oyunu başlatmasını sağlayan buton.
         private void btnLeaderBaslat_ClickAsync(object sender, EventArgs e)
         {
-            PanelHandler.setPanelFill(active_panel, pnlGameStarting);
-            active_panel = pnlGameStarting;
-
-            //Start verilmesi için koyulan timer'ı başlatıyor.
-            timerForStart.Start();
+            List<Category> categories = RoomSession.Instance.GetSelectedCategories();
+            if (categories.Count != 0)
+            {
+                PanelHandler.setPanelFill(active_panel, pnlGameStarting);
+                active_panel = pnlGameStarting;
+                timerForStart.Start();
+            }
+            else
+            {
+                MessageBox.Show("Kategori Seçmediniz.");
+            }
+               
         }
 
         //Yükleme süresi bittiği anda çalışan metot.
