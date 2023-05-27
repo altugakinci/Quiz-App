@@ -2037,6 +2037,7 @@ namespace GorselProg
             // 
             // lblBilmatik
             // 
+
             this.lblBilmatik.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblBilmatik.Font = new System.Drawing.Font("Century Gothic", 65.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblBilmatik.Location = new System.Drawing.Point(0, 0);
