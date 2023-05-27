@@ -574,7 +574,7 @@ namespace GorselProg
             options = Helper.SplitString(current_question.OptionsText);
             int correct_ans_index = current_question.CorrectAnswerIndex;
 
-            txtGameQuestionText.Text = question_text;
+            lblSoru.Text = question_text;
             btnOption1.Text = options[0];
             btnOption2.Text = options[1];
             btnOption3.Text = options[2];
