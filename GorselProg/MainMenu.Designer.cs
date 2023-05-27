@@ -2038,12 +2038,12 @@ namespace GorselProg
             // label4
             // 
             this.label4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label4.Font = new System.Drawing.Font("Happy Chicken", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 65F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(0, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(1193, 133);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Bilmatik";
+            this.label4.Text = "Bilmatik2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // formMainMenu
