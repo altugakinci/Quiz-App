@@ -292,6 +292,7 @@ namespace GorselProg
                 item.SubItems.Add(message);
                 lvLeaderChat.Items.Add(item);
             }
+            lvLeaderChat.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             lvLeaderChat.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
             if (lvLeaderChat.Items.Count > 0)
                 lvLeaderChat.EnsureVisible(lvLeaderChat.Items.Count - 1);
@@ -350,6 +351,7 @@ namespace GorselProg
                 item.SubItems.Add(message);
                 lvPlayerChat.Items.Add(item);
             }
+            lvPlayerChat.AutoResizeColumn(0, ColumnHeaderAutoResizeStyle.ColumnContent);
             lvPlayerChat.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
@@ -645,7 +647,7 @@ namespace GorselProg
             PanelHandler.setPanelFill(active_panel, pnlSum);
             active_panel = pnlSum;
             //Oynanan oyunu kapatıyor, diğer oyuncular otomatik yeni bir oyuna başlamasın.
-            GameSession.Instance.SetCurrentGame(null);
+            Helper.ClearGameSession();
             //Özetten belli bir süre sonra lobiye dönülmesi gerekiyor.
             timerForReturnLobby.Start();
         }
