@@ -19,11 +19,11 @@ Bununla birlikte, projenin ikincil bir amacı da C# ve Windows Forms gibi teknol
 
 ## Özellikler
 
--  *Çevrimiçi çok oyunculu oyun*: Kullanıcılar, oyun sunucusuna bağlanarak diğer oyuncularla yarışabilirler.
--   *Soru havuzu*: Oyun, bir dizi soruyu içeren bir soru havuzu kullanır. Her oyunda seçilen kategorilere göre sorular gelir.
--   *Zaman sınırlaması*: Her soru için bir zaman sınırlaması belirlenir. Kullanıcılar, belirli süre içinde cevaplarını vermeleri gerekir.
--   *Puan sistemi*: Doğru cevaplar için kullanıcılara puan verilir ve puanlar sayesinde seviye atlanır.
--   *Grafik arayüz*: Oyun, kullanıcı dostu bir Windows Forms arayüzü ile sunulur. Sorular, seçenekler ve puanlar görsel olarak gösterilir.
+-  **Çevrimiçi çok oyunculu oyun**: Kullanıcılar, oyun sunucusuna bağlanarak diğer oyuncularla yarışabilirler.
+-   **Soru havuzu**: Oyun, bir dizi soruyu içeren bir soru havuzu kullanır. Her oyunda seçilen kategorilere göre sorular gelir.
+-   **Zaman sınırlaması**: Her soru için bir zaman sınırlaması belirlenir. Kullanıcılar, belirli süre içinde cevaplarını vermeleri gerekir.
+-   **Puan sistemi**: Doğru cevaplar için kullanıcılara puan verilir ve puanlar sayesinde seviye atlanır.
+-   **Grafik arayüz**: Oyun, kullanıcı dostu bir Windows Forms arayüzü ile sunulur. Sorular, seçenekler ve puanlar görsel olarak gösterilir.
 
 
 ## Nasıl Oynanır
