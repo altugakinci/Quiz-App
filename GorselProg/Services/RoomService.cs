@@ -181,8 +181,8 @@ namespace GorselProg.Services
                             {
                                 context.Players.Remove(p);
                             }
-                            
-                             context.Rooms.Remove(room);
+
+                             room.AdminId = null;
                              await context.SaveChangesAsync();
                             
                         }
@@ -331,8 +331,17 @@ namespace GorselProg.Services
                 {
                     var player = await context.Players.FirstOrDefaultAsync(p => p.UserId == userId && p.RoomId == roomId);
                     var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
-                    RoomSession.Instance.SetCurrentRoom(room);
-                    
+                    if(room.AdminId != null)
+                    {
+                        // update room
+                        RoomSession.Instance.SetCurrentRoom(room);
+
+                    } else
+                    {
+                        // cannot acces room when admin left
+                        RoomSession.Instance.SetCurrentRoom(null);
+                    }
+
 
                     return player != null;
                 }
