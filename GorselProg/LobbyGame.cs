@@ -266,16 +266,23 @@ namespace GorselProg
         private async void timerForPlayers_Tick(object sender, EventArgs e)
         {
             lvPlayerPlayers.Items.Clear();
-            Room room = RoomSession.Instance.GetCurrentRoom();
+            Room roomSession = RoomSession.Instance.GetCurrentRoom();
+
+            //using (var context = new qAppDBContext())
+            //{
+            //    var room = await context.Rooms.FirstOrDefaultAsync(r=>r.Id == roomSession.Id);
+            //    roomSession = room;
+            //}
+
             var user = UserSession.Instance.GetCurrentUser();
-            if(room.AdminId == user.Id)
+            if(roomSession.AdminId == user.Id)
             {
                 PanelHandler.setPanelMiddle(this, active_panel, pnlLobbyLeader);
                 active_panel = pnlLobbyLeader;
                 stopPlayerTimers();
                 startLeaderTimers();
             }
-            List<User> players = await RoomService.GetPlayers(room.Id);
+            List<User> players = await RoomService.GetPlayers(roomSession.Id);
             foreach (User u in players)
             {
                 string guid = u.Id.ToString();
@@ -286,7 +293,7 @@ namespace GorselProg
             }
             lvPlayerPlayers.AutoResizeColumn(1, ColumnHeaderAutoResizeStyle.ColumnContent);
             
-            bool isPlayer = await RoomService.CheckRoomStatus(user.Id, room.Id);
+            bool isPlayer = await RoomService.CheckRoomStatus(user.Id, roomSession.Id);
 
             if(!isPlayer)
             {
