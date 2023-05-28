@@ -28,8 +28,8 @@ namespace GorselProg
         private void LobbyGame_Load(object sender, EventArgs e)
         {
             //Bu olaylar form beklenmedik şekilde kapanırsa uygulanacak olan komutların bağlantısı.
-            Application.ApplicationExit += new EventHandler(ApplicationExitHandler);
-            Application.ThreadExit += new EventHandler(ThreadExitHandler);
+            //Application.ApplicationExit += new EventHandler(ApplicationExitHandler);
+            //Application.ThreadExit += new EventHandler(ThreadExitHandler);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 
             //Lobinin yukarısında oda ismi ve kodun görüntülenmesini sağlıyor.
@@ -77,6 +77,7 @@ namespace GorselProg
         private async void btnPlayerLeave_Click(object sender, EventArgs e)
         {
             isLeaving = true;
+            closeCounter++;
             this.Close();
         }
 
@@ -84,6 +85,7 @@ namespace GorselProg
         private async void btnLeaderLeave_Click(object sender, EventArgs e)
         {
             isLeaving = true;
+            closeCounter++;
             this.Close();
         }
 
@@ -204,6 +206,7 @@ namespace GorselProg
         #endregion
 
         #region Timers
+        int closeCounter = 0;
 
         //Liderin oyuncu listesini güncelleyen timer'ın ticki.
         private async void timerForPlayersLeader_Tick(object sender, EventArgs e)
@@ -212,7 +215,8 @@ namespace GorselProg
             Room room = RoomSession.Instance.GetCurrentRoom();
             if (room == null)
             {
-                stopPlayerTimers();
+                stopAllTimers();
+                closeCounter++;
                 this.Close();
                 return;
             }
@@ -235,7 +239,8 @@ namespace GorselProg
             Room room = RoomSession.Instance.GetCurrentRoom();
             if (room == null)
             {
-                stopPlayerTimers();
+                stopAllTimers();
+                closeCounter++;
                 this.Close();
                 return;
             }
@@ -263,7 +268,8 @@ namespace GorselProg
 
             if(roomSession == null)
             {
-                stopPlayerTimers();
+                stopAllTimers();
+                closeCounter++;
                 this.Close();
                 return;
             }
@@ -297,9 +303,9 @@ namespace GorselProg
 
             if(!isPlayer)
             {
+                stopAllTimers();
                 isLeaving = true;
-                formMainMenu pnlForm = new formMainMenu();
-                pnlForm.Show();
+                closeCounter++;
                 this.Close();
             }
         }
@@ -311,7 +317,8 @@ namespace GorselProg
             Room room = RoomSession.Instance.GetCurrentRoom();
             if (room == null)
             {
-                stopPlayerTimers();
+                stopAllTimers();
+                closeCounter++;
                 this.Close();
                 return;
             }
@@ -334,7 +341,9 @@ namespace GorselProg
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             if (curr_room == null)
             {
-                stopPlayerTimers();
+                //stopPlayerTimers();
+                stopAllTimers();
+                closeCounter++;
                 this.Close();
                 return;
             }
@@ -366,7 +375,8 @@ namespace GorselProg
             Room current_room = RoomSession.Instance.GetCurrentRoom();
             if (current_room == null)
             {
-                stopPlayerTimers();
+                stopAllTimers();
+                closeCounter++;
                 this.Close();
                 return;
             }
@@ -663,32 +673,37 @@ namespace GorselProg
         //Form kapatılmaya çalışıldığında handle edilir ve db'de ilgili yerler güncellenir.
         private async void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (isLeaving)
+            if(closeCounter == 1)
             {
-                stopAllTimers();
+                 if (isLeaving)
+                    {
+                    //stopAllTimers();
 
-                Model.User curr_user = UserSession.Instance.GetCurrentUser();
-                Room curr_room = RoomSession.Instance.GetCurrentRoom();
-                if (curr_room != null)
-                {
-                    await RoomService.ExitRoom(curr_room.Id, curr_user);
+                    Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                    Room curr_room = RoomSession.Instance.GetCurrentRoom();
+                    if (curr_room != null)
+                    {
+                        await RoomService.ExitRoom(curr_room.Id, curr_user);
+                    }
+                    closeCounter = 0;
+                    formMainMenu f = new formMainMenu();
+                    f.Show();
+                   
+                    return;
+                 }
+                 else
+                 {
+                        //stopAllTimers();
+
+                    Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                    Room curr_room = RoomSession.Instance.GetCurrentRoom();
+                    if (curr_room != null)
+                    {
+                        await RoomService.ExitRoom(curr_room.Id, curr_user);
+                    }
+                    Environment.Exit(0);
+
                 }
-                formMainMenu f = new formMainMenu();
-                f.Show();
-                return;
-            }
-            else
-            {
-                stopAllTimers();
-
-                Model.User curr_user = UserSession.Instance.GetCurrentUser();
-                Room curr_room = RoomSession.Instance.GetCurrentRoom();
-                if (curr_room != null)
-                {
-                    await RoomService.ExitRoom(curr_room.Id, curr_user);
-                }
-                Environment.Exit(0);
-
             }
             
 
@@ -730,34 +745,34 @@ namespace GorselProg
         }
 
         //Uygulama kapatılırsa bunun handle edilmesi ve db'de ilgili yerlerin güncellenmesi.
-        private async void ApplicationExitHandler(object sender, EventArgs e)
-        {
-            Room curr_room = RoomSession.Instance.GetCurrentRoom();
-            if (curr_room == null)
-            {
-                stopPlayerTimers();
-                return;
-            }
-            Model.User curr_user = UserSession.Instance.GetCurrentUser();
-            await RoomService.ExitRoom(curr_room.Id, curr_user);
-            stopAllTimers();
-            //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
-        }
+        //private async void ApplicationExitHandler(object sender, EventArgs e)
+        //{
+        //    Room curr_room = RoomSession.Instance.GetCurrentRoom();
+        //    if (curr_room == null)
+        //    {
+        //        stopPlayerTimers();
+        //        return;
+        //    }
+        //    Model.User curr_user = UserSession.Instance.GetCurrentUser();
+        //    await RoomService.ExitRoom(curr_room.Id, curr_user);
+        //    stopAllTimers();
+        //    //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
+        //}
         
-        //Uygulama olağanüstü bir durumla kapatılırsa bunun kontrol edilip db'nin güncellenmesi.
-        private async void ThreadExitHandler(object sender, EventArgs e)
-        {
-            Room curr_room = RoomSession.Instance.GetCurrentRoom();
-            if (curr_room == null)
-            {
-                stopPlayerTimers();
-                return;
-            }
-            Model.User curr_user = UserSession.Instance.GetCurrentUser();
-            await RoomService.ExitRoom(curr_room.Id, curr_user);
-            stopAllTimers();
-            //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
-        }
+        ////Uygulama olağanüstü bir durumla kapatılırsa bunun kontrol edilip db'nin güncellenmesi.
+        //private async void ThreadExitHandler(object sender, EventArgs e)
+        //{
+        //    Room curr_room = RoomSession.Instance.GetCurrentRoom();
+        //    if (curr_room == null)
+        //    {
+        //        stopPlayerTimers();
+        //        return;
+        //    }
+        //    Model.User curr_user = UserSession.Instance.GetCurrentUser();
+        //    await RoomService.ExitRoom(curr_room.Id, curr_user);
+        //    stopAllTimers();
+        //    //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
+        //}
 
         #endregion
 
@@ -777,12 +792,12 @@ namespace GorselProg
         }
         private void stopAllTimers()
         {
-            MessageBox.Show("Lider & oyuncu tüm timerları durduruldu.");
             timerForChatLeader.Stop();
             timerForPlayersLeader.Stop();
             timerForPlayers.Stop();
             timerForChat.Stop();
             timerForCheckCurrGame.Stop();
+            MessageBox.Show("Lider & oyuncu tüm timerları durduruldu.");
         }
         private void startLeaderTimers()
         {
