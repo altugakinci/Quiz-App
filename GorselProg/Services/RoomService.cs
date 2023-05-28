@@ -175,7 +175,7 @@ namespace GorselProg.Services
                         if (isPlayerAdmin)
                         {
                             var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
-                            var remainingPlayers = await context.Players.Where(p => p.Id != player.Id).ToListAsync();
+                            var remainingPlayers = await context.Players.Where(p => p.Id != player.Id && p.RoomId == roomId).ToListAsync();
 
                             if (remainingPlayers.Count > 0)
                             {
@@ -183,7 +183,9 @@ namespace GorselProg.Services
                                 int randomIndex = random.Next(0, remainingPlayers.Count);
                                 var newAdminPlayer = remainingPlayers[randomIndex];
                                 room.AdminId = newAdminPlayer.UserId; // Yeni adminin UserId'sini room.AdminId'ye atıyoruz
-                                UserSession.Instance.SetCurrentUser(user);
+                                await context.SaveChangesAsync();
+
+                                //UserSession.Instance.SetCurrentUser(user);
                             }
                             else
                             {
