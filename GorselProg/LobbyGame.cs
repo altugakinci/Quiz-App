@@ -48,7 +48,9 @@ namespace GorselProg
                 active_panel = pnlLobbyLeader;
 
                 timerForChatLeader.Start();
+                MessageBox.Show("Liderin chat timerı başlatıldı.");
                 timerForPlayersLeader.Start();
+                MessageBox.Show("Liderin oyuncular timerı başlatıldı.");
             }
             else
             {
@@ -57,8 +59,11 @@ namespace GorselProg
                 active_panel = pnlLobbyPlayer;
 
                 timerForChat.Start();
+                MessageBox.Show("Oyuncunun chat timerı başlatıldı.");
                 timerForPlayers.Start();
+                MessageBox.Show("Oyuncunun oyuncular timerı başlatıldı.");
                 timerForCheckCurrGame.Start();
+                MessageBox.Show("Oyuncunun oyunu bekleme timerı başlatıldı.");
             }
 
             //Tüm forma geçerli temanın uygulanmasını sağlıyor.
@@ -198,30 +203,6 @@ namespace GorselProg
 
         #endregion
 
-        #region Listeler ile Timer Handling
-        //Daha kolay bir kullanım için, listeye tıklandığında refreshi durduran ve seçimi kolaylaştıran metotlar.
-        private void lvPlayerPlayers_MouseClick(object sender, MouseEventArgs e)
-        {
-            timerForPlayers.Stop();
-        }
-
-        private void lvLeaderPlayers_MouseClick(object sender, MouseEventArgs e)
-        {
-            timerForPlayersLeader.Stop();
-        }
-
-        //Mouse panel alanından çıktığında refresh işlemine devam etmesi gerekiyor.
-        private void lvPlayerPlayers_MouseLeave(object sender, EventArgs e)
-        {
-            timerForPlayers.Start();
-        }
-
-        private void lvLeaderPlayers_MouseLeave(object sender, EventArgs e)
-        {
-            timerForChatLeader.Start();
-        }
-        #endregion
-
         #region Timers
 
         //Liderin oyuncu listesini güncelleyen timer'ın ticki.
@@ -229,6 +210,12 @@ namespace GorselProg
         {
             lvLeaderPlayers.Items.Clear();
             Room room = RoomSession.Instance.GetCurrentRoom();
+            if (room == null)
+            {
+                stopPlayerTimers();
+                this.Close();
+                return;
+            }
             List<User> players = await RoomService.GetPlayers(room.Id);
             foreach (User u in players)
             {
@@ -246,6 +233,12 @@ namespace GorselProg
         {
             lvLeaderChat.Items.Clear();
             Room room = RoomSession.Instance.GetCurrentRoom();
+            if (room == null)
+            {
+                stopPlayerTimers();
+                this.Close();
+                return;
+            }
             List<Model.Message> messages = await MessageService.GetMessagesByRoomId(room.Id);
             foreach (Model.Message m in messages)
             {
@@ -268,6 +261,13 @@ namespace GorselProg
             lvPlayerPlayers.Items.Clear();
             Room roomSession = RoomSession.Instance.GetCurrentRoom();
 
+            if(roomSession == null)
+            {
+                stopPlayerTimers();
+                this.Close();
+                return;
+            }
+
             //using (var context = new qAppDBContext())
             //{
             //    var room = await context.Rooms.FirstOrDefaultAsync(r=>r.Id == roomSession.Id);
@@ -277,7 +277,7 @@ namespace GorselProg
             var user = UserSession.Instance.GetCurrentUser();
             if(roomSession.AdminId == user.Id)
             {
-                PanelHandler.setPanelMiddle(this, active_panel, pnlLobbyLeader);
+                PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
                 active_panel = pnlLobbyLeader;
                 stopPlayerTimers();
                 startLeaderTimers();
@@ -297,10 +297,7 @@ namespace GorselProg
 
             if(!isPlayer)
             {
-               // bütün timerlar durması lazım
-
-                Helper.ClearGameSession();
-                Helper.ClearRoomSession();
+                isLeaving = true;
                 formMainMenu pnlForm = new formMainMenu();
                 pnlForm.Show();
                 this.Close();
@@ -312,6 +309,12 @@ namespace GorselProg
         {
             lvPlayerChat.Items.Clear();
             Room room = RoomSession.Instance.GetCurrentRoom();
+            if (room == null)
+            {
+                stopPlayerTimers();
+                this.Close();
+                return;
+            }
             List<Model.Message> messages = await MessageService.GetMessagesByRoomId(room.Id);
             foreach (Model.Message m in messages)
             {
@@ -329,19 +332,26 @@ namespace GorselProg
         private async void timerForCheckCurrGame_Tick(object sender, EventArgs e)
         {
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            if (curr_room == null)
+            {
+                stopPlayerTimers();
+                this.Close();
+                return;
+            }
             var isReadyToPlay = await RoomService.CheckCurrentGame(curr_room.Id);
             if (isReadyToPlay)
             {
                 var curr_game = GameSession.Instance.GetCurrentGame();
 
-                if (curr_game != null)
+                if (_isGameLoaded)
                 {
                     question_list = GameSession.Instance.GetAllQuestions();
                     question_index = 0;
                     printQuestion();
 
-                    PanelHandler.setPanelFill(active_panel, pnlGame);
-                    active_panel = pnlGame;
+                    PanelHandler.setPanelFill(active_panel, pnlGameStarting);
+                    active_panel = pnlGameStarting;
+                    timerForStart.Start();
                     timerForCheckCurrGame.Stop();
                 }
 
@@ -352,11 +362,20 @@ namespace GorselProg
         int returnLobby = 20;
         private void timerForReturnLobby_Tick(object sender, EventArgs e)
         {
+
+            Room current_room = RoomSession.Instance.GetCurrentRoom();
+            if (current_room == null)
+            {
+                stopPlayerTimers();
+                this.Close();
+                return;
+            }
+
             lblReturnLobby.Text = $"{returnLobby.ToString()} saniye içinde lobiye dönülecek...";
             returnLobby--;
             if (returnLobby == 0)
             {
-                if (UserSession.Instance.GetCurrentUser().Id == RoomSession.Instance.GetCurrentRoom().AdminId)
+                if (UserSession.Instance.GetCurrentUser().Id == current_room.AdminId)
                 {
                     PanelHandler.setPanelFill(active_panel, pnlLobbyLeader);
                     active_panel = pnlLobbyLeader;
@@ -454,7 +473,7 @@ namespace GorselProg
         }
 
         //Yükleme süresi bittiği anda çalışan metot.
-        private async void startGame()
+        private async Task startGame()
         {
             //Roomsessionda tutulan önbellekteki seçilen kategorileri getiriyoruz.
             List<Category> categories = RoomSession.Instance.GetSelectedCategories();
@@ -468,15 +487,12 @@ namespace GorselProg
                 //MessageBox.Show("Oyun başladı!");
                 question_list = GameSession.Instance.GetAllQuestions();
                 question_index = 0;
-                printQuestion();
+                _isGameLoaded = true;
             }
             else //Oyun başlatılamadı.
             {
                 MessageBox.Show("Oyun başlatılamadı.");
             }
-
-            PanelHandler.setPanelFill(active_panel, pnlGame);
-            active_panel = pnlGame;
         }
 
         //Soru cevaplama için verilen sürenin güncellenmesi.
@@ -494,18 +510,24 @@ namespace GorselProg
         }
 
         //Oyun başlamadan önceki Yarışma Başlıyor paneli.
+        bool _isGameLoaded = false;
         int loading = 3;
-        private void timerForStart_Tick(object sender, EventArgs e)
+        private async void timerForStart_Tick(object sender, EventArgs e)
         {
+            if (!_isGameLoaded) {
+                await startGame();
+            }
+
             lblGameStartingCD.Text = loading.ToString();
             loading--;
 
             if (loading == -1)
             {
                 timerForStart.Stop();
-                startGame();
+                printQuestion();
+                PanelHandler.setPanelFill(active_panel, pnlGame);
+                active_panel = pnlGame;
                 loading = 3;
-                return;
             }
         }
 
@@ -519,7 +541,7 @@ namespace GorselProg
             {
                 timerForNextLoading.Stop();
                 printQuestion();
-                next = 3;
+                next = 1;
                 
                 lblNextLoading.Text = "3";
             }
@@ -643,22 +665,56 @@ namespace GorselProg
         {
             if (isLeaving)
             {
+                stopAllTimers();
+
+                Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                Room curr_room = RoomSession.Instance.GetCurrentRoom();
+                if (curr_room != null)
+                {
+                    await RoomService.ExitRoom(curr_room.Id, curr_user);
+                }
+                formMainMenu f = new formMainMenu();
+                f.Show();
+                return;
+            }
+            else
+            {
+                stopAllTimers();
+
+                Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                Room curr_room = RoomSession.Instance.GetCurrentRoom();
+                if (curr_room != null)
+                {
+                    await RoomService.ExitRoom(curr_room.Id, curr_user);
+                }
+                Environment.Exit(0);
+
+            }
+            
+
+            /*
+            if (isLeaving)
+            {
                 DialogResult result = MessageBox.Show("Ana menüye dönmek istediğinize emin misiniz?", "Ana Menüye Dön", MessageBoxButtons.YesNo);
                 if (result == DialogResult.No)
                 {
                     // Kapatma işlemini iptal etmek için e.Cancel değerini true olarak ayarlayın
                     e.Cancel = true;
+
+                    stopPlayerTimers();
+                    stopLeaderTimers();
                 }
                 else if(result == DialogResult.Yes)
                 {
+                    stopPlayerTimers();
                     stopLeaderTimers();
-                    Room curr_room = RoomSession.Instance.GetCurrentRoom();
-                    Model.User curr_user = UserSession.Instance.GetCurrentUser();
+                    
+
+                    
                     await RoomService.ExitRoom(curr_room.Id, curr_user);
                     isLeaving = false;
 
-                    formMainMenu f = new formMainMenu();
-                    f.Show();
+                    
                 }
             }
             else if (!isLeaving)
@@ -669,17 +725,22 @@ namespace GorselProg
                 stopLeaderTimers();
                 stopPlayerTimers();
                 Environment.Exit(0);
-            }
+            }*/
+            
         }
 
         //Uygulama kapatılırsa bunun handle edilmesi ve db'de ilgili yerlerin güncellenmesi.
         private async void ApplicationExitHandler(object sender, EventArgs e)
         {
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            if (curr_room == null)
+            {
+                stopPlayerTimers();
+                return;
+            }
             Model.User curr_user = UserSession.Instance.GetCurrentUser();
             await RoomService.ExitRoom(curr_room.Id, curr_user);
             stopAllTimers();
-            Environment.Exit(0);
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
         
@@ -687,10 +748,14 @@ namespace GorselProg
         private async void ThreadExitHandler(object sender, EventArgs e)
         {
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
+            if (curr_room == null)
+            {
+                stopPlayerTimers();
+                return;
+            }
             Model.User curr_user = UserSession.Instance.GetCurrentUser();
             await RoomService.ExitRoom(curr_room.Id, curr_user);
             stopAllTimers();
-            Environment.Exit(0);
             //Veritabanından current room dan ilgili kullanıcıyı sileceğiz.
         }
 
@@ -699,16 +764,20 @@ namespace GorselProg
         #region Timer Kontrolü
         private void stopLeaderTimers()
         {
+            MessageBox.Show("Liderin tüm timerları durduruldu.");
             timerForChatLeader.Stop();
             timerForPlayersLeader.Stop();
         }
         private void stopPlayerTimers()
         {
+            MessageBox.Show("Oyuncunun tüm timerları durduruldu.");
+            stopAllTimers();
             timerForPlayers.Stop();
             timerForChat.Stop();
         }
         private void stopAllTimers()
         {
+            MessageBox.Show("Lider & oyuncu tüm timerları durduruldu.");
             timerForChatLeader.Stop();
             timerForPlayersLeader.Stop();
             timerForPlayers.Stop();
@@ -717,11 +786,13 @@ namespace GorselProg
         }
         private void startLeaderTimers()
         {
+            MessageBox.Show("Liderin tüm timerları başlatıldı.");
             timerForChatLeader.Start();
             timerForPlayersLeader.Start();
         }
         private void startPlayerTimers()
         {
+            MessageBox.Show("Oyuncunun tüm timerları başlatıldı.");
             timerForChat.Start();
             timerForPlayers.Start();
         }
@@ -734,7 +805,7 @@ namespace GorselProg
             // kick the player
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             Guid userId = Guid.Parse(lvLeaderPlayers.SelectedItems[0].SubItems[0].Text);
-            await RoomService.KickUser(userId,curr_room.Id);
+            await RoomService.KickUser(curr_room.Id,userId);
         }
 
         //Liderin, oyuncuyu lobiden banlama işlemi
@@ -744,7 +815,7 @@ namespace GorselProg
             Room curr_room = RoomSession.Instance.GetCurrentRoom();
             Guid userId = Guid.Parse(lvLeaderPlayers.SelectedItems[0].SubItems[0].Text);
             User admin = UserSession.Instance.GetCurrentUser();
-            await RoomService.BanUser(userId, curr_room.Id,admin.Id);
+            await RoomService.BanUser(userId,curr_room.Id,admin.Id);
         }
         #endregion
     }
