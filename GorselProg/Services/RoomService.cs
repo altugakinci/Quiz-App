@@ -175,24 +175,10 @@ namespace GorselProg.Services
                         if (isPlayerAdmin)
                         {
                             var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
-                            var remainingPlayers = await context.Players.Where(p => p.Id != player.Id && p.RoomId == roomId).ToListAsync();
-
-                            if (remainingPlayers.Count > 0)
-                            {
-                                Random random = new Random();
-                                int randomIndex = random.Next(0, remainingPlayers.Count);
-                                var newAdminPlayer = remainingPlayers[randomIndex];
-                                room.AdminId = newAdminPlayer.UserId; // Yeni adminin UserId'sini room.AdminId'ye atıyoruz
-                                await context.SaveChangesAsync();
-
-                                //UserSession.Instance.SetCurrentUser(user);
-                            }
-                            else
-                            {
-                                // if no players left Delete the current room
-                                context.Rooms.Remove(room);
-                                await context.SaveChangesAsync();
-                            }
+                              // Delete the room when admin exit
+                              context.Rooms.Remove(room);
+                             await context.SaveChangesAsync();
+                            
                         }
 
                         
@@ -339,9 +325,10 @@ namespace GorselProg.Services
                     var player = await context.Players.FirstOrDefaultAsync(p => p.UserId == userId && p.RoomId == roomId);
 
                     var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+
                     RoomSession.Instance.SetCurrentRoom(room);
 
-                    return player != null;
+                    return room.AdminId != null && player != null;
                 }
             }
             catch
