@@ -53,6 +53,7 @@ namespace GorselProg
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.pnlLogin.SuspendLayout();
             this.pnlRegister.SuspendLayout();
             this.SuspendLayout();
@@ -358,12 +359,22 @@ namespace GorselProg
             this.label10.Text = "Bilmatik";
             this.label10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // lblVersion
+            // 
+            this.lblVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblVersion.AutoSize = true;
+            this.lblVersion.Location = new System.Drawing.Point(12, 521);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(0, 13);
+            this.lblVersion.TabIndex = 23;
+            // 
             // formLoginRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(200)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(459, 543);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pnlRegister);
             this.Controls.Add(this.pnlLogin);
@@ -376,6 +387,7 @@ namespace GorselProg
             this.pnlRegister.ResumeLayout(false);
             this.pnlRegister.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -403,6 +415,7 @@ namespace GorselProg
         private System.Windows.Forms.TextBox txtRegMail;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 

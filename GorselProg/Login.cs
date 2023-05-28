@@ -34,6 +34,8 @@ namespace GorselProg
             ThemeHandler.changeAllControlsColor(this);
             ThemeHandler.changeFormsColor(this);
             this.WindowState = FormWindowState.Maximized;
+
+            lblVersion.Text = $"Version: {Application.ProductVersion}";
         }
 
         #region Routings
