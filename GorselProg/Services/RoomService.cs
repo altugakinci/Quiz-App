@@ -177,17 +177,17 @@ namespace GorselProg.Services
                             var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
                             var players = await context.Players.Where(p => p.RoomId == roomId).ToListAsync();
                             // Delete the room when admin exit
-                            foreach(Player p in players)
+                            foreach (Player p in players)
                             {
                                 context.Players.Remove(p);
                             }
-                            
-                             context.Rooms.Remove(room);
-                             await context.SaveChangesAsync();
-                            
+
+                            context.Rooms.Remove(room);
+                            await context.SaveChangesAsync();
+
                         }
 
-                        
+
                     }
 
                     RoomSession.Instance.SetCurrentRoom(null);
@@ -320,7 +320,7 @@ namespace GorselProg.Services
             return false;
         }
 
-        public static async Task<bool> CheckRoomStatus(Guid userId, Guid roomId)
+        public static async Task<bool> CheckPlayerStatus(Guid userId, Guid roomId)
         {
             try
             {
@@ -329,19 +329,38 @@ namespace GorselProg.Services
                 using (var context = new qAppDBContext())
                 {
                     var player = await context.Players.FirstOrDefaultAsync(p => p.UserId == userId && p.RoomId == roomId);
+
                     var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+
                     RoomSession.Instance.SetCurrentRoom(room);
-                    if (player == null)
-                    {
-                        return false;
-                    }
 
-                    if(room.AdminId == null)
-                    {
-                        return false;
-                    }
+                    return player != null;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                HideLoadingIndicator();
+            }
 
-                    return true;
+        }
+
+        public static async Task<bool> CheckRoomStatus(Guid roomId)
+        {
+            try
+            {
+                ShowLoadingIndicator();
+
+                using (var context = new qAppDBContext())
+                {
+                    var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+
+                    RoomSession.Instance.SetCurrentRoom(room);
+
+                    return room != null;
                 }
             }
             catch
