@@ -331,17 +331,9 @@ namespace GorselProg.Services
                     var player = await context.Players.FirstOrDefaultAsync(p => p.UserId == userId && p.RoomId == roomId);
                     var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
                     RoomSession.Instance.SetCurrentRoom(room);
-                    if (player == null)
-                    {
-                        return false;
-                    }
+                    
 
-                    if(room.AdminId == null)
-                    {
-                        return false;
-                    }
-
-                    return true;
+                    return player != null;
                 }
             }
             catch
