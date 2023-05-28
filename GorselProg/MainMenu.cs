@@ -35,6 +35,7 @@ namespace GorselProg
             PanelHandler.setPanelMiddle(this, active_panel, pnlMainMenu);
 
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.formMainMenu_FormClosing);
+            this.SizeChanged += new EventHandler(this.form_resize);
         }
 
         #region Routing
@@ -321,13 +322,15 @@ namespace GorselProg
 
         private async void btnProfiliKaydet_Click(object sender, EventArgs e)
         {
-            if (txtPDMevcutSifre.Text == "" && txtPDYeniSifre.Text == "" && txtPDYeniSifreTekrar.Text == "" && txtPDMail.Text == "" && txtPDUsername.Text == "")
+            if (txtPDMevcutSifre.Text == "" || txtPDYeniSifre.Text == "" || txtPDYeniSifreTekrar.Text == "" || txtPDMail.Text == "" || txtPDUsername.Text == "")
             {
-                // TODO: uygun bir hata mesajı
+                MessageBox.Show("Alanları doğru bir şekilde doldurduğunuzdan emin olun!");
+                return;
             }
             else if (txtPDYeniSifre.Text != txtPDYeniSifreTekrar.Text)
             {
-                // Todo: uygun bir hata mesajı
+                MessageBox.Show("Şifreler eşleşmiyor.");
+                return;
             }
 
             string currPassword = txtPDMevcutSifre.Text;
@@ -348,12 +351,13 @@ namespace GorselProg
 
             if (isSaved)
             {
-                //TODO: uygun bir hata mesajı
-                // TODO: profil sayfasına geri yönlendirme
+                MessageBox.Show("Bilgileriniz başarıyla güncellendi.");
+                PanelHandler.setPanelMiddle(this, active_panel, pnlProfile);
+                active_panel = pnlProfile;
             }
             else
             {
-                // Todo: uygun bir hata mesajı
+                MessageBox.Show("Bilgiler kaydedilirken bir sorun oluştu.");
             }
 
 
@@ -506,6 +510,11 @@ namespace GorselProg
         }
 
         #endregion
+
+        private void form_resize(object sender, EventArgs e)
+        {
+            PanelHandler.centeralizePanel(this, active_panel);
+        }
 
         #region Soru Ekleme Modülleri
 

@@ -31,6 +31,7 @@ namespace GorselProg
             //Application.ApplicationExit += new EventHandler(ApplicationExitHandler);
             //Application.ThreadExit += new EventHandler(ThreadExitHandler);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            
 
             //Lobinin yukarısında oda ismi ve kodun görüntülenmesini sağlıyor.
             string room_code = RoomSession.Instance.GetCurrentRoom().Code;
@@ -71,6 +72,8 @@ namespace GorselProg
             ThemeHandler.changeAllControlsColor(this);
             this.WindowState = FormWindowState.Maximized;
         }
+
+        
 
         #region Lobiden çıkış işlemleri
         //Oyuncu lobiden çıkış yapma butonuna bastığında gerçekleşen işlemler.
@@ -352,17 +355,14 @@ namespace GorselProg
             {
                 var curr_game = GameSession.Instance.GetCurrentGame();
 
-                if (_isGameLoaded)
-                {
-                    question_list = GameSession.Instance.GetAllQuestions();
-                    question_index = 0;
-                    printQuestion();
+                question_list = GameSession.Instance.GetAllQuestions();
+                question_index = 0;
+                printQuestion();
 
-                    PanelHandler.setPanelFill(active_panel, pnlGameStarting);
-                    active_panel = pnlGameStarting;
-                    timerForStart.Start();
-                    timerForCheckCurrGame.Stop();
-                }
+                PanelHandler.setPanelFill(active_panel, pnlGameStarting);
+                active_panel = pnlGameStarting;
+                timerForStart.Start();
+                timerForCheckCurrGame.Stop();
 
             }
         }
@@ -471,6 +471,7 @@ namespace GorselProg
             List<Category> categories = RoomSession.Instance.GetSelectedCategories();
             if (categories.Count != 0)
             {
+                startGame();
                 PanelHandler.setPanelFill(active_panel, pnlGameStarting);
                 active_panel = pnlGameStarting;
                 timerForStart.Start();
@@ -483,7 +484,7 @@ namespace GorselProg
         }
 
         //Yükleme süresi bittiği anda çalışan metot.
-        private async Task startGame()
+        private async void startGame()
         {
             //Roomsessionda tutulan önbellekteki seçilen kategorileri getiriyoruz.
             List<Category> categories = RoomSession.Instance.GetSelectedCategories();
@@ -497,7 +498,6 @@ namespace GorselProg
                 //MessageBox.Show("Oyun başladı!");
                 question_list = GameSession.Instance.GetAllQuestions();
                 question_index = 0;
-                _isGameLoaded = true;
             }
             else //Oyun başlatılamadı.
             {
@@ -520,14 +520,9 @@ namespace GorselProg
         }
 
         //Oyun başlamadan önceki Yarışma Başlıyor paneli.
-        bool _isGameLoaded = false;
         int loading = 3;
-        private async void timerForStart_Tick(object sender, EventArgs e)
+        private void timerForStart_Tick(object sender, EventArgs e)
         {
-            if (!_isGameLoaded) {
-                await startGame();
-            }
-
             lblGameStartingCD.Text = loading.ToString();
             loading--;
 

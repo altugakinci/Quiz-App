@@ -1893,29 +1893,31 @@ namespace GorselProg
             this.pnlProfileDuzenle.Controls.Add(this.btnProfiliKaydet);
             this.pnlProfileDuzenle.Controls.Add(this.label46);
             this.pnlProfileDuzenle.Controls.Add(this.btnProfiliDuzenleGeri);
-            this.pnlProfileDuzenle.Location = new System.Drawing.Point(91, 310);
+            this.pnlProfileDuzenle.Location = new System.Drawing.Point(359, 173);
             this.pnlProfileDuzenle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlProfileDuzenle.Name = "pnlProfileDuzenle";
-            this.pnlProfileDuzenle.Size = new System.Drawing.Size(62, 55);
+            this.pnlProfileDuzenle.Size = new System.Drawing.Size(638, 547);
             this.pnlProfileDuzenle.TabIndex = 19;
             this.pnlProfileDuzenle.Visible = false;
             // 
             // txtPDUsername
             // 
             this.txtPDUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPDUsername.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.txtPDUsername.Location = new System.Drawing.Point(-1, 77);
+            this.txtPDUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPDUsername.Font = new System.Drawing.Font("Century Gothic", 20F);
+            this.txtPDUsername.Location = new System.Drawing.Point(296, 326);
             this.txtPDUsername.Name = "txtPDUsername";
-            this.txtPDUsername.Size = new System.Drawing.Size(227, 32);
+            this.txtPDUsername.Size = new System.Drawing.Size(227, 33);
             this.txtPDUsername.TabIndex = 4;
             // 
             // txtPDMail
             // 
             this.txtPDMail.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPDMail.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.txtPDMail.Location = new System.Drawing.Point(-1, 38);
+            this.txtPDMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPDMail.Font = new System.Drawing.Font("Century Gothic", 20F);
+            this.txtPDMail.Location = new System.Drawing.Point(296, 282);
             this.txtPDMail.Name = "txtPDMail";
-            this.txtPDMail.Size = new System.Drawing.Size(227, 32);
+            this.txtPDMail.Size = new System.Drawing.Size(227, 33);
             this.txtPDMail.TabIndex = 3;
             // 
             // txtKullanıcıAdı
@@ -1923,7 +1925,7 @@ namespace GorselProg
             this.txtKullanıcıAdı.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtKullanıcıAdı.AutoSize = true;
             this.txtKullanıcıAdı.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtKullanıcıAdı.Location = new System.Drawing.Point(-148, 82);
+            this.txtKullanıcıAdı.Location = new System.Drawing.Point(140, 328);
             this.txtKullanıcıAdı.Name = "txtKullanıcıAdı";
             this.txtKullanıcıAdı.Size = new System.Drawing.Size(150, 23);
             this.txtKullanıcıAdı.TabIndex = 44;
@@ -1934,7 +1936,7 @@ namespace GorselProg
             this.txtePosta.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtePosta.AutoSize = true;
             this.txtePosta.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtePosta.Location = new System.Drawing.Point(-103, 41);
+            this.txtePosta.Location = new System.Drawing.Point(185, 287);
             this.txtePosta.Name = "txtePosta";
             this.txtePosta.Size = new System.Drawing.Size(105, 23);
             this.txtePosta.TabIndex = 43;
@@ -1943,28 +1945,34 @@ namespace GorselProg
             // txtPDYeniSifreTekrar
             // 
             this.txtPDYeniSifreTekrar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPDYeniSifreTekrar.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.txtPDYeniSifreTekrar.Location = new System.Drawing.Point(-1, -51);
+            this.txtPDYeniSifreTekrar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPDYeniSifreTekrar.Font = new System.Drawing.Font("Century Gothic", 20F);
+            this.txtPDYeniSifreTekrar.Location = new System.Drawing.Point(296, 191);
             this.txtPDYeniSifreTekrar.Name = "txtPDYeniSifreTekrar";
-            this.txtPDYeniSifreTekrar.Size = new System.Drawing.Size(227, 32);
+            this.txtPDYeniSifreTekrar.PasswordChar = '*';
+            this.txtPDYeniSifreTekrar.Size = new System.Drawing.Size(227, 33);
             this.txtPDYeniSifreTekrar.TabIndex = 2;
             // 
             // txtPDYeniSifre
             // 
             this.txtPDYeniSifre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPDYeniSifre.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.txtPDYeniSifre.Location = new System.Drawing.Point(-1, -95);
+            this.txtPDYeniSifre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPDYeniSifre.Font = new System.Drawing.Font("Century Gothic", 20F);
+            this.txtPDYeniSifre.Location = new System.Drawing.Point(296, 148);
             this.txtPDYeniSifre.Name = "txtPDYeniSifre";
-            this.txtPDYeniSifre.Size = new System.Drawing.Size(227, 32);
+            this.txtPDYeniSifre.PasswordChar = '*';
+            this.txtPDYeniSifre.Size = new System.Drawing.Size(227, 33);
             this.txtPDYeniSifre.TabIndex = 1;
             // 
             // txtPDMevcutSifre
             // 
             this.txtPDMevcutSifre.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtPDMevcutSifre.Font = new System.Drawing.Font("Century Gothic", 15F);
-            this.txtPDMevcutSifre.Location = new System.Drawing.Point(-1, -137);
+            this.txtPDMevcutSifre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPDMevcutSifre.Font = new System.Drawing.Font("Century Gothic", 20F);
+            this.txtPDMevcutSifre.Location = new System.Drawing.Point(296, 107);
             this.txtPDMevcutSifre.Name = "txtPDMevcutSifre";
-            this.txtPDMevcutSifre.Size = new System.Drawing.Size(227, 32);
+            this.txtPDMevcutSifre.PasswordChar = '*';
+            this.txtPDMevcutSifre.Size = new System.Drawing.Size(227, 33);
             this.txtPDMevcutSifre.TabIndex = 0;
             // 
             // txtYeniSifre2
@@ -1972,7 +1980,7 @@ namespace GorselProg
             this.txtYeniSifre2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtYeniSifre2.AutoSize = true;
             this.txtYeniSifre2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtYeniSifre2.Location = new System.Drawing.Point(-173, -45);
+            this.txtYeniSifre2.Location = new System.Drawing.Point(115, 200);
             this.txtYeniSifre2.Name = "txtYeniSifre2";
             this.txtYeniSifre2.Size = new System.Drawing.Size(175, 23);
             this.txtYeniSifre2.TabIndex = 39;
@@ -1983,7 +1991,7 @@ namespace GorselProg
             this.txtYeniSifre1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtYeniSifre1.AutoSize = true;
             this.txtYeniSifre1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtYeniSifre1.Location = new System.Drawing.Point(-110, -90);
+            this.txtYeniSifre1.Location = new System.Drawing.Point(178, 156);
             this.txtYeniSifre1.Name = "txtYeniSifre1";
             this.txtYeniSifre1.Size = new System.Drawing.Size(112, 23);
             this.txtYeniSifre1.TabIndex = 38;
@@ -1994,9 +2002,9 @@ namespace GorselProg
             this.btnProfiliKaydet.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnProfiliKaydet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProfiliKaydet.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnProfiliKaydet.Location = new System.Drawing.Point(-169, 130);
+            this.btnProfiliKaydet.Location = new System.Drawing.Point(119, 376);
             this.btnProfiliKaydet.Name = "btnProfiliKaydet";
-            this.btnProfiliKaydet.Size = new System.Drawing.Size(395, 54);
+            this.btnProfiliKaydet.Size = new System.Drawing.Size(404, 54);
             this.btnProfiliKaydet.TabIndex = 5;
             this.btnProfiliKaydet.Text = "Profili Kaydet";
             this.btnProfiliKaydet.UseVisualStyleBackColor = true;
@@ -2007,7 +2015,7 @@ namespace GorselProg
             this.label46.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label46.Location = new System.Drawing.Point(-144, -134);
+            this.label46.Location = new System.Drawing.Point(144, 112);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(146, 23);
             this.label46.TabIndex = 11;
@@ -2054,11 +2062,11 @@ namespace GorselProg
             // 
             // lblBilmatik
             // 
-            this.lblBilmatik.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblBilmatik.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblBilmatik.Font = new System.Drawing.Font("Century Gothic", 65.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblBilmatik.Location = new System.Drawing.Point(0, 0);
             this.lblBilmatik.Name = "lblBilmatik";
-            this.lblBilmatik.Size = new System.Drawing.Size(1193, 157);
+            this.lblBilmatik.Size = new System.Drawing.Size(1189, 110);
             this.lblBilmatik.TabIndex = 21;
             this.lblBilmatik.Text = "Bilmatik";
             this.lblBilmatik.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

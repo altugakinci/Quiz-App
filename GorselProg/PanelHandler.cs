@@ -27,6 +27,12 @@ namespace GorselProg
             active_panel.Dock = DockStyle.Fill;
         }
 
+        public static void centeralizePanel(Form form, Panel panel)
+        {
+            panel.Left = (form.Width - panel.Width) / 2;
+            panel.Top = (form.Height - panel.Height) / 2;
+        }
+
         // Paneli göstermek için metot
         public void showPanel(Panel panel)
         {
