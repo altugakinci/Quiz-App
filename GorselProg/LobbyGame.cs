@@ -49,9 +49,7 @@ namespace GorselProg
                 active_panel = pnlLobbyLeader;
 
                 timerForChatLeader.Start();
-                MessageBox.Show("Liderin chat timerı başlatıldı.");
                 timerForPlayersLeader.Start();
-                MessageBox.Show("Liderin oyuncular timerı başlatıldı.");
             }
             else
             {
@@ -60,11 +58,8 @@ namespace GorselProg
                 active_panel = pnlLobbyPlayer;
 
                 timerForChat.Start();
-                MessageBox.Show("Oyuncunun chat timerı başlatıldı.");
                 timerForPlayers.Start();
-                MessageBox.Show("Oyuncunun oyuncular timerı başlatıldı.");
                 timerForCheckCurrGame.Start();
-                MessageBox.Show("Oyuncunun oyunu bekleme timerı başlatıldı.");
             }
 
             //Tüm forma geçerli temanın uygulanmasını sağlıyor.
@@ -774,13 +769,11 @@ namespace GorselProg
         #region Timer Kontrolü
         private void stopLeaderTimers()
         {
-            MessageBox.Show("Liderin tüm timerları durduruldu.");
             timerForChatLeader.Stop();
             timerForPlayersLeader.Stop();
         }
         private void stopPlayerTimers()
         {
-            MessageBox.Show("Oyuncunun tüm timerları durduruldu.");
             stopAllTimers();
             timerForPlayers.Stop();
             timerForChat.Stop();
@@ -792,17 +785,14 @@ namespace GorselProg
             timerForPlayers.Stop();
             timerForChat.Stop();
             timerForCheckCurrGame.Stop();
-            MessageBox.Show("Lider & oyuncu tüm timerları durduruldu.");
         }
         private void startLeaderTimers()
         {
-            MessageBox.Show("Liderin tüm timerları başlatıldı.");
             timerForChatLeader.Start();
             timerForPlayersLeader.Start();
         }
         private void startPlayerTimers()
         {
-            MessageBox.Show("Oyuncunun tüm timerları başlatıldı.");
             timerForChat.Start();
             timerForPlayers.Start();
         }
