@@ -175,8 +175,14 @@ namespace GorselProg.Services
                         if (isPlayerAdmin)
                         {
                             var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
-                              // Delete the room when admin exit
-                              context.Rooms.Remove(room);
+                            var players = await context.Players.Where(p => p.RoomId == roomId).ToListAsync();
+                            // Delete the room when admin exit
+                            foreach(Player p in players)
+                            {
+                                context.Players.Remove(p);
+                            }
+                            
+                             context.Rooms.Remove(room);
                              await context.SaveChangesAsync();
                             
                         }
@@ -190,10 +196,10 @@ namespace GorselProg.Services
                     return true;
                 }
             }
-            catch
-            {
-                return false;
-            }
+            //catch
+            //{
+            //    return false;
+            //}
             finally
             {
                 HideLoadingIndicator();
@@ -323,12 +329,19 @@ namespace GorselProg.Services
                 using (var context = new qAppDBContext())
                 {
                     var player = await context.Players.FirstOrDefaultAsync(p => p.UserId == userId && p.RoomId == roomId);
-
                     var room = await context.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
-
                     RoomSession.Instance.SetCurrentRoom(room);
+                    if (player == null)
+                    {
+                        return false;
+                    }
 
-                    return room.AdminId != null && player != null;
+                    if(room.AdminId == null)
+                    {
+                        return false;
+                    }
+
+                    return true;
                 }
             }
             catch
