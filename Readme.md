@@ -1,4 +1,4 @@
-# Bilmatic
+# Bilmatik
 
 This project includes a quiz game developed in the C# programming language. The game offers an interactive experience where users can communicate with each other online and earn points by answering questions correctly. The game was created using the Windows Forms interface.
 
